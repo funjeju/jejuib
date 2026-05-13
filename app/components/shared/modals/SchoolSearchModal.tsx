@@ -26,6 +26,15 @@ export function SchoolSearchModal({ onClose }: SchoolSearchModalProps) {
     });
   }, [searchQuery, selectedRegion]);
 
+  const stats = useMemo(() => {
+    return {
+      total: filteredSchools.length,
+      certified: filteredSchools.filter(s => s.stage === '인증').length,
+      candidate: filteredSchools.filter(s => s.stage === '후보').length,
+      interested: filteredSchools.filter(s => s.programs?.some(p => ['PYP', 'MYP', 'DP'].includes(p))).length,
+    };
+  }, [filteredSchools]);
+
   const handleSelectSchool = (schoolId: string) => {
     onClose();
     router.push(`/school/${schoolId}`);
@@ -43,6 +52,26 @@ export function SchoolSearchModal({ onClose }: SchoolSearchModalProps) {
           >
             ✕
           </button>
+        </div>
+
+        {/* 통계 대시보드 */}
+        <div className="p-6 border-b border-border grid grid-cols-4 gap-4">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-text">{stats.total}</div>
+            <div className="text-xs text-text-muted mt-1">표시 중</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-accent">{stats.certified}</div>
+            <div className="text-xs text-text-muted mt-1">인증학교</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-text">{stats.candidate}</div>
+            <div className="text-xs text-text-muted mt-1">우보학교</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-text">{stats.interested}</div>
+            <div className="text-xs text-text-muted mt-1">관심학교</div>
+          </div>
         </div>
 
         {/* 검색 바 */}

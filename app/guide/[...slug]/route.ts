@@ -27,12 +27,19 @@ export async function GET(
     let slug = params.slug || [];
 
     // pyp_cycle.html 형식의 요청을 pyp/cycle.html로 변환
-    if (slug.length === 1) {
-      const fileName = slug[0];
-      if (fileName.startsWith('pyp_')) {
-        slug = ['pyp', fileName.slice(4)];
-      } else if (fileName.startsWith('myp_')) {
-        slug = ['myp', fileName.slice(4)];
+    // pyp/pyp_cycle.html 같은 요청도 처리
+    if (slug.length >= 1) {
+      const lastSlug = slug[slug.length - 1];
+      if (lastSlug.startsWith('pyp_')) {
+        slug[slug.length - 1] = lastSlug.slice(4);
+        if (slug.length === 1 || slug[0] !== 'pyp') {
+          slug = ['pyp', ...slug];
+        }
+      } else if (lastSlug.startsWith('myp_')) {
+        slug[slug.length - 1] = lastSlug.slice(4);
+        if (slug.length === 1 || slug[0] !== 'myp') {
+          slug = ['myp', ...slug];
+        }
       }
     }
 
