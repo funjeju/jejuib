@@ -6,12 +6,6 @@ function serveFile(filePath: string): NextResponse | null {
   try {
     let content = readFileSync(filePath, 'utf-8');
 
-    // iframe 내에서 절대 경로로 변환하기 위해 base 태그 추가
-    if (!content.includes('<base')) {
-      const baseUrl = filePath.includes('/pyp/') ? '/guide/pyp/' : '/guide/myp/';
-      content = content.replace('</head>', `<base href="${baseUrl}"></head>`);
-    }
-
     return new NextResponse(content, {
       status: 200,
       headers: {
@@ -30,7 +24,17 @@ export async function GET(
 ) {
   try {
     const baseDir = resolve(process.cwd(), 'public/legacy/guide');
-    const slug = params.slug || [];
+    let slug = params.slug || [];
+
+    // pyp_cycle.html 형식의 요청을 pyp/cycle.html로 변환
+    if (slug.length === 1) {
+      const fileName = slug[0];
+      if (fileName.startsWith('pyp_')) {
+        slug = ['pyp', fileName.slice(4)];
+      } else if (fileName.startsWith('myp_')) {
+        slug = ['myp', fileName.slice(4)];
+      }
+    }
 
     // 보안: 경로 이탈 방지
     const basePath = resolve(baseDir, slug.join('/'));
