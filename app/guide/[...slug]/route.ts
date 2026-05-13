@@ -25,8 +25,22 @@ export async function GET(
   try {
     const baseDir = resolve(process.cwd(), 'public/legacy/guide');
     let slug = params.slug || [];
+    const originalPath = slug.join('/');
 
-    // 확장자 제거 및 경로 변환
+    // CSS, JS, 이미지 등 정적 파일은 그대로 서빙
+    const staticExtensions = ['.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.eot'];
+    const isStaticFile = staticExtensions.some(ext => originalPath.endsWith(ext));
+
+    if (isStaticFile) {
+      const filePath = resolve(baseDir, originalPath);
+      if (filePath.startsWith(baseDir)) {
+        const response = serveFile(filePath);
+        if (response) return response;
+      }
+      return NextResponse.json({ error: 'Not found' }, { status: 404 });
+    }
+
+    // HTML 파일 처리: 확장자 제거 및 경로 변환
     if (slug.length >= 1) {
       const lastItem = slug[slug.length - 1];
 
