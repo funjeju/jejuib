@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Header } from './components/shared/Header';
 import { Footer } from './components/shared/Footer';
+import { AuthProvider } from './components/auth/AuthProvider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -25,11 +26,13 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div className="min-h-screen flex flex-col bg-bg">
-          <Header />
-          <main className="flex-1 w-full">{children}</main>
-          <Footer />
-        </div>
+        <AuthProvider>
+          <div className="min-h-screen flex flex-col bg-bg">
+            <Header />
+            <main className="flex-1 w-full">{children}</main>
+            <Footer />
+          </div>
+        </AuthProvider>
       </body>
     </html>
   );

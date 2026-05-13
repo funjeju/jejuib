@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useAuth } from '@/lib/hooks/useAuth';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { firebaseUser, userProfile, signOut } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 bg-surface border-b border-border">
@@ -28,12 +30,29 @@ export function Header() {
           <Link href="/jeju" className="text-sm text-text hover:text-accent transition">
             제주 정보
           </Link>
-          <Link
-            href="/auth/login"
-            className="text-sm px-4 py-2 bg-accent text-white rounded hover:bg-opacity-90 transition"
-          >
-            로그인
-          </Link>
+          {firebaseUser ? (
+            <div className="flex items-center gap-4">
+              <Link
+                href="/me"
+                className="text-sm text-text hover:text-accent transition"
+              >
+                {userProfile?.displayName || 'My Page'}
+              </Link>
+              <button
+                onClick={() => signOut()}
+                className="text-sm px-4 py-2 border border-accent text-accent rounded hover:bg-accent-soft transition"
+              >
+                로그아웃
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/auth/login"
+              className="text-sm px-4 py-2 bg-accent text-white rounded hover:bg-opacity-90 transition"
+            >
+              로그인
+            </Link>
+          )}
         </div>
 
         {/* 모바일 메뉴 버튼 */}
@@ -62,9 +81,23 @@ export function Header() {
             <Link href="/jeju" className="text-sm text-text hover:text-accent transition">
               제주 정보
             </Link>
-            <Link href="/auth/login" className="text-sm text-text hover:text-accent transition">
-              로그인
-            </Link>
+            {firebaseUser ? (
+              <>
+                <Link href="/me" className="text-sm text-text hover:text-accent transition">
+                  {userProfile?.displayName || 'My Page'}
+                </Link>
+                <button
+                  onClick={() => signOut()}
+                  className="text-sm text-text hover:text-accent transition text-left"
+                >
+                  로그아웃
+                </button>
+              </>
+            ) : (
+              <Link href="/auth/login" className="text-sm text-text hover:text-accent transition">
+                로그인
+              </Link>
+            )}
           </div>
         </div>
       )}
