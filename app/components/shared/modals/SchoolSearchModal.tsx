@@ -11,20 +11,31 @@ interface SchoolSearchModalProps {
 export function SchoolSearchModal({ onClose }: SchoolSearchModalProps) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState<string>('전체');
+  const [selectedRegion, setSelectedRegion] = useState('전체');
+  const [selectedLevel, setSelectedLevel] = useState('전체');
+  const [selectedStage, setSelectedStage] = useState('전체');
+  const [selectedProgram, setSelectedProgram] = useState('전체');
 
-  const regions = ['전체', ...Array.from(new Set(SCHOOLS.map((s) => s.region)))];
+  const regions = ['전체', ...Array.from(new Set(SCHOOLS.map((s) => s.region))).sort()];
+  const levels = ['전체', ...Array.from(new Set(SCHOOLS.map((s) => s.level))).sort()];
+  const stages = ['전체', '인증', '후보'];
+  const allPrograms = Array.from(new Set(SCHOOLS.flatMap((s) => s.programs))).sort();
+  const programs = ['전체', ...allPrograms];
 
   const filteredSchools = useMemo(() => {
     return SCHOOLS.filter((school) => {
       const matchesSearch =
         school.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         school.nameEn.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesRegion =
-        selectedRegion === '전체' || school.region === selectedRegion;
-      return matchesSearch && matchesRegion;
+      const matchesRegion = selectedRegion === '전체' || school.region === selectedRegion;
+      const matchesLevel = selectedLevel === '전체' || school.level === selectedLevel;
+      const matchesStage = selectedStage === '전체' || school.stage === selectedStage;
+      const matchesProgram =
+        selectedProgram === '전체' || school.programs?.includes(selectedProgram);
+
+      return matchesSearch && matchesRegion && matchesLevel && matchesStage && matchesProgram;
     });
-  }, [searchQuery, selectedRegion]);
+  }, [searchQuery, selectedRegion, selectedLevel, selectedStage, selectedProgram]);
 
   const stats = useMemo(() => {
     return {
@@ -84,21 +95,55 @@ export function SchoolSearchModal({ onClose }: SchoolSearchModalProps) {
             className="w-full px-4 py-3 border border-border rounded-lg bg-surface text-text placeholder-text-faint focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           />
 
-          {/* 지역 필터 */}
-          <div className="flex flex-wrap gap-2">
-            {regions.map((region) => (
-              <button
-                key={region}
-                onClick={() => setSelectedRegion(region)}
-                className={`px-3 py-1 rounded text-sm font-semibold transition ${
-                  selectedRegion === region
-                    ? 'bg-accent text-white'
-                    : 'bg-muted text-text-muted hover:bg-border'
-                }`}
-              >
-                {region}
-              </button>
-            ))}
+          {/* 필터 드롭다운 */}
+          <div className="grid grid-cols-2 gap-3 text-sm">
+            <select
+              value={selectedRegion}
+              onChange={(e) => setSelectedRegion(e.target.value)}
+              className="px-3 py-2 border border-border rounded bg-surface text-text focus:outline-none focus:ring-2 focus:ring-accent"
+            >
+              {regions.map((region) => (
+                <option key={region} value={region}>
+                  {region}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedLevel}
+              onChange={(e) => setSelectedLevel(e.target.value)}
+              className="px-3 py-2 border border-border rounded bg-surface text-text focus:outline-none focus:ring-2 focus:ring-accent"
+            >
+              {levels.map((level) => (
+                <option key={level} value={level}>
+                  {level}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedStage}
+              onChange={(e) => setSelectedStage(e.target.value)}
+              className="px-3 py-2 border border-border rounded bg-surface text-text focus:outline-none focus:ring-2 focus:ring-accent"
+            >
+              {stages.map((stage) => (
+                <option key={stage} value={stage}>
+                  {stage}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedProgram}
+              onChange={(e) => setSelectedProgram(e.target.value)}
+              className="px-3 py-2 border border-border rounded bg-surface text-text focus:outline-none focus:ring-2 focus:ring-accent"
+            >
+              {programs.map((program) => (
+                <option key={program} value={program}>
+                  {program}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 
