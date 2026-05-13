@@ -31,7 +31,7 @@ export function SchoolSearchModal({ onClose }: SchoolSearchModalProps) {
       const matchesLevel = selectedLevel === '전체' || school.level === selectedLevel;
       const matchesStage = selectedStage === '전체' || school.stage === selectedStage;
       const matchesProgram =
-        selectedProgram === '전체' || school.programs?.includes(selectedProgram);
+        selectedProgram === '전체' || school.programs?.includes(selectedProgram as any);
 
       return matchesSearch && matchesRegion && matchesLevel && matchesStage && matchesProgram;
     });

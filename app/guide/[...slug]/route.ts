@@ -26,20 +26,27 @@ export async function GET(
     const baseDir = resolve(process.cwd(), 'public/legacy/guide');
     let slug = params.slug || [];
 
-    // pyp_cycle.html 형식의 요청을 pyp/cycle.html로 변환
-    // pyp/pyp_cycle.html 같은 요청도 처리
+    // 확장자 제거 및 경로 변환
     if (slug.length >= 1) {
-      const lastSlug = slug[slug.length - 1];
-      if (lastSlug.startsWith('pyp_')) {
-        slug[slug.length - 1] = lastSlug.slice(4);
-        if (slug.length === 1 || slug[0] !== 'pyp') {
-          slug = ['pyp', ...slug];
-        }
-      } else if (lastSlug.startsWith('myp_')) {
-        slug[slug.length - 1] = lastSlug.slice(4);
-        if (slug.length === 1 || slug[0] !== 'myp') {
-          slug = ['myp', ...slug];
-        }
+      const lastItem = slug[slug.length - 1];
+
+      // .html 또는 .htm 확장자 제거
+      let cleanedName = lastItem;
+      if (lastItem.endsWith('.html')) {
+        cleanedName = lastItem.slice(0, -5);
+      } else if (lastItem.endsWith('.htm')) {
+        cleanedName = lastItem.slice(0, -4);
+      }
+
+      // pyp_*, myp_* 형식을 올바른 경로로 변환
+      if (cleanedName.startsWith('pyp_')) {
+        const fileName = cleanedName.slice(4);
+        slug = ['pyp', fileName];
+      } else if (cleanedName.startsWith('myp_')) {
+        const fileName = cleanedName.slice(4);
+        slug = ['myp', fileName];
+      } else {
+        slug[slug.length - 1] = cleanedName;
       }
     }
 
