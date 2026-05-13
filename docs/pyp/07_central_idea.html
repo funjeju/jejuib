@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>핵심 아이디어 일기 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.unit-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.theme-section { margin-bottom: 22px; }
+.theme-label { font-size: 13px; font-weight: 600; color: var(--coral-dark); margin-bottom: 8px; letter-spacing: 0.04em; text-transform: uppercase; }
+.theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.theme-check { padding: 10px 8px; border: 1.5px solid var(--line); border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.15s; }
+.theme-check input { display: none; }
+.theme-check:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); }
+.theme-name { font-size: 12px; font-weight: 600; color: var(--text); display: block; }
+
+.ci-box { padding: 22px 26px; background: linear-gradient(135deg, #FFF4EF, #FFFBF8); border: 2px solid var(--coral); border-radius: 16px; margin-bottom: 22px; }
+.ci-label { font-size: 12.5px; font-weight: 700; color: var(--coral-dark); letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; text-align: center; }
+.ci-text input { width: 100%; padding: 12px 16px; border: 1.5px dashed var(--coral-light); border-radius: 10px; font-size: 16px; font-family: inherit; background: white; text-align: center; font-weight: 500; line-height: 1.6; }
+.ci-text input:focus { outline: none; border-color: var(--coral); border-style: solid; }
+
+.expression-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+.expression-block { padding: 16px 18px; border: 2px solid var(--line); border-radius: 12px; }
+.expression-block.words { background: var(--coral-pale); border-color: var(--coral-light); }
+.expression-block.draw { background: #F0FAF7; border-color: #C9E4DE; }
+.expression-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.expression-hint { font-size: 12px; color: var(--text-soft); margin-bottom: 10px; line-height: 1.5; }
+.expression-block textarea { width: 100%; padding: 10px 12px; border: 1px solid white; border-radius: 8px; font-size: 14px; font-family: inherit; background: rgba(255,255,255,0.7); resize: vertical; line-height: 1.6; min-height: 120px; }
+.expression-block textarea:focus { outline: none; background: white; }
+.expression-block .draw-area { width: 100%; min-height: 120px; border: 2px dashed #C9E4DE; border-radius: 8px; background: rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 12px; font-style: italic; padding: 12px; text-align: center; }
+
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 60px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info, .expression-grid { grid-template-columns: 1fr; } .theme-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원(UOI) 시작 시 · 양식 07 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">핵심 아이디어 일기 💡</h1>
+    <div class="form-title-en">Central Idea Journal</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">단원 시작 시 선생님이 핵심 아이디어(CI)를 알려줬을 때.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">CI를 내 말로 바꿔보면 정말로 이해한 게 돼요.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>UOI 주제</label><input type="text" placeholder="예: 우리는 어떻게 표현하는가"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Central Idea(핵심 아이디어)는 PYP 단원의 가장 중요한 문장이에요.</strong> 단원이 끝났을 때 "아, 이걸 배웠구나" 하고 깨닫게 될 큰 생각이죠. 선생님이 알려주신 그 한 문장을 <strong>내 말로 다시 표현해보는 게</strong> 핵심이에요.
+  </div>
+
+  <div class="theme-section">
+    <div class="theme-label">📚 이 단원의 초학문 주제 (Transdisciplinary Theme)</div>
+    <div class="theme-grid">
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">우리는 누구인가</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">우리가 사는 곳과 시간</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">우리는 어떻게 표현하는가</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">세상은 어떻게 작동하는가</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">우리는 어떻게 조직되는가</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">지구를 공유하기</span></label>
+    </div>
+  </div>
+
+  <div class="ci-box">
+    <div class="ci-label">⭐ 선생님이 알려주신 핵심 아이디어 ⭐</div>
+    <div class="ci-text">
+      <input type="text" placeholder="예: 사람들은 다양한 방법으로 자신을 표현한다.">
+    </div>
+  </div>
+
+  <div class="expression-grid">
+    <div class="expression-block words">
+      <div class="expression-title">✍️ 내 말로 바꾸기</div>
+      <div class="expression-hint">CI를 내 친구에게 설명한다면 어떻게 말할까?</div>
+      <textarea placeholder="예: 우리는 말로만 표현하는 게 아니라 그림, 노래, 춤, 옷 등 다양한 방법으로 자기를 보여줄 수 있어."></textarea>
+    </div>
+    <div class="expression-block draw">
+      <div class="expression-title">🎨 그림으로 그리기</div>
+      <div class="expression-hint">이 생각을 그림 한 장으로 표현한다면?</div>
+      <div class="draw-area">CI를 그림으로 표현해봐요 ✏️</div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">💭 내가 떠올린 예시</div>
+    <div class="form-field-hint">CI가 맞다는 걸 보여주는 예를 한두 가지 적어보세요.</div>
+    <textarea placeholder="예: 우리 누나는 노래로 기분을 표현하고, 동생은 그림으로 표현해요. 나는 친구한테 편지를 써요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🤔 내가 아직 궁금한 점</div>
+    <div class="form-field-hint">CI에 대해 알고 싶거나 헷갈리는 것.</div>
+    <textarea placeholder="예: 표현을 잘 못하는 사람도 있을 텐데, 그건 왜 그럴까?"></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> Central Idea는 PYP 단원 전체를 이끄는 한 문장이에요. 자녀가 CI를 자기 말로 바꿔볼 수 있다는 건 <strong>진짜 이해한다는 신호</strong>예요. 단원 끝에 같은 양식을 다시 작성해서 처음 답과 비교해보면, 자녀의 이해가 어떻게 깊어졌는지 한눈에 보입니다. "처음 적은 거랑 지금 어떻게 달라?"가 좋은 질문이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

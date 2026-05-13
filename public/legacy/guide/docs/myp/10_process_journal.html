@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process Journal · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.star-badge { display: inline-block; padding: 2px 8px; background: var(--coral); color: white; border-radius: 100px; font-size: 10px; letter-spacing: 0; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 3px solid var(--coral); border-radius: 0 8px 8px 0; margin-bottom: 24px; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+.project-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.project-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.project-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.project-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.entry-block { padding: 22px 24px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 18px; background: var(--surface); }
+.entry-header { display: grid; grid-template-columns: 80px 1fr 120px; gap: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line); margin-bottom: 14px; align-items: end; }
+.entry-header label { display: block; font-size: 10.5px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.entry-header input { width: 100%; padding: 4px 0; border: none; border-bottom: 1px solid var(--text); font-size: 13.5px; font-family: inherit; background: transparent; }
+.entry-header .entry-title input { font-weight: 600; font-size: 14.5px; }
+.entry-header input:focus { outline: none; border-bottom-color: var(--coral); }
+.entry-body { margin-bottom: 14px; }
+.entry-body-label { font-size: 11.5px; color: var(--muted); margin-bottom: 6px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.entry-body textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.7; min-height: 150px; }
+.entry-body textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.sketch-area { border: 1.5px dashed var(--line); border-radius: 8px; min-height: 120px; background: var(--bg); padding: 14px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 12px; font-style: italic; margin-bottom: 14px; }
+.entry-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.entry-meta-item { font-size: 12px; }
+.entry-meta-item label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.atl-checks { display: flex; gap: 5px; flex-wrap: wrap; }
+.atl-check { padding: 3px 9px; border: 1px solid var(--line); border-radius: 100px; cursor: pointer; font-size: 11px; color: var(--text-soft); transition: all 0.15s; }
+.atl-check input { display: none; }
+.atl-check:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); color: var(--coral-dark); font-weight: 600; }
+.entry-meta-item input { width: 100%; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 12.5px; font-family: inherit; background: var(--bg); }
+.entry-meta-item input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .entry-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .project-info, .entry-header, .entry-meta { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">프로젝트 진행 중 (상시) · 양식 10 <span class="star-badge">★ 핵심</span></div>
+    <h1 class="form-title">Process Journal</h1>
+    <div class="form-title-en">프로세스 저널 · 탐구 일지</div>
+  </div>
+
+  <div class="intro-box">
+    <strong>디자인·예술 교과의 핵심 평가 자료예요.</strong> 결과물보다 <strong>과정</strong>이 가장 중요합니다. 아이디어 스케치, 실패, 다시 시도, 피드백 반영 — 이 모든 것을 날짜별로 기록하세요. 깔끔하게 다듬을 필요 없어요. 진짜 과정이면 됩니다.
+  </div>
+
+  <div class="project-info">
+    <div><label>프로젝트명</label><input type="text" placeholder="예: 친환경 가구 디자인"></div>
+    <div><label>교과</label><input type="text" placeholder="예: 디자인"></div>
+    <div><label>시작일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div>
+        <label>날짜</label>
+        <input type="text" placeholder="__/__">
+      </div>
+      <div class="entry-title">
+        <label>이번 기록의 제목</label>
+        <input type="text" placeholder="예: 첫 스케치, 재료 실험, 멘토 피드백 후 수정">
+      </div>
+      <div>
+        <label>단계</label>
+        <input type="text" placeholder="조사/계획/제작/평가">
+      </div>
+    </div>
+
+    <div class="entry-body">
+      <div class="entry-body-label">기록 · 본문</div>
+      <textarea placeholder="오늘 한 작업, 떠오른 아이디어, 시도와 실패, 발견한 것, 다음 단계 등 — 자유롭게 적으세요. 격식 차릴 필요 없어요. 진짜 생각 그대로."></textarea>
+    </div>
+
+    <div class="entry-body">
+      <div class="entry-body-label">스케치 · 이미지 · 다이어그램 영역</div>
+      <div class="sketch-area">인쇄 후 손으로 그리거나, 사진을 출력해서 붙이거나, 디지털로는 이미지를 삽입하세요</div>
+    </div>
+
+    <div class="entry-meta">
+      <div class="entry-meta-item">
+        <label>활용한 ATL 기술</label>
+        <div class="atl-checks">
+          <label class="atl-check"><input type="checkbox">의사소통</label>
+          <label class="atl-check"><input type="checkbox">사회성</label>
+          <label class="atl-check"><input type="checkbox">자기관리</label>
+          <label class="atl-check"><input type="checkbox">연구</label>
+          <label class="atl-check"><input type="checkbox">사고력</label>
+        </div>
+      </div>
+      <div class="entry-meta-item">
+        <label>다음 단계 / 다음에 할 일</label>
+        <input type="text" placeholder="예: 다음 주에 재료 두 가지 비교 실험">
+      </div>
+    </div>
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div><label>날짜</label><input type="text" placeholder="__/__"></div>
+      <div class="entry-title"><label>이번 기록의 제목</label><input type="text"></div>
+      <div><label>단계</label><input type="text" placeholder="조사/계획/제작/평가"></div>
+    </div>
+
+    <div class="entry-body">
+      <div class="entry-body-label">기록 · 본문</div>
+      <textarea></textarea>
+    </div>
+
+    <div class="entry-body">
+      <div class="entry-body-label">스케치 · 이미지 · 다이어그램 영역</div>
+      <div class="sketch-area">인쇄 후 손으로 그리거나, 사진을 출력해서 붙이거나, 디지털로는 이미지를 삽입하세요</div>
+    </div>
+
+    <div class="entry-meta">
+      <div class="entry-meta-item">
+        <label>활용한 ATL 기술</label>
+        <div class="atl-checks">
+          <label class="atl-check"><input type="checkbox">의사소통</label>
+          <label class="atl-check"><input type="checkbox">사회성</label>
+          <label class="atl-check"><input type="checkbox">자기관리</label>
+          <label class="atl-check"><input type="checkbox">연구</label>
+          <label class="atl-check"><input type="checkbox">사고력</label>
+        </div>
+      </div>
+      <div class="entry-meta-item">
+        <label>다음 단계 / 다음에 할 일</label>
+        <input type="text">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모. ★ 매우 중요한 양식이에요.</strong> Process Journal은 디자인·예술 교과뿐 아니라 Personal Project, Community Project에서도 핵심이에요. <strong>최종 결과물보다 이 저널이 평가의 70~80%를 차지</strong>하는 경우가 많아요. "오늘은 어떤 시도를 했어?"가 "결과는 나왔어?"보다 훨씬 IB다운 질문이에요. 실패와 수정을 두려워하지 않고 솔직하게 적도록 격려해주세요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

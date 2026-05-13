@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학생 주도 컨퍼런스 자료 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 3px solid var(--coral); border-radius: 0 8px 8px 0; margin-bottom: 22px; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.student-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.unit-card { padding: 14px 18px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; }
+.unit-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.unit-num { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--coral); color: white; border-radius: 50%; font-weight: 600; font-size: 12px; }
+.unit-title { flex: 1; font-size: 13.5px; font-weight: 600; }
+.unit-title input { width: 100%; padding: 4px 0; border: none; border-bottom: 1px solid var(--text); font-size: 13.5px; font-family: inherit; background: transparent; font-weight: 600; }
+.unit-title input:focus { outline: none; border-bottom-color: var(--coral); }
+.unit-detail label { display: block; font-size: 11px; color: var(--text-soft); margin-bottom: 4px; font-weight: 500; }
+.unit-detail textarea { width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 12.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.5; min-height: 40px; margin-bottom: 8px; }
+.unit-detail textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 60px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.section-title { font-size: 13px; font-weight: 700; color: var(--coral-dark); letter-spacing: 0.05em; margin: 20px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--line); text-transform: uppercase; }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .unit-card { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info, .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">학기 말 · 양식 25</div>
+    <h1 class="form-title">학생 주도 컨퍼런스 자료</h1>
+    <div class="form-title-en">Student-Led Conference</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">학기 1~2회. 학부모 컨퍼런스(상담) 1~2주 전 자녀가 작성.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">자녀가 학부모에게 직접 자기 학습을 설명할 수 있도록 정리.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>학생 주도 컨퍼런스란?</strong> 교사와 학부모가 자녀의 학습을 논의하는 일반 학부모 상담과 다른 형식이에요. <strong>자녀가 학부모에게 직접 발표</strong>해요. 학생이 자기 학습을 설명하면, 자기 인식이 자라고 학부모는 자녀의 진짜 학습을 만나게 됩니다.
+  </div>
+
+  <div class="student-info">
+    <div><label>이름</label><input type="text"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>컨퍼런스 날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="section-title">올해 자랑하고 싶은 단원 3개</div>
+
+  <div class="unit-card">
+    <div class="unit-header">
+      <div class="unit-num">1</div>
+      <div class="unit-title"><input type="text" placeholder="단원명 · 교과"></div>
+    </div>
+    <div class="unit-detail">
+      <label>이 단원에서 자랑스러운 것</label>
+      <textarea placeholder="만든 작품·결과물 또는 깨달음."></textarea>
+      <label>이 단원에서 자란 자질 · 기술 한 가지</label>
+      <textarea placeholder="짧게."></textarea>
+    </div>
+  </div>
+
+  <div class="unit-card">
+    <div class="unit-header">
+      <div class="unit-num">2</div>
+      <div class="unit-title"><input type="text" placeholder="단원명 · 교과"></div>
+    </div>
+    <div class="unit-detail">
+      <label>이 단원에서 자랑스러운 것</label>
+      <textarea></textarea>
+      <label>이 단원에서 자란 자질 · 기술 한 가지</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="unit-card">
+    <div class="unit-header">
+      <div class="unit-num">3</div>
+      <div class="unit-title"><input type="text" placeholder="단원명 · 교과"></div>
+    </div>
+    <div class="unit-detail">
+      <label>이 단원에서 자랑스러운 것</label>
+      <textarea></textarea>
+      <label>이 단원에서 자란 자질 · 기술 한 가지</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="section-title">나의 한 학기 종합</div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">가장 자란 학습자상 자질</div>
+      <textarea placeholder="이유와 증거를 포함해서."></textarea>
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">가장 자란 ATL 기술</div>
+      <textarea placeholder="이유와 증거를 포함해서."></textarea>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">기억에 남는 봉사·실천 활동 (SA)</div>
+    <textarea placeholder="작은 활동도 좋아요. 의미 있었던 한 가지."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">한 학기 동안 어려웠던 점과 어떻게 극복했나</div>
+    <textarea placeholder="실패와 회복의 이야기. 부모님께 들려주고 싶은."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">다음 학기 약속 — 더 잘하고 싶은 한 가지</div>
+    <textarea placeholder="구체적으로, 측정 가능한 약속."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">부모님께 도움이나 응원이 필요한 부분</div>
+    <textarea placeholder="가정에서 어떻게 도와주시면 좋을지 솔직하게."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 한국에서 이 양식이 잘 운영되지 않지만, <strong>학부모가 가정에서 이걸 활용</strong>할 수 있어요. 학기 말이나 방학에 자녀와 함께 펼쳐서 자녀가 자기 학습을 설명하게 해보세요. "엄마/아빠한테 발표하듯이 한번 해볼래?"가 좋은 시작이에요. 자녀의 진짜 학습이 보일 거예요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SA 성찰지 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.activity-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.activity-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.activity-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.activity-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.outcome-block { padding: 14px 18px; background: var(--coral-pale); border-radius: 8px; margin-bottom: 22px; }
+.outcome-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.outcome-row > div label { display: block; font-size: 11.5px; color: var(--coral-dark); margin-bottom: 4px; font-weight: 600; }
+.outcome-row > div input { width: 100%; padding: 6px 8px; border: 1px solid var(--coral-light); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--surface); }
+.outcome-row > div input:focus { outline: none; border-color: var(--coral); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 60px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.lo-block { padding: 14px 18px; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 12px; }
+.lo-row { display: grid; grid-template-columns: 1fr 150px; gap: 14px; align-items: center; margin-bottom: 8px; }
+.lo-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.lo-name .lo-desc { display: block; font-size: 11px; color: var(--muted); font-weight: 400; margin-top: 2px; line-height: 1.4; }
+.lo-scale { display: flex; gap: 5px; justify-content: flex-end; }
+.lo-scale label { cursor: pointer; position: relative; }
+.lo-scale label .num { display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; border: 1.5px solid var(--line); border-radius: 50%; font-size: 11px; color: var(--text-soft); transition: all 0.15s; }
+.lo-scale input { position: absolute; opacity: 0; }
+.lo-scale input:checked + .num { background: var(--coral); color: white; border-color: var(--coral); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .lo-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .activity-info, .two-col, .outcome-row { grid-template-columns: 1fr; } .lo-row { grid-template-columns: 1fr; } .lo-scale { justify-content: flex-start; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">봉사 활동 종료 후 · 양식 20</div>
+    <h1 class="form-title">SA 성찰지</h1>
+    <div class="form-title-en">Service as Action Reflection</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">SA 활동이 모두 끝난 직후 (단발 활동) 또는 학기 말 (장기 활동).</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">활동의 결과·달성도·성장을 정리해서 다음 활동으로 연결합니다.</div>
+    </div>
+  </div>
+
+  <div class="activity-info">
+    <div><label>활동명</label><input type="text" placeholder="예: 학교 분리수거 캠페인"></div>
+    <div><label>활동 기간</label><input type="text" placeholder="__/__ ~ __/__"></div>
+    <div><label>작성일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="outcome-block">
+    <div class="outcome-row">
+      <div><label>당초 목표</label><input type="text" placeholder="계획서에 적었던 목표"></div>
+      <div><label>실제 달성도</label><input type="text" placeholder="예: 80% / 목표 초과 / 일부 달성"></div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">실제로 어떤 변화·결과가 있었나</div>
+    <div class="form-field-hint">측정 가능한 것이면 숫자로, 아니면 관찰한 변화를 구체적으로.</div>
+    <textarea placeholder="예: 캠페인 전후 분리수거 정확도가 60%에서 85%로 올라감. 친구 5명이 분리수거 방법을 직접 물어봤음. 학년 게시판에 포스터 5장 게시 완료."></textarea>
+  </div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">잘 된 점</div>
+      <textarea placeholder="기대보다 잘 됐던 부분."></textarea>
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">아쉬웠던 점 / 다음에 다르게 할 점</div>
+      <textarea placeholder="다음 활동에 적용할 교훈."></textarea>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">활동을 통해 나에게 일어난 변화</div>
+    <div class="form-field-hint">생각·태도·습관에서 무엇이 달라졌나.</div>
+    <textarea placeholder="예: 학교 안의 작은 일도 누군가 안 하면 그대로라는 걸 알게 됐다. 나도 시작할 수 있다는 자신감이 생겼다."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 활동 동안 발휘된 ATL 기술 (1~5 자가 평가)</div>
+    <div class="lo-block">
+      <div class="lo-row">
+        <div class="lo-name">의사소통 <span class="lo-desc">대상과 의도를 명확히 전달했나</span></div>
+        <div class="lo-scale">
+          <label><input type="radio" name="lo1"><span class="num">1</span></label>
+          <label><input type="radio" name="lo1"><span class="num">2</span></label>
+          <label><input type="radio" name="lo1"><span class="num">3</span></label>
+          <label><input type="radio" name="lo1"><span class="num">4</span></label>
+          <label><input type="radio" name="lo1"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="lo-row">
+        <div class="lo-name">협업 <span class="lo-desc">함께 활동한 사람과 잘 협력했나</span></div>
+        <div class="lo-scale">
+          <label><input type="radio" name="lo2"><span class="num">1</span></label>
+          <label><input type="radio" name="lo2"><span class="num">2</span></label>
+          <label><input type="radio" name="lo2"><span class="num">3</span></label>
+          <label><input type="radio" name="lo2"><span class="num">4</span></label>
+          <label><input type="radio" name="lo2"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="lo-row">
+        <div class="lo-name">자기관리 <span class="lo-desc">계획을 끝까지 책임지고 끝냈나</span></div>
+        <div class="lo-scale">
+          <label><input type="radio" name="lo3"><span class="num">1</span></label>
+          <label><input type="radio" name="lo3"><span class="num">2</span></label>
+          <label><input type="radio" name="lo3"><span class="num">3</span></label>
+          <label><input type="radio" name="lo3"><span class="num">4</span></label>
+          <label><input type="radio" name="lo3"><span class="num">5</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 활동에서 자란 학습자상 자질 1~2개</div>
+    <textarea placeholder="예: Caring — 학교 공동체에 대한 책임감이 자랐다. 처음엔 귀찮았는데 끝나니 보람을 느꼈다."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">다음에 시도해보고 싶은 SA 활동</div>
+    <textarea placeholder="이번 경험을 바탕으로 도전해보고 싶은 다음 활동."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> SA 성찰의 핵심은 <strong>"내 행동이 어떤 변화를 만들었는가"</strong>를 인식하는 거예요. 작은 활동이라도 정직하게 적도록 격려해주세요. 거창한 성과가 없어도 괜찮아요. <strong>"실패해도 시도했다"</strong>는 그 자체가 IB가 가르치려는 가치예요. "이번 활동에서 너에 대해 새로 알게 된 게 뭐 같아?"가 좋은 질문이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>프로세스 저널 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 22px; }
+.unit-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.entry-block { padding: 20px 24px; border: 2px solid var(--line); border-radius: 14px; margin-bottom: 16px; background: var(--surface); }
+.entry-header { display: grid; grid-template-columns: 100px 1fr; gap: 14px; padding-bottom: 12px; border-bottom: 2px dashed var(--coral-light); margin-bottom: 14px; align-items: end; }
+.entry-header label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.entry-header input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14.5px; font-family: inherit; background: transparent; }
+.entry-header .title input { font-weight: 600; }
+.entry-header input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.entry-body { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.entry-text label { display: block; font-size: 12.5px; color: var(--text-soft); margin-bottom: 4px; font-weight: 600; }
+.entry-text textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 130px; }
+.entry-text textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.entry-draw label { display: block; font-size: 12.5px; color: var(--text-soft); margin-bottom: 4px; font-weight: 600; }
+.entry-draw .area { width: 100%; min-height: 130px; border: 2px dashed var(--coral-light); border-radius: 8px; background: var(--coral-pale); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 12.5px; font-style: italic; padding: 14px; text-align: center; }
+
+.entry-feeling { margin-top: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.entry-feeling .label { font-size: 12.5px; color: var(--text-soft); font-weight: 500; }
+.feeling-scale { display: flex; gap: 8px; }
+.feeling-scale label { cursor: pointer; position: relative; font-size: 24px; opacity: 0.4; transition: all 0.15s; }
+.feeling-scale input { position: absolute; opacity: 0; pointer-events: none; }
+.feeling-scale label:has(input:checked) { opacity: 1; transform: scale(1.2); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .entry-block { break-inside: avoid; } .feeling-scale label { opacity: 0.7; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info, .entry-header, .entry-body { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 진행 중 (상시) · 양식 10 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">프로세스 저널 · 아이디어 뱅크 💭</h1>
+    <div class="form-title-en">Process Journal</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">탐구 도중 떠오를 때마다. 일주일에 2~3번 정도.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">아이디어를 모아두면 단원 끝의 결과물이 풍부해져요.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>UOI 주제</label><input type="text" placeholder="예: 우리는 어떻게 표현하는가"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>프로세스 저널은 나의 아이디어 보물상자예요.</strong> 깔끔하게 정리하지 않아도 돼요. 떠오른 생각·낙서·발견을 자유롭게 모아두세요. <strong>실패한 아이디어도 적어두세요.</strong> 나중에 다시 보면 보물이 돼요.
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div>
+        <label>날짜</label>
+        <input type="text" placeholder="__/__">
+      </div>
+      <div class="title">
+        <label>오늘의 발견 · 아이디어 제목</label>
+        <input type="text" placeholder="예: 우리 동네 벽화 보러 다녀온 날">
+      </div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-text">
+        <label>📝 글로 적기</label>
+        <textarea placeholder="오늘 무엇을 배웠는지, 어떤 생각이 떠올랐는지 자유롭게."></textarea>
+      </div>
+      <div class="entry-draw">
+        <label>🎨 그림 · 스케치</label>
+        <div class="area">자유롭게 그려봐요 ✏️</div>
+      </div>
+    </div>
+    <div class="entry-feeling">
+      <span class="label">오늘의 기분:</span>
+      <div class="feeling-scale">
+        <label>😟<input type="radio" name="f1"></label>
+        <label>😐<input type="radio" name="f1"></label>
+        <label>🙂<input type="radio" name="f1"></label>
+        <label>😄<input type="radio" name="f1"></label>
+        <label>🤩<input type="radio" name="f1"></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div>
+        <label>날짜</label>
+        <input type="text" placeholder="__/__">
+      </div>
+      <div class="title">
+        <label>오늘의 발견 · 아이디어 제목</label>
+        <input type="text">
+      </div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-text">
+        <label>📝 글로 적기</label>
+        <textarea></textarea>
+      </div>
+      <div class="entry-draw">
+        <label>🎨 그림 · 스케치</label>
+        <div class="area">자유롭게 그려봐요 ✏️</div>
+      </div>
+    </div>
+    <div class="entry-feeling">
+      <span class="label">오늘의 기분:</span>
+      <div class="feeling-scale">
+        <label>😟<input type="radio" name="f2"></label>
+        <label>😐<input type="radio" name="f2"></label>
+        <label>🙂<input type="radio" name="f2"></label>
+        <label>😄<input type="radio" name="f2"></label>
+        <label>🤩<input type="radio" name="f2"></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 프로세스 저널은 결과보다 <strong>과정</strong>이 중요한 양식이에요. 자녀가 글씨를 못 쓰거나 그림이 엉성해도 괜찮아요. <strong>"오늘 새로 발견한 것 있어?"</strong>라고 자녀에게 물어보고, 자녀가 답하면 그게 곧 저널이에요. 6학년 Exhibition에서도 이 저널 형식이 핵심 평가물이 됩니다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

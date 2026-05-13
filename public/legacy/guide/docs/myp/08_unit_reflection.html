@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>단원 성찰일지 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.star-badge { display: inline-block; padding: 2px 8px; background: var(--coral); color: white; border-radius: 100px; font-size: 10px; letter-spacing: 0; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.unit-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.soi-block { margin-bottom: 24px; padding: 14px 18px; background: var(--bg); border-radius: 8px; border-left: 3px solid var(--coral); }
+.soi-block label { display: block; font-size: 11px; color: var(--coral-dark); margin-bottom: 6px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.soi-block input { width: 100%; padding: 6px 8px; border: 1px dashed var(--line); border-radius: 6px; font-size: 13.5px; font-family: inherit; background: transparent; }
+.soi-block input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.section-title { font-size: 13px; font-weight: 700; color: var(--coral-dark); letter-spacing: 0.05em; margin: 24px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--line); text-transform: uppercase; }
+.q-block { padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 10px; }
+.q-type { font-size: 11px; font-weight: 600; color: var(--coral); letter-spacing: 0.08em; margin-bottom: 4px; text-transform: uppercase; }
+.q-question { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; }
+.q-question input { width: 100%; padding: 4px 6px; border: 1px dashed var(--line); border-radius: 4px; font-size: 12.5px; font-family: inherit; font-style: italic; background: transparent; }
+.q-question input:focus { outline: none; border-color: var(--coral); }
+.q-block textarea { width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 50px; }
+.q-block textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 55px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .q-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info, .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 종료 시 · 양식 08 <span class="star-badge">★ 핵심</span></div>
+    <h1 class="form-title">단원 성찰일지</h1>
+    <div class="form-title-en">Unit Reflection Form</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">단원의 마지막 1~2주. 수행과제 제출 후 또는 동시에.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">탐구질문에 어떻게 답하게 됐는지, 어떤 자질·기술이 자랐는지 정리합니다.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>단원명</label><input type="text" placeholder="예: 기권과 날씨"></div>
+    <div><label>교과</label><input type="text" placeholder="예: 과학"></div>
+    <div><label>작성 날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="soi-block">
+    <label>이번 단원의 탐구진술문 (SoI)</label>
+    <input type="text" placeholder="예: 에너지의 균형이 깨진 시스템은 지속가능성을 위협한다.">
+  </div>
+
+  <div class="section-title">탐구질문에 대한 나의 답</div>
+
+  <div class="q-block">
+    <div class="q-type">사실적 질문 · Factual</div>
+    <div class="q-question"><input type="text" placeholder="선생님이 제시한 사실적 질문을 적으세요 (예: 대기는 어떤 요소로 이루어져 있는가?)"></div>
+    <textarea placeholder="단원이 끝난 지금, 이 질문에 어떻게 답하나요?"></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-type">개념적 질문 · Conceptual</div>
+    <div class="q-question"><input type="text" placeholder="개념적 질문 (예: 시스템의 균형은 왜 중요한가?)"></div>
+    <textarea placeholder="개념을 어떻게 이해하게 됐는지 적어보세요."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-type">논쟁적 질문 · Debatable</div>
+    <div class="q-question"><input type="text" placeholder="논쟁적 질문 (예: 기후 위기는 누구의 책임인가?)"></div>
+    <textarea placeholder="자신의 입장과 그 근거를 적어보세요."></textarea>
+  </div>
+
+  <div class="section-title">이 단원에서의 나의 경험</div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">가장 인상 깊었던 것</div>
+      <textarea placeholder="새롭게 알게 된 것, 놀랐던 점."></textarea>
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">어려웠던 점 · 극복 방법</div>
+      <textarea placeholder="막혔던 부분과 어떻게 풀어갔는지."></textarea>
+    </div>
+  </div>
+
+  <div class="section-title">나의 성장</div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 단원에서 자란 학습자상 1~2개와 그 이유</div>
+    <div class="form-field-hint">예: "Risk-takers — 처음 보는 자료 형식이었지만 끝까지 시도했다."</div>
+    <textarea></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 단원에서 자란 ATL 기술 1~2개와 그 이유</div>
+    <div class="form-field-hint">예: "Research — 신뢰할 만한 출처 찾는 법을 익혔다."</div>
+    <textarea></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">다음 단원에서 개선하고 싶은 점</div>
+    <textarea placeholder="이번에 부족했던 점과 다음엔 어떻게 다르게 할지."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 단원의 학습이 일상·세상과 어떻게 연결될까</div>
+    <div class="form-field-hint">단원의 세계적 맥락(Global Context)을 떠올리면서 적어보세요.</div>
+    <textarea placeholder="배운 것이 나와 우리 사회·세계와 어떻게 닿아 있는지."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모. ★ 가장 중요한 양식이에요.</strong> 단원 성찰일지는 IB가 메타인지를 평가하는 핵심 자료예요. 점수가 매겨지지 않더라도 자녀의 가장 솔직한 학습 모습이 담겨요. "이번 단원 성찰일지 같이 봐도 될까?"가 자녀와 가장 깊이 대화할 수 있는 질문이에요. 무엇을 배웠는지보다 <strong>어떻게 배웠는지·뭐가 자랐는지</strong>에 집중해주세요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

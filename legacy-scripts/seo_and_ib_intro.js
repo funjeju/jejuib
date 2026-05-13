@@ -1,0 +1,301 @@
+const fs = require('fs');
+
+const indexHtmlContent = `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="학부모를 위한 IB(국제 바칼로레아) 교육과정 완전 정복 가이드. 초등 PYP, 중등 MYP, 고등 DP의 평가 방식과 학습법, 대한민국 IB 학교 현황을 알기 쉽게 설명합니다.">
+<meta name="keywords" content="IB, 국제 바칼로레아, IB 교육과정, IB 학교, IB 초등학교, IB 중학교, IB 고등학교, PYP, MYP, DP, IB 평가방식, IB 학부모, 대구 IB, 제주 IB, 경기 IB">
+<title>학부모를 위한 IB(국제 바칼로레아) 교육과정 통합 안내서</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+  :root {
+    --pyp: #F5A623; 
+    --myp: #E07856; 
+    --dp: #4A90E2; 
+    --bg: #F8F9FA;
+    --surface: #FFFFFF;
+    --text: #2C3E50;
+    --text-soft: #7F8C8D;
+    --primary: #2C3E50;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Pretendard Variable", sans-serif; }
+  body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+  
+  .portal-header {
+    text-align: center;
+    padding: 100px 20px 60px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+  }
+  .portal-header h1 {
+    font-size: 46px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+    word-break: keep-all;
+  }
+  .portal-header p {
+    font-size: 19px;
+    color: var(--text-soft);
+    max-width: 650px;
+    margin: 0 auto;
+    word-break: keep-all;
+    line-height: 1.6;
+  }
+  
+  .portal-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+
+  .ib-intro {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    margin-bottom: 60px;
+  }
+
+  .ib-intro h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--primary);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .intro-card {
+    background: var(--bg);
+    padding: 30px;
+    border-radius: 16px;
+    border-top: 4px solid var(--text-soft);
+  }
+
+  .intro-card:nth-child(1) { border-color: #3498DB; }
+  .intro-card:nth-child(2) { border-color: #9B59B6; }
+  .intro-card:nth-child(3) { border-color: #2ECC71; }
+
+  .intro-card h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .intro-card p {
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+
+  .intro-card ul {
+    margin-top: 12px;
+    padding-left: 20px;
+    font-size: 15px;
+    color: var(--text-soft);
+  }
+  .intro-card ul li { margin-bottom: 6px; }
+
+  .programs-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: var(--primary);
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  
+  .ib-card {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 40px 32px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+  }
+  
+  .ib-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+  
+  .ib-card.pyp:hover { border-color: var(--pyp); }
+  .ib-card.myp:hover { border-color: var(--myp); }
+  .ib-card.dp:hover { border-color: var(--dp); }
+  
+  .ib-card-badge {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 100px;
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 24px;
+  }
+  
+  .ib-card.pyp .ib-card-badge { background: rgba(245, 166, 35, 0.15); color: #D68910; }
+  .ib-card.myp .ib-card-badge { background: rgba(224, 120, 86, 0.15); color: var(--myp); }
+  .ib-card.dp .ib-card-badge { background: rgba(74, 144, 226, 0.15); color: #3498DB; }
+  
+  .ib-card h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+  
+  .ib-card p {
+    color: var(--text-soft);
+    font-size: 16px;
+    flex-grow: 1;
+    margin-bottom: 30px;
+    line-height: 1.7;
+  }
+  
+  .ib-card-arrow {
+    align-self: flex-end;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f2f6;
+    transition: all 0.3s;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .ib-card:hover .ib-card-arrow { color: #fff; }
+  .ib-card.pyp:hover .ib-card-arrow { background: var(--pyp); }
+  .ib-card.myp:hover .ib-card-arrow { background: var(--myp); }
+  .ib-card.dp:hover .ib-card-arrow { background: var(--dp); }
+
+  .status-tag {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #ecf0f1;
+    color: #95a5a6;
+  }
+  .status-tag.ready { background: #e8f8f5; color: #27ae60; }
+  
+  @media (max-width: 768px) {
+    .portal-header { padding: 60px 20px 30px; }
+    .portal-header h1 { font-size: 36px; }
+    .ib-intro { padding: 30px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="portal-header">
+  <h1>학부모를 위한 IB 안내서</h1>
+  <p>국제 바칼로레아(IB) 프로그램의 복잡한 시스템과 교육 철학을 학부모의 눈높이에서 가장 쉽게 풀어 설명합니다.</p>
+</header>
+
+<main class="portal-container">
+
+  <!-- SEO Keyword Focus Section: What is IB -->
+  <section class="ib-intro">
+    <h2>IB(국제 바칼로레아)란 무엇인가요?</h2>
+    <div class="intro-grid">
+      <div class="intro-card">
+        <h3>📖 IB의 정의 (Definition)</h3>
+        <p><strong>국제 바칼로레아(International Baccalaureate)</strong>는 스위스 제네바에 본부를 둔 비영리 교육재단(IBO)이 운영하는 국제 공인 교육과정입니다. 정해진 정답을 외우는 것이 아니라, <strong>"스스로 질문하고 비판적으로 사고하는 힘"</strong>을 기르는 데 목적이 있습니다. 학생들은 지식을 현실 세계와 연결하며 평생 학습자로 성장하게 됩니다.</p>
+      </div>
+
+      <div class="intro-card">
+        <h3>🌍 유래와 역사 (History)</h3>
+        <p>1968년, 외교관이나 주재원 자녀들이 어느 나라에 가더라도 질 높은 공통 교육을 받을 수 있도록 개발되었습니다. 초기에는 국제학교 위주로 운영되었으나, 현재는 그 우수성을 인정받아 <strong>전 세계 160여 개국, 5,700개 이상의 학교</strong>(공립·사립 포함)에서 앞다투어 도입하여 운영하고 있습니다.</p>
+      </div>
+
+      <div class="intro-card">
+        <h3>🇰🇷 대한민국의 IB 도입 현황</h3>
+        <p>한국에서도 암기식 교육의 대안으로 공교육 현장에 빠르게 확산되고 있습니다. (2024년 기준)</p>
+        <ul>
+          <li><strong>대구 & 제주:</strong> 가장 먼저 IB를 도입하여 표선고, 대구외고 등에서 성공적인 졸업생을 배출하며 'IB 벨트'를 구축했습니다.</li>
+          <li><strong>경기:</strong> 2024년부터 폭발적으로 늘어나 현재 50여 개의 후보학교와 수백 개의 관심학교가 지정되어 운영 중입니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="programs-title">자녀의 학령별 IB 가이드 보기</h2>
+
+  <div class="programs-grid">
+    <a href="pyp_index.html" class="ib-card pyp">
+      <div class="status-tag ready">열람 가능</div>
+      <div class="ib-card-badge">초등학교 과정</div>
+      <h2>IB PYP</h2>
+      <p>놀이와 탐구를 통해 평생 학습자의 기초를 다지는 초등 프로그램 가이드. 자녀의 첫 IB 과정을 이해해 봅니다.</p>
+      <div class="ib-card-arrow">→</div>
+    </a>
+
+    <a href="myp_index.html" class="ib-card myp">
+      <div class="status-tag ready">열람 가능</div>
+      <div class="ib-card-badge">중학교 과정</div>
+      <h2>IB MYP</h2>
+      <p>개념적 이해와 현실 세계의 연결을 강조하는 중등 프로그램 가이드. 낯선 평가 방식과 프로젝트를 자세히 알아봅니다.</p>
+      <div class="ib-card-arrow">→</div>
+    </a>
+
+    <a href="dp_index.html" class="ib-card dp">
+      <div class="status-tag">준비 중</div>
+      <div class="ib-card-badge">고등학교 과정</div>
+      <h2>IB DP / CP</h2>
+      <p>대학 진학과 심층 연구를 준비하는 고등 프로그램 가이드. 디플로마 취득 조건과 평가 체제를 분석합니다.</p>
+      <div class="ib-card-arrow">→</div>
+    </a>
+  </div>
+
+</main>
+
+</body>
+</html>`;
+
+fs.writeFileSync('index.html', indexHtmlContent, 'utf8');
+
+// Update ALL html files with SEO meta tags
+const htmlFiles = fs.readdirSync('.').filter(f => f.endsWith('.html') && f !== 'index.html' && f !== 'ib_myp_parent_guide.html.bak');
+
+const seoMetaTags = `
+<meta name="description" content="학부모를 위한 IB(국제 바칼로레아) 교육과정 완전 정복 가이드. IB PYP, MYP, DP의 특징과 학부모의 역할을 이해하기 쉽게 정리했습니다.">
+<meta name="keywords" content="IB, 국제 바칼로레아, IB 교육, IB 학교, PYP, MYP, DP, IB 교육과정, IB 평가방식">
+`;
+
+htmlFiles.forEach(file => {
+  let content = fs.readFileSync(file, 'utf8');
+  
+  if (!content.includes('name="description"')) {
+    // Insert after <meta name="viewport" ...>
+    content = content.replace(/(<meta name="viewport"[^>]+>)/i, '$1\n' + seoMetaTags.trim());
+    fs.writeFileSync(file, content, 'utf8');
+  }
+});
+
+console.log('SEO optimization and IB Intro section applied successfully!');

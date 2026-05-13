@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="국제 바칼로레아(IB) PYP(초등학교) 과정에 자녀를 보낸 학부모를 위한 종합 가이드입니다.">
+<meta name="keywords" content="IB PYP, IB 초등학교, 국제 바칼로레아 PYP, 학부모 가이드, IB, 국제 바칼로레아">
+<title>학부모를 위한 IB PYP 완벽 가이드</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+/* 기존의 세련된 디자인 시스템 유지 (PYP 테마색인 Teal 포인트 적용) */
+:root {
+  --coral: #E07856;
+  --coral-dark: #B85A3D;
+  --coral-light: #FCE4DC;
+  --coral-pale: #FFF4EF;
+  --bg: #FFFBF8;
+  --surface: #FFFFFF;
+  --text: #2C2522;
+  --text-soft: #5C5048;
+  --muted: #9A8D85;
+  --line: #EFE5DD;
+  --teal: #4A8C7F;
+  --teal-light: #F0F5F4;
+  --amber: #C68A3E;
+  
+  /* Additional PYP specific colors for SEO compatibility */
+  --pyp: #F5A623;
+  --pyp-dark: #D68910;
+  --primary: #2C3E50;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Pretendard Variable', Pretendard, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* UI 구성 요소 (기존 스타일 계승) */
+nav { position: sticky; top: 0; background: rgba(255, 251, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); z-index: 100; padding: 14px 0; }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 700; font-size: 15px; color: var(--teal); letter-spacing: -0.02em; }
+.container { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+.hero { padding: 100px 0 80px; text-align: left; border-bottom: 1px solid var(--line); }
+.hero .eyebrow { display: inline-block; font-size: 12px; font-weight: 600; color: var(--teal); background: var(--teal-light); padding: 5px 12px; border-radius: 100px; margin-bottom: 24px; }
+.hero h1 { font-size: 44px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.2; margin-bottom: 24px; }
+.hero h1 .accent { color: var(--teal); }
+.hero .lead { font-size: 18px; color: var(--text-soft); max-width: 680px; }
+
+/* Section & Big Picture Styles */
+section.content { padding: 80px 0; border-bottom: 1px solid var(--line); }
+.section-num { font-size: 13px; color: var(--teal); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 12px; display: block; }
+.bigpic { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 40px; margin: 32px 0; }
+.pill { padding: 10px 18px; background: var(--teal-light); border: 1px solid #D7E5E2; border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--teal); margin: 4px; display: inline-block; }
+.pill.highlight { background: var(--teal); color: white; border-color: var(--teal); }
+.callout { background: var(--teal-light); border-left: 4px solid var(--teal); padding: 24px; border-radius: 0 12px 12px 0; margin: 32px 0; }
+</style>
+</head>
+<body>
+
+
+<nav style="position: sticky; top: 0; background: rgba(255, 251, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); z-index: 100;">
+  <div style="background:var(--pyp-pale, #FFF7E6); padding:8px 24px; text-align:center; font-size:13px; border-bottom:1px solid var(--line, #EFE5DD);">
+    <a href="index.html" style="color:var(--pyp-dark, #D68910); text-decoration:none; font-weight:600; display:inline-block; transition:opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">← IB 통합 안내서 대문으로 돌아가기</a>
+  </div>
+  <div class="nav-inner" style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 60px;">
+    <div class="logo"><a href="pyp_index.html" style="color:var(--pyp-dark, #D68910); text-decoration:none; font-weight:700; font-size: 15px;">IB PYP 안내</a></div>
+    <div class="nav-links" style="display:flex; gap:20px; font-size:14px; font-weight: 500;">
+      <a href="pyp_bigpic.html" style="text-decoration:none; color:inherit;">큰 그림</a>
+      <a href="pyp_cycle.html" style="text-decoration:none; color:inherit;">수업 진행</a>
+      <a href="pyp_timeline.html" style="text-decoration:none; color:inherit;">1년 흐름</a>
+      <a href="pyp_concepts.html" style="text-decoration:none; color:inherit;">개념 사전</a>
+      <a href="pyp_evaluation.html" style="text-decoration:none; color:inherit;">평가</a>
+      <a href="pyp_forms.html" style="text-decoration:none; color:inherit;">양식</a>
+      <a href="pyp_parent.html" style="text-decoration:none; color:inherit;">자녀와 대화</a>
+      <a href="pyp_glossary.html" style="text-decoration:none; color:inherit;">용어</a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">초등 PYP 가이드</span>
+    <h1>아이가 PYP 초등 교육을<br>받고 있다면, <span class="accent">알아둘 것이 있어요.</span></h1>
+    <p class="lead">
+      IB PYP는 지식을 외우는 대신 '세상을 탐구하는 법'을 배웁니다. 자녀가 "UOI", "핵심 아이디어", "실천(Action)" 같은 낯선 단어를 가져올 때, 당황하지 마세요. 이 가이드는 초등 학부모님이 아이의 탐구 여정에 훌륭한 파트너가 되도록 돕습니다.
+    </p>
+  </div>
+</section>
+
+<section class="content" id="bigpic">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">01 · 큰 그림</span>
+      <h2>PYP는 무엇이고, 자녀의 수업과 어떻게 연결되나요?</h2>
+    </div>
+
+    <div class="bigpic">
+      <div style="margin-bottom: 24px;">
+        <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.1em;">IB 교육의 뿌리 (공통)</p>
+        <div class="row">
+          <span class="pill">IB 사명</span> <span class="pill">학습자상</span> <span class="pill">국제적 마인드</span> <span class="pill">학습 방법(ATL)</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase;">자녀가 속한 단계</p>
+        <div class="row">
+          <span class="pill highlight">PYP (초등 3~12세)</span> <span class="pill">MYP (중등)</span> <span class="pill">DP (고등)</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase;">PYP의 6가지 초교과 주제 (세상을 보는 6개의 렌즈)</p>
+        <div class="row">
+          <span class="pill">우리는 누구인가</span> <span class="pill">우리가 속한 시공간</span> <span class="pill">자신을 표현하는 법</span>
+          <span class="pill">세계가 돌아가는 방식</span> <span class="pill">자신을 조직하는 법</span> <span class="pill">지구 공유하기</span>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong style="display: block; margin-bottom: 8px;">한 줄 요약</strong>
+        <p>우리 아이는 국어, 수학을 따로 배우는 것을 넘어, <strong>6개의 커다란 세상 이야기(UOI)</strong> 속으로 들어가 스스로 질문하고 답을 찾아낸 뒤, <strong>오늘 내 삶에서 무엇을 실천할지</strong> 고민하는 시간을 보내고 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="cycle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">02 · 수업 진행</span>
+      <h2>질문에서 실천으로 이어지는 '탐구 사이클'</h2>
+      <p style="margin-top: 16px; color: var(--text-soft);">하나의 UOI(탐구 단원)는 보통 4~6주 동안 아래의 과정을 거치며 진행됩니다.</p>
+    </div>
+
+    <div style="display: grid; gap: 20px; margin-top: 32px;">
+      <div style="background: white; border: 1px solid var(--line); padding: 32px; border-radius: 16px;">
+        <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--teal);">1. 호기심 열기 및 탐색</h3>
+        <p style="font-size: 15px; color: var(--text-soft);">주제와 관련된 다양한 자극을 통해 아이들이 "이건 왜 이럴까?"라는 질문을 스스로 뽑아내는 단계입니다. <strong>'핵심 아이디어(Central Idea)'</strong>를 처음 접하는 시기이기도 하죠.</p>
+      </div>
+      <div style="background: white; border: 1px solid var(--line); padding: 32px; border-radius: 16px;">
+        <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--teal);">2. 조사 및 정리</h3>
+        <p style="font-size: 15px; color: var(--text-soft);">책, 영상, 인터뷰를 통해 정보를 수집하고 <strong>7가지 핵심 개념(형태, 기능, 변화 등)</strong>이라는 도구로 정보를 분석합니다. 원더 월(Wonder Wall)에 질문이 가득 채워집니다.</p>
+      </div>
+      <div style="background: white; border: 1px solid var(--line); padding: 32px; border-radius: 16px;">
+        <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--teal);">3. 성찰 및 실천 (Action)</h3>
+        <p style="font-size: 15px; color: var(--text-soft);">배운 것을 바탕으로 "아! 이런 거구나" 깨닫고, <strong>내 삶에서 무엇을 바꿀지(Action)</strong> 결정합니다. 거창한 봉사가 아니라 '집에서 쓰레기 분리배출 하기' 같은 작은 행동이 공부의 완성입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seo-tags" style="max-width: 920px; margin: 40px auto; padding: 20px; background: var(--surface); border-radius: 12px; font-size: 12px; color: var(--text-soft); border: 1px dashed var(--line);">
+  <strong style="color: var(--primary);">이 페이지의 핵심 탐색어:</strong> 
+  <span style="display:inline-block; margin-right:8px; margin-top:4px;">#IB PYP</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#IB 초등학교</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#국제 바칼로레아 PYP</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#학부모 가이드</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#IB</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#국제 바칼로레아</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#국제 바칼로레아 초등학교</span>
+</section>
+
+<script src="pyp_glossary_data.js"></script>
+<script src="pyp_glossary_ui.js"></script>
+</body>
+</html>

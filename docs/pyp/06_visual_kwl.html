@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시각적 KWL · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; --teal: #4A8C7F; --amber: #C68A3E; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.unit-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.kwl-section { padding: 18px 22px; border: 2px solid; border-radius: 14px; margin-bottom: 14px; }
+.kwl-section.know { border-color: var(--coral-light); background: var(--coral-pale); }
+.kwl-section.want { border-color: #C9E4DE; background: #F0FAF7; }
+.kwl-section.learned { border-color: #FBE5C0; background: #FFF8E8; }
+
+.kwl-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid; }
+.kwl-section.know .kwl-header { border-color: var(--coral-light); }
+.kwl-section.want .kwl-header { border-color: #C9E4DE; }
+.kwl-section.learned .kwl-header { border-color: #FBE5C0; }
+.kwl-letter { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: white; font-weight: 700; font-size: 22px; flex-shrink: 0; }
+.kwl-section.know .kwl-letter { background: var(--coral); }
+.kwl-section.want .kwl-letter { background: var(--teal); }
+.kwl-section.learned .kwl-letter { background: var(--amber); }
+.kwl-section-title { flex: 1; }
+.kwl-section-title .ko { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+.kwl-section-title .en { font-size: 12px; color: var(--text-soft); }
+.kwl-when { font-size: 11.5px; padding: 4px 10px; background: white; border-radius: 100px; color: var(--text-soft); font-weight: 500; }
+
+.kwl-body { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.kwl-words label { display: block; font-size: 12.5px; color: var(--text-soft); margin-bottom: 4px; font-weight: 600; }
+.kwl-words textarea { width: 100%; padding: 10px 12px; border: 1px solid white; border-radius: 8px; font-size: 13.5px; font-family: inherit; background: rgba(255,255,255,0.7); resize: vertical; line-height: 1.55; min-height: 120px; }
+.kwl-words textarea:focus { outline: none; background: white; }
+.kwl-draw label { display: block; font-size: 12.5px; color: var(--text-soft); margin-bottom: 4px; font-weight: 600; }
+.kwl-draw .area { width: 100%; min-height: 120px; border: 2px dashed; border-radius: 8px; background: rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 12px; font-style: italic; padding: 10px; text-align: center; }
+.kwl-section.know .kwl-draw .area { border-color: var(--coral-light); }
+.kwl-section.want .kwl-draw .area { border-color: #C9E4DE; }
+.kwl-section.learned .kwl-draw .area { border-color: #FBE5C0; }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .kwl-section { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info, .kwl-body { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원(UOI) 시작 시 · 양식 06 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">시각적 KWL 🎨</h1>
+    <div class="form-title-en">Visual KWL Chart</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">단원 시작 때 K·W 작성, 단원 끝에 L 채워서 비교.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">처음 알던 것과 다 배우고 난 후를 비교하면 성장이 보여요.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>UOI 주제</label><input type="text" placeholder="예: 물건은 어떻게 만들어질까"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>작성 날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="kwl-section know">
+    <div class="kwl-header">
+      <div class="kwl-letter">K</div>
+      <div class="kwl-section-title">
+        <div class="ko">이미 아는 것</div>
+        <div class="en">What I Know</div>
+      </div>
+      <div class="kwl-when">단원 시작 시</div>
+    </div>
+    <div class="kwl-body">
+      <div class="kwl-words">
+        <label>단어 · 문장으로 적기</label>
+        <textarea placeholder="이 주제에 대해 내가 이미 알고 있는 것."></textarea>
+      </div>
+      <div class="kwl-draw">
+        <label>그림으로 그리기</label>
+        <div class="area">아는 것을 그림으로 ✏️</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kwl-section want">
+    <div class="kwl-header">
+      <div class="kwl-letter">W</div>
+      <div class="kwl-section-title">
+        <div class="ko">알고 싶은 것</div>
+        <div class="en">What I Want to Know</div>
+      </div>
+      <div class="kwl-when">단원 시작 시</div>
+    </div>
+    <div class="kwl-body">
+      <div class="kwl-words">
+        <label>질문으로 적기</label>
+        <textarea placeholder="궁금한 것을 질문 형식으로."></textarea>
+      </div>
+      <div class="kwl-draw">
+        <label>궁금한 것 그리기</label>
+        <div class="area">알고 싶은 것을 그림으로 🎨</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kwl-section learned">
+    <div class="kwl-header">
+      <div class="kwl-letter">L</div>
+      <div class="kwl-section-title">
+        <div class="ko">새로 배운 것</div>
+        <div class="en">What I Learned</div>
+      </div>
+      <div class="kwl-when">단원 끝에</div>
+    </div>
+    <div class="kwl-body">
+      <div class="kwl-words">
+        <label>알게 된 것</label>
+        <textarea placeholder="새로 알게 된 것 / 생각이 바뀐 것."></textarea>
+      </div>
+      <div class="kwl-draw">
+        <label>가장 인상 깊은 것 그리기</label>
+        <div class="area">배운 것 중 가장 신기했던 걸 그려봐요 ⭐</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> KWL의 핵심은 <strong>K와 L의 비교</strong>예요. 단원이 끝난 뒤 자녀와 같이 펼쳐서 "처음엔 이렇게 알았는데, 지금은 이렇게 됐네!"라고 같이 보세요. 학습이 일어났음을 자녀가 시각적으로 확인하는 순간이에요. 그림과 단어를 같이 쓰는 게 초등 자녀의 표현력을 자랍니다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>초등용 루브릭 체크 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.task-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.task-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.task-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.task-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.legend { display: flex; gap: 16px; padding: 12px 16px; background: var(--bg); border-radius: 10px; margin-bottom: 20px; justify-content: center; font-size: 13px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 6px; color: var(--text-soft); }
+.legend-emoji { font-size: 18px; }
+
+.rubric-block { padding: 18px 22px; border: 2px solid var(--line); border-radius: 14px; margin-bottom: 14px; }
+.rubric-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed var(--line); }
+.rubric-icon { font-size: 26px; }
+.rubric-name { font-size: 15px; font-weight: 700; flex: 1; }
+.rubric-criteria { font-size: 12.5px; color: var(--text-soft); margin-top: 2px; font-weight: 400; line-height: 1.5; }
+.rubric-scale { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.scale-option { padding: 12px 10px; border: 2px solid var(--line); border-radius: 10px; cursor: pointer; text-align: center; transition: all 0.15s; }
+.scale-option input { display: none; }
+.scale-option:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); }
+.scale-emoji { font-size: 32px; display: block; margin-bottom: 4px; }
+.scale-label { font-size: 12px; color: var(--text-soft); font-weight: 600; }
+.scale-desc { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+.rubric-evidence label { display: block; font-size: 12px; color: var(--text-soft); margin-bottom: 4px; font-weight: 500; }
+.rubric-evidence textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 12.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 40px; }
+.rubric-evidence textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 50px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .rubric-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .task-info { grid-template-columns: 1fr; } .legend { gap: 10px; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 종료 · 양식 18 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">루브릭 체크 (스마일 평가) 😊</h1>
+    <div class="form-title-en">Primary Rubric Self-check</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">수행과제·작품을 완성한 후 스스로 평가.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">내가 한 일을 솔직하게 돌아보는 게 자기평가의 시작이에요.</div>
+    </div>
+  </div>
+
+  <div class="task-info">
+    <div><label>과제 · 작품 이름</label><input type="text" placeholder="예: 우리 동네 지도 만들기"></div>
+    <div><label>이름</label><input type="text"></div>
+    <div><label>날짜</label><input type="text" placeholder="__/__"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>이 평가의 핵심은 "솔직함"이에요.</strong> 잘했다고 적기보다 진짜 내가 한 만큼 정직하게 적는 게 진짜 성장이에요. 점수가 아니라 <strong>다음에 더 잘하기 위한 거울</strong>이에요.
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-emoji">😟</span>아직 더 연습이 필요해요</div>
+    <div class="legend-item"><span class="legend-emoji">🙂</span>잘하고 있어요</div>
+    <div class="legend-item"><span class="legend-emoji">😎</span>아주 잘했어요</div>
+  </div>
+
+  <div class="rubric-block">
+    <div class="rubric-header">
+      <div class="rubric-icon">📚</div>
+      <div>
+        <div class="rubric-name">알고 이해하기</div>
+        <div class="rubric-criteria">단원에서 배운 것을 잘 알고 있어요</div>
+      </div>
+    </div>
+    <div class="rubric-scale">
+      <label class="scale-option"><input type="radio" name="r1"><span class="scale-emoji">😟</span><span class="scale-label">아직</span><div class="scale-desc">잘 모르는 게 있어요</div></label>
+      <label class="scale-option"><input type="radio" name="r1"><span class="scale-emoji">🙂</span><span class="scale-label">잘함</span><div class="scale-desc">대부분 이해했어요</div></label>
+      <label class="scale-option"><input type="radio" name="r1"><span class="scale-emoji">😎</span><span class="scale-label">최고</span><div class="scale-desc">친구한테 설명할 수 있어요</div></label>
+    </div>
+    <div class="rubric-evidence">
+      <label>이 점수의 증거 (예: 어떤 일을 해냈나요?)</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="rubric-block">
+    <div class="rubric-header">
+      <div class="rubric-icon">🔍</div>
+      <div>
+        <div class="rubric-name">탐구하기</div>
+        <div class="rubric-criteria">스스로 질문하고 알아봤어요</div>
+      </div>
+    </div>
+    <div class="rubric-scale">
+      <label class="scale-option"><input type="radio" name="r2"><span class="scale-emoji">😟</span><span class="scale-label">아직</span><div class="scale-desc">선생님 도움이 많이 필요했어요</div></label>
+      <label class="scale-option"><input type="radio" name="r2"><span class="scale-emoji">🙂</span><span class="scale-label">잘함</span><div class="scale-desc">몇 가지 스스로 찾았어요</div></label>
+      <label class="scale-option"><input type="radio" name="r2"><span class="scale-emoji">😎</span><span class="scale-label">최고</span><div class="scale-desc">많은 것을 스스로 알아냈어요</div></label>
+    </div>
+    <div class="rubric-evidence">
+      <label>이 점수의 증거</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="rubric-block">
+    <div class="rubric-header">
+      <div class="rubric-icon">💬</div>
+      <div>
+        <div class="rubric-name">표현하기</div>
+        <div class="rubric-criteria">내가 알게 된 것을 잘 보여줬어요</div>
+      </div>
+    </div>
+    <div class="rubric-scale">
+      <label class="scale-option"><input type="radio" name="r3"><span class="scale-emoji">😟</span><span class="scale-label">아직</span><div class="scale-desc">설명이 어려웠어요</div></label>
+      <label class="scale-option"><input type="radio" name="r3"><span class="scale-emoji">🙂</span><span class="scale-label">잘함</span><div class="scale-desc">대부분 잘 표현했어요</div></label>
+      <label class="scale-option"><input type="radio" name="r3"><span class="scale-emoji">😎</span><span class="scale-label">최고</span><div class="scale-desc">자랑스럽게 보여줄 수 있어요</div></label>
+    </div>
+    <div class="rubric-evidence">
+      <label>이 점수의 증거</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="rubric-block">
+    <div class="rubric-header">
+      <div class="rubric-icon">🌱</div>
+      <div>
+        <div class="rubric-name">노력과 자세</div>
+        <div class="rubric-criteria">끝까지 책임지고 열심히 했어요</div>
+      </div>
+    </div>
+    <div class="rubric-scale">
+      <label class="scale-option"><input type="radio" name="r4"><span class="scale-emoji">😟</span><span class="scale-label">아직</span><div class="scale-desc">중간에 포기하고 싶었어요</div></label>
+      <label class="scale-option"><input type="radio" name="r4"><span class="scale-emoji">🙂</span><span class="scale-label">잘함</span><div class="scale-desc">힘들어도 끝까지 했어요</div></label>
+      <label class="scale-option"><input type="radio" name="r4"><span class="scale-emoji">😎</span><span class="scale-label">최고</span><div class="scale-desc">더 잘하려고 다시 시도했어요</div></label>
+    </div>
+    <div class="rubric-evidence">
+      <label>이 점수의 증거</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">📈 다음에 한 단계 더 잘하고 싶은 영역</div>
+    <div class="form-field-hint">위 4개 중 하나 골라 어떻게 키울지 적어요.</div>
+    <textarea placeholder="예: '탐구하기'를 더 키우고 싶어요. 다음엔 책에서 스스로 자료를 찾아볼래요."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 초등 학생의 자기평가는 둘 중 하나로 치우치기 쉬워요. <strong>너무 후하게 ("최고!") 또는 너무 자기비판적 ("못해요")</strong>. 자녀에게 "왜 그 점수야? 어떤 증거가 있어?"라고 물어보세요. 증거를 찾는 과정 자체가 평가 능력을 자라게 합니다. 점수보다 "다음에 무엇을 다르게 해볼까?"가 진짜 평가의 목적이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

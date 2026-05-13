@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학습 일지 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.entry-block { padding: 20px 22px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 16px; }
+.entry-header { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+.entry-header label { display: block; font-size: 10.5px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.entry-header input { width: 100%; padding: 4px 0; border: none; border-bottom: 1px solid var(--text); font-size: 13.5px; font-family: inherit; background: transparent; }
+.entry-header input:focus { outline: none; border-bottom-color: var(--coral); }
+.entry-field { margin-bottom: 12px; }
+.entry-field-label { font-size: 12.5px; font-weight: 600; margin-bottom: 4px; color: var(--text-soft); }
+.entry-field textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 45px; }
+.entry-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.atl-checks { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.atl-check { padding: 4px 10px; border: 1px solid var(--line); border-radius: 100px; cursor: pointer; font-size: 11.5px; color: var(--text-soft); transition: all 0.15s; }
+.atl-check input { display: none; }
+.atl-check:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); color: var(--coral-dark); font-weight: 600; }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .entry-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .entry-header { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 진행 중 · 양식 06</div>
+    <h1 class="form-title">학습 일지</h1>
+    <div class="form-title-en">Learning Journal</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">한 주에 1~2번. 인상 깊었던 차시나 새로운 깨달음이 있을 때.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">배운 것 / 의문 / 활용한 기술을 정리해서 학습을 자기 것으로 만듭니다.</div>
+    </div>
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div><label>날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+      <div><label>교과 · 단원</label><input type="text" placeholder="예: 과학 · 기권과 날씨"></div>
+      <div><label>차시 / 주제</label><input type="text" placeholder="예: 대기 순환"></div>
+    </div>
+
+    <div class="entry-field">
+      <div class="entry-field-label">오늘 새로 배운 것</div>
+      <textarea placeholder="한두 문장으로 핵심을 적어보세요."></textarea>
+    </div>
+
+    <div class="entry-field">
+      <div class="entry-field-label">새로 생긴 질문 / 더 알고 싶은 것</div>
+      <textarea placeholder="배우면서 떠오른 의문을 적어보세요."></textarea>
+    </div>
+
+    <div class="entry-field">
+      <div class="entry-field-label">어려웠던 점 / 다음에 다르게 해볼 점</div>
+      <textarea placeholder="이해가 잘 안 됐거나 막혔던 부분, 그리고 어떻게 해결할지."></textarea>
+    </div>
+
+    <div class="entry-field">
+      <div class="entry-field-label">오늘 활용한 학습 기술 (ATL)</div>
+      <div class="atl-checks">
+        <label class="atl-check"><input type="checkbox">의사소통</label>
+        <label class="atl-check"><input type="checkbox">사회성</label>
+        <label class="atl-check"><input type="checkbox">자기관리</label>
+        <label class="atl-check"><input type="checkbox">연구·리서치</label>
+        <label class="atl-check"><input type="checkbox">사고력</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div><label>날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+      <div><label>교과 · 단원</label><input type="text"></div>
+      <div><label>차시 / 주제</label><input type="text"></div>
+    </div>
+
+    <div class="entry-field">
+      <div class="entry-field-label">오늘 새로 배운 것</div>
+      <textarea></textarea>
+    </div>
+
+    <div class="entry-field">
+      <div class="entry-field-label">새로 생긴 질문 / 더 알고 싶은 것</div>
+      <textarea></textarea>
+    </div>
+
+    <div class="entry-field">
+      <div class="entry-field-label">어려웠던 점 / 다음에 다르게 해볼 점</div>
+      <textarea></textarea>
+    </div>
+
+    <div class="entry-field">
+      <div class="entry-field-label">오늘 활용한 학습 기술 (ATL)</div>
+      <div class="atl-checks">
+        <label class="atl-check"><input type="checkbox">의사소통</label>
+        <label class="atl-check"><input type="checkbox">사회성</label>
+        <label class="atl-check"><input type="checkbox">자기관리</label>
+        <label class="atl-check"><input type="checkbox">연구·리서치</label>
+        <label class="atl-check"><input type="checkbox">사고력</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 학습 일지는 "일기"처럼 보이지만 IB의 핵심 평가 자료예요. 자녀의 사고 과정을 들여다볼 수 있는 가장 솔직한 창문이거든요. "오늘은 어떤 게 가장 잘 안 풀렸어?", "그래서 다음엔 어떻게 해보고 싶어?" 같은 질문이 자녀의 메타인지를 자라게 해요. 결과보다 <strong>과정과 의문에 집중</strong>해주세요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

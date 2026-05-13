@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공동체 프로젝트 자기·멘토 평가 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.project-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.project-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.project-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.project-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.crit-block { padding: 16px 20px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; }
+.crit-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.crit-letter { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: var(--coral); color: white; border-radius: 50%; font-weight: 700; font-size: 14px; }
+.crit-title { flex: 1; font-size: 14px; font-weight: 600; }
+.crit-title .en { font-size: 11px; color: var(--muted); font-weight: 400; margin-left: 4px; }
+.eval-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.eval-col { padding: 12px 14px; background: var(--bg); border-radius: 6px; }
+.eval-col-title { font-size: 11.5px; font-weight: 600; color: var(--text-soft); margin-bottom: 8px; letter-spacing: 0.04em; text-transform: uppercase; }
+.score-row { display: flex; gap: 5px; margin-bottom: 8px; }
+.score-row label { cursor: pointer; position: relative; }
+.score-row label .num { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1.5px solid var(--line); border-radius: 50%; font-size: 11px; color: var(--text-soft); transition: all 0.15s; background: var(--surface); }
+.score-row input { position: absolute; opacity: 0; }
+.score-row input:checked + .num { background: var(--coral); color: white; border-color: var(--coral); }
+.eval-col textarea { width: 100%; padding: 7px 9px; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; font-family: inherit; background: var(--surface); resize: vertical; line-height: 1.5; min-height: 50px; }
+.eval-col textarea:focus { outline: none; border-color: var(--coral); }
+.summary-block { padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; margin-top: 18px; }
+.summary-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px; }
+.summary-row > div label { display: block; font-size: 11.5px; color: var(--coral-dark); margin-bottom: 4px; font-weight: 600; }
+.summary-row > div input { width: 100%; padding: 6px 10px; border: 1px solid var(--coral-light); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--surface); text-align: center; font-weight: 600; }
+.summary-row > div input:focus { outline: none; border-color: var(--coral); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 55px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.signature-block { padding: 16px 20px; background: var(--bg); border: 1px dashed var(--line); border-radius: 8px; margin-top: 18px; }
+.signature-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.signature-row > div label { display: block; font-size: 10.5px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.signature-row > div input { width: 100%; padding: 6px 0; border: none; border-bottom: 1px solid var(--text); font-size: 13px; font-family: inherit; background: transparent; }
+.signature-row > div input:focus { outline: none; border-bottom-color: var(--coral); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .crit-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .project-info, .eval-grid, .summary-row, .signature-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">MYP 최종 학년 · 양식 30</div>
+    <h1 class="form-title">공동체 프로젝트 자기·멘토 평가</h1>
+    <div class="form-title-en">Community Project Self &amp; Supervisor Assessment</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">프로젝트 모든 과정 종료 후. 보고서·발표 완료 직후.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">학생 자기평가 + 멘토 평가를 나란히 두고 최종 등급을 정합니다.</div>
+    </div>
+  </div>
+
+  <div class="project-info">
+    <div><label>프로젝트 제목</label><input type="text"></div>
+    <div><label>학생 이름</label><input type="text"></div>
+    <div><label>평가일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="crit-block">
+    <div class="crit-header">
+      <div class="crit-letter">A</div>
+      <div class="crit-title">조사 <span class="en">Investigating</span></div>
+    </div>
+    <div class="eval-grid">
+      <div class="eval-col">
+        <div class="eval-col-title">학생 자기평가 (0~8)</div>
+        <div class="score-row">
+          <label><input type="radio" name="sa"><span class="num">0</span></label>
+          <label><input type="radio" name="sa"><span class="num">1</span></label>
+          <label><input type="radio" name="sa"><span class="num">2</span></label>
+          <label><input type="radio" name="sa"><span class="num">3</span></label>
+          <label><input type="radio" name="sa"><span class="num">4</span></label>
+          <label><input type="radio" name="sa"><span class="num">5</span></label>
+          <label><input type="radio" name="sa"><span class="num">6</span></label>
+          <label><input type="radio" name="sa"><span class="num">7</span></label>
+          <label><input type="radio" name="sa"><span class="num">8</span></label>
+        </div>
+        <textarea placeholder="이 점수의 이유 (자기 관점)"></textarea>
+      </div>
+      <div class="eval-col">
+        <div class="eval-col-title">멘토 평가 (0~8)</div>
+        <div class="score-row">
+          <label><input type="radio" name="ma"><span class="num">0</span></label>
+          <label><input type="radio" name="ma"><span class="num">1</span></label>
+          <label><input type="radio" name="ma"><span class="num">2</span></label>
+          <label><input type="radio" name="ma"><span class="num">3</span></label>
+          <label><input type="radio" name="ma"><span class="num">4</span></label>
+          <label><input type="radio" name="ma"><span class="num">5</span></label>
+          <label><input type="radio" name="ma"><span class="num">6</span></label>
+          <label><input type="radio" name="ma"><span class="num">7</span></label>
+          <label><input type="radio" name="ma"><span class="num">8</span></label>
+        </div>
+        <textarea placeholder="멘토 의견 / 피드백"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="crit-block">
+    <div class="crit-header">
+      <div class="crit-letter">B</div>
+      <div class="crit-title">계획 <span class="en">Planning</span></div>
+    </div>
+    <div class="eval-grid">
+      <div class="eval-col">
+        <div class="eval-col-title">학생 자기평가</div>
+        <div class="score-row">
+          <label><input type="radio" name="sb"><span class="num">0</span></label>
+          <label><input type="radio" name="sb"><span class="num">1</span></label>
+          <label><input type="radio" name="sb"><span class="num">2</span></label>
+          <label><input type="radio" name="sb"><span class="num">3</span></label>
+          <label><input type="radio" name="sb"><span class="num">4</span></label>
+          <label><input type="radio" name="sb"><span class="num">5</span></label>
+          <label><input type="radio" name="sb"><span class="num">6</span></label>
+          <label><input type="radio" name="sb"><span class="num">7</span></label>
+          <label><input type="radio" name="sb"><span class="num">8</span></label>
+        </div>
+        <textarea></textarea>
+      </div>
+      <div class="eval-col">
+        <div class="eval-col-title">멘토 평가</div>
+        <div class="score-row">
+          <label><input type="radio" name="mb"><span class="num">0</span></label>
+          <label><input type="radio" name="mb"><span class="num">1</span></label>
+          <label><input type="radio" name="mb"><span class="num">2</span></label>
+          <label><input type="radio" name="mb"><span class="num">3</span></label>
+          <label><input type="radio" name="mb"><span class="num">4</span></label>
+          <label><input type="radio" name="mb"><span class="num">5</span></label>
+          <label><input type="radio" name="mb"><span class="num">6</span></label>
+          <label><input type="radio" name="mb"><span class="num">7</span></label>
+          <label><input type="radio" name="mb"><span class="num">8</span></label>
+        </div>
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="crit-block">
+    <div class="crit-header">
+      <div class="crit-letter">C</div>
+      <div class="crit-title">실행 <span class="en">Taking Action</span></div>
+    </div>
+    <div class="eval-grid">
+      <div class="eval-col">
+        <div class="eval-col-title">학생 자기평가</div>
+        <div class="score-row">
+          <label><input type="radio" name="sc"><span class="num">0</span></label>
+          <label><input type="radio" name="sc"><span class="num">1</span></label>
+          <label><input type="radio" name="sc"><span class="num">2</span></label>
+          <label><input type="radio" name="sc"><span class="num">3</span></label>
+          <label><input type="radio" name="sc"><span class="num">4</span></label>
+          <label><input type="radio" name="sc"><span class="num">5</span></label>
+          <label><input type="radio" name="sc"><span class="num">6</span></label>
+          <label><input type="radio" name="sc"><span class="num">7</span></label>
+          <label><input type="radio" name="sc"><span class="num">8</span></label>
+        </div>
+        <textarea></textarea>
+      </div>
+      <div class="eval-col">
+        <div class="eval-col-title">멘토 평가</div>
+        <div class="score-row">
+          <label><input type="radio" name="mc"><span class="num">0</span></label>
+          <label><input type="radio" name="mc"><span class="num">1</span></label>
+          <label><input type="radio" name="mc"><span class="num">2</span></label>
+          <label><input type="radio" name="mc"><span class="num">3</span></label>
+          <label><input type="radio" name="mc"><span class="num">4</span></label>
+          <label><input type="radio" name="mc"><span class="num">5</span></label>
+          <label><input type="radio" name="mc"><span class="num">6</span></label>
+          <label><input type="radio" name="mc"><span class="num">7</span></label>
+          <label><input type="radio" name="mc"><span class="num">8</span></label>
+        </div>
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="crit-block">
+    <div class="crit-header">
+      <div class="crit-letter">D</div>
+      <div class="crit-title">성찰 <span class="en">Reflecting</span></div>
+    </div>
+    <div class="eval-grid">
+      <div class="eval-col">
+        <div class="eval-col-title">학생 자기평가</div>
+        <div class="score-row">
+          <label><input type="radio" name="sd"><span class="num">0</span></label>
+          <label><input type="radio" name="sd"><span class="num">1</span></label>
+          <label><input type="radio" name="sd"><span class="num">2</span></label>
+          <label><input type="radio" name="sd"><span class="num">3</span></label>
+          <label><input type="radio" name="sd"><span class="num">4</span></label>
+          <label><input type="radio" name="sd"><span class="num">5</span></label>
+          <label><input type="radio" name="sd"><span class="num">6</span></label>
+          <label><input type="radio" name="sd"><span class="num">7</span></label>
+          <label><input type="radio" name="sd"><span class="num">8</span></label>
+        </div>
+        <textarea></textarea>
+      </div>
+      <div class="eval-col">
+        <div class="eval-col-title">멘토 평가</div>
+        <div class="score-row">
+          <label><input type="radio" name="md"><span class="num">0</span></label>
+          <label><input type="radio" name="md"><span class="num">1</span></label>
+          <label><input type="radio" name="md"><span class="num">2</span></label>
+          <label><input type="radio" name="md"><span class="num">3</span></label>
+          <label><input type="radio" name="md"><span class="num">4</span></label>
+          <label><input type="radio" name="md"><span class="num">5</span></label>
+          <label><input type="radio" name="md"><span class="num">6</span></label>
+          <label><input type="radio" name="md"><span class="num">7</span></label>
+          <label><input type="radio" name="md"><span class="num">8</span></label>
+        </div>
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-block">
+    <div class="summary-row">
+      <div><label>학생 자기 합산 (0~32)</label><input type="text" placeholder="?"></div>
+      <div><label>멘토 합산 (0~32)</label><input type="text" placeholder="?"></div>
+    </div>
+    <div class="summary-row">
+      <div><label>최종 합산 (협의 결과)</label><input type="text"></div>
+      <div><label>최종 등급 (1~7)</label><input type="text"></div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">학생 종합 소감</div>
+    <div class="form-field-hint">이 프로젝트가 나에게 어떤 의미였는지.</div>
+    <textarea placeholder="3년 MYP를 마무리하는 마음으로 솔직하게."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">멘토 종합 의견</div>
+    <textarea placeholder="멘토 교사가 작성."></textarea>
+  </div>
+
+  <div class="signature-block">
+    <div class="signature-row">
+      <div><label>학생 서명</label><input type="text"></div>
+      <div><label>멘토 서명</label><input type="text"></div>
+      <div><label>날짜</label><input type="text" placeholder="__/__"></div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 양식이 자녀의 <strong>3년 MYP 학습의 공식 마무리</strong>예요. 학생 자기 점수와 멘토 점수의 차이를 보면 자녀의 자기 인식이 보입니다. 너무 높지도 낮지도 않은, 정확한 자기 평가가 가장 좋은 신호예요. 졸업 후에도 이 양식 한 장을 잘 간직하시면 자녀가 평생 들여다볼 수 있는 기록이 됩니다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

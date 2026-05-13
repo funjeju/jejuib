@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공동체 프로젝트 보고서 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 3px solid var(--coral); border-radius: 0 8px 8px 0; margin-bottom: 22px; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+.project-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.project-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.project-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.project-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.section-title { font-size: 13px; font-weight: 700; color: var(--coral-dark); letter-spacing: 0.05em; margin: 22px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--line); text-transform: uppercase; }
+.report-block { padding: 14px 18px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; }
+.report-block-title { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.report-letter { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--coral); color: white; border-radius: 50%; font-weight: 700; font-size: 12px; }
+.report-name { font-size: 13.5px; font-weight: 600; }
+.report-name .en { font-size: 11px; color: var(--muted); font-weight: 400; margin-left: 4px; }
+.report-content textarea { width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 6px; font-size: 12.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 70px; }
+.report-content textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.report-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 6px; line-height: 1.5; }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea, .form-field input[type="text"] { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; }
+.form-field textarea { min-height: 55px; }
+.form-field textarea:focus, .form-field input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.presentation-block { padding: 14px 18px; background: var(--bg); border-radius: 8px; margin-top: 14px; }
+.presentation-row { display: grid; grid-template-columns: 100px 1fr; gap: 12px; align-items: center; margin-bottom: 6px; }
+.presentation-row label { font-size: 12px; color: var(--text-soft); font-weight: 500; }
+.presentation-row input { padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 12.5px; font-family: inherit; background: var(--surface); }
+.presentation-row input:focus { outline: none; border-color: var(--coral); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .report-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .project-info { grid-template-columns: 1fr; } .presentation-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">MYP 최종 학년 · 양식 29</div>
+    <h1 class="form-title">공동체 프로젝트 보고서 · 발표</h1>
+    <div class="form-title-en">Community Project Report &amp; Presentation</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">프로젝트 종료 단계. 발표회 1~2주 전.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">4개 평가 기준(A~D)에 따라 프로젝트의 모든 단계를 정리합니다.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>최종 보고서 구조.</strong> 공동체 프로젝트는 IBO 공식 4개 기준 — 조사(A), 계획(B), 실행(C), 성찰(D) — 으로 평가돼요. 보고서도 같은 4개 섹션으로 구성됩니다. <strong>각 섹션이 평가 기준 그 자체</strong>예요. 길이는 짧아도 4개 모두 포함되어야 합니다.
+  </div>
+
+  <div class="project-info">
+    <div><label>프로젝트 제목</label><input type="text" placeholder="예: 동네 노인정 디지털 교육 봉사"></div>
+    <div><label>제출일</label><input type="text" placeholder="2026 . __ . __"></div>
+    <div><label>발표일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="section-title">보고서 4섹션 — 평가 기준에 매핑</div>
+
+  <div class="report-block">
+    <div class="report-block-title">
+      <div class="report-letter">A</div>
+      <div class="report-name">조사 <span class="en">Investigating</span></div>
+    </div>
+    <div class="report-hint">목표·세계적 맥락·관련 지식의 사전 학습을 정리. (왜 이 주제? 무엇을 알았나?)</div>
+    <div class="report-content">
+      <textarea placeholder="문제의 배경, 조사한 자료, 발견한 사실들."></textarea>
+    </div>
+  </div>
+
+  <div class="report-block">
+    <div class="report-block-title">
+      <div class="report-letter">B</div>
+      <div class="report-name">계획 <span class="en">Planning</span></div>
+    </div>
+    <div class="report-hint">실행 계획과 성공 기준을 어떻게 세웠나. 자기관리 기술이 어떻게 발휘됐나.</div>
+    <div class="report-content">
+      <textarea placeholder="구체적 계획 단계와 일정. 어떻게 시간·자원을 관리했나."></textarea>
+    </div>
+  </div>
+
+  <div class="report-block">
+    <div class="report-block-title">
+      <div class="report-letter">C</div>
+      <div class="report-name">실행 <span class="en">Taking Action</span></div>
+    </div>
+    <div class="report-hint">실제로 어떤 행동을 했나. 사고력·소통·사회성이 어떻게 발휘됐나.</div>
+    <div class="report-content">
+      <textarea placeholder="실제로 한 일, 만난 사람, 해결한 문제."></textarea>
+    </div>
+  </div>
+
+  <div class="report-block">
+    <div class="report-block-title">
+      <div class="report-letter">D</div>
+      <div class="report-name">성찰 <span class="en">Reflecting</span></div>
+    </div>
+    <div class="report-hint">목표 달성 여부 + 학습자상·ATL의 성장 + 다음 학습 의지.</div>
+    <div class="report-content">
+      <textarea placeholder="결과 평가 + 나는 어떻게 자랐나 + 앞으로 어떻게 살아갈까."></textarea>
+    </div>
+  </div>
+
+  <div class="section-title">발표회 준비</div>
+
+  <div class="form-field">
+    <div class="form-field-label">발표 핵심 메시지 (1~2문장)</div>
+    <div class="form-field-hint">청중이 "한 가지만 기억한다면" 무엇이 됐으면 좋겠나.</div>
+    <textarea placeholder="예: 작은 한 사람의 시도가 동네 어르신 12명의 일상을 바꿨다."></textarea>
+  </div>
+
+  <div class="presentation-block">
+    <div class="presentation-row">
+      <label>발표 시간</label>
+      <input type="text" placeholder="예: 7분 + Q&A 3분">
+    </div>
+    <div class="presentation-row">
+      <label>발표 자료 형식</label>
+      <input type="text" placeholder="예: 슬라이드 + 영상 + 책자">
+    </div>
+    <div class="presentation-row">
+      <label>시연 · 전시물</label>
+      <input type="text" placeholder="예: 실제 제작한 안내 책자, 활동 사진 패널">
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">예상 질문과 답변 준비</div>
+    <textarea placeholder="청중이 던질 가능성이 높은 질문 2~3개와 답변 핵심."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 공동체 프로젝트 발표회는 자녀가 학교에서 처음 경험하는 <strong>"공식 발표"</strong>예요. 가족이 와서 봐주는 자리이기도 하고요. 자녀가 부담스러워하면 가정에서 미리 들어주세요. "엄마/아빠한테 발표하듯 한번 해보자"가 가장 좋은 연습이에요. 자녀에게 평생 기억될 자리예요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

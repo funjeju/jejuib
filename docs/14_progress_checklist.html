@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>진행 단계별 체크리스트 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.task-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.task-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.task-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.task-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.stage-block { padding: 16px 20px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; transition: background 0.2s; }
+.stage-block:has(.stage-check:checked) { background: var(--coral-pale); border-color: var(--coral); }
+.stage-header { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.stage-check { width: 22px; height: 22px; accent-color: var(--coral); cursor: pointer; flex-shrink: 0; }
+.stage-num { font-size: 11px; font-weight: 600; color: var(--coral); letter-spacing: 0.08em; }
+.stage-title { font-size: 14.5px; font-weight: 600; flex: 1; }
+.stage-due { font-size: 12px; color: var(--muted); }
+.stage-due input { padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; font-family: inherit; background: var(--bg); width: 100px; }
+.stage-due input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.stage-task { font-size: 12.5px; color: var(--text-soft); margin-bottom: 8px; padding-left: 36px; }
+.stage-task input { width: 100%; padding: 6px 8px; border: 1px dashed var(--line); border-radius: 6px; font-size: 12.5px; font-family: inherit; background: transparent; }
+.stage-task input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.stage-notes { padding-left: 36px; }
+.stage-notes label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 3px; font-weight: 500; }
+.stage-notes textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 12.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.5; min-height: 35px; }
+.stage-notes textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.add-stage-hint { font-size: 11.5px; color: var(--muted); text-align: center; margin-top: 14px; font-style: italic; }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .stage-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .task-info { grid-template-columns: 1fr; } .stage-task, .stage-notes { padding-left: 0; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 진행 중 · 양식 14</div>
+    <h1 class="form-title">진행 단계별 체크리스트</h1>
+    <div class="form-title-en">Progress Checklist</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">큰 과제 시작 시 단계를 짜고, 진행하면서 단계별로 체크.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">큰 과제를 작은 단계로 쪼개 마감 임박해서 허둥대는 일을 막습니다.</div>
+    </div>
+  </div>
+
+  <div class="task-info">
+    <div><label>과제명</label><input type="text" placeholder="예: 기상 시스템 분석 보고서"></div>
+    <div><label>교과</label><input type="text" placeholder="예: 과학"></div>
+    <div><label>최종 마감일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="stage-block">
+    <div class="stage-header">
+      <input type="checkbox" class="stage-check">
+      <span class="stage-num">단계 01</span>
+      <span class="stage-title">자료 조사</span>
+      <span class="stage-due">목표일: <input type="text" placeholder="__/__"></span>
+    </div>
+    <div class="stage-task"><input type="text" placeholder="이 단계의 구체적 할 일 (예: 신뢰할 만한 자료 5개 이상 모으기)"></div>
+    <div class="stage-notes">
+      <label>완료 후 메모 / 막혔다면 어디가</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="stage-block">
+    <div class="stage-header">
+      <input type="checkbox" class="stage-check">
+      <span class="stage-num">단계 02</span>
+      <span class="stage-title">구조 짜기 · 개요 작성</span>
+      <span class="stage-due">목표일: <input type="text" placeholder="__/__"></span>
+    </div>
+    <div class="stage-task"><input type="text" placeholder="이 단계의 구체적 할 일"></div>
+    <div class="stage-notes">
+      <label>완료 후 메모</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="stage-block">
+    <div class="stage-header">
+      <input type="checkbox" class="stage-check">
+      <span class="stage-num">단계 03</span>
+      <span class="stage-title">1차 초안 작성</span>
+      <span class="stage-due">목표일: <input type="text" placeholder="__/__"></span>
+    </div>
+    <div class="stage-task"><input type="text" placeholder="이 단계의 구체적 할 일"></div>
+    <div class="stage-notes">
+      <label>완료 후 메모</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="stage-block">
+    <div class="stage-header">
+      <input type="checkbox" class="stage-check">
+      <span class="stage-num">단계 04</span>
+      <span class="stage-title">피드백 받기 · 수정</span>
+      <span class="stage-due">목표일: <input type="text" placeholder="__/__"></span>
+    </div>
+    <div class="stage-task"><input type="text" placeholder="이 단계의 구체적 할 일 (예: 선생님·친구에게 검토 받기)"></div>
+    <div class="stage-notes">
+      <label>받은 피드백 핵심</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="stage-block">
+    <div class="stage-header">
+      <input type="checkbox" class="stage-check">
+      <span class="stage-num">단계 05</span>
+      <span class="stage-title">최종 검토 · 제출</span>
+      <span class="stage-due">목표일: <input type="text" placeholder="__/__"></span>
+    </div>
+    <div class="stage-task"><input type="text" placeholder="이 단계의 구체적 할 일 (예: 출처 표기 점검, 학업 정직성 서약 작성)"></div>
+    <div class="stage-notes">
+      <label>제출 후 한 줄 소감</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="add-stage-hint">필요하면 인쇄 후 손으로 단계를 추가하거나 줄여서 쓰세요.</div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 양식은 ATL의 <strong>자기관리 기술</strong>을 키우는 핵심 도구예요. 큰 일을 작은 단계로 쪼개는 습관이 평생을 갑니다. 자녀가 단계를 너무 크게 잡았거나 마감을 비현실적으로 잡았으면 같이 다시 짜보세요. "단계가 너무 큰 것 같아, 더 잘게 쪼개볼까?"가 좋은 코칭이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

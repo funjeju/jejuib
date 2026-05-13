@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATL 진행 추적 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.student-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.legend-row { display: flex; gap: 8px; margin-bottom: 18px; padding: 10px 14px; background: var(--bg); border-radius: 8px; font-size: 11.5px; }
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.legend-dot { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: var(--coral); color: white; font-size: 10px; font-weight: 700; }
+.category-block { margin-bottom: 16px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 10px; }
+.category-title { font-size: 14px; font-weight: 700; color: var(--coral-dark); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.skill-row { display: grid; grid-template-columns: 1fr 200px; gap: 14px; align-items: center; padding: 8px 4px; }
+.skill-row:not(:last-child) { border-bottom: 1px dashed var(--line); }
+.skill-name { font-size: 12.5px; color: var(--text); }
+.level-scale { display: flex; gap: 4px; justify-content: flex-end; }
+.level-scale label { cursor: pointer; position: relative; }
+.level-scale label .lev { display: flex; align-items: center; justify-content: center; min-width: 44px; padding: 3px 6px; border: 1px solid var(--line); border-radius: 6px; font-size: 10.5px; color: var(--text-soft); transition: all 0.15s; }
+.level-scale input { position: absolute; opacity: 0; }
+.level-scale input:checked + .lev { background: var(--coral); color: white; border-color: var(--coral); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 55px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .category-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info, .two-col { grid-template-columns: 1fr; } .skill-row { grid-template-columns: 1fr; } .level-scale { justify-content: flex-start; flex-wrap: wrap; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">학기 누적 · 양식 21</div>
+    <h1 class="form-title">ATL 진행 추적</h1>
+    <div class="form-title-en">ATL Progression Tracker</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">학기 시작·중간·말 3회. 같은 양식을 학기마다 누적 비교.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">학습 기술의 성장을 세부 항목 단위로 추적합니다.</div>
+    </div>
+  </div>
+
+  <div class="student-info">
+    <div><label>이름</label><input type="text"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>작성 시점</label><input type="text" placeholder="2026 1학기 초/중/말"></div>
+  </div>
+
+  <div class="legend-row">
+    <div class="legend-item"><span class="legend-dot">1</span> 초보</div>
+    <div class="legend-item"><span class="legend-dot">2</span> 익숙해짐</div>
+    <div class="legend-item"><span class="legend-dot">3</span> 능숙함</div>
+    <div class="legend-item"><span class="legend-dot">4</span> 가르칠 수 있음</div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-title">의사소통 (Communication)</div>
+    <div class="skill-row">
+      <div class="skill-name">자기 생각을 글로 명확히 표현</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c1-1"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c1-1"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c1-1"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c1-1"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">청중에 맞게 발표 · 말하기</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c1-2"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c1-2"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c1-2"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c1-2"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">다른 사람의 말 정확히 듣기 · 이해</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c1-3"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c1-3"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c1-3"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c1-3"><span class="lev">전수</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-title">사회성 (Social)</div>
+    <div class="skill-row">
+      <div class="skill-name">모둠에서 협력하기</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c2-1"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c2-1"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c2-1"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c2-1"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">갈등 건설적으로 해결</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c2-2"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c2-2"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c2-2"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c2-2"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">리더 역할 맡기 · 양보하기</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c2-3"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c2-3"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c2-3"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c2-3"><span class="lev">전수</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-title">자기관리 (Self-management)</div>
+    <div class="skill-row">
+      <div class="skill-name">시간 관리 · 마감 지키기</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c3-1"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c3-1"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c3-1"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c3-1"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">감정·스트레스 조절</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c3-2"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c3-2"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c3-2"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c3-2"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">실패 후 회복 · 다시 시도</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c3-3"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c3-3"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c3-3"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c3-3"><span class="lev">전수</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-title">연구 (Research)</div>
+    <div class="skill-row">
+      <div class="skill-name">신뢰할 만한 자료 찾기</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c4-1"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c4-1"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c4-1"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c4-1"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">출처 정확히 표기 · 인용</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c4-2"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c4-2"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c4-2"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c4-2"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">자료 신뢰도 평가</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c4-3"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c4-3"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c4-3"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c4-3"><span class="lev">전수</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-title">사고력 (Thinking)</div>
+    <div class="skill-row">
+      <div class="skill-name">비판적으로 따져 묻기</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c5-1"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c5-1"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c5-1"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c5-1"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">창의적 해결책 만들기</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c5-2"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c5-2"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c5-2"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c5-2"><span class="lev">전수</span></label>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-name">배운 것을 다른 상황에 적용</div>
+      <div class="level-scale">
+        <label><input type="radio" name="c5-3"><span class="lev">초보</span></label>
+        <label><input type="radio" name="c5-3"><span class="lev">익숙</span></label>
+        <label><input type="radio" name="c5-3"><span class="lev">능숙</span></label>
+        <label><input type="radio" name="c5-3"><span class="lev">전수</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">이 기간 가장 자란 기술 1~2개</div>
+      <textarea placeholder="구체적 경험과 함께 적어보세요."></textarea>
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">다음 학기 집중 키울 기술</div>
+      <textarea placeholder="아직 부족한 영역과 어떻게 키울지."></textarea>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 양식은 학기마다 같은 항목을 다시 채우게 되어 있어요. 학기 초·중·말 3장을 모아서 보면 <strong>자녀의 학습 기술이 어떻게 자라는지 시각적으로</strong> 보여요. 어떤 영역이 빨리 자라고 어떤 영역이 정체돼 있는지 한눈에 보이는, 보기 드문 자료예요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

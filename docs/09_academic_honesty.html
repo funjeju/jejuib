@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학업 정직성 서약서 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 720px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.star-badge { display: inline-block; padding: 2px 8px; background: var(--coral); color: white; border-radius: 100px; font-size: 10px; letter-spacing: 0; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.warning-box { padding: 14px 18px; background: var(--coral-pale); border-left: 3px solid var(--coral-dark); border-radius: 0 8px 8px 0; margin-bottom: 28px; font-size: 13px; color: var(--text); line-height: 1.65; }
+.warning-box strong { color: var(--coral-dark); font-weight: 700; }
+.task-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+.task-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.task-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.task-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.declaration-title { font-size: 14px; font-weight: 700; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); color: var(--coral-dark); letter-spacing: 0.02em; }
+.checklist { margin-bottom: 24px; }
+.check-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--line); align-items: flex-start; }
+.check-item:last-child { border-bottom: none; }
+.check-item input[type="checkbox"] { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--coral); cursor: pointer; flex-shrink: 0; }
+.check-item .check-content { flex: 1; }
+.check-item .check-content strong { font-size: 13.5px; font-weight: 600; display: block; margin-bottom: 2px; }
+.check-item .check-content .desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.notes-block { margin-bottom: 26px; }
+.notes-block label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 4px; }
+.notes-block .hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.notes-block textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 55px; }
+.notes-block textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.signature-block { padding: 18px 22px; background: var(--bg); border: 2px solid var(--coral); border-radius: 10px; }
+.signature-statement { font-size: 13px; color: var(--text); line-height: 1.65; margin-bottom: 14px; }
+.signature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.signature-row label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.signature-row input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--coral-dark); font-size: 14px; font-family: inherit; background: transparent; }
+.signature-row input:focus { outline: none; }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .task-info, .signature-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 종료 시 · 양식 09 <span class="star-badge">★ 핵심</span></div>
+    <h1 class="form-title">학업 정직성 서약서</h1>
+    <div class="form-title-en">Academic Honesty Declaration</div>
+  </div>
+
+  <div class="warning-box">
+    IB는 학업 정직성을 <strong>가장 엄격하게</strong> 다룹니다. 표절·무단 AI 사용·다른 사람의 작업을 자기 것으로 제출하는 행위는 단원 점수 무효를 넘어 <strong>IB 디플로마 박탈</strong>까지 갈 수 있어요. 이 서약은 형식이 아니라 자기 학습에 대한 책임을 약속하는 행위입니다.
+  </div>
+
+  <div class="task-info">
+    <div><label>과제명</label><input type="text" placeholder="예: 기상 시스템 분석 보고서"></div>
+    <div><label>교과</label><input type="text" placeholder="예: 과학"></div>
+    <div><label>제출일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="declaration-title">다음 항목을 모두 확인하고 체크합니다</div>
+
+  <div class="checklist">
+    <label class="check-item">
+      <input type="checkbox">
+      <div class="check-content">
+        <strong>직접 작성</strong>
+        <div class="desc">이 결과물은 나 스스로 생각하고, 작성하고, 만들었습니다.</div>
+      </div>
+    </label>
+
+    <label class="check-item">
+      <input type="checkbox">
+      <div class="check-content">
+        <strong>표절 없음</strong>
+        <div class="desc">다른 사람의 글·아이디어·작품을 출처 표기 없이 가져오지 않았습니다.</div>
+      </div>
+    </label>
+
+    <label class="check-item">
+      <input type="checkbox">
+      <div class="check-content">
+        <strong>출처 표기</strong>
+        <div class="desc">참고한 모든 자료(책·웹사이트·논문·영상·인터뷰 등)의 출처를 정확히 표기했습니다.</div>
+      </div>
+    </label>
+
+    <label class="check-item">
+      <input type="checkbox">
+      <div class="check-content">
+        <strong>AI 도구 사용 명시</strong>
+        <div class="desc">AI(ChatGPT, Claude 등)를 사용한 경우, 어떤 부분에 어떻게 사용했는지 아래에 명시했습니다.</div>
+      </div>
+    </label>
+
+    <label class="check-item">
+      <input type="checkbox">
+      <div class="check-content">
+        <strong>도움받은 부분 명시</strong>
+        <div class="desc">친구·가족·튜터 등 다른 사람에게 도움받은 부분이 있다면 아래에 명시했습니다.</div>
+      </div>
+    </label>
+
+    <label class="check-item">
+      <input type="checkbox">
+      <div class="check-content">
+        <strong>중복 제출 없음</strong>
+        <div class="desc">이 결과물을 다른 교과·다른 평가에 같은 형태로 제출한 적이 없습니다.</div>
+      </div>
+    </label>
+  </div>
+
+  <div class="notes-block">
+    <label>AI 도구 사용 내역 (해당 시)</label>
+    <div class="hint">어떤 도구를, 어떤 단계에서, 어떤 식으로 사용했는지 정직하게 적으세요.</div>
+    <textarea placeholder="예: 자료 조사 단계에서 ChatGPT에게 기후 변화 관련 자료의 출처를 추천받았음. AI가 제시한 자료의 신뢰성은 직접 확인했음."></textarea>
+  </div>
+
+  <div class="notes-block">
+    <label>도움받은 부분 (해당 시)</label>
+    <div class="hint">누구에게 어떤 도움을 받았는지 간단히 기록하세요.</div>
+    <textarea placeholder="예: 누나에게 그래프 그리는 엑셀 사용법을 배웠음. 결과 해석은 직접 했음."></textarea>
+  </div>
+
+  <div class="signature-block">
+    <div class="signature-statement">
+      위 사항을 모두 확인했으며, 이 결과물은 나의 진실한 노력의 결과임을 약속합니다. 이 서약이 거짓일 경우 IB의 학업 정직성 규정에 따라 책임을 지겠습니다.
+    </div>
+    <div class="signature-row">
+      <div>
+        <label>학생 이름 (서명)</label>
+        <input type="text">
+      </div>
+      <div>
+        <label>날짜</label>
+        <input type="text" placeholder="2026 . __ . __">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모. ★ 매우 중요한 양식이에요.</strong> IB의 학업 정직성은 한국 일반 학교보다 훨씬 엄격해요. 자녀가 AI 사용·친구 도움을 솔직히 적도록 격려해주세요. <strong>"도움받지 마"가 아니라 "받았으면 정직하게 적어"</strong>가 IB 정신이에요. 정직한 학습 습관이 평생을 갑니다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

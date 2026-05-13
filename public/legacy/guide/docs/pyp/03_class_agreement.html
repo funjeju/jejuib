@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우리 반 헌법 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.class-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 26px; }
+.class-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.class-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.class-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.preamble { padding: 18px 22px; background: var(--bg); border: 2px solid var(--coral-light); border-radius: 12px; margin-bottom: 22px; text-align: center; font-size: 15px; line-height: 1.8; }
+.preamble-title { font-size: 13px; font-weight: 700; color: var(--coral-dark); letter-spacing: 0.1em; margin-bottom: 6px; text-transform: uppercase; }
+
+.agreement-list { margin-bottom: 22px; }
+.agreement-item { padding: 14px 18px; border: 2px solid var(--line); border-radius: 12px; margin-bottom: 10px; }
+.agreement-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.agreement-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 50%; font-weight: 700; font-size: 15px; flex-shrink: 0; }
+.agreement-title { font-size: 14px; font-weight: 600; flex: 1; }
+.agreement-title input { width: 100%; padding: 6px 0; border: none; border-bottom: 1px solid var(--text); font-size: 14.5px; font-family: inherit; background: transparent; font-weight: 600; }
+.agreement-title input:focus { outline: none; border-bottom-color: var(--coral); }
+.agreement-detail { padding-left: 44px; }
+.agreement-detail label { display: block; font-size: 12px; color: var(--text-soft); margin-bottom: 4px; font-weight: 500; }
+.agreement-detail textarea { width: 100%; padding: 8px 11px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 40px; }
+.agreement-detail textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.example-block { padding: 12px 16px; background: var(--coral-pale); border-radius: 8px; margin-bottom: 14px; font-size: 13px; color: var(--text-soft); }
+.example-block strong { color: var(--coral-dark); }
+
+.signature-block { padding: 18px 22px; background: var(--bg); border: 2px solid var(--coral); border-radius: 12px; margin-top: 20px; }
+.signature-statement { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 14px; text-align: center; font-weight: 500; }
+.signature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.signature-row > div label { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.signature-row > div input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--coral-dark); font-size: 14px; font-family: inherit; background: transparent; }
+.signature-row > div input:focus { outline: none; }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .agreement-item { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .class-info, .signature-row { grid-template-columns: 1fr; } .agreement-detail { padding-left: 0; margin-top: 8px; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">학년 초 · 양식 03 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">우리 반 헌법 📜</h1>
+    <div class="form-title-en">Essential Agreements</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">새 학년 첫 1~2주. 반 전체가 함께 토론하며 정합니다.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">선생님이 정한 규칙이 아니라, 우리가 함께 만든 약속이에요.</div>
+    </div>
+  </div>
+
+  <div class="class-info">
+    <div><label>반</label><input type="text" placeholder="예: 4학년 3반"></div>
+    <div><label>담임 선생님</label><input type="text"></div>
+    <div><label>작성일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Essential Agreements는 PYP의 시그니처예요.</strong> 일방적인 규칙이 아니라, 우리 반이 어떤 곳이 되었으면 좋겠는지 <strong>친구들과 함께 토론해서 만든 약속</strong>이에요. "우리는 ~합니다" 형식으로 적어요.
+  </div>
+
+  <div class="preamble">
+    <div class="preamble-title">우리 반의 약속</div>
+    우리는 모두 다르지만, 함께 행복하게 배우고 싶어요.<br>
+    그래서 우리는 다음과 같이 약속합니다.
+  </div>
+
+  <div class="example-block">
+    <strong>💡 약속 만들기 예시.</strong> "조용히 하자" (X) → <strong>"우리는 친구가 말할 때 끝까지 들어요"</strong> (O). 부정형보다 우리가 <strong>지킬 행동</strong>으로 적어요.
+  </div>
+
+  <div class="agreement-list">
+    <div class="agreement-item">
+      <div class="agreement-header">
+        <div class="agreement-num">1</div>
+        <div class="agreement-title"><input type="text" placeholder="우리는 ____ 합니다"></div>
+      </div>
+      <div class="agreement-detail">
+        <label>왜 이 약속이 필요한가요?</label>
+        <textarea placeholder="이 약속이 우리 반에 어떤 도움이 될지."></textarea>
+      </div>
+    </div>
+
+    <div class="agreement-item">
+      <div class="agreement-header">
+        <div class="agreement-num">2</div>
+        <div class="agreement-title"><input type="text" placeholder="우리는 ____ 합니다"></div>
+      </div>
+      <div class="agreement-detail">
+        <label>왜 이 약속이 필요한가요?</label>
+        <textarea></textarea>
+      </div>
+    </div>
+
+    <div class="agreement-item">
+      <div class="agreement-header">
+        <div class="agreement-num">3</div>
+        <div class="agreement-title"><input type="text" placeholder="우리는 ____ 합니다"></div>
+      </div>
+      <div class="agreement-detail">
+        <label>왜 이 약속이 필요한가요?</label>
+        <textarea></textarea>
+      </div>
+    </div>
+
+    <div class="agreement-item">
+      <div class="agreement-header">
+        <div class="agreement-num">4</div>
+        <div class="agreement-title"><input type="text" placeholder="우리는 ____ 합니다"></div>
+      </div>
+      <div class="agreement-detail">
+        <label>왜 이 약속이 필요한가요?</label>
+        <textarea></textarea>
+      </div>
+    </div>
+
+    <div class="agreement-item">
+      <div class="agreement-header">
+        <div class="agreement-num">5</div>
+        <div class="agreement-title"><input type="text" placeholder="우리는 ____ 합니다"></div>
+      </div>
+      <div class="agreement-detail">
+        <label>왜 이 약속이 필요한가요?</label>
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="signature-block">
+    <div class="signature-statement">
+      우리는 이 약속을 함께 만들었고, 함께 지킬 것을 다짐합니다.
+    </div>
+    <div class="signature-row">
+      <div>
+        <label>내 이름 (서명)</label>
+        <input type="text">
+      </div>
+      <div>
+        <label>다짐한 날</label>
+        <input type="text" placeholder="2026 . __ . __">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> Essential Agreements는 자녀가 학교에서 처음 경험하는 <strong>"민주주의"</strong>예요. 어른이 정해준 규칙을 따르는 것이 아니라, 자기들이 토론해서 만들고 책임지는 거죠. 자녀가 집에 와서 "오늘 우리 반 약속 만들었어"라고 하면 "어떤 약속? 왜 그게 필요하다고 생각했어?"라고 물어봐주세요. 자녀가 공동체 구성원으로 자라는 모습이 보입니다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

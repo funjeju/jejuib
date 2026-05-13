@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SA 계획서 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 3px solid var(--coral); border-radius: 0 8px 8px 0; margin-bottom: 22px; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.student-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea, .form-field input[type="text"] { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; }
+.form-field textarea { min-height: 60px; }
+.form-field textarea:focus, .form-field input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.service-type { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 6px; }
+.type-check { padding: 10px 8px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.15s; }
+.type-check input { display: none; }
+.type-check:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); }
+.type-name { font-size: 12.5px; font-weight: 600; color: var(--text); display: block; margin-bottom: 2px; }
+.type-desc { font-size: 10.5px; color: var(--muted); display: block; line-height: 1.4; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.signature-block { padding: 16px 20px; background: var(--bg); border: 1px dashed var(--line); border-radius: 8px; margin-top: 22px; }
+.signature-statement { font-size: 12.5px; color: var(--text-soft); line-height: 1.65; margin-bottom: 12px; }
+.signature-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.signature-row > div label { display: block; font-size: 10.5px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.signature-row > div input { width: 100%; padding: 6px 0; border: none; border-bottom: 1px solid var(--text); font-size: 13px; font-family: inherit; background: transparent; }
+.signature-row > div input:focus { outline: none; border-bottom-color: var(--coral); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info, .two-col, .signature-row { grid-template-columns: 1fr; } .service-type { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">봉사 활동 시작 전 · 양식 18</div>
+    <h1 class="form-title">SA 계획서</h1>
+    <div class="form-title-en">Service as Action Proposal</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">봉사·실천 활동 시작 전. 선생님 사전 승인용.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">계획성 있는 봉사가 되도록 사전에 목표·방법을 정합니다.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Service as Action(SA)이란?</strong> 단순한 봉사 시간 채우기가 아니에요. <strong>사회적 문제를 인식하고, 작은 행동으로 변화를 만들어보는</strong> 활동입니다. 학교 청소부터 동네 봉사, 캠페인까지 다양한 형태가 가능해요. 중요한 건 "왜 이걸 하는가"가 명확한지예요.
+  </div>
+
+  <div class="student-info">
+    <div><label>이름</label><input type="text"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>제출일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">활동명</div>
+    <input type="text" placeholder="예: 우리 학교 분리수거 캠페인">
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">활동 유형 (해당하는 것에 체크)</div>
+    <div class="service-type">
+      <label class="type-check">
+        <input type="checkbox">
+        <span class="type-name">직접 봉사</span>
+        <span class="type-desc">사람·환경과 직접 접촉</span>
+      </label>
+      <label class="type-check">
+        <input type="checkbox">
+        <span class="type-name">간접 봉사</span>
+        <span class="type-desc">받는 이를 직접 만나지 않음</span>
+      </label>
+      <label class="type-check">
+        <input type="checkbox">
+        <span class="type-name">옹호 활동</span>
+        <span class="type-desc">캠페인·공익 알리기</span>
+      </label>
+      <label class="type-check">
+        <input type="checkbox">
+        <span class="type-name">연구 활동</span>
+        <span class="type-desc">조사로 변화 만들기</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">해결하고 싶은 사회 문제 / 도움이 필요한 대상</div>
+    <div class="form-field-hint">"왜 이게 문제인가"를 한두 문장으로 설명해주세요.</div>
+    <textarea placeholder="예: 우리 학교 분리수거가 제대로 안 되고 있어서, 재활용될 자원이 일반 쓰레기로 처리되는 일이 많다. 친구들이 분리수거 방법을 잘 모르는 경우도 많다."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">활동 목표</div>
+    <div class="form-field-hint">측정 가능한 구체적 목표가 좋아요.</div>
+    <textarea placeholder="예: 한 달 동안 분리수거 안내 포스터 5장 제작·게시. 점심시간마다 3일씩 분리수거 도우미 활동. 사전·사후 분리수거 정확도 비교."></textarea>
+  </div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">활동 기간</div>
+      <input type="text" placeholder="예: 2026 5월 1일 ~ 5월 31일">
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">함께 활동할 사람 (있다면)</div>
+      <input type="text" placeholder="예: 같은 반 김OO, 이OO">
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">활동 계획 — 무엇을 / 언제 / 어떻게</div>
+    <textarea placeholder="예: 1주차 - 학교 분리수거 현황 조사. 2주차 - 포스터 디자인·제작. 3주차 - 게시 및 점심시간 도우미. 4주차 - 결과 점검 및 보고."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 활동으로 키워질 학습자상·ATL 기술</div>
+    <textarea placeholder="예: Caring — 학교 공동체에 대한 책임감. Communication — 친구들에게 분리수거의 의미 전달."></textarea>
+  </div>
+
+  <div class="signature-block">
+    <div class="signature-statement">위 활동을 책임감 있게 진행할 것을 약속합니다. 활동 후 SA 활동 기록과 성찰지를 작성하여 제출하겠습니다.</div>
+    <div class="signature-row">
+      <div><label>학생 서명</label><input type="text"></div>
+      <div><label>담당 선생님 승인</label><input type="text"></div>
+      <div><label>승인일</label><input type="text" placeholder="__/__"></div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> SA의 진짜 가치는 <strong>시간 채우기가 아니라 "내가 사회의 작은 문제를 알아보고 행동했다"는 경험</strong>이에요. 자녀가 거창한 봉사를 찾으려 할 필요 없어요. 동네 / 학교 / 가족 안에서도 충분히 의미 있는 SA가 됩니다. "어떤 게 자꾸 걸려?", "어떻게 해보면 좋을까?" 같은 대화로 자녀의 활동을 함께 키워주세요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

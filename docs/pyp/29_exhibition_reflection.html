@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전시회 최종 성찰 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.exhibit-badge { padding: 3px 10px; background: var(--coral-dark); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.project-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.project-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.project-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.project-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.celebration-box { padding: 22px 26px; background: linear-gradient(135deg, #FFF4EF, #FFE4F1); border: 2px solid var(--coral); border-radius: 16px; margin-bottom: 22px; text-align: center; }
+.celebration-emoji { font-size: 48px; margin-bottom: 8px; }
+.celebration-text { font-size: 16px; font-weight: 700; color: var(--coral-dark); }
+.celebration-sub { font-size: 13px; color: var(--text-soft); margin-top: 6px; }
+
+.section-title { font-size: 14.5px; font-weight: 700; color: var(--coral-dark); margin: 22px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 65px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.profile-pick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.profile-pick label { padding: 6px 12px; border: 1.5px solid var(--line); border-radius: 100px; font-size: 12.5px; cursor: pointer; color: var(--text-soft); transition: all 0.15s; }
+.profile-pick input { display: none; }
+.profile-pick label:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); color: var(--coral-dark); font-weight: 600; }
+
+.farewell-box { padding: 18px 22px; background: var(--coral-pale); border-radius: 12px; margin-top: 18px; }
+.farewell-box label { display: block; font-size: 13px; color: var(--coral-dark); margin-bottom: 6px; font-weight: 600; }
+.farewell-box textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--coral-light); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: white; resize: vertical; line-height: 1.6; min-height: 70px; }
+.farewell-box textarea:focus { outline: none; border-color: var(--coral); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .project-info, .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">전시회 종료 후 · 양식 29 <span class="pyp-badge">PYP</span> <span class="exhibit-badge">EXHIBITION</span></div>
+    <h1 class="form-title">전시회 최종 성찰 🎉</h1>
+    <div class="form-title-en">Exhibition Final Reflection</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">전시회 발표회가 끝난 직후 또는 그다음 주.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">8~10주의 여정을 마무리하며 PYP 6년을 종합합니다.</div>
+    </div>
+  </div>
+
+  <div class="project-info">
+    <div><label>Exhibition 제목</label><input type="text"></div>
+    <div><label>이름</label><input type="text"></div>
+    <div><label>작성일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="celebration-box">
+    <div class="celebration-emoji">🎊</div>
+    <div class="celebration-text">축하해요! Exhibition을 마쳤어요!</div>
+    <div class="celebration-sub">PYP 6년의 여정이 여기서 큰 마침표를 찍어요.</div>
+  </div>
+
+  <div class="intro-box">
+    <strong>이 양식은 단순한 평가가 아니에요.</strong> 8~10주의 대장정을 마치며 PYP 6년이 어떻게 마무리됐는지 돌아보는 자리예요. 결과보다 <strong>나의 변화</strong>에 집중해서 적어주세요.
+  </div>
+
+  <div class="section-title">🌍 나의 프로젝트가 만든 변화</div>
+
+  <div class="form-field">
+    <div class="form-field-label">목표 달성도 — 처음 계획과 실제 결과</div>
+    <div class="form-field-hint">목표를 100% 이뤘거나, 일부만 이뤘거나, 다른 방향으로 갔거나.</div>
+    <textarea placeholder="예: 우리 반 잔반 30% 감소가 목표였는데, 35% 줄었어요. 다른 반에서도 따라하기 시작했어요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">내가 만든 가장 큰 변화 (작아도 괜찮아요)</div>
+    <textarea placeholder="예: 친구 12명이 잔반 줄이기에 동참했어요. 우리 반에 '잔반 0의 날'이 생겼어요."></textarea>
+  </div>
+
+  <div class="section-title">🌱 나의 성장</div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 프로젝트로 가장 자란 학습자상 자질 (2~3개)</div>
+    <div class="profile-pick">
+      <label><input type="checkbox">🔍 탐구하는 사람</label>
+      <label><input type="checkbox">📚 지식이 풍부한 사람</label>
+      <label><input type="checkbox">💭 사고하는 사람</label>
+      <label><input type="checkbox">💬 소통하는 사람</label>
+      <label><input type="checkbox">✋ 원칙을 지키는 사람</label>
+      <label><input type="checkbox">🌍 열린 마음을 가진 사람</label>
+      <label><input type="checkbox">❤️ 배려하는 사람</label>
+      <label><input type="checkbox">🚀 도전하는 사람</label>
+      <label><input type="checkbox">⚖️ 균형 잡힌 사람</label>
+      <label><input type="checkbox">🪞 성찰하는 사람</label>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">🏆 가장 자랑스러운 순간</div>
+      <textarea placeholder="이 프로젝트 중 가장 빛났던 한 순간."></textarea>
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">💪 가장 힘들었던 순간</div>
+      <textarea placeholder="포기하고 싶었지만 이겨낸 순간."></textarea>
+    </div>
+  </div>
+
+  <div class="section-title">🤝 함께한 사람들</div>
+
+  <div class="form-field">
+    <div class="form-field-label">감사한 사람들과 받은 도움</div>
+    <textarea placeholder="멘토 선생님, 가족, 친구, 면담한 어른들에게 받은 도움."></textarea>
+  </div>
+
+  <div class="section-title">🚀 다음 단계</div>
+
+  <div class="form-field">
+    <div class="form-field-label">중학교에 가서도 계속하고 싶은 것</div>
+    <div class="form-field-hint">이번 프로젝트가 끝나도 계속 이어갈 행동이나 관심.</div>
+    <textarea placeholder="예: 중학교에서도 환경 동아리에 가입할래요. 잔반 줄이기 캠페인을 동네까지 확장하고 싶어요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">미래의 나에게 보내는 메시지</div>
+    <textarea placeholder="중학교, 고등학교에 간 미래의 나에게."></textarea>
+  </div>
+
+  <div class="farewell-box">
+    <label>💝 PYP 6년을 마치며 (자유롭게)</label>
+    <textarea placeholder="6년 동안 가장 기억에 남는 것 / 다음 학년 후배들에게 / 선생님들께 / 무엇이든."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 양식이 자녀의 <strong>PYP 6년 학습의 공식 마무리</strong>예요. 자녀가 적은 것을 정말 진심으로 읽어주세요. 자녀가 6년 동안 자란 모습이 거기 다 있어요. 졸업 후에도 이 양식 한 장을 잘 간직하시면, 자녀가 평생 들여다볼 수 있는 보물 같은 기록이 됩니다. 결과보다 <strong>여정 자체</strong>를 축하해주세요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

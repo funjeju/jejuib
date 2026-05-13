@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IB PYP 수업에서 실제로 활용되는 각종 보고서, 성찰일지, 전시회 프로젝트 양식 및 템플릿 30선 모음입니다.">
+<meta name="keywords" content="IB 수행과제, PYP 양식, 성찰일지 템플릿, 프로젝트 보고서, IB, 국제 바칼로레아">
+<title>IB PYP 양식 - 수행과제 템플릿 30선 | 학부모 가이드</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root {
+  --pyp: #F5A623;
+  --pyp-dark: #D68910;
+  --pyp-light: #FDEBD0;
+  --pyp-pale: #FFF7E6;
+  --bg: #FFFBF8;
+  --surface: #FFFFFF;
+  --text: #2C2522;
+  --text-soft: #5C5048;
+  --muted: #9A8D85;
+  --line: #EFE5DD;
+  --primary: #2C3E50;
+  --teal: #4A8C7F;
+}
+
+
+
+nav { position: sticky; top: 0; background: rgba(255, 251, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); z-index: 100; padding: 14px 0; }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 700; font-size: 15px; color: var(--pyp-dark); letter-spacing: -0.02em; }
+
+.container { max-width: 880px; margin: 0 auto; padding: 60px 32px; }
+
+.page-header { margin-bottom: 48px; }
+.page-header .section-num {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--pyp-dark);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  background: var(--pyp-pale);
+  border-radius: 100px;
+}
+.page-header .pyp-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 3px 10px;
+  background: var(--pyp);
+  color: white;
+  border-radius: 100px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+.page-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.page-header .sub {
+  font-size: 16px;
+  color: var(--text-soft);
+  line-height: 1.7;
+  max-width: 720px;
+}
+.page-header .sub strong { color: var(--pyp-dark); font-weight: 600; }
+
+.form-group {
+  margin-bottom: 36px;
+  padding: 26px 30px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.form-group-label {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--pyp-dark);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  background: var(--pyp-pale);
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+.form-group h4 {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.form-item {
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.form-item:last-child { border-bottom: none; }
+.form-item .name {
+  font-size: 14.5px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.form-item .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--pyp);
+  color: white;
+  border-radius: 50%;
+  font-size: 10.5px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.form-item .star {
+  color: var(--pyp-dark);
+  font-weight: 700;
+}
+.form-item .en {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.form-item .def {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  line-height: 1.65;
+  padding-left: 30px;
+}
+
+a.form-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  margin: 0 -8px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  border-bottom: 1px dashed var(--line);
+  transition: background 0.15s;
+}
+a.form-link:hover { background: var(--pyp-pale); }
+a.form-link:last-child { border-bottom: none; }
+a.form-link .name::after {
+  content: '→';
+  margin-left: auto;
+  color: var(--pyp);
+  font-size: 16px;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+a.form-link:hover .name::after { opacity: 1; }
+
+.forms-legend {
+  margin-top: 36px;
+  padding: 22px 26px;
+  background: var(--pyp-pale);
+  border-left: 3px solid var(--pyp);
+  border-radius: 0 12px 12px 0;
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+.forms-legend strong { color: var(--pyp-dark); font-weight: 600; }
+
+.toc {
+  margin-bottom: 36px;
+  padding: 18px 22px;
+  background: var(--pyp-pale);
+  border-radius: 12px;
+}
+.toc-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pyp-dark);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 18px;
+}
+.toc-list a {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 1px dotted transparent;
+  transition: all 0.15s;
+}
+.toc-list a:hover { color: var(--pyp-dark); border-bottom-color: var(--pyp); }
+.toc-list a .step-num {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  background: var(--pyp);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 36px 18px; }
+  .page-header h1 { font-size: 26px; }
+  .form-group { padding: 20px 22px; }
+  .toc-list { grid-template-columns: 1fr; }
+}
+
+.form-item.clickable {
+  cursor: pointer;
+  padding: 16px;
+  margin: 0 -16px;
+  border-radius: 8px;
+  border-bottom: 1px dashed var(--line);
+  transition: background 0.15s;
+}
+.form-item.clickable:last-child { border-bottom: none; }
+.form-item.clickable:hover { background: var(--pyp-pale); }
+.form-item.clickable .name::after {
+  content: '▼';
+  margin-left: auto;
+  color: var(--pyp);
+  font-size: 14px;
+  opacity: 0.5;
+  transition: transform 0.3s, opacity 0.15s;
+}
+.form-item.clickable:hover .name::after { opacity: 1; }
+.form-item.clickable.active .name::after { transform: rotate(180deg); opacity: 1; }
+
+.form-item-preview {
+  margin-top: 16px;
+  width: 100%;
+  height: 650px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: white;
+  animation: slideDown 0.3s ease-out forwards;
+}
+.form-item-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<nav style="position: sticky; top: 0; background: rgba(255, 251, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); z-index: 100;">
+  <div style="background:var(--pyp-pale, #FFF7E6); padding:8px 24px; text-align:center; font-size:13px; border-bottom:1px solid var(--line, #EFE5DD);">
+    <a href="index.html" style="color:var(--pyp-dark, #D68910); text-decoration:none; font-weight:600; display:inline-block; transition:opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">← IB 통합 안내서 대문으로 돌아가기</a>
+  </div>
+  <div class="nav-inner" style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 60px;">
+    <div class="logo"><a href="pyp_index.html" style="color:var(--pyp-dark, #D68910); text-decoration:none; font-weight:700; font-size: 15px;">IB PYP 안내</a></div>
+    <div class="nav-links" style="display:flex; gap:20px; font-size:14px; font-weight: 500;">
+      <a href="pyp_bigpic.html" style="text-decoration:none; color:inherit;">큰 그림</a>
+      <a href="pyp_cycle.html" style="text-decoration:none; color:inherit;">수업 진행</a>
+      <a href="pyp_timeline.html" style="text-decoration:none; color:inherit;">1년 흐름</a>
+      <a href="pyp_concepts.html" style="text-decoration:none; color:inherit;">개념 사전</a>
+      <a href="pyp_evaluation.html" style="text-decoration:none; color:inherit;">평가</a>
+      <a href="pyp_forms.html" style="text-decoration:none; color:inherit;">양식</a>
+      <a href="pyp_parent.html" style="text-decoration:none; color:inherit;">자녀와 대화</a>
+      <a href="pyp_glossary.html" style="text-decoration:none; color:inherit;">용어</a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+
+  <div class="page-header">
+    <span class="section-num">학부모용 학생 양식 모음 <span class="pyp-badge">PYP</span></span>
+    <h1>자녀가 1년 동안 채우는 IB PYP 양식 30선</h1>
+    <p class="sub">PYP는 시험만으로 평가하지 않아요. 자녀가 직접 자기 학습을 <strong>기록·점검·돌아보는</strong> 양식을 단원마다 채워나갑니다. 한 해에 6개 UOI 단원이 있고, 단원당 4~6개씩 약 30개의 양식을 거치게 돼요. <strong style="color: var(--pyp-dark);">★ 표시</strong>는 PYP만의 특별한 시그니처 양식이에요. 각 양식 이름을 클릭하면 자녀가 직접 채울 수 있는 양식 원본 페이지가 열립니다.</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📍 6단계 안내</div>
+    <div class="toc-list">
+      <a href="#step1"><span class="step-num">1</span>학년 초 세팅 (01~04)</a>
+      <a href="#step2"><span class="step-num">2</span>UOI 단원 시작 (05~08)</a>
+      <a href="#step3"><span class="step-num">3</span>탐구 진행 중 (09~15)</a>
+      <a href="#step4"><span class="step-num">4</span>단원 마무리 (16~20)</a>
+      <a href="#step5"><span class="step-num">5</span>학기/학년 말 (21~25)</a>
+      <a href="#step6"><span class="step-num">6</span>Exhibition · 6학년 (26~30)</a>
+    </div>
+  </div>
+
+  <div class="form-group" id="step1">
+    <div class="form-group-label">1단계 · 학년 초 세팅</div>
+    <h4>나를 알고 약속하기</h4>
+
+    <div class="form-item clickable" data-form="./docs/pyp/01_learner_treasure_map.html">
+      <div class="name"><span class="num">01</span>학습자상 보물지도 ⭐<span class="en">Learner Profile Treasure Map</span></div>
+      <div class="def">10가지 자질 중 나의 강점을 별과 그림으로 표현. 학년 말에 다시 보면서 자란 모습 확인.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/02_atl_muscle.html">
+      <div class="name"><span class="num">02</span>ATL 근육 점검표<span class="en">ATL Skills Self-check (Primary)</span></div>
+      <div class="def">"나는 경청을 잘하나?" 등 5가지 학습 근육을 😟🙂😎 이모지로 자가 진단.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/03_class_agreement.html">
+      <div class="name"><span class="num">03</span>우리 반 헌법 <span class="star">★</span><span class="en">Essential Agreements</span></div>
+      <div class="def">선생님이 정한 규칙이 아니라 친구들과 함께 토론해서 만든 학급 약속. PYP의 시그니처.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/04_goal_setting.html">
+      <div class="name"><span class="num">04</span>꿈 성장 목표지<span class="en">Goal Setting Form</span></div>
+      <div class="def">이번 학기 키우고 싶은 공부·자질·근육·행동 5가지 영역의 목표.</div>
+    </div>
+  </div>
+
+  <div class="form-group" id="step2">
+    <div class="form-group-label">2단계 · UOI 단원 시작</div>
+    <h4>호기심의 문 열기</h4>
+
+    <div class="form-item clickable" data-form="./docs/pyp/05_wonder_wall.html">
+      <div class="name"><span class="num">05</span>원더 월<span class="en">Wonder Wall</span></div>
+      <div class="def">단원 주제를 보고 떠오른 "진짜 궁금한 질문"을 알록달록 포스트잇 8개에.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/06_visual_kwl.html">
+      <div class="name"><span class="num">06</span>시각적 KWL<span class="en">Visual KWL Chart</span></div>
+      <div class="def">아는 것(K) · 알고 싶은 것(W) · 배운 것(L)을 글과 그림으로 동시에 표현.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/07_central_idea.html">
+      <div class="name"><span class="num">07</span>핵심 아이디어 일기 <span class="star">★</span><span class="en">Central Idea Journal</span></div>
+      <div class="def">선생님이 알려준 CI를 내 말로 바꾸고 그림으로 표현. <strong>CI는 PYP 단원의 가장 중요한 문장</strong>이에요.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/08_inquiry_roadmap.html">
+      <div class="name"><span class="num">08</span>탐구 로드맵<span class="en">Inquiry Roadmap</span></div>
+      <div class="def">단원 끝에 만들고 싶은 최종 결과물의 큰 그림과 4단계 여행 계획.</div>
+    </div>
+  </div>
+
+  <div class="form-group" id="step3">
+    <div class="form-group-label">3단계 · 탐구 진행 중</div>
+    <h4>조사하고 연결하기</h4>
+
+    <div class="form-item clickable" data-form="./docs/pyp/09_seven_concepts.html">
+      <div class="name"><span class="num">09</span>7대 개념 돋보기 <span class="star">★</span><span class="en">7 Key Concepts Lens</span></div>
+      <div class="def">형태·기능·원인·변화·연결·관점·책임 — PYP 7 Key Concepts로 주제를 7가지 각도로 탐구.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/10_process_journal.html">
+      <div class="name"><span class="num">10</span>프로세스 저널<span class="en">Process Journal</span></div>
+      <div class="def">스케치와 메모 중심의 탐구 일기. 깔끔하게 정리하지 않아도 되는 아이디어 보물상자.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/11_research_log.html">
+      <div class="name"><span class="num">11</span>어린이 리서치 로그<span class="en">Children's Research Log</span></div>
+      <div class="def">책·영상·인터뷰·인터넷·직접 본 것 등 정보의 출처를 5가지 매체로 기록.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/12_thinking_routine.html">
+      <div class="name"><span class="num">12</span>생각하는 루틴<span class="en">See–Think–Wonder Routine</span></div>
+      <div class="def">"보여요(👀) → 생각돼요(💭) → 궁금해요(❓)" Harvard Project Zero의 Visible Thinking.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/13_field_trip.html">
+      <div class="name"><span class="num">13</span>현장 체험 학습 보고서<span class="en">Field Trip Report</span></div>
+      <div class="def">학교 밖에서 본 것·들은 것·인터뷰 내용을 단원과 연결해 정리.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/14_group_diary.html">
+      <div class="name"><span class="num">14</span>모둠 협력 일기<span class="en">Group Work Diary</span></div>
+      <div class="def">친구와 함께할 때 나의 기분과 기여도를 별점과 이모지로 표시.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/15_feedback_cards.html">
+      <div class="name"><span class="num">15</span>중간 피드백 카드<span class="en">Feedback Cards</span></div>
+      <div class="def">선생님이나 친구에게 받은 응원의 한마디를 알록달록 카드로 모음.</div>
+    </div>
+  </div>
+
+  <div class="form-group" id="step4">
+    <div class="form-group-label">4단계 · 단원 마무리 및 성찰</div>
+    <h4>앎을 삶으로</h4>
+
+    <div class="form-item clickable" data-form="./docs/pyp/16_portfolio_choice.html">
+      <div class="name"><span class="num">16</span>포트폴리오 선택지<span class="en">Portfolio Selection</span></div>
+      <div class="def">단원 작품 중 내가 직접 골라 보관할 것. <strong>학습자 주체성(Agency)의 핵심 양식</strong>.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/17_uoi_reflection.html">
+      <div class="name"><span class="num">17</span>UOI 성찰지<span class="en">Unit of Inquiry Reflection</span></div>
+      <div class="def">단원 시작과 끝의 내 생각을 비교. 무엇이 어떻게 바뀌었는지 좌우로 정리.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/18_smile_rubric.html">
+      <div class="name"><span class="num">18</span>초등용 루브릭 체크<span class="en">Primary Rubric Self-check</span></div>
+      <div class="def">😟🙂😎 3단계 스마일 스티커로 4개 평가 영역 자가 진단.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/19_peer_praise.html">
+      <div class="name"><span class="num">19</span>동료 칭찬 카드<span class="en">Peer Praise Cards</span></div>
+      <div class="def">친구의 발표에서 좋았던 점과 배우고 싶은 점 2가지를 따뜻한 카드로.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/20_action_plan.html">
+      <div class="name"><span class="num">20</span>행동(Action) 계획서 <span class="star">★</span><span class="en">Action Plan</span></div>
+      <div class="def">배운 것을 집·학교·동네에서 어떻게 실천할지. <strong>PYP의 가장 중요한 결과</strong>는 행동으로의 전이.</div>
+    </div>
+  </div>
+
+  <div class="form-group" id="step5">
+    <div class="form-group-label">5단계 · 학기/학년 말 누적 및 소통</div>
+    <h4>성장 증명</h4>
+
+    <div class="form-item clickable" data-form="./docs/pyp/21_action_diary.html">
+      <div class="name"><span class="num">21</span>실천(Action) 일기장<span class="en">Action Diary</span></div>
+      <div class="def">재활용·배려·도움 등 실행한 작은 변화들을 한 해 동안 누적.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/22_eportfolio_index.html">
+      <div class="name"><span class="num">22</span>디지털 포트폴리오 인덱스<span class="en">e-Portfolio Index</span></div>
+      <div class="def">한 학기 동안 6개 UOI에서 모인 작품들의 목차.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/23_slc_script.html">
+      <div class="name"><span class="num">23</span>학생 주도 컨퍼런스 대본<span class="en">Student-Led Conference Script</span></div>
+      <div class="def">부모님께 발표할 6단계 대본. 자녀가 자기 학습을 직접 설명하는 자리.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/24_parent_feedback.html">
+      <div class="name"><span class="num">24</span>학부모 관찰 피드백<span class="en">Parent Observation Feedback (학부모용)</span></div>
+      <div class="def">집에서 본 우리 아이의 변화를 학부모가 직접 작성해 학교에 전달.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/25_yearend_reflection.html">
+      <div class="name"><span class="num">25</span>학년 종합 성찰 보고서<span class="en">End-of-year Reflection Report</span></div>
+      <div class="def">1년 동안 6개 UOI를 거치며 자란 모습. 학년 처음과 끝의 나를 비교.</div>
+    </div>
+  </div>
+
+  <div class="form-group" id="step6">
+    <div class="form-group-label">6단계 · PYP의 꽃, 전시회 (6학년 특화)</div>
+    <h4>Exhibition — 8~10주 졸업 프로젝트</h4>
+
+    <div class="form-item clickable" data-form="./docs/pyp/26_exhibition_proposal.html">
+      <div class="name"><span class="num">26</span>전시회 탐구 제안서<span class="en">Exhibition Proposal</span></div>
+      <div class="def">내가 세상에 알리고 싶은 문제를 정의. 6 초학문 주제 + 멘토 승인.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/27_mentor_log.html">
+      <div class="name"><span class="num">27</span>멘토 면담 일지<span class="en">Mentor Meeting Log</span></div>
+      <div class="def">전문가·멘토 선생님과 대화하며 배운 점을 누적 기록. 어른과 대화하는 능력 자체가 학습.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/28_exhibition_journal.html">
+      <div class="name"><span class="num">28</span>전시회 진행 과정 일지 <span class="star">★</span><span class="en">Exhibition Process Journal</span></div>
+      <div class="def">8~10주 대장정의 모든 과정. <strong>Exhibition의 핵심 평가 자료</strong>. 4단계 사이클로 누적.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/29_exhibition_reflection.html">
+      <div class="name"><span class="num">29</span>전시회 최종 성찰<span class="en">Exhibition Final Reflection</span></div>
+      <div class="def">프로젝트를 마친 후의 성취감과 깨달음. PYP 6년의 공식 마무리.</div>
+    </div>
+
+    <div class="form-item clickable" data-form="./docs/pyp/30_feedback_board.html">
+      <div class="name"><span class="num">30</span>축하와 피드백 보드<span class="en">Celebration & Feedback Board</span></div>
+      <div class="def">발표회에 와준 가족·친구·선생님이 남긴 메시지 모음. 자녀가 평생 간직할 보물.</div>
+    </div>
+  </div>
+
+  <div class="forms-legend">
+    <strong>★ 표시 양식 5개</strong>는 PYP만의 시그니처 양식이에요.
+    <br><br>
+    <strong>③ 우리 반 헌법 (Essential Agreements)</strong>은 자녀가 학교에서 처음 경험하는 민주주의 — 어른이 정한 규칙이 아니라 학생들이 토론해 만든 약속이에요.
+    <strong>⑦ 핵심 아이디어 일기 (CI)</strong>는 PYP 단원의 가장 큰 원리를 자기 말로 바꾸는 양식으로, 자녀가 정말 이해했는지 확인하는 거울이에요.
+    <strong>⑨ 7대 개념 돋보기</strong>는 평생 어떤 주제든 깊이 탐구할 수 있는 사고 도구이고,
+    <strong>⑳ 행동(Action) 계획서</strong>는 "배운 사람"에서 "행동하는 사람"으로 자녀를 바꾸는 PYP의 본질이에요.
+    <strong>㉘ 전시회 진행 과정 일지</strong>는 6학년 졸업 프로젝트(Exhibition)에서 가장 중요한 평가 자료입니다.
+    <br><br>
+    자녀가 다니는 학교가 이 양식들 중 몇 개를 운영하는지 살펴보시면 PYP 운영의 깊이를 가늠할 수 있어요. <strong>30개 모두를 매년 채우는 학교는 드물어요.</strong> 핵심 5~10개만 운영하는 학교도 정상입니다. 학교가 안 다루는 양식이라도 가정에서 자녀와 함께 활용하실 수 있어요 — 자녀의 학습이 깊어지고 가족 대화의 좋은 도구가 됩니다.
+  </div>
+
+</div>
+
+<section class="seo-tags" style="max-width: 880px; margin: 40px auto; padding: 20px; background: var(--surface); border-radius: 12px; font-size: 12px; color: var(--text-soft); border: 1px dashed var(--line);">
+  <strong style="color: var(--primary);">이 페이지의 핵심 탐색어:</strong> 
+  <span style="display:inline-block; margin-right:8px; margin-top:4px;">#IB 수행과제</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#PYP 양식</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#성찰일지 템플릿</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#프로젝트 보고서</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#국제 바칼로레아 초등학교</span>
+</section>
+
+
+<script>
+document.querySelectorAll('.form-item.clickable').forEach(item => {
+  item.addEventListener('click', function(e) {
+    if(e.target.closest('.form-item-preview')) return; 
+
+    const formUrl = this.getAttribute('data-form');
+    if (!formUrl) return;
+
+    const isActive = this.classList.contains('active');
+    
+    if (!isActive) {
+      this.classList.add('active');
+      let preview = this.querySelector('.form-item-preview');
+      if (!preview) {
+        preview = document.createElement('div');
+        preview.className = 'form-item-preview';
+        preview.innerHTML = `<iframe src="${formUrl}"></iframe>`;
+        this.appendChild(preview);
+      } else {
+        preview.style.display = 'block';
+      }
+    } else {
+      this.classList.remove('active');
+      let preview = this.querySelector('.form-item-preview');
+      if (preview) preview.style.display = 'none';
+    }
+  });
+});
+</script>
+
+<script src="pyp_glossary_data.js"></script>
+<script src="pyp_glossary_ui.js"></script>
+</body>
+</html>

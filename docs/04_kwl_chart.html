@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KWL 차트 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; --teal: #4A8C7F; --amber: #C68A3E; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+.unit-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.soi-block { margin-bottom: 26px; padding: 14px 18px; background: var(--bg); border-radius: 8px; border-left: 3px solid var(--coral-light); }
+.soi-block label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 6px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.soi-block input { width: 100%; padding: 6px 8px; border: 1px dashed var(--line); border-radius: 6px; font-size: 13.5px; font-family: inherit; background: transparent; }
+.soi-block input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.kwl-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+.kwl-col { padding: 16px 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.kwl-col-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.kwl-letter { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; color: white; font-weight: 700; font-size: 14px; }
+.kwl-col.know .kwl-letter { background: var(--coral); }
+.kwl-col.want .kwl-letter { background: var(--teal); }
+.kwl-col.learned .kwl-letter { background: var(--amber); }
+.kwl-col-title { font-size: 14px; font-weight: 600; }
+.kwl-col-when { font-size: 10.5px; color: var(--muted); margin-bottom: 12px; padding-left: 40px; }
+.kwl-col textarea { width: 100%; min-height: 220px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; }
+.kwl-col textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .kwl-col { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info, .kwl-grid { grid-template-columns: 1fr; } .kwl-col textarea { min-height: 100px; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 시작 시 · 양식 04</div>
+    <h1 class="form-title">KWL 차트</h1>
+    <div class="form-title-en">Know · Want to know · Learned</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">단원 시작 시 K·W를 작성. 단원이 끝날 때 L을 채워서 변화 확인.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">단원을 시작하기 전과 끝난 후의 나의 이해 변화를 한눈에 봅니다.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>단원명</label><input type="text" placeholder="예: 기권과 날씨"></div>
+    <div><label>교과</label><input type="text" placeholder="예: 과학"></div>
+    <div><label>작성 날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="soi-block">
+    <label>이번 단원의 탐구진술문 (SoI) — 선생님께서 알려주신 한 문장을 적어보세요</label>
+    <input type="text" placeholder="예: 에너지의 균형이 깨진 시스템은 지속가능성을 위협한다.">
+  </div>
+
+  <div class="kwl-grid">
+    <div class="kwl-col know">
+      <div class="kwl-col-header">
+        <div class="kwl-letter">K</div>
+        <div class="kwl-col-title">이미 아는 것</div>
+      </div>
+      <div class="kwl-col-when">단원 시작 시 작성</div>
+      <textarea placeholder="이 주제에 대해 내가 이미 알고 있는 것을 떠오르는 대로 적어보세요. 짧은 문장이나 단어 나열도 좋아요."></textarea>
+    </div>
+
+    <div class="kwl-col want">
+      <div class="kwl-col-header">
+        <div class="kwl-letter">W</div>
+        <div class="kwl-col-title">알고 싶은 것</div>
+      </div>
+      <div class="kwl-col-when">단원 시작 시 작성</div>
+      <textarea placeholder="이 단원에서 새로 알고 싶은 것 / 평소 궁금했던 것을 질문 형식으로 적어보세요."></textarea>
+    </div>
+
+    <div class="kwl-col learned">
+      <div class="kwl-col-header">
+        <div class="kwl-letter">L</div>
+        <div class="kwl-col-title">새로 배운 것</div>
+      </div>
+      <div class="kwl-col-when">단원 끝에 작성</div>
+      <textarea placeholder="단원이 끝난 뒤 새로 알게 된 것 / 생각이 바뀐 것을 적어보세요. K 칸과 비교해보면 좋아요."></textarea>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> KWL 차트의 핵심은 <strong>K 칸과 L 칸을 비교</strong>하는 거예요. 단원 시작 시 자녀가 무엇을 알고 있다고 생각했고, 단원이 끝난 뒤 그게 어떻게 풍부해졌는지가 보입니다. 또 W 칸의 질문이 얼마나 깊어졌는지로 자녀의 탐구 습관도 볼 수 있어요. "이번 단원에서 K랑 L 비교해봤어?"가 좋은 대화 시작이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

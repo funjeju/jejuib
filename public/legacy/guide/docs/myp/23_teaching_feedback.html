@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수업 피드백 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 3px solid var(--coral); border-radius: 0 8px 8px 0; margin-bottom: 22px; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+.subject-info { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.subject-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.subject-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.subject-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.scale-block { padding: 14px 18px; background: var(--bg); border-radius: 8px; margin-bottom: 18px; }
+.scale-title { font-size: 12.5px; font-weight: 600; color: var(--text-soft); margin-bottom: 10px; }
+.scale-row { display: grid; grid-template-columns: 1fr 200px; gap: 14px; align-items: center; padding: 8px 0; }
+.scale-row:not(:last-child) { border-bottom: 1px dashed var(--line); }
+.scale-row .label { font-size: 12.5px; color: var(--text); }
+.scale-mini { display: flex; gap: 5px; justify-content: flex-end; }
+.scale-mini label { cursor: pointer; position: relative; }
+.scale-mini label .num { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1.5px solid var(--line); border-radius: 50%; font-size: 11px; color: var(--text-soft); transition: all 0.15s; }
+.scale-mini input { position: absolute; opacity: 0; }
+.scale-mini input:checked + .num { background: var(--coral); color: white; border-color: var(--coral); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 60px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.respect-block { padding: 12px 16px; background: var(--coral-pale); border-radius: 8px; margin-top: 18px; font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+.respect-block strong { color: var(--coral-dark); font-weight: 600; }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .subject-info { grid-template-columns: 1fr; } .scale-row { grid-template-columns: 1fr; } .scale-mini { justify-content: flex-start; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">학기 말 · 양식 23</div>
+    <h1 class="form-title">수업 피드백</h1>
+    <div class="form-title-en">Approaches to Teaching Feedback</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">학기 말에 각 교과별로. 익명으로 제출하는 학교도 있음.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">학생이 수업·교사를 평가해서 다음 학기 개선에 반영됩니다.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>이 양식의 특별함.</strong> IB에서는 학생이 교사 수업을 평가하는 게 정식 시스템이에요. 일방적 평가가 아니라 학습 공동체의 상호 책임이라는 거죠. <strong>건설적이고 구체적인 피드백</strong>이 핵심입니다. "재밌어요/지루해요" 같은 단어 한 줄이 아니라 "어느 활동이 어떻게 도움됐는지"를 적어주세요.
+  </div>
+
+  <div class="subject-info">
+    <div><label>교과명</label><input type="text" placeholder="예: 과학"></div>
+    <div><label>학기</label><input type="text" placeholder="2026 1학기"></div>
+    <div><label>작성일</label><input type="text" placeholder="__/__"></div>
+  </div>
+
+  <div class="scale-block">
+    <div class="scale-title">이 교과 수업에 대한 평가 (1 매우 부족 ~ 5 매우 좋음)</div>
+    <div class="scale-row">
+      <div class="label">수업이 흥미롭고 참여하고 싶었다</div>
+      <div class="scale-mini">
+        <label><input type="radio" name="s1"><span class="num">1</span></label>
+        <label><input type="radio" name="s1"><span class="num">2</span></label>
+        <label><input type="radio" name="s1"><span class="num">3</span></label>
+        <label><input type="radio" name="s1"><span class="num">4</span></label>
+        <label><input type="radio" name="s1"><span class="num">5</span></label>
+      </div>
+    </div>
+    <div class="scale-row">
+      <div class="label">탐구질문이 의미 있고 깊이 있었다</div>
+      <div class="scale-mini">
+        <label><input type="radio" name="s2"><span class="num">1</span></label>
+        <label><input type="radio" name="s2"><span class="num">2</span></label>
+        <label><input type="radio" name="s2"><span class="num">3</span></label>
+        <label><input type="radio" name="s2"><span class="num">4</span></label>
+        <label><input type="radio" name="s2"><span class="num">5</span></label>
+      </div>
+    </div>
+    <div class="scale-row">
+      <div class="label">선생님의 설명·피드백이 명확하고 도움됐다</div>
+      <div class="scale-mini">
+        <label><input type="radio" name="s3"><span class="num">1</span></label>
+        <label><input type="radio" name="s3"><span class="num">2</span></label>
+        <label><input type="radio" name="s3"><span class="num">3</span></label>
+        <label><input type="radio" name="s3"><span class="num">4</span></label>
+        <label><input type="radio" name="s3"><span class="num">5</span></label>
+      </div>
+    </div>
+    <div class="scale-row">
+      <div class="label">수업이 나의 사고력을 자극했다</div>
+      <div class="scale-mini">
+        <label><input type="radio" name="s4"><span class="num">1</span></label>
+        <label><input type="radio" name="s4"><span class="num">2</span></label>
+        <label><input type="radio" name="s4"><span class="num">3</span></label>
+        <label><input type="radio" name="s4"><span class="num">4</span></label>
+        <label><input type="radio" name="s4"><span class="num">5</span></label>
+      </div>
+    </div>
+    <div class="scale-row">
+      <div class="label">교실 분위기가 안전하고 존중받는 느낌이었다</div>
+      <div class="scale-mini">
+        <label><input type="radio" name="s5"><span class="num">1</span></label>
+        <label><input type="radio" name="s5"><span class="num">2</span></label>
+        <label><input type="radio" name="s5"><span class="num">3</span></label>
+        <label><input type="radio" name="s5"><span class="num">4</span></label>
+        <label><input type="radio" name="s5"><span class="num">5</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 학기 가장 도움된 수업 활동 1~2개</div>
+    <div class="form-field-hint">어떤 활동이 / 왜 도움됐는지 구체적으로.</div>
+    <textarea placeholder="예: 단원 시작 때 모둠으로 자료를 함께 분석한 활동. 친구와 의견 나누면서 다양한 관점을 볼 수 있었음."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">개선되면 좋을 부분 1~2개</div>
+    <div class="form-field-hint">불평이 아니라 제안 형식으로. "이러면 더 좋을 것 같다."</div>
+    <textarea placeholder="예: 수행과제 안내를 좀 더 일찍 받으면 더 잘 준비할 수 있을 것 같다."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">가장 기억에 남는 수업·순간</div>
+    <textarea placeholder="이 학기에서 잊지 못할 학습 순간."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">다음 학기 수업에 바라는 점</div>
+    <textarea placeholder="새로 시도해보면 좋을 활동 / 다루었으면 하는 주제 등."></textarea>
+  </div>
+
+  <div class="respect-block">
+    <strong>피드백의 약속.</strong> 이 피드백은 사람이 아닌 수업을 평가합니다. 존중하는 톤으로, 구체적·건설적으로 적었습니다.
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 한국 학생들은 교사 평가를 어색해해요. "선생님께 불평하면 안 된다"는 문화 때문이죠. 자녀에게 <strong>"불평이 아니라 더 좋아지길 바라는 제안"</strong>이라고 설명해주세요. 익명이 보장되는 경우가 많지만, 익명이 아니어도 정직한 피드백은 교사도 환영합니다. 솔직히 적되 존중하는 톤으로.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

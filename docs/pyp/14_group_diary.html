@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모둠 협력 일기 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.task-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+.task-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.task-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.task-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.members-box { padding: 14px 18px; background: var(--bg); border-radius: 10px; margin-bottom: 18px; }
+.members-box label { display: block; font-size: 12.5px; color: var(--text-soft); margin-bottom: 6px; font-weight: 600; }
+.members-box input { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13.5px; font-family: inherit; background: var(--surface); }
+.members-box input:focus { outline: none; border-color: var(--coral); }
+
+.mood-block { padding: 18px 22px; background: linear-gradient(135deg, #FFF8F2, #FFFBF8); border: 2px solid var(--coral-light); border-radius: 14px; margin-bottom: 18px; }
+.mood-title { font-size: 14px; font-weight: 700; color: var(--coral-dark); margin-bottom: 12px; text-align: center; }
+.mood-scale { display: flex; justify-content: center; gap: 18px; }
+.mood-scale label { cursor: pointer; position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.mood-scale label .icon { font-size: 36px; opacity: 0.45; transition: all 0.15s; }
+.mood-scale label .lbl { font-size: 11.5px; color: var(--text-soft); font-weight: 500; }
+.mood-scale input { position: absolute; opacity: 0; }
+.mood-scale input:checked + .icon { opacity: 1; transform: scale(1.15); }
+.mood-scale input:checked ~ .lbl { color: var(--coral-dark); font-weight: 700; }
+
+.form-field { margin-bottom: 16px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 50px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.contribution-scale { padding: 14px 18px; background: var(--bg); border-radius: 10px; margin-bottom: 16px; }
+.contribution-row { display: grid; grid-template-columns: 1fr 200px; gap: 14px; align-items: center; padding: 8px 0; }
+.contribution-row:not(:last-child) { border-bottom: 1px dashed var(--line); }
+.contribution-row .label { font-size: 13px; color: var(--text); }
+.star-scale { display: flex; gap: 6px; justify-content: flex-end; }
+.star-scale label { cursor: pointer; position: relative; font-size: 22px; opacity: 0.35; transition: all 0.15s; }
+.star-scale input { position: absolute; opacity: 0; }
+.star-scale input:checked + .star, .star-scale label:has(input:checked) ~ label .star { color: var(--coral); }
+.star-scale label:has(input:checked) .star { opacity: 1; }
+.star-scale label:has(~ label input:checked) .star { opacity: 1; color: var(--coral); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .mood-scale label .icon { opacity: 0.7; } .star-scale label { opacity: 0.7; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .task-info { grid-template-columns: 1fr; } .mood-scale { gap: 8px; } .contribution-row { grid-template-columns: 1fr; } .star-scale { justify-content: flex-start; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">모둠 활동 후 · 양식 14 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">모둠 협력 일기 🤝</h1>
+    <div class="form-title-en">Group Work Diary</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">친구와 함께한 활동·프로젝트가 끝났을 때.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">친구와 함께 일하면서 무엇을 배웠는지 정리해봐요.</div>
+    </div>
+  </div>
+
+  <div class="task-info">
+    <div><label>활동 이름</label><input type="text" placeholder="예: 우리 동네 지도 만들기"></div>
+    <div><label>이름</label><input type="text"></div>
+    <div><label>날짜</label><input type="text" placeholder="__/__"></div>
+  </div>
+
+  <div class="members-box">
+    <label>👥 우리 모둠 친구들 이름</label>
+    <input type="text" placeholder="예: 김OO, 이OO, 박OO, 나">
+  </div>
+
+  <div class="mood-block">
+    <div class="mood-title">💕 모둠 활동을 하면서 내 기분은?</div>
+    <div class="mood-scale">
+      <label><input type="radio" name="mood"><span class="icon">😟</span><span class="lbl">속상</span></label>
+      <label><input type="radio" name="mood"><span class="icon">😐</span><span class="lbl">그저그래</span></label>
+      <label><input type="radio" name="mood"><span class="icon">🙂</span><span class="lbl">좋았어</span></label>
+      <label><input type="radio" name="mood"><span class="icon">😄</span><span class="lbl">신나</span></label>
+      <label><input type="radio" name="mood"><span class="icon">🤩</span><span class="lbl">최고</span></label>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🎯 모둠에서 내가 한 일</div>
+    <div class="form-field-hint">구체적으로 무엇을 했나요?</div>
+    <textarea placeholder="예: 동네 사진을 모으는 일을 맡았어요. 5장을 찍어서 가져왔어요."></textarea>
+  </div>
+
+  <div class="contribution-scale">
+    <div class="contribution-row">
+      <div class="label">내가 맡은 일을 책임감 있게 했어요</div>
+      <div class="star-scale">
+        <label><input type="radio" name="s1"><span class="star">⭐</span></label>
+        <label><input type="radio" name="s1"><span class="star">⭐</span></label>
+        <label><input type="radio" name="s1"><span class="star">⭐</span></label>
+      </div>
+    </div>
+    <div class="contribution-row">
+      <div class="label">친구들의 의견을 잘 들어줬어요</div>
+      <div class="star-scale">
+        <label><input type="radio" name="s2"><span class="star">⭐</span></label>
+        <label><input type="radio" name="s2"><span class="star">⭐</span></label>
+        <label><input type="radio" name="s2"><span class="star">⭐</span></label>
+      </div>
+    </div>
+    <div class="contribution-row">
+      <div class="label">의견이 달랐을 때 사이좋게 해결했어요</div>
+      <div class="star-scale">
+        <label><input type="radio" name="s3"><span class="star">⭐</span></label>
+        <label><input type="radio" name="s3"><span class="star">⭐</span></label>
+        <label><input type="radio" name="s3"><span class="star">⭐</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">💛 친구에게 고마운 점</div>
+    <div class="form-field-hint">누가 어떻게 도와줬나요?</div>
+    <textarea placeholder="예: OO이가 사진 정리를 도와줘서 좋았어요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">😣 힘들었던 점 / 어떻게 해결했어요?</div>
+    <textarea placeholder="예: 의견이 달라서 다툴 뻔했는데, 둘 다 해보기로 했어요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">💡 다음에 모둠 활동 할 때 더 잘하고 싶은 점</div>
+    <textarea placeholder="구체적으로 한 가지만."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 초등 모둠 활동에서 가장 자주 나오는 문제는 <strong>"누가 더 많이 했냐, 누가 안 했냐"</strong>예요. 자녀가 모둠에서 답답해할 때 "걔는 왜 그래?"보다 <strong>"네가 어떻게 도와줄 수 있을까?"</strong>가 좋은 질문이에요. 자녀가 자기 책임에 집중하면서도, 친구의 다양함을 받아들이는 게 PYP가 키우려는 사회성이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

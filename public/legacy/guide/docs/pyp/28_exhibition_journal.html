@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전시회 진행 과정 일지 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.exhibit-badge { padding: 3px 10px; background: var(--coral-dark); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.project-info { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 22px; }
+.project-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.project-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.project-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.phase-block { padding: 20px 24px; border: 2px solid; border-radius: 14px; margin-bottom: 14px; }
+.phase-block.p1 { border-color: #C5DDF4; background: #F0F7FE; }
+.phase-block.p2 { border-color: #F1D9A8; background: #FEF8EA; }
+.phase-block.p3 { border-color: #FFBFD9; background: #FFF0F6; }
+.phase-block.p4 { border-color: #DCC9F0; background: #F8F2FE; }
+
+.phase-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid rgba(0,0,0,0.06); }
+.phase-icon { font-size: 32px; }
+.phase-info { flex: 1; }
+.phase-name { font-size: 18px; font-weight: 700; }
+.phase-en { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
+.phase-weeks { padding: 4px 12px; background: white; border-radius: 100px; font-size: 11.5px; font-weight: 600; color: var(--text-soft); }
+
+.phase-body label { display: block; font-size: 12.5px; color: var(--text-soft); margin-bottom: 4px; font-weight: 600; }
+.phase-body textarea { width: 100%; padding: 10px 12px; border: 1px solid white; border-radius: 8px; font-size: 13.5px; font-family: inherit; background: rgba(255,255,255,0.7); resize: vertical; line-height: 1.6; min-height: 60px; margin-bottom: 10px; }
+.phase-body textarea:focus { outline: none; background: white; }
+
+.dates { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px; }
+.dates > div label { font-size: 11px; color: var(--muted); }
+.dates > div input { padding: 7px 9px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: white; }
+.dates > div input:focus { outline: none; border-color: var(--coral); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .phase-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .project-info, .dates { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">8~10주 대장정 · 양식 28 <span class="pyp-badge">PYP</span> <span class="exhibit-badge">EXHIBITION</span></div>
+    <h1 class="form-title">전시회 진행 과정 일지 🗓️</h1>
+    <div class="form-title-en">Exhibition Process Journal</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">8~10주 전 과정 내내 누적. 단계마다 정리.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">Exhibition의 가장 중요한 양식. 결과보다 과정을 평가합니다.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>이 양식이 Exhibition의 핵심 자료예요.</strong> 4단계 — 알아보기 → 계획하기 → 실행하기 → 성찰하기 — 를 거치며 매주 일지가 쌓입니다. <strong>실패한 것도, 헷갈렸던 것도 다 적으세요.</strong> 그 모든 것이 진짜 학습의 증거예요.
+  </div>
+
+  <div class="project-info">
+    <div><label>Exhibition 제목</label><input type="text"></div>
+    <div><label>이름</label><input type="text"></div>
+  </div>
+
+  <div class="phase-block p1">
+    <div class="phase-header">
+      <div class="phase-icon">🔍</div>
+      <div class="phase-info">
+        <div class="phase-name">1단계. 알아보기</div>
+        <div class="phase-en">Investigating — 무엇이 문제인지, 무엇을 알아야 할지</div>
+      </div>
+      <div class="phase-weeks">1~2주차</div>
+    </div>
+    <div class="phase-body">
+      <div class="dates">
+        <div><label>시작일</label><input type="text" placeholder="__/__"></div>
+        <div><label>종료일</label><input type="text" placeholder="__/__"></div>
+      </div>
+      <label>이 단계에서 한 일</label>
+      <textarea placeholder="예: 학교 영양사 인터뷰. 잔반량 측정. 환경 단체 자료 조사."></textarea>
+      <label>새로 알게 된 것 · 놀라웠던 것</label>
+      <textarea placeholder="조사 전과 후의 이해 변화."></textarea>
+    </div>
+  </div>
+
+  <div class="phase-block p2">
+    <div class="phase-header">
+      <div class="phase-icon">📋</div>
+      <div class="phase-info">
+        <div class="phase-name">2단계. 계획하기</div>
+        <div class="phase-en">Planning — 어떻게 행동에 옮길지</div>
+      </div>
+      <div class="phase-weeks">3~4주차</div>
+    </div>
+    <div class="phase-body">
+      <div class="dates">
+        <div><label>시작일</label><input type="text" placeholder="__/__"></div>
+        <div><label>종료일</label><input type="text" placeholder="__/__"></div>
+      </div>
+      <label>실행할 행동 계획</label>
+      <textarea placeholder="구체적으로 무엇을 / 언제 / 어떻게."></textarea>
+      <label>성공의 기준 (어떻게 결과를 측정할지)</label>
+      <textarea placeholder="예: 4주간 우리 반 잔반량 30% 감소 달성."></textarea>
+    </div>
+  </div>
+
+  <div class="phase-block p3">
+    <div class="phase-header">
+      <div class="phase-icon">🚀</div>
+      <div class="phase-info">
+        <div class="phase-name">3단계. 실행하기</div>
+        <div class="phase-en">Taking Action — 실제로 행동에 옮김</div>
+      </div>
+      <div class="phase-weeks">5~8주차</div>
+    </div>
+    <div class="phase-body">
+      <div class="dates">
+        <div><label>시작일</label><input type="text" placeholder="__/__"></div>
+        <div><label>종료일</label><input type="text" placeholder="__/__"></div>
+      </div>
+      <label>실제로 한 일 (계획 대비)</label>
+      <textarea placeholder="계획과 어떻게 같고 달랐는지."></textarea>
+      <label>중간에 만난 문제와 해결</label>
+      <textarea placeholder="예상 못한 일과 그것을 어떻게 풀었는지."></textarea>
+    </div>
+  </div>
+
+  <div class="phase-block p4">
+    <div class="phase-header">
+      <div class="phase-icon">🪞</div>
+      <div class="phase-info">
+        <div class="phase-name">4단계. 성찰하기</div>
+        <div class="phase-en">Reflecting — 무엇을 배웠나, 어떻게 자랐나</div>
+      </div>
+      <div class="phase-weeks">9~10주차</div>
+    </div>
+    <div class="phase-body">
+      <div class="dates">
+        <div><label>시작일</label><input type="text" placeholder="__/__"></div>
+        <div><label>종료일</label><input type="text" placeholder="__/__"></div>
+      </div>
+      <label>결과 평가 (목표 달성도)</label>
+      <textarea placeholder="성공 기준에 비추어."></textarea>
+      <label>나는 어떻게 자랐나 — 학습자상·ATL</label>
+      <textarea placeholder="Exhibition 전과 후의 나."></textarea>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 4단계 사이클(알아보기→계획→실행→성찰)은 <strong>평생 어떤 문제든 해결할 수 있는 사고법</strong>이에요. PYP가 진짜로 가르치려는 게 이 사고 흐름이에요. 자녀가 단계에서 헤맬 때 단계 이름을 자녀에게 환기시켜 주세요. "지금은 어느 단계야? 알아보는 단계? 계획하는 단계?" 자녀가 자기 위치를 의식하면 길을 잃지 않아요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

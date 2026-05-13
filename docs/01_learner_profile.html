@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학습자상 자가 진단 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root {
+  --coral: #E07856;
+  --coral-dark: #B85A3D;
+  --coral-light: #FCE4DC;
+  --coral-pale: #FFF4EF;
+  --bg: #FFFBF8;
+  --surface: #FFFFFF;
+  --text: #2C2522;
+  --text-soft: #5C5048;
+  --muted: #9A8D85;
+  --line: #EFE5DD;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+  padding: 40px 20px;
+}
+.form-page {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 48px 52px;
+}
+.form-header {
+  border-bottom: 2px solid var(--coral);
+  padding-bottom: 18px;
+  margin-bottom: 26px;
+}
+.form-category {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--coral-dark);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.form-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.form-title-en {
+  font-size: 13.5px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.form-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 28px;
+  padding: 16px 20px;
+  background: var(--coral-pale);
+  border-radius: 10px;
+}
+.form-meta-item .label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--coral-dark);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.form-meta-item .value {
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+.student-info {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.student-info label {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.student-info input {
+  width: 100%;
+  padding: 6px 0;
+  border: none;
+  border-bottom: 1.5px solid var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  background: transparent;
+}
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.scale-legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 10px;
+  padding: 0 14px;
+}
+.profile-grid {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.profile-item {
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: border-color 0.15s;
+}
+.profile-item:hover { border-color: var(--coral-light); }
+.profile-item-top {
+  display: grid;
+  grid-template-columns: 1fr 175px;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.profile-item .name {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.profile-item .name .en {
+  display: inline-block;
+  font-size: 11.5px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 6px;
+  letter-spacing: 0.01em;
+}
+.profile-item .desc {
+  font-size: 12.5px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.scale {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.scale label { cursor: pointer; position: relative; }
+.scale label .num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+  font-size: 12px;
+  color: var(--text-soft);
+  transition: all 0.15s;
+}
+.scale label:hover .num { border-color: var(--coral); }
+.scale input { position: absolute; opacity: 0; pointer-events: none; }
+.scale input:checked + .num {
+  background: var(--coral);
+  color: white;
+  border-color: var(--coral);
+}
+
+.form-field { margin-bottom: 20px; }
+.form-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.form-field-hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.form-field textarea,
+.form-field input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--bg);
+  resize: vertical;
+  line-height: 1.6;
+}
+.form-field textarea { min-height: 70px; }
+.form-field textarea:focus,
+.form-field input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.form-parent-note {
+  background: var(--coral-pale);
+  border-left: 3px solid var(--coral);
+  padding: 14px 18px;
+  margin-top: 28px;
+  border-radius: 0 8px 8px 0;
+  font-size: 12.5px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print {
+  body { background: white; padding: 0; }
+  .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; }
+  .form-footer { display: none; }
+  .form-field textarea, .form-field input, .student-info input { background: white; }
+  .scale label .num { border-color: #666; }
+  .profile-item { break-inside: avoid; }
+}
+@media (max-width: 640px) {
+  body { padding: 20px 12px; }
+  .form-page { padding: 28px 24px; }
+  .form-meta, .student-info { grid-template-columns: 1fr; }
+  .profile-item-top { grid-template-columns: 1fr; }
+  .scale { justify-content: flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">학년 / 학기 시작 시 · 양식 01</div>
+    <h1 class="form-title">학습자상 자가 진단</h1>
+    <div class="form-title-en">Learner Profile Self-assessment</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">학년 또는 학기 시작 시점. 학년 말에 다시 작성해서 변화를 비교해요.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">10가지 IB 학습자상 자질에서 나의 현재 강·약점을 스스로 점검합니다.</div>
+    </div>
+  </div>
+
+  <div class="student-info">
+    <div>
+      <label>이름</label>
+      <input type="text">
+    </div>
+    <div>
+      <label>학년 / 반</label>
+      <input type="text">
+    </div>
+    <div>
+      <label>작성 날짜</label>
+      <input type="text" placeholder="2026 . __ . __">
+    </div>
+  </div>
+
+  <div class="scale-legend">
+    <span>← 아직 부족함</span>
+    <span>매우 잘 갖춤 →</span>
+  </div>
+
+  <div class="profile-grid">
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">탐구하는 사람 <span class="en">Inquirers</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p1"><span class="num">1</span></label>
+          <label><input type="radio" name="p1"><span class="num">2</span></label>
+          <label><input type="radio" name="p1"><span class="num">3</span></label>
+          <label><input type="radio" name="p1"><span class="num">4</span></label>
+          <label><input type="radio" name="p1"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">호기심을 키우며 스스로 질문을 던지고 새로운 것을 알아갑니다. 모르는 것이 있을 때 "왜 그럴까?"라고 묻고 평생 배우는 자세를 가집니다.</div>
+    </div>
+
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">지식이 풍부한 사람 <span class="en">Knowledgeable</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p2"><span class="num">1</span></label>
+          <label><input type="radio" name="p2"><span class="num">2</span></label>
+          <label><input type="radio" name="p2"><span class="num">3</span></label>
+          <label><input type="radio" name="p2"><span class="num">4</span></label>
+          <label><input type="radio" name="p2"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">여러 분야의 개념과 아이디어를 깊이 있게 탐구합니다. 지역과 세계에서 일어나는 일에 관심을 가지고 폭넓게 이해하려고 합니다.</div>
+    </div>
+
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">사고하는 사람 <span class="en">Thinkers</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p3"><span class="num">1</span></label>
+          <label><input type="radio" name="p3"><span class="num">2</span></label>
+          <label><input type="radio" name="p3"><span class="num">3</span></label>
+          <label><input type="radio" name="p3"><span class="num">4</span></label>
+          <label><input type="radio" name="p3"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">정답을 외우기보다 "왜 그럴까", "다르게 볼 수는 없을까"를 고민합니다. 비판적·창의적으로 생각해서 복잡한 문제에도 접근합니다.</div>
+    </div>
+
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">소통하는 사람 <span class="en">Communicators</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p4"><span class="num">1</span></label>
+          <label><input type="radio" name="p4"><span class="num">2</span></label>
+          <label><input type="radio" name="p4"><span class="num">3</span></label>
+          <label><input type="radio" name="p4"><span class="num">4</span></label>
+          <label><input type="radio" name="p4"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">자기 생각을 명확하게 표현하고 다른 사람의 말도 잘 듣습니다. 글·말·그림 등 다양한 방식으로 자신을 표현할 줄 압니다.</div>
+    </div>
+
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">원칙을 지키는 사람 <span class="en">Principled</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p5"><span class="num">1</span></label>
+          <label><input type="radio" name="p5"><span class="num">2</span></label>
+          <label><input type="radio" name="p5"><span class="num">3</span></label>
+          <label><input type="radio" name="p5"><span class="num">4</span></label>
+          <label><input type="radio" name="p5"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">정직과 공정함을 지키고, 자기 행동에 책임을 집니다. 어려운 상황에서도 옳다고 생각하는 길을 선택합니다.</div>
+    </div>
+
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">열린 마음을 가진 사람 <span class="en">Open-minded</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p6"><span class="num">1</span></label>
+          <label><input type="radio" name="p6"><span class="num">2</span></label>
+          <label><input type="radio" name="p6"><span class="num">3</span></label>
+          <label><input type="radio" name="p6"><span class="num">4</span></label>
+          <label><input type="radio" name="p6"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">나와 다른 문화·관점·의견을 존중하고 이해하려고 합니다. 새로운 시각을 만났을 때 거부하기보다 먼저 들어봅니다.</div>
+    </div>
+
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">배려하는 사람 <span class="en">Caring</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p7"><span class="num">1</span></label>
+          <label><input type="radio" name="p7"><span class="num">2</span></label>
+          <label><input type="radio" name="p7"><span class="num">3</span></label>
+          <label><input type="radio" name="p7"><span class="num">4</span></label>
+          <label><input type="radio" name="p7"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">다른 사람의 감정에 공감하고 도움이 필요할 때 손을 내밉니다. 자기뿐 아니라 주변과 세상을 더 나은 곳으로 만들려고 합니다.</div>
+    </div>
+
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">도전하는 사람 <span class="en">Risk-takers</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p8"><span class="num">1</span></label>
+          <label><input type="radio" name="p8"><span class="num">2</span></label>
+          <label><input type="radio" name="p8"><span class="num">3</span></label>
+          <label><input type="radio" name="p8"><span class="num">4</span></label>
+          <label><input type="radio" name="p8"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">익숙하지 않은 일에도 용기 있게 시도합니다. 실패해도 다시 일어서고 "못할 것 같아서" 대신 "해보자"를 택합니다.</div>
+    </div>
+
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">균형 잡힌 사람 <span class="en">Balanced</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p9"><span class="num">1</span></label>
+          <label><input type="radio" name="p9"><span class="num">2</span></label>
+          <label><input type="radio" name="p9"><span class="num">3</span></label>
+          <label><input type="radio" name="p9"><span class="num">4</span></label>
+          <label><input type="radio" name="p9"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">공부·운동·휴식·관계 사이에서 균형을 이루며 건강하게 살아갑니다. 한 가지에만 매달리지 않고 여러 면을 골고루 돌봅니다.</div>
+    </div>
+
+    <div class="profile-item">
+      <div class="profile-item-top">
+        <div class="name">성찰하는 사람 <span class="en">Reflective</span></div>
+        <div class="scale">
+          <label><input type="radio" name="p10"><span class="num">1</span></label>
+          <label><input type="radio" name="p10"><span class="num">2</span></label>
+          <label><input type="radio" name="p10"><span class="num">3</span></label>
+          <label><input type="radio" name="p10"><span class="num">4</span></label>
+          <label><input type="radio" name="p10"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">자기 경험과 학습을 돌아보며 강·약점을 이해합니다. 잘된 것과 안 된 것을 모두 인정하고 다음 성장으로 연결합니다.</div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이번 학기·학년에 가장 키우고 싶은 자질 2개</div>
+    <div class="form-field-hint">위 10개 중에서 골라 적어보세요.</div>
+    <input type="text" placeholder="예: 도전하는 사람, 성찰하는 사람">
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">그 자질을 키우기 위해 시도해보고 싶은 일</div>
+    <div class="form-field-hint">한두 줄로 구체적인 행동을 적어보세요.</div>
+    <textarea placeholder="예: 어려운 문제도 포기하지 않고 한 번 더 시도해본다. 모르는 것을 친구나 선생님께 더 자주 물어본다."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 자녀가 자기 자신을 어떻게 보고 있는지 드러나는 양식이에요. 점수 자체보다 <strong>자녀가 어떤 자질을 부족하다고 느끼는지</strong>와 <strong>어떤 사람이 되고 싶어 하는지</strong>가 중요합니다. 학년 말에 같은 양식을 다시 작성해서 비교해보면 자녀의 성장을 함께 확인할 수 있어요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

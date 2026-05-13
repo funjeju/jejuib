@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학생 주도 컨퍼런스 대본 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.student-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.script-block { padding: 18px 22px; border: 2px solid var(--line); border-radius: 14px; margin-bottom: 14px; position: relative; }
+.script-step { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px dashed var(--line); }
+.script-num { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: var(--coral); color: white; border-radius: 50%; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+.script-title { font-size: 15px; font-weight: 700; flex: 1; }
+.script-hint { font-size: 12px; color: var(--muted); }
+.script-body { padding-left: 0; }
+.bubble { padding: 12px 16px; background: var(--coral-pale); border-radius: 14px 14px 14px 4px; margin-bottom: 8px; font-size: 13.5px; color: var(--text-soft); font-style: italic; line-height: 1.6; }
+.bubble strong { color: var(--coral-dark); font-style: normal; font-weight: 600; }
+.script-body label { display: block; font-size: 12.5px; color: var(--text-soft); margin-bottom: 4px; font-weight: 500; }
+.script-body textarea { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 60px; }
+.script-body textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.tip-block { padding: 14px 18px; background: linear-gradient(135deg, #FFF8F2, #FFFBF8); border: 1.5px dashed var(--coral); border-radius: 10px; margin-top: 18px; }
+.tip-title { font-size: 13px; font-weight: 700; color: var(--coral-dark); margin-bottom: 6px; }
+.tip-list { font-size: 13px; color: var(--text-soft); line-height: 1.75; }
+.tip-list li { padding-left: 18px; position: relative; }
+.tip-list li::before { content: '✓'; position: absolute; left: 0; color: var(--coral); font-weight: 700; }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .script-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">학기 말 · 양식 23 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">학생 주도 컨퍼런스 대본 🎤</h1>
+    <div class="form-title-en">Student-Led Conference Script</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">학기 말 학부모 컨퍼런스 1~2주 전.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">학부모님께 내 학습을 직접 발표하는 대본이에요.</div>
+    </div>
+  </div>
+
+  <div class="student-info">
+    <div><label>이름</label><input type="text"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>컨퍼런스 날</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>학생 주도 컨퍼런스(SLC)는 PYP의 특별한 자리예요.</strong> 일반 학부모 상담과 달리, <strong>학생이 학부모님께 직접 발표</strong>해요. 내 학습을 내 말로 설명하는 것 자체가 큰 학습이에요. 아래는 대본 안내예요. 천천히 채워보세요.
+  </div>
+
+  <div class="script-block">
+    <div class="script-step">
+      <div class="script-num">1</div>
+      <div class="script-title">👋 시작 인사</div>
+      <span class="script-hint">1분</span>
+    </div>
+    <div class="bubble">
+      <strong>예시 문장:</strong> "안녕하세요. 오늘은 제가 이번 학기 어떻게 배우고 자랐는지 직접 보여드릴게요. 시작해도 될까요?"
+    </div>
+    <div class="script-body">
+      <label>내가 할 시작 인사</label>
+      <textarea placeholder="내 말로 자연스럽게 적어보세요."></textarea>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-step">
+      <div class="script-num">2</div>
+      <div class="script-title">⭐ 가장 자랑하고 싶은 작품 한 가지</div>
+      <span class="script-hint">3~4분</span>
+    </div>
+    <div class="bubble">
+      <strong>설명할 것:</strong> 어떤 단원이었나 / 무엇을 만들었나 / 어떻게 만들었나 / 무엇을 배웠나
+    </div>
+    <div class="script-body">
+      <label>이 작품에 대해 내가 할 말</label>
+      <textarea placeholder="작품을 보여주면서 이야기할 내용."></textarea>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-step">
+      <div class="script-num">3</div>
+      <div class="script-title">🌱 한 학기 동안 자란 모습</div>
+      <span class="script-hint">2분</span>
+    </div>
+    <div class="bubble">
+      <strong>설명할 것:</strong> 학습자상 자질 중 자란 것 / 학습 근육 중 키운 것 / 어떻게 알 수 있나
+    </div>
+    <div class="script-body">
+      <label>내가 자란 부분</label>
+      <textarea placeholder="구체적인 예와 함께."></textarea>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-step">
+      <div class="script-num">4</div>
+      <div class="script-title">💪 어려웠지만 극복한 것</div>
+      <span class="script-hint">1~2분</span>
+    </div>
+    <div class="bubble">
+      <strong>설명할 것:</strong> 어떤 어려움 / 어떻게 해결 / 무엇을 배움
+    </div>
+    <div class="script-body">
+      <label>이야기할 어려움과 극복</label>
+      <textarea placeholder="실패와 회복의 이야기."></textarea>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-step">
+      <div class="script-num">5</div>
+      <div class="script-title">🎯 다음 학기 약속</div>
+      <span class="script-hint">1분</span>
+    </div>
+    <div class="bubble">
+      <strong>설명할 것:</strong> 더 잘하고 싶은 한 가지 / 어떻게 해볼 건지
+    </div>
+    <div class="script-body">
+      <label>내가 할 약속</label>
+      <textarea placeholder="구체적이고 작은 약속."></textarea>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-step">
+      <div class="script-num">6</div>
+      <div class="script-title">💝 마무리 + 가족에게</div>
+      <span class="script-hint">1분</span>
+    </div>
+    <div class="bubble">
+      <strong>설명할 것:</strong> 도움 받고 싶은 것 / 가족에게 고마운 점 / 질문 받기
+    </div>
+    <div class="script-body">
+      <label>마무리에 할 말</label>
+      <textarea placeholder="진심을 담아."></textarea>
+    </div>
+  </div>
+
+  <div class="tip-block">
+    <div class="tip-title">💡 발표 잘하는 팁</div>
+    <ul class="tip-list" style="list-style: none;">
+      <li>천천히, 또박또박 말하기</li>
+      <li>가족 얼굴을 보면서 말하기</li>
+      <li>중간중간 작품을 보여주기</li>
+      <li>실수해도 괜찮아요. 다시 말하면 돼요</li>
+      <li>마지막엔 "질문 있으세요?" 묻기</li>
+    </ul>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> SLC는 자녀가 학교에서 처음 경험하는 <strong>"발표자" 역할</strong>이에요. 한국 학교에서 잘 운영되지 않더라도, 가정에서 학기 말마다 이 자리를 만들어보세요. 가족 앞에서 자녀가 자기 학습을 설명하면, 자기 인식이 깊어지고 표현력이 자랍니다. 발표 중 자녀를 비판하지 말고 <strong>"잘 설명해줘서 고마워"</strong>가 가장 좋은 반응이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

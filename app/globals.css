@@ -1,0 +1,48 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 39 38% 97%;
+    --surface: 0 0% 100%;
+    --text: 0 0% 10%;
+    --text-muted: 0 0% 42%;
+    --text-faint: 0 0% 60%;
+    --border: 35 17% 89%;
+    --border-strong: 36 14% 80%;
+    --accent: 158 43% 21%;
+    --accent-soft: 146 24% 92%;
+
+    /* 상태 배지 */
+    --cert-bg: 158 50% 92%;
+    --cert-text: 158 78% 17%;
+    --cand-bg: 33 79% 92%;
+    --cand-text: 28 88% 21%;
+    --int-bg: 48 17% 92%;
+    --int-text: 60 2% 27%;
+    --prog-bg: 245 80% 96%;
+    --prog-text: 247 46% 37%;
+
+    /* shadcn 표준 변수 매핑 */
+    --background: var(--bg);
+    --foreground: var(--text);
+    --card: var(--surface);
+    --card-foreground: var(--text);
+    --primary: var(--accent);
+    --primary-foreground: 0 0% 100%;
+    --muted: var(--accent-soft);
+    --muted-foreground: var(--text-muted);
+    --radius: 0.625rem;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans;
+  }
+
+  * {
+    @apply border-border;
+  }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수행과제 계획서 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.task-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+.task-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.task-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.task-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea, .form-field input[type="text"] { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; }
+.form-field textarea { min-height: 55px; }
+.form-field textarea:focus, .form-field input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.criteria-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.criteria-check { padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; text-align: center; transition: all 0.15s; }
+.criteria-check input { display: none; }
+.criteria-check input:checked + .crit-label { color: var(--coral-dark); font-weight: 600; }
+.criteria-check:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); }
+.crit-label { display: block; font-size: 12px; color: var(--text-soft); }
+.crit-label .crit-letter { display: block; font-size: 10.5px; color: var(--muted); margin-bottom: 2px; font-weight: 700; letter-spacing: 0.05em; }
+.schedule-block { padding: 14px 18px; background: var(--bg); border-radius: 8px; }
+.schedule-row { display: grid; grid-template-columns: 100px 1fr; gap: 12px; margin-bottom: 8px; align-items: center; }
+.schedule-row:last-child { margin-bottom: 0; }
+.schedule-row input { padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--surface); }
+.schedule-row input:focus { outline: none; border-color: var(--coral); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .task-info { grid-template-columns: 1fr; } .criteria-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 시작 시 · 양식 05</div>
+    <h1 class="form-title">수행과제 계획서</h1>
+    <div class="form-title-en">Summative Task Plan</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">단원 시작 시 선생님으로부터 수행과제 안내를 받은 후 1주일 내.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">단원 끝의 결과물(과제)을 향해 한 달간의 학습을 미리 설계합니다.</div>
+    </div>
+  </div>
+
+  <div class="task-info">
+    <div><label>과제명 · 단원명</label><input type="text" placeholder="예: 기상 시스템 분석 보고서"></div>
+    <div><label>교과</label><input type="text" placeholder="예: 과학"></div>
+    <div><label>제출 마감일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">탐구진술문 (Statement of Inquiry)</div>
+    <div class="form-field-hint">선생님이 알려준 단원의 한 문장 메시지를 그대로 적으세요.</div>
+    <input type="text" placeholder="예: 에너지의 균형이 깨진 시스템은 지속가능성을 위협한다.">
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">결과물 형식</div>
+    <div class="form-field-hint">최종적으로 무엇을 만들어 제출해야 하나요? (보고서·발표·영상·작품·실험결과 등)</div>
+    <input type="text" placeholder="예: A4 4쪽 분량의 분석 보고서 + 5분 발표">
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 과제에서 평가되는 Criterion</div>
+    <div class="form-field-hint">선생님 안내에서 평가 기준을 확인하고 해당하는 것에 체크하세요.</div>
+    <div class="criteria-grid">
+      <label class="criteria-check"><input type="checkbox"><span class="crit-label"><span class="crit-letter">A</span>알고 이해하기</span></label>
+      <label class="criteria-check"><input type="checkbox"><span class="crit-label"><span class="crit-letter">B</span>탐구하기</span></label>
+      <label class="criteria-check"><input type="checkbox"><span class="crit-label"><span class="crit-letter">C</span>의사소통</span></label>
+      <label class="criteria-check"><input type="checkbox"><span class="crit-label"><span class="crit-letter">D</span>적용·성찰</span></label>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">접근 방법</div>
+    <div class="form-field-hint">어떤 자료를 찾고, 어떻게 분석하고, 어떻게 표현할지 큰 흐름을 적어보세요.</div>
+    <textarea placeholder="예: 기상청 데이터 검색 → 최근 10년 기온·강수량 변화 분석 → 그래프 작성 → 원인 추론 → 보고서 작성"></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">필요한 자료·도구</div>
+    <input type="text" placeholder="예: 기상청 자료, 교과서 5단원, 엑셀, 인터뷰 (선생님 1명)">
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">일정 (체크포인트)</div>
+    <div class="form-field-hint">큰 단계를 3~4개로 나누어 마감 전에 도달할 시점을 정해보세요.</div>
+    <div class="schedule-block">
+      <div class="schedule-row"><input type="text" placeholder="__/__"><input type="text" placeholder="자료 조사 완료"></div>
+      <div class="schedule-row"><input type="text" placeholder="__/__"><input type="text" placeholder="초안 작성"></div>
+      <div class="schedule-row"><input type="text" placeholder="__/__"><input type="text" placeholder="수정·보완"></div>
+      <div class="schedule-row"><input type="text" placeholder="__/__"><input type="text" placeholder="최종 제출"></div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 한 장으로 자녀가 앞으로 한 달간 어디로 향하는지가 한눈에 보여요. 자녀가 이 양식을 채우는 것 자체가 <strong>자기관리(ATL) 기술의 핵심 훈련</strong>이에요. 마감 임박해서 허둥대지 않으려면 학부모도 일정표를 한번 봐두시고, 체크포인트마다 진행 상황을 가볍게 물어봐주시면 좋아요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

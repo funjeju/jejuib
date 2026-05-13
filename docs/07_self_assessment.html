@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자기평가 루브릭 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.task-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 26px; }
+.task-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.task-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.task-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.crit-block { padding: 16px 20px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; }
+.crit-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.crit-letter { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 50%; font-weight: 700; font-size: 14px; }
+.crit-title { font-size: 14.5px; font-weight: 600; flex: 1; }
+.crit-title input { width: 100%; padding: 4px 0; border: none; font-size: 14px; font-family: inherit; background: transparent; font-weight: 500; }
+.crit-title input:focus { outline: none; }
+.crit-score { display: flex; gap: 4px; }
+.crit-score label { cursor: pointer; position: relative; }
+.crit-score label .num { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1.5px solid var(--line); border-radius: 50%; font-size: 11.5px; color: var(--text-soft); transition: all 0.15s; }
+.crit-score label:hover .num { border-color: var(--coral); }
+.crit-score input { position: absolute; opacity: 0; pointer-events: none; }
+.crit-score input:checked + .num { background: var(--coral); color: white; border-color: var(--coral); }
+.crit-reason { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.crit-block textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 40px; }
+.crit-block textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.score-legend { font-size: 11px; color: var(--muted); margin-bottom: 18px; padding: 10px 14px; background: var(--bg); border-radius: 6px; }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 55px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .crit-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .task-info { grid-template-columns: 1fr; } .crit-header { flex-wrap: wrap; } .crit-score { flex-wrap: wrap; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 종료 시 · 양식 07</div>
+    <h1 class="form-title">자기평가 루브릭</h1>
+    <div class="form-title-en">Self-assessment Rubric</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">수행과제 제출 직전. 선생님 채점 전에 내가 먼저 점수를 매겨봅니다.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">기준에 비춰 자기 결과물을 점검하고, 교사 점수와 비교해서 자기 인식을 키웁니다.</div>
+    </div>
+  </div>
+
+  <div class="task-info">
+    <div><label>과제명</label><input type="text" placeholder="예: 기상 시스템 분석 보고서"></div>
+    <div><label>교과</label><input type="text" placeholder="예: 과학"></div>
+    <div><label>제출일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="score-legend">
+    각 Criterion은 <strong style="color: var(--text);">0~8점</strong>. 4개 합산 32점이 1~7 등급으로 환산됩니다. 7~8점=매우 우수, 5~6점=우수, 3~4점=보통, 1~2점=미흡, 0점=기준 미충족.
+  </div>
+
+  <div class="crit-block">
+    <div class="crit-header">
+      <div class="crit-letter">A</div>
+      <div class="crit-title"><input type="text" placeholder="A 기준 이름 (예: 알고 이해하기)"></div>
+      <div class="crit-score">
+        <label><input type="radio" name="ca"><span class="num">0</span></label>
+        <label><input type="radio" name="ca"><span class="num">1</span></label>
+        <label><input type="radio" name="ca"><span class="num">2</span></label>
+        <label><input type="radio" name="ca"><span class="num">3</span></label>
+        <label><input type="radio" name="ca"><span class="num">4</span></label>
+        <label><input type="radio" name="ca"><span class="num">5</span></label>
+        <label><input type="radio" name="ca"><span class="num">6</span></label>
+        <label><input type="radio" name="ca"><span class="num">7</span></label>
+        <label><input type="radio" name="ca"><span class="num">8</span></label>
+      </div>
+    </div>
+    <div class="crit-reason">이 점수를 매긴 이유 (어떤 부분이 잘 됐고, 어떤 부분이 부족한가)</div>
+    <textarea></textarea>
+  </div>
+
+  <div class="crit-block">
+    <div class="crit-header">
+      <div class="crit-letter">B</div>
+      <div class="crit-title"><input type="text" placeholder="B 기준 이름 (예: 탐구·설계)"></div>
+      <div class="crit-score">
+        <label><input type="radio" name="cb"><span class="num">0</span></label>
+        <label><input type="radio" name="cb"><span class="num">1</span></label>
+        <label><input type="radio" name="cb"><span class="num">2</span></label>
+        <label><input type="radio" name="cb"><span class="num">3</span></label>
+        <label><input type="radio" name="cb"><span class="num">4</span></label>
+        <label><input type="radio" name="cb"><span class="num">5</span></label>
+        <label><input type="radio" name="cb"><span class="num">6</span></label>
+        <label><input type="radio" name="cb"><span class="num">7</span></label>
+        <label><input type="radio" name="cb"><span class="num">8</span></label>
+      </div>
+    </div>
+    <div class="crit-reason">이 점수를 매긴 이유</div>
+    <textarea></textarea>
+  </div>
+
+  <div class="crit-block">
+    <div class="crit-header">
+      <div class="crit-letter">C</div>
+      <div class="crit-title"><input type="text" placeholder="C 기준 이름 (예: 의사소통)"></div>
+      <div class="crit-score">
+        <label><input type="radio" name="cc"><span class="num">0</span></label>
+        <label><input type="radio" name="cc"><span class="num">1</span></label>
+        <label><input type="radio" name="cc"><span class="num">2</span></label>
+        <label><input type="radio" name="cc"><span class="num">3</span></label>
+        <label><input type="radio" name="cc"><span class="num">4</span></label>
+        <label><input type="radio" name="cc"><span class="num">5</span></label>
+        <label><input type="radio" name="cc"><span class="num">6</span></label>
+        <label><input type="radio" name="cc"><span class="num">7</span></label>
+        <label><input type="radio" name="cc"><span class="num">8</span></label>
+      </div>
+    </div>
+    <div class="crit-reason">이 점수를 매긴 이유</div>
+    <textarea></textarea>
+  </div>
+
+  <div class="crit-block">
+    <div class="crit-header">
+      <div class="crit-letter">D</div>
+      <div class="crit-title"><input type="text" placeholder="D 기준 이름 (예: 적용·성찰)"></div>
+      <div class="crit-score">
+        <label><input type="radio" name="cd"><span class="num">0</span></label>
+        <label><input type="radio" name="cd"><span class="num">1</span></label>
+        <label><input type="radio" name="cd"><span class="num">2</span></label>
+        <label><input type="radio" name="cd"><span class="num">3</span></label>
+        <label><input type="radio" name="cd"><span class="num">4</span></label>
+        <label><input type="radio" name="cd"><span class="num">5</span></label>
+        <label><input type="radio" name="cd"><span class="num">6</span></label>
+        <label><input type="radio" name="cd"><span class="num">7</span></label>
+        <label><input type="radio" name="cd"><span class="num">8</span></label>
+      </div>
+    </div>
+    <div class="crit-reason">이 점수를 매긴 이유</div>
+    <textarea></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">다음 과제에서 더 잘하고 싶은 한 가지</div>
+    <div class="form-field-hint">위 4개 기준 중 가장 약했던 부분을 어떻게 보완할지 적어보세요.</div>
+    <textarea placeholder="예: C(의사소통) — 다음엔 글 구조를 미리 짜고 시작한다. 결론을 먼저 정한 뒤 글을 쓴다."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 자녀가 매긴 자기 점수와 선생님이 매긴 점수를 비교해보면 <strong>자기 인식의 정확도</strong>가 드러나요. 자기 점수가 선생님보다 항상 높다면 과대평가, 항상 낮다면 자신감 부족일 수 있어요. 둘 다 학습해야 할 영역이에요. "선생님 점수랑 네 점수가 어디서 갈렸어?"가 좋은 대화의 시작이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

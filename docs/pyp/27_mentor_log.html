@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>멘토 면담 일지 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.exhibit-badge { padding: 3px 10px; background: var(--coral-dark); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.project-info { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 22px; }
+.project-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.project-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.project-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.meeting-block { padding: 18px 22px; border: 2px solid var(--line); border-radius: 14px; margin-bottom: 14px; }
+.meeting-header { display: grid; grid-template-columns: 80px 1fr 100px; gap: 14px; padding-bottom: 12px; border-bottom: 1px dashed var(--line); margin-bottom: 14px; align-items: end; }
+.meeting-header label { display: block; font-size: 10.5px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.meeting-header input { width: 100%; padding: 4px 0; border: none; border-bottom: 1px solid var(--text); font-size: 13.5px; font-family: inherit; background: transparent; }
+.meeting-header .name input { font-weight: 600; }
+.meeting-header input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.meeting-body { display: grid; gap: 10px; }
+.meeting-q { padding: 10px 14px; background: var(--coral-pale); border-radius: 8px 8px 8px 2px; margin-bottom: 4px; }
+.meeting-q-label { font-size: 11.5px; font-weight: 700; color: var(--coral-dark); margin-bottom: 4px; }
+.meeting-q-text { font-size: 13px; color: var(--text); font-style: italic; }
+.meeting-a { padding: 10px 14px; background: var(--bg); border-radius: 8px 8px 2px 8px; margin-left: 24px; border-left: 3px solid var(--coral-light); }
+.meeting-a-label { font-size: 11.5px; font-weight: 700; color: var(--coral-dark); margin-bottom: 4px; }
+.meeting-a textarea { width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: white; resize: vertical; line-height: 1.55; min-height: 50px; }
+.meeting-a textarea:focus { outline: none; border-color: var(--coral); }
+
+.next-step { padding: 12px 16px; background: var(--coral-pale); border-radius: 8px; margin-top: 10px; }
+.next-step label { display: block; font-size: 12px; color: var(--coral-dark); margin-bottom: 4px; font-weight: 600; }
+.next-step textarea { width: 100%; padding: 8px 10px; border: 1px solid white; border-radius: 6px; font-size: 13px; font-family: inherit; background: white; resize: vertical; line-height: 1.55; min-height: 40px; }
+.next-step textarea:focus { outline: none; border-color: var(--coral); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .meeting-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .project-info, .meeting-header { grid-template-columns: 1fr; } .meeting-a { margin-left: 0; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">전시회 진행 중 · 양식 27 <span class="pyp-badge">PYP</span> <span class="exhibit-badge">EXHIBITION</span></div>
+    <h1 class="form-title">멘토 면담 일지 🤝</h1>
+    <div class="form-title-en">Mentor Meeting Log</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">멘토 선생님이나 전문가와 면담할 때마다.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">어른과의 대화로 배운 것을 정리해 다음 단계로 갑니다.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Exhibition은 혼자 하지 않아요.</strong> 멘토 선생님이 길잡이가 되어주고, 가능하면 그 분야의 <strong>전문가</strong>(영양사, 환경 활동가, 동네 어르신 등)와도 대화해요. 어른과 이야기하는 것 자체가 큰 학습이에요. 이 일지는 여러 번 면담을 누적할 수 있어요.
+  </div>
+
+  <div class="project-info">
+    <div><label>Exhibition 프로젝트 제목</label><input type="text"></div>
+    <div><label>내 이름</label><input type="text"></div>
+  </div>
+
+  <div class="meeting-block">
+    <div class="meeting-header">
+      <div><label>날짜</label><input type="text" placeholder="__/__"></div>
+      <div class="name"><label>면담한 사람</label><input type="text" placeholder="이름 · 역할"></div>
+      <div><label>장소 · 방법</label><input type="text" placeholder="대면/온라인"></div>
+    </div>
+    <div class="meeting-body">
+      <div class="meeting-q">
+        <div class="meeting-q-label">📝 내가 준비한 질문</div>
+        <div class="meeting-q-text">면담 전에 미리 적어두면 좋아요.</div>
+      </div>
+      <div class="meeting-a">
+        <div class="meeting-a-label">💭 들은 답 / 알게 된 것</div>
+        <textarea placeholder="어떤 이야기를 들었나요? 가장 중요한 것 위주로."></textarea>
+      </div>
+      <div class="next-step">
+        <label>🎯 이제 무엇을 해야 할까?</label>
+        <textarea placeholder="이 대화 후 다음에 할 일."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="meeting-block">
+    <div class="meeting-header">
+      <div><label>날짜</label><input type="text"></div>
+      <div class="name"><label>면담한 사람</label><input type="text"></div>
+      <div><label>장소 · 방법</label><input type="text"></div>
+    </div>
+    <div class="meeting-body">
+      <div class="meeting-q">
+        <div class="meeting-q-label">📝 내가 준비한 질문</div>
+        <div class="meeting-q-text">면담 전에 미리 적어두면 좋아요.</div>
+      </div>
+      <div class="meeting-a">
+        <div class="meeting-a-label">💭 들은 답 / 알게 된 것</div>
+        <textarea></textarea>
+      </div>
+      <div class="next-step">
+        <label>🎯 이제 무엇을 해야 할까?</label>
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="meeting-block">
+    <div class="meeting-header">
+      <div><label>날짜</label><input type="text"></div>
+      <div class="name"><label>면담한 사람</label><input type="text"></div>
+      <div><label>장소 · 방법</label><input type="text"></div>
+    </div>
+    <div class="meeting-body">
+      <div class="meeting-q">
+        <div class="meeting-q-label">📝 내가 준비한 질문</div>
+        <div class="meeting-q-text">면담 전에 미리 적어두면 좋아요.</div>
+      </div>
+      <div class="meeting-a">
+        <div class="meeting-a-label">💭 들은 답 / 알게 된 것</div>
+        <textarea></textarea>
+      </div>
+      <div class="next-step">
+        <label>🎯 이제 무엇을 해야 할까?</label>
+        <textarea></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 자녀가 어른과 대화하는 것은 <strong>한국 초등 학생에게 가장 어려운 일 중 하나</strong>예요. 자녀가 멘토나 전문가를 만나기 전 가정에서 <strong>"어떤 질문을 할 거야?"</strong>를 같이 연습해주세요. 부모님이 청중이 되어 자녀가 인터뷰 연습을 해볼 수 있어요. 자녀가 어른께 자기 의견을 말하고 질문하는 능력이, PYP가 키우려는 자신감의 핵심이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

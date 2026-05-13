@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목표 설정지 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+.student-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.goal-block { padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 14px; }
+.goal-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.goal-num { font-size: 11px; font-weight: 600; color: var(--coral); letter-spacing: 0.1em; }
+.goal-title { font-size: 15px; font-weight: 600; }
+.goal-hint { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+.goal-block textarea, .goal-block input[type="text"] { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; }
+.goal-block textarea { min-height: 60px; }
+.goal-block textarea:focus, .goal-block input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .goal-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info, .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">학년 / 학기 시작 시 · 양식 03</div>
+    <h1 class="form-title">목표 설정지</h1>
+    <div class="form-title-en">Goal Setting Form</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">학기 또는 학년 초. 학기 중간·말에 다시 펼쳐서 진행 상황 점검.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">이번 학기에 내가 어떤 방향으로 자라고 싶은지 스스로 정합니다.</div>
+    </div>
+  </div>
+
+  <div class="student-info">
+    <div><label>이름</label><input type="text"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>대상 기간</label><input type="text" placeholder="2026 1학기"></div>
+  </div>
+
+  <div class="goal-block">
+    <div class="goal-header">
+      <span class="goal-num">목표 01</span>
+      <span class="goal-title">학업 목표</span>
+    </div>
+    <div class="goal-hint">관심 있는 교과나 더 키우고 싶은 영역을 1~2개 정해보세요.</div>
+    <textarea placeholder="예: 수학에서 패턴 탐구하기를 더 잘하고 싶다. 국어 글쓰기에서 내 의견을 분명히 표현하는 연습을 한다."></textarea>
+  </div>
+
+  <div class="goal-block">
+    <div class="goal-header">
+      <span class="goal-num">목표 02</span>
+      <span class="goal-title">학습자상 목표</span>
+    </div>
+    <div class="goal-hint">10가지 자질 중 1~2개를 골라 적어보세요.</div>
+    <div class="two-col">
+      <div>
+        <input type="text" placeholder="키우고 싶은 자질 (예: 도전하는 사람)">
+      </div>
+      <div>
+        <input type="text" placeholder="구체적인 행동 (예: 처음 보는 문제 풀어보기)">
+      </div>
+    </div>
+  </div>
+
+  <div class="goal-block">
+    <div class="goal-header">
+      <span class="goal-num">목표 03</span>
+      <span class="goal-title">ATL 기술 목표</span>
+    </div>
+    <div class="goal-hint">5범주 중 1~2개를 골라 키울 기술을 정해보세요.</div>
+    <div class="two-col">
+      <div>
+        <input type="text" placeholder="키우고 싶은 기술 (예: 자기관리)">
+      </div>
+      <div>
+        <input type="text" placeholder="구체적인 행동 (예: 매일 다음 날 할 일 적기)">
+      </div>
+    </div>
+  </div>
+
+  <div class="goal-block">
+    <div class="goal-header">
+      <span class="goal-num">목표 04</span>
+      <span class="goal-title">봉사·실천 목표</span>
+    </div>
+    <div class="goal-hint">학교·동네·온라인에서 어떤 봉사 활동을 시도해볼지 적어보세요.</div>
+    <textarea placeholder="예: 동아리 후배들에게 학습 도움 주기. 동네 도서관 청소 봉사 한 달에 한 번 참여."></textarea>
+  </div>
+
+  <div class="goal-block">
+    <div class="goal-header">
+      <span class="goal-num">목표 05</span>
+      <span class="goal-title">자기 약속</span>
+    </div>
+    <div class="goal-hint">위 목표를 지키기 위해 내가 자주 빠지는 습관 한 가지를 고친다고 적어보세요.</div>
+    <textarea placeholder="예: 과제를 마감 전날에 시작하지 않고 하루 일찍 시작하기. 모르는 게 있어도 그냥 넘기지 않기."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 목표는 학기 한 번 적고 끝나는 게 아니라 <strong>살아있는 문서</strong>예요. 학기 중간(예: 5월·10월쯤)에 자녀와 다시 펼쳐보시며 "이 부분 어떻게 되고 있어?"라고 물어보시면 자녀의 자기관리 습관이 자라요. 목표를 못 지킨 경우도 비난보다 "그럼 방법을 어떻게 바꿔볼까?"가 좋은 대화예요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

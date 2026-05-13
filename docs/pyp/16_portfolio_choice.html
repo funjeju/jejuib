@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>포트폴리오 선택지 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.unit-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.work-block { padding: 22px 26px; background: linear-gradient(135deg, #FFF8F2, #FFFBF8); border: 2px solid var(--coral); border-radius: 16px; margin-bottom: 22px; }
+.work-block-title { font-size: 14.5px; font-weight: 700; color: var(--coral-dark); margin-bottom: 12px; text-align: center; letter-spacing: 0.04em; text-transform: uppercase; }
+.work-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px; }
+.work-row > div label { display: block; font-size: 12px; color: var(--text-soft); margin-bottom: 4px; font-weight: 600; }
+.work-row > div input { width: 100%; padding: 8px 11px; border: 1px solid white; border-radius: 6px; font-size: 14px; font-family: inherit; background: white; }
+.work-row > div input:focus { outline: none; border-color: var(--coral); }
+.work-detail label { display: block; font-size: 12.5px; color: var(--text-soft); margin-bottom: 4px; font-weight: 600; }
+.work-detail .area { width: 100%; min-height: 100px; border: 2px dashed var(--coral-light); border-radius: 8px; background: rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; font-style: italic; padding: 14px; text-align: center; }
+
+.section-title { font-size: 14.5px; font-weight: 700; color: var(--coral-dark); margin: 22px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 60px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.reason-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 14px; }
+.reason-chip { padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 8px; cursor: pointer; font-size: 13px; transition: all 0.15s; text-align: center; }
+.reason-chip input { display: none; }
+.reason-chip:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); color: var(--coral-dark); font-weight: 600; }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info, .work-row, .reason-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 종료 · 양식 16 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">포트폴리오 선택지 ✨</h1>
+    <div class="form-title-en">Portfolio Selection</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">단원 끝에. 그 단원의 작품 중 하나를 골라 포트폴리오에 넣어요.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">내가 직접 골라 보관하는 작품은 더 의미가 깊어요.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>UOI 주제</label><input type="text"></div>
+    <div><label>이름</label><input type="text"></div>
+    <div><label>날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>이 양식은 "내가 선택한다"가 가장 중요해요.</strong> 한 단원에서 만든 여러 작품 중 내가 보관하고 싶은 것 하나를 직접 골라요. <strong>왜 그걸 골랐는지 설명하는 것</strong>이 평가의 핵심이에요. 잘 한 작품이 아니라, 의미 있는 작품을 골라요.
+  </div>
+
+  <div class="work-block">
+    <div class="work-block-title">⭐ 내가 고른 작품 ⭐</div>
+    <div class="work-row">
+      <div><label>작품 이름</label><input type="text" placeholder="예: 우리 가족 인터뷰 책"></div>
+      <div><label>만든 시기</label><input type="text" placeholder="예: 단원 3주차"></div>
+    </div>
+    <div class="work-detail">
+      <label>작품 사진 또는 그림</label>
+      <div class="area">작품 사진을 붙이거나 그림으로 그려요 📷</div>
+    </div>
+  </div>
+
+  <div class="section-title">🤔 이 작품을 고른 이유 (해당하는 것 다 체크)</div>
+
+  <div class="reason-grid">
+    <label class="reason-chip"><input type="checkbox"> 💡 가장 새로 배운 것</label>
+    <label class="reason-chip"><input type="checkbox"> 💪 가장 노력한 것</label>
+    <label class="reason-chip"><input type="checkbox"> 😊 가장 재미있었던 것</label>
+    <label class="reason-chip"><input type="checkbox"> 🌱 가장 많이 자란 것</label>
+    <label class="reason-chip"><input type="checkbox"> 🎁 자랑하고 싶은 것</label>
+    <label class="reason-chip"><input type="checkbox"> 🔁 다시 도전한 끝에 해낸 것</label>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">📝 왜 이걸 골랐는지 내 말로 설명하기</div>
+    <div class="form-field-hint">친구에게 자랑하듯 설명해보세요.</div>
+    <textarea placeholder="예: 가족 한 명씩 다 인터뷰하기가 힘들었지만, 끝까지 다 해냈어요. 동생이 처음에 안 도와주려다가 같이 해서 더 재밌었어요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🌟 이 작품을 만들면서 자란 학습자상 자질</div>
+    <div class="form-field-hint">10가지 중에서 1~2개 골라 적어요.</div>
+    <textarea placeholder="예: 도전하는 사람 — 처음 가족 인터뷰가 어색했는데 끝까지 해냈어요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">💌 이 작품을 미래의 나에게 보낸다면</div>
+    <div class="form-field-hint">1년 뒤, 또는 더 자란 나에게 어떤 말을 남길까요?</div>
+    <textarea placeholder="예: 이때는 정말 열심히 했어. 잊지 말고 계속 도전하자!"></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 양식은 PYP의 핵심 가치인 <strong>"학습자 주체성(Agency)"</strong>을 가장 잘 보여줘요. 어른이 골라주는 게 아니라 자녀가 직접 고르고, 직접 이유를 설명하는 것. 가정에서 자녀가 고른 작품을 진심으로 들어주세요. "엄마/아빠는 이게 더 잘된 것 같은데"라고 말하지 말고, <strong>자녀의 선택을 존중하는 게 핵심</strong>이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

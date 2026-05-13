@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학부모를 위한 IB MYP 안내</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root {
+  --coral: #E07856;
+  --coral-dark: #B85A3D;
+  --coral-light: #FCE4DC;
+  --coral-pale: #FFF4EF;
+  --bg: #FFFBF8;
+  --surface: #FFFFFF;
+  --text: #2C2522;
+  --text-soft: #5C5048;
+  --muted: #9A8D85;
+  --line: #EFE5DD;
+  --teal: #4A8C7F;
+  --amber: #C68A3E;
+  --violet: #7568A0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-weight: 400;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 251, 248, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+  padding: 14px 0;
+}
+nav .nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+nav .logo {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--coral-dark);
+  letter-spacing: -0.02em;
+}
+nav .nav-links {
+  display: flex;
+  gap: 22px;
+  font-size: 13.5px;
+  flex-wrap: wrap;
+}
+nav .nav-links a {
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+nav .nav-links a:hover { color: var(--coral-dark); }
+
+/* Container */
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero */
+.hero {
+  padding: 100px 0 80px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.hero .eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--coral-dark);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--coral-light);
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.hero h1 .accent { color: var(--coral); }
+.hero .lead {
+  font-size: 18px;
+  color: var(--text-soft);
+  max-width: 680px;
+  line-height: 1.7;
+}
+.hero .meta {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.hero .meta strong { display: block; color: var(--text); margin-bottom: 4px; font-weight: 500; }
+
+/* Section */
+section.content {
+  padding: 80px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+section.content:last-of-type { border-bottom: none; }
+.section-head { margin-bottom: 48px; }
+.section-num {
+  font-size: 13px;
+  color: var(--coral);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  display: block;
+}
+.section-head h2 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+.section-head .sub {
+  font-size: 17px;
+  color: var(--text-soft);
+  max-width: 720px;
+}
+
+/* Big picture diagram */
+.bigpic {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 32px 0;
+}
+.bigpic .layer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.bigpic .layer-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.bigpic .row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.bigpic .pill {
+  padding: 10px 18px;
+  background: var(--coral-pale);
+  border: 1px solid var(--coral-light);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--coral-dark);
+}
+.bigpic .pill.alt {
+  background: #F0F5F4;
+  border-color: #D7E5E2;
+  color: var(--teal);
+}
+.bigpic .pill.alt2 {
+  background: #F5EFE5;
+  border-color: #E8DBC2;
+  color: var(--amber);
+}
+.bigpic .divider {
+  height: 1px;
+  background: var(--line);
+  margin: 16px 0;
+}
+.bigpic .note {
+  margin-top: 28px;
+  padding: 20px;
+  background: var(--bg);
+  border-left: 3px solid var(--coral);
+  border-radius: 0 8px 8px 0;
+  font-size: 14.5px;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+/* Three-stage cycle */
+.cycle {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 32px;
+}
+.stage {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.stage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--coral);
+}
+.stage.stage-2::before { background: var(--teal); }
+.stage.stage-3::before { background: var(--amber); }
+.stage-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.stage-num {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--coral);
+  letter-spacing: 0.1em;
+}
+.stage.stage-2 .stage-num { color: var(--teal); }
+.stage.stage-3 .stage-num { color: var(--amber); }
+.stage h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.stage .when {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.stage .summary {
+  font-size: 15.5px;
+  color: var(--text-soft);
+  margin-bottom: 20px;
+}
+.stage h4 {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  margin-top: 20px;
+}
+.stage ul { list-style: none; }
+.stage ul li {
+  padding: 8px 0 8px 22px;
+  position: relative;
+  font-size: 14.5px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+.stage ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+.stage.stage-2 ul li::before { background: var(--teal); }
+.stage.stage-3 ul li::before { background: var(--amber); }
+.stage ul li strong { color: var(--text); font-weight: 600; }
+
+/* Timeline */
+.timeline {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  margin-top: 32px;
+}
+.timeline-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.timeline-row:last-child { border-bottom: none; }
+.timeline-month {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--coral-dark);
+  letter-spacing: 0.02em;
+}
+.timeline-event {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+.timeline-event strong { color: var(--text); font-weight: 600; }
+.timeline-event .tag {
+  display: inline-block;
+  font-size: 11.5px;
+  background: var(--coral-pale);
+  color: var(--coral-dark);
+  padding: 2px 9px;
+  border-radius: 100px;
+  margin-left: 8px;
+  vertical-align: middle;
+  font-weight: 500;
+}
+
+/* Concept grid */
+.concept-block {
+  margin-top: 36px;
+}
+.concept-block h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.concept-block .desc {
+  font-size: 14.5px;
+  color: var(--text-soft);
+  margin-bottom: 20px;
+}
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
+.concept-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.concept-card:hover {
+  border-color: var(--coral);
+  background: var(--coral-pale);
+  transform: translateY(-1px);
+}
+.concept-card .en {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.concept-card .ko {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0;
+}
+.concept-card .def {
+  font-size: 13px;
+  color: var(--text-soft);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  line-height: 1.6;
+  display: none;
+}
+.concept-card.open .def { display: block; }
+.concept-card.open {
+  background: var(--coral-pale);
+  border-color: var(--coral);
+}
+
+/* Related concepts by subject */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+.related-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.related-card .subj {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--coral-dark);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.related-card .subj-en {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+.related-card .terms {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+.related-card .terms .term {
+  display: inline-block;
+  background: var(--coral-pale);
+  color: var(--coral-dark);
+  padding: 2px 9px;
+  border-radius: 100px;
+  margin: 2px 3px 2px 0;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+/* Forms section */
+.form-group {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 26px 28px;
+  margin-bottom: 14px;
+}
+.form-group-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--coral);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.form-group h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+.form-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.form-item:last-child { border-bottom: none; }
+.form-item .name {
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.form-item .star {
+  color: var(--coral);
+  font-size: 12px;
+  margin-left: 4px;
+  vertical-align: 2px;
+}
+.form-item .name .en {
+  display: block;
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 3px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.form-item .def {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+.forms-legend {
+  margin-top: 24px;
+  padding: 18px 24px;
+  background: var(--coral-pale);
+  border: 1px solid var(--coral-light);
+  border-radius: 12px;
+  font-size: 13.5px;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+.forms-legend strong { color: var(--coral-dark); font-weight: 600; }
+
+/* Assessment table */
+.eval-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+.eval-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px;
+}
+.eval-card .crit {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--coral);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.eval-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.eval-card p {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+.eval-info {
+  margin-top: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+}
+.eval-info h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.eval-info dl {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px 20px;
+}
+.eval-info dt { font-size: 13.5px; color: var(--muted); padding: 6px 0; }
+.eval-info dd { font-size: 14px; color: var(--text-soft); padding: 6px 0; }
+
+/* Parent questions */
+.parent-block {
+  margin-top: 36px;
+}
+.parent-block h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--coral-dark);
+}
+.parent-block .when-q {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.qlist {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.qlist li {
+  list-style: none;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+  position: relative;
+  padding-left: 24px;
+}
+.qlist li:last-child { border-bottom: none; }
+.qlist li::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-size: 22px;
+  color: var(--coral);
+  font-family: Georgia, serif;
+}
+.qlist li .why {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Glossary */
+.glossary {
+  margin-top: 32px;
+}
+.glossary-search {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  margin-bottom: 24px;
+  background: var(--surface);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.glossary-search:focus { border-color: var(--coral); }
+.gloss-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.gloss-item:last-child { border-bottom: none; }
+.gloss-term {
+  font-size: 15.5px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.gloss-term .en {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 8px;
+}
+.gloss-def {
+  font-size: 14.5px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+/* Footer */
+footer {
+  padding: 60px 0 80px;
+  background: var(--coral-pale);
+  margin-top: 80px;
+  font-size: 13.5px;
+  color: var(--text-soft);
+}
+footer .container { max-width: 920px; }
+footer h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+footer p { margin-bottom: 12px; line-height: 1.7; }
+footer .small { font-size: 12.5px; color: var(--muted); margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--coral-light); }
+
+/* Callout */
+.callout {
+  background: var(--coral-pale);
+  border: 1px solid var(--coral-light);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.callout h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--coral-dark);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+.callout p {
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 70px 0 50px; }
+  .hero h1 { font-size: 32px; }
+  .hero .lead { font-size: 16px; }
+  .section-head h2 { font-size: 26px; }
+  .bigpic { padding: 24px; }
+  .timeline-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+  .eval-info dl { grid-template-columns: 1fr; }
+  .stage { padding: 24px; }
+  nav .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">학부모를 위한 IB MYP 안내</div>
+    <div class="nav-links">
+      <a data-scroll="bigpic">큰 그림</a>
+      <a data-scroll="cycle">수업 진행</a>
+      <a data-scroll="timeline">1년 흐름</a>
+      <a data-scroll="concepts">개념 사전</a>
+      <a data-scroll="evaluation">평가</a>
+      <a data-scroll="forms">양식</a>
+      <a data-scroll="parent">자녀와 대화</a>
+      <a data-scroll="glossary">용어</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">학부모용 가이드</span>
+    <h1>자녀가 IB MYP 교육을 받고 있다면,<br><span class="accent">알아둘 것이 있어요.</span></h1>
+    <p class="lead">
+      IB MYP는 평소 학교 수업과 운영 방식이 달라요. 그래서 자녀가 "탐구질문", "수행과제", "ATL", "성찰일지" 같은 낯선 단어를 가져올 때, 학부모도 그 의미를 알아야 자녀의 학습에 함께할 수 있어요.
+      이 가이드는 학교에서 자세히 다루지 못한 큰 틀을 정리한 거예요. 한 번 훑어두시면 자녀와 이야기 나누는 데 충분합니다.
+    </p>
+    <div class="meta">
+      <div>
+        <strong>분량</strong>
+        끝까지 약 15분
+      </div>
+      <div>
+        <strong>대상</strong>
+        MYP 자녀를 둔 학부모
+      </div>
+      <div>
+        <strong>기반</strong>
+        경기도교육청·IBO 공식 자료를 학부모 시점으로 재구성
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="bigpic">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">01 · 큰 그림</span>
+      <h2>IB MYP는 무엇이고, 자녀의 수업과 어떻게 연결되나요?</h2>
+      <p class="sub">결론부터 말하면, MYP는 <em>무엇을</em> 배우는지가 아니라 <em>어떻게</em> 배우는지에 관한 틀이에요. 교과서와 단원은 한국 국가교육과정 그대로고, 그 위에 IB의 학습 방식이 얹혀 있다고 생각하시면 됩니다.</p>
+    </div>
+
+    <div class="bigpic">
+      <div class="layer">
+        <span class="layer-label">변하지 않는 것 — IB 전체 공통</span>
+        <div class="row">
+          <span class="pill">IB 사명 (Mission)</span>
+          <span class="pill">학습자상 (10가지)</span>
+          <span class="pill">국제적 마인드</span>
+          <span class="pill">교수법(ATT) · 학습법(ATL)</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="layer">
+        <span class="layer-label">자녀가 속한 단계</span>
+        <div class="row">
+          <span class="pill alt">PYP (초등)</span>
+          <span class="pill" style="background: var(--coral); border-color: var(--coral); color: white; font-weight: 600;">MYP (중등 11~16세)</span>
+          <span class="pill alt2">DP / CP (고등)</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="layer">
+        <span class="layer-label">MYP의 8개 교과군 — 한국 중학교 교과와 매칭됨</span>
+        <div class="row">
+          <span class="pill">언어와 문학 (국어)</span>
+          <span class="pill">언어 습득 (영어)</span>
+          <span class="pill">개인과 사회 (사회·역사·도덕)</span>
+          <span class="pill">과학</span>
+          <span class="pill">수학</span>
+          <span class="pill">예술 (음악·미술)</span>
+          <span class="pill">체육과 보건</span>
+          <span class="pill">디자인 (기술·정보)</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="layer">
+        <span class="layer-label">단원마다 반복되는 3단계 사이클</span>
+        <div class="row">
+          <span class="pill">탐구단계</span>
+          <span class="pill alt">실행단계</span>
+          <span class="pill alt2">성찰단계</span>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong style="color: var(--text); font-weight: 600;">한 줄 요약:</strong> 한국 교과서와 단원을 그대로 가르치되, "이 단원의 큰 질문은 무엇인가?", "이걸 배우면 세상을 어떻게 보게 되나?" 같은 IB의 틀로 수업이 진행돼요. 그리고 단원이 끝날 때마다 시험이 아니라 <strong style="color: var(--text); font-weight: 600;">수행과제와 4개 기준 평가</strong>로 마무리됩니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="cycle">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">02 · 한 단원이 어떻게 진행되나요</span>
+      <h2>탐구 → 실행 → 성찰, 세 단계의 사이클</h2>
+      <p class="sub">한 단원은 보통 4~8주 정도 걸려요. 그 안에서 아래 세 단계가 한 번 굴러갑니다. 학년에 따라 다르지만 한 해 동안 단원이 5~7개 정도 진행돼요.</p>
+    </div>
+
+    <div class="cycle">
+      <div class="stage stage-1">
+        <div class="stage-header">
+          <span class="stage-num">단계 1 · 탐구</span>
+          <h3>선생님이 단원을 설계하는 단계</h3>
+          <span class="when">학기 시작 전 / 단원 시작 시점</span>
+        </div>
+        <p class="summary">학생이 수업을 듣기 전, 선생님은 이미 이 단원의 "큰 질문"과 "결과물"을 다 정해둡니다. 단원 도입 시점에 그걸 학생에게 공개해요.</p>
+
+        <h4>학부모가 알아둘 점</h4>
+        <ul>
+          <li><strong>탐구진술문 (Statement of Inquiry)</strong>: 단원의 핵심 메시지를 한 문장으로 압축한 것. 예) "에너지의 균형이 깨진 시스템은 지속가능성을 위협한다"</li>
+          <li><strong>주요 개념 + 관련 개념 + 세계적 맥락</strong>: 단원의 큰 틀. 단원마다 새로 정해져요</li>
+          <li><strong>탐구 질문 3종</strong>: 사실적 / 개념적 / 논쟁적 질문. 수업 내내 다뤄지는 질문이에요</li>
+          <li><strong>수행과제 (Summative Assessment)</strong>: "단원 끝에 학생이 무엇을 만들 것인가". 이걸 단원 시작 시점에 미리 공개합니다</li>
+        </ul>
+
+        <div class="callout" style="margin: 24px 0 0;">
+          <h4>옛날 수업과 다른 점</h4>
+          <p>옛날: 진도를 다 나간 다음 시험을 본다. &nbsp; • &nbsp; MYP: 처음부터 "이 단원의 결과물은 ○○ 보고서·발표·작품"이 정해져 있고, 모든 수업이 그 결과물을 향해 진행돼요.</p>
+        </div>
+      </div>
+
+      <div class="stage stage-2">
+        <div class="stage-header">
+          <span class="stage-num">단계 2 · 실행</span>
+          <h3>학생이 단원을 살아가는 시간</h3>
+          <span class="when">단원의 60~70%</span>
+        </div>
+        <p class="summary">선생님은 강의를 줄이고 안내자 역할을 합니다. 학생은 모둠·개인으로 직접 자료를 조사하고, 토론하고, 글을 쓰고, 제작합니다.</p>
+
+        <h4>학부모가 알아둘 점</h4>
+        <ul>
+          <li><strong>학습법 (ATL Skills)</strong> 5가지를 의식적으로 키워요: 의사소통, 사회성, 자기관리, 연구(리서치), 사고력</li>
+          <li><strong>형성평가 (Formative)</strong>: 점수가 아니라 피드백 위주. 짧은 글쓰기·발표·중간 산출물 등에 선생님이 약점을 짚어주는 방식</li>
+          <li><strong>포트폴리오</strong>: 활동 결과물이 누적돼요. 학교가 ManageBac 같은 LMS를 쓴다면 학부모도 일부 볼 수 있어요</li>
+          <li><strong>봉사 실천 (Service as Action)</strong>: 1년 내내 누적되는 활동. 보고서가 아니라 실제 행동</li>
+        </ul>
+
+        <div class="callout" style="margin: 24px 0 0;">
+          <h4>학부모가 자주 오해하는 부분</h4>
+          <p>"문제를 안 풀고 활동만 한다"가 아니에요. <strong style="font-weight:600;">문제도 풀고, 실험도 하고, 토론도 하는데</strong> 그 모든 활동이 단원의 탐구질문과 연결돼 있어요. 활동이 흩어져 있는 게 아니라 한 방향으로 묶여 있는 거예요.</p>
+        </div>
+      </div>
+
+      <div class="stage stage-3">
+        <div class="stage-header">
+          <span class="stage-num">단계 3 · 성찰</span>
+          <h3>단원을 마무리하는 시간</h3>
+          <span class="when">단원 마지막 1~2주</span>
+        </div>
+        <p class="summary">단원 시작 시점에 공개됐던 수행과제를 제출합니다. 평가는 점수만 주는 게 아니라 4개 기준에 따른 강·약점 피드백을 함께 줍니다.</p>
+
+        <h4>학부모가 알아둘 점</h4>
+        <ul>
+          <li><strong>수행과제 제출</strong>: 보고서, 영상, 작품, 실험 결과, 발표 등 다양한 형식</li>
+          <li><strong>4개 기준 평가 (Criteria A~D)</strong>: 각 기준 8점 만점, 루브릭 기반. <strong>석차가 없는 절대평가</strong>예요</li>
+          <li><strong>학생 성찰일지</strong>: "탐구질문에 어떻게 답하게 됐는지", "어떤 학습 기술이 늘었는지"를 스스로 정리</li>
+          <li><strong>선생님의 단원 성찰</strong>: 선생님도 단원을 평가하고 다음 단원을 개선해요</li>
+        </ul>
+
+        <div class="callout" style="margin: 24px 0 0;">
+          <h4>한 단원의 진짜 결과물</h4>
+          <p>시험 점수 한 줄이 아니에요. <strong style="font-weight:600;">수행과제 + 기준별 피드백 + 학생 성찰일지</strong> 이 세 가지가 한 묶음이에요. 자녀에게 "이번 단원 어떻게 됐어?"라고 물어볼 때 이 세 가지를 짚어주시면 좋습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="timeline">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">03 · 1년 학교생활 흐름</span>
+      <h2>한 해 동안 자녀는 무엇을 경험하나요?</h2>
+      <p class="sub">MYP 과정을 기준으로 한 해 흐름을 정리했어요. 학년·학교마다 조금씩 다르지만 큰 틀은 비슷합니다.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="timeline-month">3월 초</div>
+        <div class="timeline-event"><strong>학년 오리엔테이션.</strong> 학습자상 10가지를 다시 소개받고, ATL(학습법)에 대해 자가진단을 작성해요. <span class="tag">학습자상</span> <span class="tag">ATL</span></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">3월 중</div>
+        <div class="timeline-event"><strong>첫 단원 도입.</strong> 각 과목 선생님이 단원의 탐구진술문(SoI), 탐구질문 3개, 그리고 수행과제 안내를 한꺼번에 공개합니다. <span class="tag">SoI</span> <span class="tag">탐구질문</span></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">3~4월</div>
+        <div class="timeline-event"><strong>단원 1 탐구·실행.</strong> 자료조사, 모둠활동, 중간 산출물 제출. 선생님이 형성평가로 피드백을 줘요. <span class="tag">형성평가</span></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">4월 말</div>
+        <div class="timeline-event"><strong>단원 1 수행과제 제출 → 평가.</strong> Criteria A~D 4개 기준으로 평가받고, 성찰일지를 씁니다. <span class="tag">총괄평가</span> <span class="tag">성찰</span></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">5~6월</div>
+        <div class="timeline-event"><strong>단원 2~3 진행.</strong> 같은 사이클 반복. 이번에는 다른 주요 개념, 다른 세계적 맥락으로 단원이 짜여요.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">6월</div>
+        <div class="timeline-event"><strong>간학문 단원 (IDU) 1회.</strong> 두 과목(예: 국어+사회)이 하나의 탐구질문 아래 묶여 진행되는 특별 단원. <span class="tag">IDU</span></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">7월</div>
+        <div class="timeline-event"><strong>1학기 마무리.</strong> 한 학기 동안 키운 ATL 기술을 점검하고, 봉사 실천(Service as Action) 활동 기록을 정리해요. <span class="tag">SA</span></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">9~11월</div>
+        <div class="timeline-event"><strong>2학기 단원 4~6 진행.</strong> 1학기와 동일한 사이클이 새 단원으로 반복됩니다.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">11월</div>
+        <div class="timeline-event"><strong>2학기 간학문 단원 (IDU).</strong> 한 해 두 번째 간학문 학습.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-month">12~2월</div>
+        <div class="timeline-event"><strong>학년 종합 성찰.</strong> 한 해 동안 길러진 학습자상 자질·ATL 기술·봉사 활동을 정리한 성장 보고서 작성. <strong>(MYP 최종 단계 한정)</strong> 공동체 프로젝트(Community Project) 발표회 진행. <span class="tag">Community Project</span></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>이 흐름에서 학부모가 가장 자주 마주칠 시점</h4>
+      <p>• 단원 도입 시 (3월·5월 등) → 가정통신문에 SoI와 수행과제 안내가 나오는 시기 &nbsp; • &nbsp; 단원 종료 시 → 평가 결과지와 성찰일지가 함께 옴 &nbsp; • &nbsp; 학기 말 → ATL 성장 기록과 SA 활동 정리</p>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="concepts">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">04 · 개념 사전</span>
+      <h2>자녀가 들고 오는 낯선 단어들</h2>
+      <p class="sub">각 항목을 클릭하면 설명이 펼쳐져요. 모두 한국 학부모용으로 풀어 썼어요.</p>
+    </div>
+
+    <div class="concept-block">
+      <h3>IB 학습자상 (Learner Profile) — 10가지</h3>
+      <p class="desc">IB가 교육을 통해 길러내려는 사람의 자질. 단원마다 평가하지 않지만, 학교생활 전반에 깔려 있어요.</p>
+      <div class="concept-grid">
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Inquirers</div><div class="ko">탐구하는 사람</div><div class="def">호기심을 갖고 스스로 질문을 던지는 자질</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Knowledgeable</div><div class="ko">지식이 풍부한 사람</div><div class="def">개념과 아이디어를 깊이 탐구하는 자질</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Thinkers</div><div class="ko">사고하는 사람</div><div class="def">비판적·창의적으로 사고하는 자질</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Communicators</div><div class="ko">소통하는 사람</div><div class="def">자신의 생각을 다양한 방식으로 명확히 표현하는 자질</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Principled</div><div class="ko">원칙을 지키는 사람</div><div class="def">정직·공정·존중의 원칙으로 행동하는 자질</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Open-minded</div><div class="ko">열린 마음을 가진 사람</div><div class="def">다른 문화와 관점을 존중하고 받아들이는 자질</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Caring</div><div class="ko">배려하는 사람</div><div class="def">공감하고 타인의 삶에 긍정적 변화를 만들려는 자질</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Risk-takers</div><div class="ko">도전하는 사람</div><div class="def">불확실함 앞에서도 시도하고 회복하는 자질</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Balanced</div><div class="ko">균형 잡힌 사람</div><div class="def">지적·신체적·정서적 균형을 이루려는 자질</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Reflective</div><div class="ko">성찰하는 사람</div><div class="def">자신의 학습과 경험을 돌아보고 성장으로 잇는 자질</div></div>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>주요 개념 (Key Concepts) — 16가지</h3>
+      <p class="desc">교과를 가로지르는 "큰 아이디어". 단원을 짤 때 16개 중 1개를 골라 그 단원의 중심에 둡니다.</p>
+      <div class="concept-grid">
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Aesthetics</div><div class="ko">미학</div><div class="def">아름다움과 예술적 표현을 다루는 개념</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Change</div><div class="ko">변화</div><div class="def">시간에 따른 상태나 형태의 변화</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Communication</div><div class="ko">의사소통</div><div class="def">정보·의미가 전달되는 방식</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Communities</div><div class="ko">공동체</div><div class="def">사람들이 함께 이루는 집단</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Connections</div><div class="ko">연결</div><div class="def">사물·개념·사람 사이의 관계</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Creativity</div><div class="ko">창의성</div><div class="def">새로운 것을 만들어내는 능력과 과정</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Culture</div><div class="ko">문화</div><div class="def">집단의 가치·관습·표현의 총체</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Development</div><div class="ko">발전</div><div class="def">성장·진보·변천의 과정</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Form</div><div class="ko">형식</div><div class="def">사물의 모양·구조·구성</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Global interactions</div><div class="ko">세계적 상호작용</div><div class="def">개인·공동체가 세계와 맺는 관계</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Identity</div><div class="ko">정체성</div><div class="def">개인·집단·사물을 정의하는 특징</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Logic</div><div class="ko">논리</div><div class="def">결론을 끌어내는 추론의 체계</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Perspective</div><div class="ko">관점</div><div class="def">사물·사실을 바라보는 입장과 시선</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Relationships</div><div class="ko">관계</div><div class="def">사람·사물·개념 사이의 연관</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Systems</div><div class="ko">시스템</div><div class="def">상호작용하는 요소들의 집합</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Time, place, space</div><div class="ko">시간·장소·공간</div><div class="def">사물·사건이 놓인 위치와 시점</div></div>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>관련 개념 (Related Concepts) — 교과별</h3>
+      <p class="desc">주요 개념을 각 교과의 맥락으로 좁힌 세부 개념. 교과마다 12개 안팎이 있고, 단원당 1~2개를 선택해 주요 개념과 짝지어 단원을 설계합니다. 아래는 IBO 공식 가이드의 일부 예시예요.</p>
+      <div class="related-grid">
+        <div class="related-card">
+          <div class="subj">언어와 문학 (국어)</div>
+          <div class="subj-en">Language and Literature</div>
+          <div class="terms">
+            <span class="term">인물</span><span class="term">맥락</span><span class="term">장르</span><span class="term">관점</span><span class="term">목적</span><span class="term">배경</span><span class="term">구조</span><span class="term">문체</span><span class="term">주제</span><span class="term">자기표현</span>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="subj">언어 습득 (영어)</div>
+          <div class="subj-en">Language Acquisition</div>
+          <div class="terms">
+            <span class="term">청중</span><span class="term">맥락</span><span class="term">관습</span><span class="term">공감</span><span class="term">형식</span><span class="term">기능</span><span class="term">의미</span><span class="term">메시지</span><span class="term">패턴</span><span class="term">목소리</span>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="subj">개인과 사회 (사회·역사·도덕)</div>
+          <div class="subj-en">Individuals and Societies</div>
+          <div class="terms">
+            <span class="term">인과</span><span class="term">선택</span><span class="term">문화</span><span class="term">형평성</span><span class="term">세계화</span><span class="term">정체성</span><span class="term">혁신</span><span class="term">관점</span><span class="term">권력</span><span class="term">자원</span><span class="term">지속가능성</span>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="subj">과학</div>
+          <div class="subj-en">Sciences</div>
+          <div class="terms">
+            <span class="term">균형</span><span class="term">결과</span><span class="term">에너지</span><span class="term">환경</span><span class="term">증거</span><span class="term">형식</span><span class="term">기능</span><span class="term">상호작용</span><span class="term">모델</span><span class="term">운동</span><span class="term">패턴</span><span class="term">변환</span>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="subj">수학</div>
+          <div class="subj-en">Mathematics</div>
+          <div class="terms">
+            <span class="term">변화</span><span class="term">등가</span><span class="term">형식</span><span class="term">일반화</span><span class="term">정당화</span><span class="term">측정</span><span class="term">모델</span><span class="term">패턴</span><span class="term">양</span><span class="term">표현</span><span class="term">공간</span><span class="term">시스템</span>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="subj">예술 (음악·미술)</div>
+          <div class="subj-en">Arts</div>
+          <div class="terms">
+            <span class="term">청중</span><span class="term">경계</span><span class="term">구성</span><span class="term">표현</span><span class="term">장르</span><span class="term">혁신</span><span class="term">해석</span><span class="term">서사</span><span class="term">놀이</span><span class="term">발표</span><span class="term">재현</span><span class="term">문체</span>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="subj">체육과 보건</div>
+          <div class="subj-en">Physical and Health Education</div>
+          <div class="terms">
+            <span class="term">적응</span><span class="term">균형</span><span class="term">선택</span><span class="term">에너지</span><span class="term">환경</span><span class="term">기능</span><span class="term">상호작용</span><span class="term">운동</span><span class="term">관점</span><span class="term">정교화</span><span class="term">공간</span><span class="term">시스템</span>
+          </div>
+        </div>
+        <div class="related-card">
+          <div class="subj">디자인 (기술·정보)</div>
+          <div class="subj-en">Design</div>
+          <div class="terms">
+            <span class="term">적응</span><span class="term">협업</span><span class="term">의사소통</span><span class="term">인체공학</span><span class="term">평가</span><span class="term">형식</span><span class="term">기능</span><span class="term">혁신</span><span class="term">발명</span><span class="term">시장과 트렌드</span><span class="term">관점</span><span class="term">자원</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h4>주요 개념 vs 관련 개념 — 어떻게 짝지어지나</h4>
+        <p>예) 과학 "기권과 날씨" 단원: 주요 개념 <strong style="font-weight:600;">시스템</strong> + 관련 개념 <strong style="font-weight:600;">균형 · 에너지</strong> → "에너지의 균형이 깨진 시스템은 지속가능성을 위협한다" 같은 탐구진술문(SoI)이 만들어져요. 주요 개념은 단원의 큰 우산이고, 관련 개념은 그 교과의 언어로 좁혀준 도구예요.</p>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>세계적 맥락 (Global Contexts) — 6가지</h3>
+      <p class="desc">"왜 이걸 배우는가"를 실세계와 연결하는 렌즈. 단원마다 6개 중 1개를 골라 학습을 세상의 문제와 연결합니다.</p>
+      <div class="concept-grid">
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Identities and relationships</div><div class="ko">정체성과 관계</div><div class="def">나는 누구인가, 사람들과 어떻게 관계 맺는가</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Orientation in time and space</div><div class="ko">시공간적 위치</div><div class="def">우리는 어디·언제 살고 있는가</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Personal and cultural expression</div><div class="ko">개인적·문화적 표현</div><div class="def">생각·감정을 어떻게 표현하고 공유하는가</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Scientific and technical innovation</div><div class="ko">과학적·기술적 혁신</div><div class="def">자연과 기술을 어떻게 이해하고 활용하는가</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Globalization and sustainability</div><div class="ko">세계화와 지속가능성</div><div class="def">서로 연결된 세계에서 어떻게 살아가는가</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Fairness and development</div><div class="ko">공정성과 발전</div><div class="def">권리·기회·자원이 공정하게 분배되는가</div></div>
+      </div>
+    </div>
+
+    <div class="concept-block">
+      <h3>학습법 (ATL Skills) — 5범주</h3>
+      <p class="desc">"어떻게 배우는가"를 가르치는 기술. 단원 활동 안에 녹아들어 자녀가 평생 학습자로 자라도록 해요.</p>
+      <div class="concept-grid">
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Communication</div><div class="ko">의사소통</div><div class="def">말하기·쓰기·듣기·읽기로 생각을 주고받는 기술</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Social</div><div class="ko">사회성</div><div class="def">협업하고 관계를 만드는 기술</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Self-management</div><div class="ko">자기관리</div><div class="def">시간·정서·목표를 스스로 관리하는 기술</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Research</div><div class="ko">연구·리서치</div><div class="def">정보를 찾고 평가하고 활용하는 기술</div></div>
+        <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Thinking</div><div class="ko">사고력</div><div class="def">비판적·창의적으로 생각하고 다른 맥락에 적용하는 기술</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="evaluation">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">05 · 평가 이해하기</span>
+      <h2>점수 한 줄이 아니라, 네 개 기준의 균형</h2>
+      <p class="sub">MYP 평가는 시험 점수가 아닙니다. 교과마다 4개 기준이 있고, 자녀의 강점과 약점이 기준별로 따로 평가돼요.</p>
+    </div>
+
+    <div class="eval-grid">
+      <div class="eval-card">
+        <div class="crit">Criterion A</div>
+        <h4>알고 이해하기</h4>
+        <p>그 교과의 핵심 지식과 개념을 정확히 이해했는가</p>
+      </div>
+      <div class="eval-card">
+        <div class="crit">Criterion B</div>
+        <h4>탐구하기</h4>
+        <p>스스로 질문을 던지고 자료를 모아 분석했는가</p>
+      </div>
+      <div class="eval-card">
+        <div class="crit">Criterion C</div>
+        <h4>의사소통하기</h4>
+        <p>자신의 생각을 명확하고 적절하게 표현했는가</p>
+      </div>
+      <div class="eval-card">
+        <div class="crit">Criterion D</div>
+        <h4>적용·성찰하기</h4>
+        <p>배운 것을 실생활·다른 맥락에 적용하고 돌아봤는가</p>
+      </div>
+    </div>
+
+    <div class="eval-info">
+      <h4>점수 체계</h4>
+      <dl>
+        <dt>기준당 만점</dt><dd>8점 (4개 기준 합 32점)</dd>
+        <dt>최종 환산</dt><dd>32점 → 1~7점 등급으로 변환</dd>
+        <dt>평가 방식</dt><dd>절대평가 (석차 없음). 루브릭에 정의된 수준에 도달했는지로 판정</dd>
+        <dt>형성평가</dt><dd>단원 진행 중 수시. 점수보다 피드백 위주</dd>
+        <dt>총괄평가</dt><dd>단원 끝의 수행과제. 위 4개 기준으로 평가</dd>
+        <dt>외부 시험</dt><dd>한국 공교육 MYP는 외부평가 없음 (학교 내부 평가만)</dd>
+      </dl>
+    </div>
+
+    <div class="callout">
+      <h4>자녀의 성적표를 받았을 때 보실 점</h4>
+      <p>총점 하나만 보지 마시고 <strong style="font-weight:600;">4개 기준의 균형</strong>을 보세요. 예를 들어 A·B는 높은데 C가 낮다면 "이해는 잘 하는데 표현이 약하다"는 신호고, B가 유독 낮다면 "스스로 탐구하는 힘"을 키워야 한다는 신호예요.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="forms">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">06 · 학생이 채워야 하는 양식</span>
+      <h2>자녀가 1년 동안 채우는 IB 양식들</h2>
+      <p class="sub">옛날 수업과 가장 큰 차이가 여기예요. 시험만 보는 게 아니라 자녀가 직접 자기 학습을 기록·점검·돌아보는 양식을 단원마다 채워나가요. 단원당 5~7개씩, 1년에 30개 안팎이에요. <strong style="color: var(--coral-dark); font-weight: 600;">★ 표시</strong>는 특히 중요한 양식이에요.</p>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group-label">학년 / 학기 시작 시</div>
+      <h4>한 해를 여는 자가 진단</h4>
+      <div class="form-item">
+        <div class="name">학습자상 자가 진단<span class="en">Learner Profile Self-assessment</span></div>
+        <div class="def">10개 자질 현재 수준을 본인이 표시. 학년 말에 다시 작성해서 변화 비교.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">ATL 자가 진단<span class="en">ATL Self-assessment</span></div>
+        <div class="def">5범주 학습 기술에서 강·약점 점검. 교사 코칭 방향의 기초.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">목표 설정지<span class="en">Goal Setting Form</span></div>
+        <div class="def">이번 학기·학년에 키울 학습자상·ATL 기술을 본인이 선택.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group-label">단원 시작 시</div>
+      <h4>새 단원에 진입할 때</h4>
+      <div class="form-item">
+        <div class="name">KWL 차트<span class="en">Know / Want to know / Learned</span></div>
+        <div class="def">아는 것 · 알고 싶은 것 · (단원 끝에) 배운 것을 본인이 작성.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">탐구질문 사전 답변<span class="en">Pre-inquiry Response</span></div>
+        <div class="def">사실·개념·논쟁 3종 질문에 단원 시작 전 자기 답을 한 줄씩.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">수행과제 계획서<span class="en">Summative Task Plan</span></div>
+        <div class="def">단원 끝 결과물을 향한 본인 접근법·자료·일정 정리.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group-label">단원 진행 중</div>
+      <h4>수업이 굴러가는 동안</h4>
+      <div class="form-item">
+        <div class="name">학습 일지<span class="en">Learning Journal</span></div>
+        <div class="def">차시·주별로 배운 점·의문·어려움을 본인이 짧게 기록.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">모둠 활동 기록표<span class="en">Collaboration Log</span></div>
+        <div class="def">자기 역할·기여·갈등 해결 방식 기록. ATL 사회성 평가 자료.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">리서치 노트<span class="en">Research Journal</span></div>
+        <div class="def">참고 자료의 출처·신뢰도·인용 형식을 본인이 기록.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">진행 단계별 체크리스트<span class="en">Progress Checklist</span></div>
+        <div class="def">큰 과제의 초안·수정·제출 단계를 본인이 점검.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">과제별 평가 기준 풀이<span class="en">Task-specific Clarification</span></div>
+        <div class="def">A~D 기준을 그 과제 맥락에 맞게 풀어쓴 별지. 자기평가의 기준.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group-label">단원 종료 시</div>
+      <h4>단원을 마무리하는 양식</h4>
+      <div class="form-item">
+        <div class="name">학업 정직성 서약서 <span class="star">★</span><span class="en">Academic Honesty Declaration</span></div>
+        <div class="def">결과물이 표절·무단 AI 사용 없이 직접 작성됐음을 서약. IB는 위반 시 매우 엄격.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">자기평가 루브릭<span class="en">Self-assessment Rubric</span></div>
+        <div class="def">교사 채점 전 본인이 A~D로 자기 결과물에 먼저 점수 매김.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">동료평가서<span class="en">Peer Assessment</span></div>
+        <div class="def">친구의 결과물·발표를 강점·개선점 형식으로 평가.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">단원 성찰일지 <span class="star">★</span><span class="en">Unit Reflection Form</span></div>
+        <div class="def">SoI에 어떻게 답하게 됐는지, 어떤 학습자상·ATL이 자랐는지 본인이 정리. 메타인지 평가의 핵심 자료.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">IDU 성찰<span class="en">Interdisciplinary Unit Reflection</span></div>
+        <div class="def">간학문 단원에서 두 교과를 어떻게 연결했는지 별도 성찰.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group-label">봉사 실천 (Service as Action)</div>
+      <h4>교과 외 활동 양식</h4>
+      <div class="form-item">
+        <div class="name">SA 계획서<span class="en">Service as Action Proposal</span></div>
+        <div class="def">활동 시작 전 사회적 문제·목표·계획을 사전 승인받는 기획안.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">SA 활동 기록<span class="en">SA Activity Log</span></div>
+        <div class="def">활동명·일자·참여자·내용·길러진 학습자상을 연중 누적.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">SA 성찰지<span class="en">Service as Action Reflection</span></div>
+        <div class="def">활동 종료 후 결과·목표 달성도·자기 협동·소통 기록.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group-label">프로젝트 · 실기 교과</div>
+      <h4>디자인 · 예술 교과의 핵심 양식</h4>
+      <div class="form-item">
+        <div class="name">탐구 일지 / 프로세스 저널 <span class="star">★</span><span class="en">Process Journal</span></div>
+        <div class="def">아이디어 스케치·자료 조사·실패·피드백 반영을 처음부터 끝까지 날짜별 기록. 디자인·예술 교과에서는 <strong>저널 자체가 가장 중요한 평가 대상</strong>.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group-label">학기 · 학년 누적</div>
+      <h4>한 해 동안 쌓이는 양식들</h4>
+      <div class="form-item">
+        <div class="name">ATL 진행 추적<span class="en">ATL Progression Tracker</span></div>
+        <div class="def">5범주별 세부 기술을 "초보→능숙" 단계로 학기마다 갱신.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">디지털 포트폴리오<span class="en">e-Portfolio</span></div>
+        <div class="def">단원별 결과물·성찰·평가를 디지털로 누적 (ManageBac 등).</div>
+      </div>
+      <div class="form-item">
+        <div class="name">수업 피드백<span class="en">Approaches to Teaching Feedback</span></div>
+        <div class="def">학기 말 학생이 수업·교사를 평가하는 양식.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">학습자상 자기성찰<span class="en">End-of-year Learner Profile Reflection</span></div>
+        <div class="def">학년 초 자가진단과 비교해 변화·성장 평가.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">학생 주도 컨퍼런스 자료<span class="en">Student-Led Conference</span></div>
+        <div class="def">학생이 직접 학부모에게 자기 학습을 발표하는 자리의 자료.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">학부모 피드백 양식<span class="en">Parent Feedback (학부모용)</span></div>
+        <div class="def">가정에서 본 자녀 변화를 학부모가 작성해 학교에 제출.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group-label">MYP 최종 학년 · 졸업 프로젝트</div>
+      <h4>공동체 프로젝트 일체</h4>
+      <div class="form-item">
+        <div class="name">공동체 프로젝트 제안서<span class="en">Community Project Proposal</span></div>
+        <div class="def">주제·목적·실행 계획을 사전 제출하는 기획안.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">진행 일지<span class="en">Process Journal</span></div>
+        <div class="def">프로젝트 처음부터 끝까지 모든 과정을 날짜별 기록. 분량 가장 큼.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">최종 보고서<span class="en">Final Report</span></div>
+        <div class="def">프로젝트 결과 정리.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">발표 자료<span class="en">Presentation</span></div>
+        <div class="def">발표회용 슬라이드·전시 자료.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">자기·멘토 평가<span class="en">Self & Supervisor Assessment</span></div>
+        <div class="def">본인 평가 + 지도 교사 평가.</div>
+      </div>
+      <div class="form-item">
+        <div class="name">ePortfolio 제출<span class="en">eAssessment ePortfolio</span></div>
+        <div class="def">IB 본부 외부평가 응시 시 직접 제출 (선택, 한국 공교육은 대부분 미응시).</div>
+      </div>
+    </div>
+
+    <div class="forms-legend">
+      <strong>★ 표시 양식 3개</strong>는 IB MYP에서 가장 비중 있게 다뤄지는 양식이에요. <strong>학업 정직성 서약서</strong>는 위반 시 매우 엄격한 제재가 따르고, <strong>단원 성찰일지</strong>는 학생의 메타인지를 평가하는 핵심 자료이며, <strong>프로세스 저널</strong>은 디자인·예술 교과에서는 그 자체가 가장 큰 평가 대상이에요.
+      <br><br>
+      자녀에게 "이런 양식들 다 채우고 있어?"라고 물어보시면 학교의 IB 운영 깊이를 가늠할 수 있어요. 다 채우는 학교도 있고, 핵심 4~5개만 운영하는 학교도 있어요.
+    </div>
+  </div>
+</section>
+
+<section class="content" id="parent">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">07 · 자녀와 대화하기</span>
+      <h2>아이에게 어떤 질문을 던질까요?</h2>
+      <p class="sub">옛날처럼 "오늘 시험 몇 점이야"는 잘 안 맞는 질문이에요. 단원의 흐름에 맞춰 이런 질문을 시도해보세요.</p>
+    </div>
+
+    <div class="parent-block">
+      <h3>단원이 시작될 때</h3>
+      <p class="when-q">자녀가 새 단원을 시작했다는 이야기를 했거나, 가정통신문에 새 단원 안내가 왔을 때</p>
+      <ul class="qlist">
+        <li>이번 단원의 탐구질문이 뭐야?<span class="why">큰 그림을 짚는 질문</span></li>
+        <li>이 단원에서 너희가 만들어야 하는 결과물(수행과제)이 뭐야?<span class="why">최종 목표를 함께 인지</span></li>
+        <li>선생님이 이번 단원에서 어떤 세계적 맥락을 골랐대?<span class="why">"왜 이걸 배우는지"의 맥락 확인</span></li>
+      </ul>
+    </div>
+
+    <div class="parent-block">
+      <h3>단원이 진행 중일 때</h3>
+      <p class="when-q">단원 중반, 자녀가 모둠 활동·자료 조사·실험을 하고 있을 때</p>
+      <ul class="qlist">
+        <li>오늘 어떤 자료를 찾아봤어? 그 자료가 너의 탐구질문에 어떻게 도움이 됐어?<span class="why">리서치 기술(ATL)을 자극</span></li>
+        <li>모둠에서 의견이 갈렸을 때 어떻게 했어?<span class="why">사회성 기술을 자극</span></li>
+        <li>선생님 피드백에서 뭘 배웠어?<span class="why">형성평가를 학습 기회로 활용</span></li>
+      </ul>
+    </div>
+
+    <div class="parent-block">
+      <h3>단원이 끝났을 때</h3>
+      <p class="when-q">수행과제 제출 후, 평가 결과를 받은 시점</p>
+      <ul class="qlist">
+        <li>네 점수에서 가장 높은 기준(Criterion)이 뭐였어? 가장 낮은 건?<span class="why">총점이 아니라 기준별로 보기</span></li>
+        <li>다음 단원에서 어떤 부분을 더 잘하고 싶어?<span class="why">성찰을 다음 단원으로 연결</span></li>
+        <li>이번 단원 처음의 탐구질문에 지금은 어떻게 답할 수 있어?<span class="why">단원 전체를 한 줄로 정리하는 질문</span></li>
+      </ul>
+    </div>
+
+    <div class="parent-block">
+      <h3>가정에서 키워줄 수 있는 것</h3>
+      <p class="when-q">학습자상 자질과 ATL 기술은 학교 수업만으로는 부족해요. 가정에서 함께 자연스럽게 키울 수 있어요.</p>
+      <ul class="qlist">
+        <li>뉴스나 책 이야기를 할 때 "너는 어떻게 생각해?"라고 물어보기<span class="why">사고력·관점 형성</span></li>
+        <li>잘 안 풀린 일을 두고 "다음에 어떻게 해볼래?"라고 묻기<span class="why">성찰 자질</span></li>
+        <li>다른 문화·낯선 의견을 함께 접하고 이야기 나누기<span class="why">열린 마음·국제적 마인드</span></li>
+        <li>주말에 짧은 봉사 활동을 함께 하기 (큰 거 아님: 동네 청소, 이웃 도움 등)<span class="why">Service as Action</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="content" id="glossary">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">08 · 용어 사전</span>
+      <h2>가정통신문에 나오는 단어들</h2>
+      <p class="sub">위에서 안 다룬 단어 위주로 정리했어요. 검색해서 찾아보세요.</p>
+    </div>
+
+    <input type="text" class="glossary-search" id="glossarySearch" placeholder="용어 검색 (한글 또는 영어)">
+
+    <div class="glossary" id="glossaryList">
+      <div class="gloss-item"><div class="gloss-term">간학문 단원<span class="en">Interdisciplinary Unit (IDU)</span></div><div class="gloss-def">두 개 이상의 교과가 하나의 탐구질문 아래 묶여 진행되는 특별 단원. MYP에서 매년 1회 이상 진행돼요. 예: 국어+사회가 함께 "정체성"을 탐구.</div></div>
+      <div class="gloss-item"><div class="gloss-term">공동체 프로젝트<span class="en">Community Project</span></div><div class="gloss-def">MYP 후반부 과정에서 진행하는 종합 프로젝트. 자녀가 지역사회의 문제를 직접 찾고, 계획하고, 실천한 뒤 발표회로 마무리합니다.</div></div>
+      <div class="gloss-item"><div class="gloss-term">관련 개념<span class="en">Related Concepts</span></div><div class="gloss-def">주요 개념(Key Concepts)을 교과별로 세분화한 개념. 예: 과학에서는 "에너지", "균형", "증거" 등. 단원당 1~2개를 골라요.</div></div>
+      <div class="gloss-item"><div class="gloss-term">국제적 마인드<span class="en">International Mindedness</span></div><div class="gloss-def">다양한 문화를 이해하고 세계 시민으로서 행동하는 사고방식. IB 교육 전체의 최상위 목표 중 하나예요.</div></div>
+      <div class="gloss-item"><div class="gloss-term">루브릭<span class="en">Rubric</span></div><div class="gloss-def">평가 기준표. "8점은 어떤 수준이고 5점은 어떤 수준인지" 구체적으로 묘사한 표. 자녀가 수행과제를 시작할 때부터 받아봅니다.</div></div>
+      <div class="gloss-item"><div class="gloss-term">백워드 설계<span class="en">Backward Design</span></div><div class="gloss-def">단원 끝의 평가 과제부터 먼저 정하고, 그걸 향해 수업을 거꾸로 짜는 방식. MYP 단원 설계의 핵심 원리예요.</div></div>
+      <div class="gloss-item"><div class="gloss-term">봉사 실천<span class="en">Service as Action (SA)</span></div><div class="gloss-def">자녀가 1년 내내 누적해야 하는 실천 활동. 학교 봉사부터 동네 활동까지 다양하게 인정돼요. 보고서가 아니라 실제 행동이 핵심.</div></div>
+      <div class="gloss-item"><div class="gloss-term">성찰일지<span class="en">Reflection</span></div><div class="gloss-def">단원이 끝날 때 자녀가 작성하는 짧은 글. "탐구질문에 어떻게 답하게 됐는지", "어떤 기술이 늘었는지"를 스스로 정리합니다.</div></div>
+      <div class="gloss-item"><div class="gloss-term">수행과제<span class="en">Summative Assessment</span></div><div class="gloss-def">단원 끝의 총괄 평가. 시험이 아니라 보고서·발표·작품·실험·영상 등 다양한 형태로 제출해요. 단원 시작 시점에 미리 공개됩니다.</div></div>
+      <div class="gloss-item"><div class="gloss-term">주요 개념<span class="en">Key Concepts</span></div><div class="gloss-def">교과를 가로지르는 16개의 큰 아이디어 (변화, 시스템, 정체성, 관계 등). 단원당 1개를 골라 단원의 중심에 둡니다.</div></div>
+      <div class="gloss-item"><div class="gloss-term">탐구진술문<span class="en">Statement of Inquiry (SoI)</span></div><div class="gloss-def">단원의 핵심 메시지를 한 문장으로 압축한 진술. 단원 도입 시점에 공개돼요. 예: "에너지의 균형이 깨진 시스템은 지속가능성을 위협한다"</div></div>
+      <div class="gloss-item"><div class="gloss-term">탐구질문<span class="en">Inquiry Questions</span></div><div class="gloss-def">사실적·개념적·논쟁적 3종으로 단원 내내 다뤄지는 질문. 자녀가 "이번 단원의 질문이 뭐야"라고 답할 수 있어야 해요.</div></div>
+      <div class="gloss-item"><div class="gloss-term">평가 기준<span class="en">Criteria A~D</span></div><div class="gloss-def">교과마다 정해진 4개의 평가 기준. 각 8점씩 32점 만점. 자녀의 성적표가 4개 기준으로 나누어져 있어요.</div></div>
+      <div class="gloss-item"><div class="gloss-term">포트폴리오<span class="en">Portfolio</span></div><div class="gloss-def">단원 활동 결과물의 누적 모음. 학교가 ManageBac 같은 LMS를 운영한다면 학부모도 일부 확인할 수 있어요.</div></div>
+      <div class="gloss-item"><div class="gloss-term">학습법<span class="en">Approaches to Learning (ATL)</span></div><div class="gloss-def">의사소통·사회성·자기관리·연구·사고력 5범주의 학습 기술. 단원 활동 안에서 의식적으로 길러져요.</div></div>
+      <div class="gloss-item"><div class="gloss-term">학습자상<span class="en">Learner Profile</span></div><div class="gloss-def">IB가 키우려는 10가지 자질. 자녀의 행동·태도·성장 전반에 적용되는 인간상.</div></div>
+      <div class="gloss-item"><div class="gloss-term">형성평가<span class="en">Formative Assessment</span></div><div class="gloss-def">단원 진행 중 수시로 이뤄지는 평가. 점수가 아니라 피드백 위주.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <h4>이 가이드는</h4>
+    <p>경기도교육청 "IB 이해하기 MYP" 자료집과 IBO 공식 자료를 학부모 시점으로 재구성한 비공식 가이드입니다.</p>
+    <p>실제 학교별 운영은 다를 수 있어요. 구체적 단원 설계, 평가 방식, 학사 일정은 자녀가 다니는 학교에 문의하시기 바랍니다.</p>
+    <p class="small">참고 출처: 경기도교육청(2023) IB 이해하기 MYP · IBO MYP: From Principles into Practice · 대구광역시교육청 IB 운영 자료 · 이혜정 외(2019) IB를 말한다</p>
+  </div>
+</footer>
+
+<script>
+// Nav smooth scroll (data-scroll 속성 사용)
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    const id = link.getAttribute('data-scroll');
+    if (id) {
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+
+// Glossary search
+const search = document.getElementById('glossarySearch');
+const items = document.querySelectorAll('.gloss-item');
+search.addEventListener('input', (e) => {
+  const q = e.target.value.toLowerCase().trim();
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(q) ? '' : 'none';
+  });
+});
+</script>
+
+</body>
+</html>

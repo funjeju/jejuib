@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATL 자가 진단 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+.student-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.scale-legend { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-bottom: 10px; padding: 0 14px; }
+.atl-grid { display: grid; gap: 12px; margin-bottom: 28px; }
+.atl-item { padding: 16px 20px; border: 1px solid var(--line); border-radius: 10px; }
+.atl-item-top { display: grid; grid-template-columns: 1fr 175px; gap: 16px; align-items: center; margin-bottom: 10px; }
+.atl-item .name { font-size: 15px; font-weight: 600; }
+.atl-item .name .en { display: inline-block; font-size: 11.5px; color: var(--muted); font-weight: 400; margin-left: 6px; }
+.atl-item .desc { font-size: 12.5px; color: var(--text-soft); line-height: 1.6; padding-top: 8px; border-top: 1px solid var(--line); margin-bottom: 8px; }
+.atl-item .sub-skills { font-size: 12px; color: var(--muted); font-style: italic; }
+.scale { display: flex; gap: 6px; justify-content: flex-end; }
+.scale label { cursor: pointer; position: relative; }
+.scale label .num { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1.5px solid var(--line); border-radius: 50%; font-size: 12px; color: var(--text-soft); transition: all 0.15s; }
+.scale label:hover .num { border-color: var(--coral); }
+.scale input { position: absolute; opacity: 0; pointer-events: none; }
+.scale input:checked + .num { background: var(--coral); color: white; border-color: var(--coral); }
+.form-field { margin-bottom: 20px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea, .form-field input[type="text"] { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; }
+.form-field textarea { min-height: 70px; }
+.form-field textarea:focus, .form-field input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; text-decoration: none; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } .form-field textarea, .form-field input, .student-info input { background: white; } .scale label .num { border-color: #666; } .atl-item { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info { grid-template-columns: 1fr; } .atl-item-top { grid-template-columns: 1fr; } .scale { justify-content: flex-start; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">학년 / 학기 시작 시 · 양식 02</div>
+    <h1 class="form-title">ATL 자가 진단</h1>
+    <div class="form-title-en">Approaches to Learning Self-assessment</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">학년·학기 시작 시점. 학기 중·말에 다시 점검해서 변화 비교.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">"학습하는 법" 5가지 기술에서 나의 현재 수준을 점검합니다.</div>
+    </div>
+  </div>
+
+  <div class="student-info">
+    <div><label>이름</label><input type="text"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>작성 날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="scale-legend">
+    <span>← 아직 부족함</span>
+    <span>매우 잘 갖춤 →</span>
+  </div>
+
+  <div class="atl-grid">
+    <div class="atl-item">
+      <div class="atl-item-top">
+        <div class="name">의사소통 <span class="en">Communication</span></div>
+        <div class="scale">
+          <label><input type="radio" name="a1"><span class="num">1</span></label>
+          <label><input type="radio" name="a1"><span class="num">2</span></label>
+          <label><input type="radio" name="a1"><span class="num">3</span></label>
+          <label><input type="radio" name="a1"><span class="num">4</span></label>
+          <label><input type="radio" name="a1"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">생각을 글·말·그림으로 명확하게 표현하고, 다른 사람의 말을 정확히 이해합니다. 발표·토론·글쓰기에서 자기 의도를 효과적으로 전달합니다.</div>
+      <div class="sub-skills">세부: 듣기 · 말하기 · 읽기 · 쓰기 · 비언어 소통</div>
+    </div>
+
+    <div class="atl-item">
+      <div class="atl-item-top">
+        <div class="name">사회성 <span class="en">Social</span></div>
+        <div class="scale">
+          <label><input type="radio" name="a2"><span class="num">1</span></label>
+          <label><input type="radio" name="a2"><span class="num">2</span></label>
+          <label><input type="radio" name="a2"><span class="num">3</span></label>
+          <label><input type="radio" name="a2"><span class="num">4</span></label>
+          <label><input type="radio" name="a2"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">친구·모둠과 협력해서 함께 목표를 이뤄내고, 의견 차이를 건설적으로 다룹니다. 자기 역할을 책임지고 다른 사람의 기여를 인정합니다.</div>
+      <div class="sub-skills">세부: 협업 · 갈등 해결 · 관계 형성 · 리더십</div>
+    </div>
+
+    <div class="atl-item">
+      <div class="atl-item-top">
+        <div class="name">자기관리 <span class="en">Self-management</span></div>
+        <div class="scale">
+          <label><input type="radio" name="a3"><span class="num">1</span></label>
+          <label><input type="radio" name="a3"><span class="num">2</span></label>
+          <label><input type="radio" name="a3"><span class="num">3</span></label>
+          <label><input type="radio" name="a3"><span class="num">4</span></label>
+          <label><input type="radio" name="a3"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">시간·목표·감정을 스스로 조절하며 학습을 계획적으로 진행합니다. 마감을 지키고 어려운 상황에서도 평정을 유지합니다.</div>
+      <div class="sub-skills">세부: 시간 관리 · 목표 설정 · 정서 관리 · 회복력 · 학습 조직</div>
+    </div>
+
+    <div class="atl-item">
+      <div class="atl-item-top">
+        <div class="name">연구·리서치 <span class="en">Research</span></div>
+        <div class="scale">
+          <label><input type="radio" name="a4"><span class="num">1</span></label>
+          <label><input type="radio" name="a4"><span class="num">2</span></label>
+          <label><input type="radio" name="a4"><span class="num">3</span></label>
+          <label><input type="radio" name="a4"><span class="num">4</span></label>
+          <label><input type="radio" name="a4"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">필요한 정보를 찾고, 신뢰할 만한지 평가하고, 자기 글에 출처를 정확히 표기합니다. 다양한 매체와 자료를 균형 있게 활용합니다.</div>
+      <div class="sub-skills">세부: 정보 검색 · 출처 평가 · 미디어 활용 · 인용 · 저작권 존중</div>
+    </div>
+
+    <div class="atl-item">
+      <div class="atl-item-top">
+        <div class="name">사고력 <span class="en">Thinking</span></div>
+        <div class="scale">
+          <label><input type="radio" name="a5"><span class="num">1</span></label>
+          <label><input type="radio" name="a5"><span class="num">2</span></label>
+          <label><input type="radio" name="a5"><span class="num">3</span></label>
+          <label><input type="radio" name="a5"><span class="num">4</span></label>
+          <label><input type="radio" name="a5"><span class="num">5</span></label>
+        </div>
+      </div>
+      <div class="desc">비판적·창의적으로 생각하고, 한 곳에서 배운 것을 다른 상황에 적용합니다. 문제를 여러 각도에서 바라보고 새로운 해결책을 시도합니다.</div>
+      <div class="sub-skills">세부: 비판적 사고 · 창의적 사고 · 전이 · 문제 해결</div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이번 학기·학년에 가장 키우고 싶은 기술 1~2개</div>
+    <div class="form-field-hint">위 5개 중에서 골라 적어보세요.</div>
+    <input type="text" placeholder="예: 자기관리, 리서치">
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">그 기술을 키우기 위한 구체적 행동 계획</div>
+    <div class="form-field-hint">"무엇을 / 언제 / 어떻게" 형식으로 한두 줄 적어보세요.</div>
+    <textarea placeholder="예: 매일 저녁 다음 날 할 일을 수첩에 적는다. 한 주 동안 시도해본 뒤 무엇이 잘 됐는지 점검한다."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> ATL은 "학습하는 법" 그 자체예요. 학교 성적과는 직접 연결되지 않지만, 자녀가 평생 학습자로 자라는 데 핵심이에요. 가정에서도 자녀가 <strong>자기관리(시간·정서)</strong>나 <strong>리서치(출처 확인)</strong> 같은 기술을 자연스럽게 쓸 수 있도록 환경을 만들어주시면 좋아요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

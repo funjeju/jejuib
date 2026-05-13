@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>행동(Action) 계획서 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.student-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.section-title { font-size: 14.5px; font-weight: 700; color: var(--coral-dark); margin: 22px 0 10px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+
+.form-field { margin-bottom: 16px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea, .form-field input[type="text"] { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; }
+.form-field textarea { min-height: 60px; }
+.form-field textarea:focus, .form-field input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.where-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 8px; }
+.where-chip { padding: 14px 12px; border: 2px solid var(--line); border-radius: 12px; cursor: pointer; text-align: center; transition: all 0.15s; }
+.where-chip input { display: none; }
+.where-chip:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); }
+.where-emoji { font-size: 26px; display: block; margin-bottom: 4px; }
+.where-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.where-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.plan-block { padding: 18px 22px; background: linear-gradient(135deg, #FFF8F2, #FFFBF8); border: 2px solid var(--coral); border-radius: 14px; margin: 18px 0; }
+.plan-title { font-size: 14.5px; font-weight: 700; color: var(--coral-dark); margin-bottom: 12px; text-align: center; letter-spacing: 0.04em; }
+.plan-row { display: grid; grid-template-columns: 100px 1fr; gap: 14px; align-items: center; margin-bottom: 10px; }
+.plan-row label { font-size: 12.5px; color: var(--text-soft); font-weight: 600; }
+.plan-row input { padding: 8px 11px; border: 1px solid white; border-radius: 6px; font-size: 13.5px; font-family: inherit; background: white; }
+.plan-row input:focus { outline: none; border-color: var(--coral); }
+
+.commit-box { padding: 18px 22px; background: var(--coral-pale); border: 2px solid var(--coral); border-radius: 14px; margin-top: 18px; text-align: center; }
+.commit-text { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 12px; font-weight: 500; }
+.commit-sign { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.commit-sign > div label { display: block; font-size: 11.5px; color: var(--coral-dark); margin-bottom: 4px; font-weight: 600; }
+.commit-sign > div input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--coral-dark); font-size: 14px; font-family: inherit; background: transparent; text-align: center; }
+.commit-sign > div input:focus { outline: none; }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info, .commit-sign { grid-template-columns: 1fr; } .where-grid { grid-template-columns: 1fr; } .plan-row { grid-template-columns: 1fr; gap: 4px; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 마무리 · 양식 20 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">행동(Action) 계획서 🤲</h1>
+    <div class="form-title-en">Action Plan</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">단원이 끝나갈 때. 배운 것을 실천으로 옮기는 단계.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">배운 것은 행동할 때 진짜 내 것이 돼요.</div>
+    </div>
+  </div>
+
+  <div class="student-info">
+    <div><label>이름</label><input type="text"></div>
+    <div><label>UOI 단원</label><input type="text"></div>
+    <div><label>계획일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Action(행동)은 PYP의 가장 중요한 결과예요.</strong> 배운 것을 알기만 하면 의미가 적어요. 작은 일이라도 <strong>실제 행동으로 옮기는 것</strong>이 PYP가 키우려는 사람의 모습입니다. 큰 일이 아니어도 됩니다.
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">💡 이 단원에서 가장 중요하게 배운 것</div>
+    <div class="form-field-hint">행동으로 옮길 만한 깨달음 한 가지.</div>
+    <textarea placeholder="예: 우리 동네에는 도움이 필요한 어르신이 많다는 걸 알게 됐어요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🌍 내가 실천할 행동</div>
+    <div class="form-field-hint">"무엇을" 할지 구체적으로.</div>
+    <textarea placeholder="예: 우리 옆집 할머니께 일주일에 한 번 안부 인사 가기."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">📍 어디서 실천할까?</div>
+    <div class="where-grid">
+      <label class="where-chip"><input type="checkbox"><span class="where-emoji">🏠</span><span class="where-name">집에서</span><div class="where-desc">가족과 함께</div></label>
+      <label class="where-chip"><input type="checkbox"><span class="where-emoji">🏫</span><span class="where-name">학교에서</span><div class="where-desc">친구와 함께</div></label>
+      <label class="where-chip"><input type="checkbox"><span class="where-emoji">🏘️</span><span class="where-name">동네에서</span><div class="where-desc">이웃과 함께</div></label>
+      <label class="where-chip"><input type="checkbox"><span class="where-emoji">🌐</span><span class="where-name">더 넓은 곳</span><div class="where-desc">사회에 영향</div></label>
+    </div>
+  </div>
+
+  <div class="plan-block">
+    <div class="plan-title">📅 나의 행동 계획</div>
+    <div class="plan-row">
+      <label>언제부터</label>
+      <input type="text" placeholder="예: 이번 주 토요일부터">
+    </div>
+    <div class="plan-row">
+      <label>얼마나 자주</label>
+      <input type="text" placeholder="예: 매주 토요일 오전">
+    </div>
+    <div class="plan-row">
+      <label>누구와 함께</label>
+      <input type="text" placeholder="예: 엄마와 함께">
+    </div>
+    <div class="plan-row">
+      <label>필요한 준비</label>
+      <input type="text" placeholder="예: 인사 카드 만들기">
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🤔 어려울 것 같은 점</div>
+    <textarea placeholder="예: 처음에는 어색할 것 같아요. 잊지 않게 달력에 표시해야겠어요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">📊 어떻게 결과를 확인할까?</div>
+    <div class="form-field-hint">한 달 뒤 잘 됐는지 어떻게 알 수 있을까요?</div>
+    <textarea placeholder="예: 매주 만난 후 할머니 표정과 내 기분을 기록해볼래요."></textarea>
+  </div>
+
+  <div class="commit-box">
+    <div class="commit-text">
+      나는 이 행동을 끝까지 책임지고 실천할 거예요. <br>
+      작은 행동이라도 세상을 바꿀 수 있다고 믿어요. 🌍✨
+    </div>
+    <div class="commit-sign">
+      <div><label>내 이름</label><input type="text"></div>
+      <div><label>다짐한 날</label><input type="text" placeholder="2026 . __ . __"></div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> Action은 PYP의 가장 강력한 결과예요. <strong>"배우는 사람"에서 "행동하는 사람"으로</strong> 자녀를 바꾸는 단계죠. 가정에서 가장 도와줄 수 있는 부분이에요. 자녀가 정한 행동이 작아도 비웃지 말고 진심으로 함께 해주세요. 거창한 봉사가 아니라, "옆집 할머니에게 인사하기" 같은 작은 행동이 자녀의 평생 시민의식이 됩니다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

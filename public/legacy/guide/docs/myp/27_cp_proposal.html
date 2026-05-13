@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공동체 프로젝트 제안서 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 3px solid var(--coral); border-radius: 0 8px 8px 0; margin-bottom: 22px; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.student-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea, .form-field input[type="text"] { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; }
+.form-field textarea { min-height: 60px; }
+.form-field textarea:focus, .form-field input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.gc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
+.gc-check { padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; transition: all 0.15s; text-align: center; }
+.gc-check input { display: none; }
+.gc-check:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); }
+.gc-name { font-size: 11.5px; font-weight: 600; color: var(--text); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.section-title { font-size: 13px; font-weight: 700; color: var(--coral-dark); letter-spacing: 0.05em; margin: 24px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--line); text-transform: uppercase; }
+.mentor-block { padding: 14px 18px; background: var(--bg); border: 1px dashed var(--line); border-radius: 8px; margin-top: 18px; }
+.mentor-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.mentor-row > div label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; }
+.mentor-row > div input { width: 100%; padding: 6px 0; border: none; border-bottom: 1px solid var(--text); font-size: 13px; font-family: inherit; background: transparent; }
+.mentor-row > div input:focus { outline: none; border-bottom-color: var(--coral); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info, .two-col, .mentor-row { grid-template-columns: 1fr; } .gc-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">MYP 최종 학년 · 양식 27</div>
+    <h1 class="form-title">공동체 프로젝트 제안서</h1>
+    <div class="form-title-en">Community Project Proposal</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">MYP 최종 학년 시작 직후. 프로젝트 시작 전 사전 승인용.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">3년간의 MYP 학습을 종합하는 졸업 프로젝트의 첫 단계.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>공동체 프로젝트(Community Project)란?</strong> MYP 과정의 종합 졸업 프로젝트예요. 자녀가 <strong>지역사회의 문제를 직접 찾고, 계획하고, 실천한 뒤 발표</strong>해요. 개인 또는 최대 3명 모둠으로 진행. 약 15시간 이상의 봉사 시간 + 연구·계획·실행·성찰을 모두 포함합니다.
+  </div>
+
+  <div class="student-info">
+    <div><label>이름 (개인 / 모둠)</label><input type="text" placeholder="이름 또는 모둠원 이름들"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>제출일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="section-title">프로젝트 개요</div>
+
+  <div class="form-field">
+    <div class="form-field-label">프로젝트 제목</div>
+    <input type="text" placeholder="예: 동네 노인정 디지털 교육 봉사">
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">해결하고 싶은 사회 문제 · 필요</div>
+    <div class="form-field-hint">왜 이게 문제인지 / 누가 어려움을 겪고 있는지 설명해주세요.</div>
+    <textarea placeholder="예: 우리 동네 노인정 어르신들 중 스마트폰을 어려워하시는 분이 많다. 자녀들과 연락하거나 정보를 얻는 데 어려움을 겪으신다."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 문제에 대한 나의 개인적 관심·연결</div>
+    <div class="form-field-hint">왜 다른 주제가 아니라 이 주제를 골랐는지.</div>
+    <textarea placeholder="예: 우리 할머니도 같은 문제를 겪으신다. 도와드리면서 다른 어르신께도 도움이 되고 싶다."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">세계적 맥락 (Global Context) — 하나 선택</div>
+    <div class="gc-grid">
+      <label class="gc-check"><input type="radio" name="gc"><span class="gc-name">정체성과 관계</span></label>
+      <label class="gc-check"><input type="radio" name="gc"><span class="gc-name">시공간적 위치</span></label>
+      <label class="gc-check"><input type="radio" name="gc"><span class="gc-name">개인적·문화적 표현</span></label>
+      <label class="gc-check"><input type="radio" name="gc"><span class="gc-name">과학적·기술적 혁신</span></label>
+      <label class="gc-check"><input type="radio" name="gc"><span class="gc-name">세계화와 지속가능성</span></label>
+      <label class="gc-check"><input type="radio" name="gc"><span class="gc-name">공정성과 발전</span></label>
+    </div>
+  </div>
+
+  <div class="section-title">목표와 계획</div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">프로젝트 목표 (측정 가능하게)</div>
+      <textarea placeholder="예: 노인정 어르신 10명 이상이 스마트폰으로 가족에게 영상 통화를 할 수 있게 됨."></textarea>
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">결과물 (Product / Outcome)</div>
+      <textarea placeholder="예: 어르신용 스마트폰 사용 안내 책자 + 실제 강의 4회 + 활동 영상."></textarea>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">전체 일정 (큰 단계로)</div>
+    <div class="form-field-hint">조사·계획·실행·성찰·발표 5단계 기준으로 시점 잡아보세요.</div>
+    <textarea placeholder="예: 3월 - 조사·노인정 방문. 4~5월 - 안내 책자 제작. 5~6월 - 실제 강의. 7월 - 평가 및 발표 준비. 9월 - 발표회."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">예상되는 어려움과 대비</div>
+    <textarea placeholder="예: 어르신마다 학습 속도가 다를 것. → 그룹을 작게 나누고 1:1 도움 시간 마련."></textarea>
+  </div>
+
+  <div class="mentor-block">
+    <div class="mentor-row">
+      <div><label>지도 멘토 (교사)</label><input type="text"></div>
+      <div><label>예상 시간 (15시간 이상)</label><input type="text" placeholder="예: 20시간"></div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 공동체 프로젝트는 3년 MYP의 정점이에요. 자녀가 인생에서 처음으로 <strong>"내가 사회의 문제를 보고 행동을 만들었다"</strong>는 경험을 하는 자리예요. 결과가 작아도 괜찮아요. 과정에서 자녀가 진짜 자라거든요. 가정에서는 자녀가 막힐 때 들어주는 게 가장 큰 도움이에요. 답을 주는 것보다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

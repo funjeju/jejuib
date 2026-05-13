@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>동료평가서 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 3px solid var(--coral); border-radius: 0 8px 8px 0; margin-bottom: 22px; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+.eval-info { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.eval-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.eval-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.eval-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.work-info { padding: 14px 18px; background: var(--bg); border-radius: 8px; margin-bottom: 22px; }
+.work-info label { display: block; font-size: 11.5px; color: var(--text-soft); margin-bottom: 6px; font-weight: 500; }
+.work-info input { width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--surface); }
+.work-info input:focus { outline: none; border-color: var(--coral); }
+.form-field { margin-bottom: 20px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 65px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.respect-block { padding: 14px 18px; background: var(--coral-pale); border-radius: 8px; margin-top: 22px; }
+.respect-title { font-size: 12.5px; font-weight: 600; color: var(--coral-dark); margin-bottom: 8px; }
+.respect-list { font-size: 12px; color: var(--text-soft); line-height: 1.65; }
+.respect-list li { padding-left: 12px; position: relative; }
+.respect-list li::before { content: '·'; position: absolute; left: 0; color: var(--coral); font-weight: 700; }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 28px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .eval-info, .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 종료 시 · 양식 16</div>
+    <h1 class="form-title">동료평가서</h1>
+    <div class="form-title-en">Peer Assessment</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">친구의 발표·결과물·작품을 본 직후.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">친구의 시각으로 작품을 보고, 건설적 피드백을 주는 능력을 키웁니다.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>동료평가의 핵심:</strong> 별점이 아니라 <strong>구체적 관찰과 도움이 되는 제안</strong>이 핵심이에요. "좋았어요" 같은 말은 무의미해요. <strong>무엇이 / 왜</strong> 좋았고, <strong>어디를 / 어떻게</strong> 개선하면 좋을지 적어주세요.
+  </div>
+
+  <div class="eval-info">
+    <div><label>평가자 (나)</label><input type="text" placeholder="내 이름"></div>
+    <div><label>평가 대상 (친구)</label><input type="text" placeholder="친구 이름"></div>
+    <div><label>날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="work-info">
+    <label>친구의 결과물·발표 제목</label>
+    <input type="text" placeholder="예: 우리 마을 환경 캠페인 발표">
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">강점 — 어떤 점이 인상 깊었나</div>
+    <div class="form-field-hint">구체적으로 적어주세요. "잘했다"가 아니라 "무엇을 잘했다".</div>
+    <textarea placeholder="예: 통계 자료를 도입부에 인상 깊게 보여줘서 주제의 심각성이 잘 전달됐다."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">더 좋아질 수 있는 점 — 개선 제안</div>
+    <div class="form-field-hint">비판이 아니라 도움이 되는 제안으로. "이러면 어떨까?" 형식 추천.</div>
+    <textarea placeholder="예: 발표 후반에 결론이 좀 짧았는데, 구체적 행동 제안을 한두 개 추가하면 더 강해질 것 같다."></textarea>
+  </div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">가장 잘 보여진 학습자상 자질</div>
+      <div class="form-field-hint">10개 중 하나 고르고 그 이유 한 줄.</div>
+      <textarea placeholder="예: Caring — 약자에 대한 배려가 발표 전반에 보였다."></textarea>
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">가장 잘 발휘된 ATL 기술</div>
+      <div class="form-field-hint">5범주 중 하나와 그 이유 한 줄.</div>
+      <textarea placeholder="예: Communication — 청중과 눈을 맞추며 명확하게 전달했다."></textarea>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">내가 이 친구에게 배우고 싶은 한 가지</div>
+    <textarea placeholder="친구의 작업에서 나의 다음 과제에 가져오고 싶은 점."></textarea>
+  </div>
+
+  <div class="respect-block">
+    <div class="respect-title">동료평가의 약속</div>
+    <ul class="respect-list" style="list-style: none;">
+      <li>구체적·솔직하게, 하지만 존중하는 마음으로 적었습니다.</li>
+      <li>친구의 결과물을 평가했지, 친구 자체를 평가하지 않았습니다.</li>
+      <li>개선 제안은 비판이 아닌 도움이 되도록 적었습니다.</li>
+    </ul>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 동료평가는 한국 학생들이 가장 어려워하는 활동 중 하나예요. "친구한테 안 좋은 말 하기 싫어"라는 마음 때문에 "잘했어요"만 쓰기 쉽거든요. 자녀에게 <strong>"진짜 도움이 되려면 어떻게 적어야 할까"</strong>를 같이 생각해보세요. 비판이 아니라 사랑이 담긴 솔직함이 진짜 동료평가예요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

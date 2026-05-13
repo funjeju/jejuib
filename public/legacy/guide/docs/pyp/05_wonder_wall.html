@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>원더 월 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; --sticky-y: #FFF4D9; --sticky-p: #FFE4F1; --sticky-b: #E4F1FF; --sticky-g: #E5F5E0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.unit-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.wonder-wall { padding: 26px 24px; background: linear-gradient(135deg, #FFF8F2 0%, #FFFBF8 100%); border: 2px solid var(--coral-light); border-radius: 16px; margin-bottom: 22px; }
+.wall-title { font-size: 18px; font-weight: 700; color: var(--coral-dark); text-align: center; margin-bottom: 20px; letter-spacing: 0.02em; }
+.sticky-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.sticky-note { padding: 14px 16px; border-radius: 10px; transform: rotate(-1deg); box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: relative; min-height: 110px; }
+.sticky-note:nth-child(2n) { transform: rotate(1deg); background: var(--sticky-p); }
+.sticky-note:nth-child(3n) { transform: rotate(-0.5deg); background: var(--sticky-b); }
+.sticky-note:nth-child(4n) { transform: rotate(0.5deg); background: var(--sticky-g); }
+.sticky-note { background: var(--sticky-y); }
+.sticky-prefix { font-size: 11.5px; font-weight: 700; color: var(--coral-dark); margin-bottom: 6px; letter-spacing: 0.05em; }
+.sticky-note textarea { width: 100%; border: none; background: transparent; font-size: 14px; font-family: inherit; resize: vertical; line-height: 1.55; min-height: 60px; color: var(--text); }
+.sticky-note textarea:focus { outline: none; }
+.sticky-note textarea::placeholder { color: var(--muted); font-style: italic; }
+
+.form-field { margin-bottom: 18px; margin-top: 22px; }
+.form-field-label { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 60px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .sticky-note { transform: none !important; box-shadow: none; border: 1px solid #999; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info, .sticky-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원(UOI) 시작 시 · 양식 05 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">원더 월 🤔</h1>
+    <div class="form-title-en">Wonder Wall</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">새 UOI 단원을 시작할 때. 단원 진행 중에도 추가할 수 있어요.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">내가 진짜로 궁금한 것들을 적어두면, 그게 내 탐구의 시작이에요.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>UOI 주제</label><input type="text" placeholder="예: 우리는 어떻게 표현하는가?"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>시작 날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Wonder Wall은 "궁금한 것 게시판"이에요.</strong> 정답이 있는 질문이 아니라, <strong>"왜 그럴까?", "어떻게 가능할까?"</strong> 같은 진짜 궁금한 것을 적어요. 작은 질문이라도 괜찮아요. 단원이 진행되면서 답을 찾기도 하고, 더 큰 질문으로 자라기도 해요.
+  </div>
+
+  <div class="wonder-wall">
+    <div class="wall-title">✨ 내가 궁금한 것들 ✨</div>
+    <div class="sticky-grid">
+      <div class="sticky-note">
+        <div class="sticky-prefix">궁금해요 1</div>
+        <textarea placeholder="왜 ____ 일까?"></textarea>
+      </div>
+      <div class="sticky-note">
+        <div class="sticky-prefix">궁금해요 2</div>
+        <textarea placeholder="어떻게 ____ 할 수 있을까?"></textarea>
+      </div>
+      <div class="sticky-note">
+        <div class="sticky-prefix">궁금해요 3</div>
+        <textarea placeholder="____ 라면 어떻게 될까?"></textarea>
+      </div>
+      <div class="sticky-note">
+        <div class="sticky-prefix">궁금해요 4</div>
+        <textarea placeholder="누가 ____ 했을까?"></textarea>
+      </div>
+      <div class="sticky-note">
+        <div class="sticky-prefix">궁금해요 5</div>
+        <textarea placeholder="언제부터 ____ 했을까?"></textarea>
+      </div>
+      <div class="sticky-note">
+        <div class="sticky-prefix">궁금해요 6</div>
+        <textarea placeholder="만약에 ____ 라면?"></textarea>
+      </div>
+      <div class="sticky-note">
+        <div class="sticky-prefix">궁금해요 7</div>
+        <textarea placeholder="자유롭게"></textarea>
+      </div>
+      <div class="sticky-note">
+        <div class="sticky-prefix">궁금해요 8</div>
+        <textarea placeholder="자유롭게"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🔍 가장 알아보고 싶은 질문 하나</div>
+    <div class="form-field-hint">위 질문 중에서 가장 가슴이 두근거리는 질문을 골라보세요.</div>
+    <textarea placeholder="이 단원에서 꼭 답을 찾고 싶은 질문 한 가지."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> Wonder Wall은 PYP가 <strong>"질문하는 사람을 키운다"</strong>는 철학을 그대로 보여주는 양식이에요. 자녀의 질문이 어색하거나 엉뚱해도 비웃지 말아주세요. "어떻게 그런 생각을 했어?"가 가장 좋은 반응이에요. 어른의 답을 주기보다 자녀가 직접 답을 찾아가는 여정을 응원해주세요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7대 개념 돋보기 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.unit-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.concept-block { padding: 16px 20px; border: 2px solid var(--line); border-radius: 14px; margin-bottom: 12px; }
+.concept-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.concept-emoji { font-size: 26px; }
+.concept-info { flex: 1; }
+.concept-name { font-size: 15.5px; font-weight: 700; }
+.concept-en { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+.concept-question { font-size: 12.5px; color: var(--coral-dark); padding: 6px 10px; background: var(--coral-pale); border-radius: 6px; margin-bottom: 10px; font-style: italic; }
+.concept-body label { display: block; font-size: 12px; color: var(--text-soft); margin-bottom: 4px; font-weight: 500; }
+.concept-body textarea { width: 100%; padding: 8px 11px; border: 1px solid var(--line); border-radius: 6px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 45px; }
+.concept-body textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 60px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .concept-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원(UOI) 진행 중 · 양식 09 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">7대 개념 돋보기 🔍</h1>
+    <div class="form-title-en">7 Key Concepts Lens</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">단원 진행 중 또는 끝에. 7가지 렌즈로 단원을 들여다봅니다.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">같은 주제를 다른 각도에서 보면 더 깊이 이해할 수 있어요.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>UOI 주제</label><input type="text" placeholder="예: 우리는 어떻게 표현하는가"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>PYP의 7가지 핵심 개념(Key Concepts)</strong>은 어떤 주제든 깊이 탐구할 수 있는 돋보기예요. 같은 주제도 어떤 렌즈로 보느냐에 따라 다르게 보입니다. 모두 다 채우지 않아도 괜찮아요. <strong>가장 잘 어울리는 3~4개</strong>를 골라 적어보세요.
+  </div>
+
+  <div class="concept-block">
+    <div class="concept-header">
+      <div class="concept-emoji">🟦</div>
+      <div class="concept-info">
+        <div class="concept-name">형태 (Form)</div>
+        <div class="concept-en">What is it like?</div>
+      </div>
+    </div>
+    <div class="concept-question">이건 어떻게 생겼지? 어떤 모습이지?</div>
+    <div class="concept-body">
+      <label>이 단원에서 발견한 것</label>
+      <textarea placeholder="주제의 모양·종류·구성요소에 대해 알게 된 것."></textarea>
+    </div>
+  </div>
+
+  <div class="concept-block">
+    <div class="concept-header">
+      <div class="concept-emoji">⚙️</div>
+      <div class="concept-info">
+        <div class="concept-name">기능 (Function)</div>
+        <div class="concept-en">How does it work?</div>
+      </div>
+    </div>
+    <div class="concept-question">이건 어떻게 작동하지? 무슨 역할을 하지?</div>
+    <div class="concept-body">
+      <label>이 단원에서 발견한 것</label>
+      <textarea placeholder="주제가 어떻게 작동하고 어떤 역할을 하는지."></textarea>
+    </div>
+  </div>
+
+  <div class="concept-block">
+    <div class="concept-header">
+      <div class="concept-emoji">🔗</div>
+      <div class="concept-info">
+        <div class="concept-name">원인 (Causation)</div>
+        <div class="concept-en">Why is it like this?</div>
+      </div>
+    </div>
+    <div class="concept-question">왜 그런 거지? 어떻게 그렇게 됐지?</div>
+    <div class="concept-body">
+      <label>이 단원에서 발견한 것</label>
+      <textarea placeholder="주제가 그렇게 된 이유나 원인."></textarea>
+    </div>
+  </div>
+
+  <div class="concept-block">
+    <div class="concept-header">
+      <div class="concept-emoji">🔄</div>
+      <div class="concept-info">
+        <div class="concept-name">변화 (Change)</div>
+        <div class="concept-en">How is it changing?</div>
+      </div>
+    </div>
+    <div class="concept-question">어떻게 달라지고 있지? 옛날과 지금이 어떻게 다르지?</div>
+    <div class="concept-body">
+      <label>이 단원에서 발견한 것</label>
+      <textarea placeholder="시간에 따른 변화 / 옛날과 지금의 차이."></textarea>
+    </div>
+  </div>
+
+  <div class="concept-block">
+    <div class="concept-header">
+      <div class="concept-emoji">🌐</div>
+      <div class="concept-info">
+        <div class="concept-name">연결 (Connection)</div>
+        <div class="concept-en">How is it connected to other things?</div>
+      </div>
+    </div>
+    <div class="concept-question">다른 것들과 어떻게 연결되어 있지?</div>
+    <div class="concept-body">
+      <label>이 단원에서 발견한 것</label>
+      <textarea placeholder="다른 주제 / 일상생활과의 연결점."></textarea>
+    </div>
+  </div>
+
+  <div class="concept-block">
+    <div class="concept-header">
+      <div class="concept-emoji">👁️</div>
+      <div class="concept-info">
+        <div class="concept-name">관점 (Perspective)</div>
+        <div class="concept-en">What are the points of view?</div>
+      </div>
+    </div>
+    <div class="concept-question">다른 사람은 이걸 어떻게 볼까?</div>
+    <div class="concept-body">
+      <label>이 단원에서 발견한 것</label>
+      <textarea placeholder="다양한 입장 / 사람마다 다른 시각."></textarea>
+    </div>
+  </div>
+
+  <div class="concept-block">
+    <div class="concept-header">
+      <div class="concept-emoji">🤲</div>
+      <div class="concept-info">
+        <div class="concept-name">책임 (Responsibility)</div>
+        <div class="concept-en">What is our responsibility?</div>
+      </div>
+    </div>
+    <div class="concept-question">우리가 해야 할 일은 뭐지?</div>
+    <div class="concept-body">
+      <label>이 단원에서 발견한 것</label>
+      <textarea placeholder="나 / 우리가 할 수 있는 일 / 책임."></textarea>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">⭐ 이 단원에서 가장 도움된 렌즈</div>
+    <div class="form-field-hint">7가지 중 어느 렌즈가 가장 새로운 것을 보여줬나요?</div>
+    <textarea placeholder="예: '관점' 렌즈가 가장 도움됐어요. 같은 일도 사람마다 다르게 본다는 걸 알게 됐어요."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 7대 개념은 PYP의 가장 강력한 사고 도구예요. 자녀가 평생 어떤 주제든 깊이 탐구할 수 있는 사고법이거든요. 가정에서 뉴스를 보거나 책을 읽을 때 <strong>"이건 어떤 렌즈로 볼 수 있을까?"</strong>라고 물어보세요. 같은 사건도 형태·기능·원인·변화·연결·관점·책임 7가지로 다르게 볼 수 있다는 걸 자녀가 깨닫는 게 PYP의 진짜 결과예요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

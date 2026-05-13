@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전시회 탐구 제안서 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.exhibit-badge { padding: 3px 10px; background: var(--coral-dark); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.student-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.section-title { font-size: 14.5px; font-weight: 700; color: var(--coral-dark); margin: 22px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea, .form-field input[type="text"] { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; }
+.form-field textarea { min-height: 60px; }
+.form-field textarea:focus, .form-field input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
+.theme-check { padding: 10px 8px; border: 1.5px solid var(--line); border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.15s; }
+.theme-check input { display: none; }
+.theme-check:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); }
+.theme-name { font-size: 11.5px; font-weight: 600; color: var(--text); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.signature-block { padding: 16px 20px; background: var(--bg); border: 2px dashed var(--coral); border-radius: 12px; margin-top: 18px; }
+.signature-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.signature-row > div label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.signature-row > div input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 13.5px; font-family: inherit; background: transparent; }
+.signature-row > div input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info, .two-col, .signature-row { grid-template-columns: 1fr; } .theme-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">6학년 졸업 프로젝트 · 양식 26 <span class="pyp-badge">PYP</span> <span class="exhibit-badge">EXHIBITION</span></div>
+    <h1 class="form-title">전시회 탐구 제안서 🎯</h1>
+    <div class="form-title-en">PYP Exhibition Proposal</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">6학년 후반. 전시회(Exhibition) 시작 전 사전 승인용.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">6년 PYP 학습을 종합하는 졸업 프로젝트의 출발점.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Exhibition은 PYP의 꽃이에요.</strong> 6학년 마지막 학기에 약 8~10주 동안 진행해요. 친구들과 함께 또는 혼자, <strong>"내가 세상에 알리고 싶은 문제"</strong>를 직접 골라 조사하고, 행동하고, 발표회로 마무리해요. 결과보다 <strong>학습자 주체성과 6년의 학습이 종합되는 것</strong>이 중요해요.
+  </div>
+
+  <div class="student-info">
+    <div><label>이름 (개인 / 모둠)</label><input type="text"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>제출일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="section-title">🌍 나의 탐구 주제</div>
+
+  <div class="form-field">
+    <div class="form-field-label">프로젝트 제목</div>
+    <input type="text" placeholder="예: 어린이도 환경을 지킬 수 있어요">
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">내가 세상에 알리고 싶은 문제</div>
+    <div class="form-field-hint">왜 이게 문제인지, 누가 어려움을 겪고 있는지.</div>
+    <textarea placeholder="예: 우리 학교 급식 잔반이 많이 나와요. 음식이 버려지면 환경에도 좋지 않고 배고픈 사람도 있는데..."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">왜 이 주제를 골랐나요? 나와 어떻게 연결되나요?</div>
+    <div class="form-field-hint">개인적 관심과 문제의 연결점.</div>
+    <textarea placeholder="예: 저도 평소 음식을 자주 남겨서 죄송한 마음이 있었어요. 우리 반에 같이 고민하는 친구도 있어요."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🌐 초학문 주제 (해당하는 것 1개)</div>
+    <div class="theme-grid">
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">우리는 누구인가</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">우리가 사는 곳과 시간</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">우리는 어떻게 표현하는가</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">세상은 어떻게 작동하는가</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">우리는 어떻게 조직되는가</span></label>
+      <label class="theme-check"><input type="radio" name="theme"><span class="theme-name">지구를 공유하기</span></label>
+    </div>
+  </div>
+
+  <div class="section-title">🎯 나의 목표와 계획</div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">탐구 질문</div>
+      <div class="form-field-hint">"어떻게/왜" 질문이 좋아요.</div>
+      <textarea placeholder="예: 어린이가 학교 잔반을 줄이려면 어떻게 해야 할까?"></textarea>
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">목표 결과</div>
+      <div class="form-field-hint">측정 가능하게.</div>
+      <textarea placeholder="예: 우리 반 한 달간 잔반량 30% 줄이기."></textarea>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">실천할 행동 (Action)</div>
+    <div class="form-field-hint">조사로 끝나면 안 됩니다. 직접 무엇을 해볼 건가요?</div>
+    <textarea placeholder="예: 친구들에게 잔반 줄이기 캠페인 진행. 영양 선생님과 협력해 식단 의견 제안."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">최종 결과물 형태</div>
+    <textarea placeholder="예: 발표회 + 캠페인 포스터 + 한 달간의 변화 자료 + 짧은 영상."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">대략적인 일정 (8~10주)</div>
+    <textarea placeholder="예: 1~2주 조사 / 3~4주 계획 / 5~8주 실행 / 9~10주 정리·발표."></textarea>
+  </div>
+
+  <div class="signature-block">
+    <div class="signature-row">
+      <div><label>학생 서명</label><input type="text"></div>
+      <div><label>멘토 선생님 승인</label><input type="text"></div>
+      <div><label>승인일</label><input type="text" placeholder="__/__"></div>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> Exhibition은 자녀가 PYP 6년을 마치며 처음으로 <strong>"내가 사회의 문제를 보고 행동을 만들었다"</strong>는 경험을 하는 자리예요. 자녀가 정한 주제가 작아 보여도 비웃지 말아주세요. 자녀의 자발적 선택이 가장 중요해요. 가정에서는 자녀가 막힐 때 답을 주지 말고 <strong>"어떻게 알아보면 좋을까?"</strong>라고 물어봐 주세요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

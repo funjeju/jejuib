@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>탐구 로드맵 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.unit-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.format-section { margin-bottom: 22px; }
+.format-label { font-size: 14.5px; font-weight: 600; margin-bottom: 8px; }
+.format-hint { font-size: 12.5px; color: var(--muted); margin-bottom: 10px; line-height: 1.5; }
+.format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.format-check { padding: 14px 10px; border: 2px solid var(--line); border-radius: 10px; cursor: pointer; text-align: center; transition: all 0.15s; }
+.format-check input { display: none; }
+.format-check:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); }
+.format-emoji { font-size: 28px; display: block; margin-bottom: 4px; }
+.format-name { font-size: 12.5px; font-weight: 600; color: var(--text); }
+
+.roadmap { padding: 22px 24px; background: linear-gradient(135deg, #FFF8F2 0%, #FFFBF8 100%); border: 2px solid var(--coral-light); border-radius: 16px; margin-bottom: 22px; }
+.roadmap-title { font-size: 17px; font-weight: 700; color: var(--coral-dark); text-align: center; margin-bottom: 18px; letter-spacing: 0.02em; }
+.step { display: grid; grid-template-columns: 50px 1fr; gap: 14px; margin-bottom: 14px; align-items: start; }
+.step-dot { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--coral); color: white; border-radius: 50%; font-weight: 700; font-size: 16px; }
+.step-content { padding: 12px 16px; background: white; border-radius: 10px; border: 1px solid var(--coral-light); }
+.step-title { font-size: 13.5px; font-weight: 600; margin-bottom: 6px; color: var(--coral-dark); }
+.step-content textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 45px; }
+.step-content textarea:focus { outline: none; border-color: var(--coral); background: white; }
+
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 60px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .step { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info { grid-template-columns: 1fr; } .format-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원(UOI) 시작 시 · 양식 08 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">탐구 로드맵 🗺️</h1>
+    <div class="form-title-en">Inquiry Roadmap</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">UOI 단원 시작 시. 최종 결과물의 큰 그림을 잡습니다.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">단원 끝에 무엇을 만들지 미리 그려두면 길을 안 잃어요.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>UOI 주제</label><input type="text" placeholder="예: 우리는 어떻게 표현하는가"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>시작 날짜</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>탐구 로드맵은 나의 단원 여행 계획서예요.</strong> 단원이 끝났을 때 <strong>"내가 만들고 싶은 것"</strong>을 미리 정해보고, 거기 도착하기까지 어떤 단계를 거칠지 그려봐요.
+  </div>
+
+  <div class="format-section">
+    <div class="format-label">🎯 최종 결과물 — 어떤 형태로 만들 거예요?</div>
+    <div class="format-hint">단원 끝에 무엇을 보여줄 수 있을지 골라보세요. 한 가지 또는 여러 가지 선택 가능.</div>
+    <div class="format-grid">
+      <label class="format-check"><input type="checkbox"><span class="format-emoji">📝</span><span class="format-name">글 · 책</span></label>
+      <label class="format-check"><input type="checkbox"><span class="format-emoji">🎨</span><span class="format-name">그림 · 작품</span></label>
+      <label class="format-check"><input type="checkbox"><span class="format-emoji">📊</span><span class="format-name">발표 슬라이드</span></label>
+      <label class="format-check"><input type="checkbox"><span class="format-emoji">🎬</span><span class="format-name">영상</span></label>
+      <label class="format-check"><input type="checkbox"><span class="format-emoji">🎭</span><span class="format-name">연극 · 공연</span></label>
+      <label class="format-check"><input type="checkbox"><span class="format-emoji">🔬</span><span class="format-name">실험 · 모형</span></label>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">✨ 내가 만들고 싶은 것 (구체적으로)</div>
+    <div class="form-field-hint">어떤 결과물을 만들고 싶나요? 자세히 적을수록 좋아요.</div>
+    <textarea placeholder="예: 우리 가족 4명이 각자 어떻게 표현하는지 인터뷰해서 그림책으로 만들고 싶어요."></textarea>
+  </div>
+
+  <div class="roadmap">
+    <div class="roadmap-title">🚀 나의 탐구 여행 단계</div>
+
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-content">
+        <div class="step-title">🔍 알아보기 (Investigating)</div>
+        <textarea placeholder="어떤 자료를 찾을 거예요? 누구를 인터뷰하면 좋을까요?"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-content">
+        <div class="step-title">📋 계획하기 (Planning)</div>
+        <textarea placeholder="알아낸 것을 어떤 순서로 정리할 거예요?"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">3</div>
+      <div class="step-content">
+        <div class="step-title">🛠️ 만들기 (Creating)</div>
+        <textarea placeholder="실제로 어떻게 만들 거예요? 필요한 재료는?"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">4</div>
+      <div class="step-content">
+        <div class="step-title">🎉 보여주기 (Sharing)</div>
+        <textarea placeholder="누구에게 어떻게 보여줄 거예요?"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🤝 도움이 필요할 것 같은 부분</div>
+    <div class="form-field-hint">미리 알면 더 잘 준비할 수 있어요.</div>
+    <textarea placeholder="예: 동영상 편집은 어려울 것 같아요. 누구에게 부탁하면 좋을지 생각해야 해요."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 자녀가 단원 끝에 무엇을 만들지 미리 정해두면 <strong>그 방향으로 4~6주 학습이 자연스럽게 흘러가요.</strong> 가정에서 "단원 끝에 뭘 만들기로 했어?"라고 물어보세요. 자녀가 자기 학습의 목표를 의식하고 가는 게 PYP가 강조하는 학습자 주체성(Agency)이에요.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

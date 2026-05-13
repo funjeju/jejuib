@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IB PYP 자녀와의 대화 · 학부모 질문 가이드</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root {
+  --coral: #E07856;
+  --coral-dark: #B85A3D;
+  --coral-light: #FCE4DC;
+  --coral-pale: #FFF4EF;
+  --bg: #FFFBF8;
+  --surface: #FFFFFF;
+  --text: #2C2522;
+  --text-soft: #5C5048;
+  --muted: #9A8D85;
+  --line: #EFE5DD;
+}
+
+
+
+.container { max-width: 880px; margin: 0 auto; padding: 60px 32px; }
+
+.page-header { margin-bottom: 48px; }
+.page-header .section-num {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--pyp-dark, #D68910);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  background: var(--pyp-pale, #FFF7E6);
+  border-radius: 100px;
+}
+.page-header .pyp-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 3px 10px;
+  background: var(--pyp, #F5A623);
+  color: white;
+  border-radius: 100px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+.page-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.page-header .sub {
+  font-size: 16px;
+  color: var(--text-soft);
+  line-height: 1.7;
+  max-width: 720px;
+}
+.page-header .sub strong { color: var(--pyp-dark, #D68910); font-weight: 600; }
+
+.toc {
+  margin-bottom: 36px;
+  padding: 18px 22px;
+  background: var(--pyp-pale, #FFF7E6);
+  border-radius: 12px;
+}
+.toc-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pyp-dark, #D68910);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 18px;
+}
+.toc-list a {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 1px dotted transparent;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toc-list a:hover { color: var(--pyp-dark, #D68910); border-bottom-color: var(--pyp, #F5A623); }
+.toc-list a .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--pyp, #F5A623);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.parent-block {
+  margin-bottom: 30px;
+  padding: 28px 32px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.parent-block h3 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.parent-block h3 .step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--pyp, #F5A623);
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.parent-block .when-q {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-bottom: 18px;
+  padding-left: 42px;
+  line-height: 1.6;
+}
+
+.qlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.qlist li {
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  background: var(--pyp-pale, #FFF7E6);
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 1.65;
+  position: relative;
+  padding-left: 44px;
+}
+.qlist li::before {
+  content: '💬';
+  position: absolute;
+  left: 14px;
+  top: 13px;
+  font-size: 16px;
+}
+.qlist li .why {
+  display: block;
+  font-size: 12px;
+  color: var(--pyp-dark, #D68910);
+  margin-top: 6px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.qlist li .why::before {
+  content: '→ ';
+  opacity: 0.6;
+}
+
+.tip-box {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: var(--bg);
+  border-left: 3px solid var(--pyp, #F5A623);
+  border-radius: 0 10px 10px 0;
+  font-size: 13.5px;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+.tip-box strong { color: var(--pyp-dark, #D68910); font-weight: 600; }
+.tip-box .tip-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--pyp-dark, #D68910);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.exhibition-block {
+  background: linear-gradient(135deg, #FFF8F2, #FFFBF8);
+  border: 2px solid var(--pyp, #F5A623);
+}
+
+.closing {
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: var(--pyp-pale, #FFF7E6);
+  border-left: 4px solid var(--pyp, #F5A623);
+  border-radius: 0 12px 12px 0;
+  font-size: 14.5px;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+.closing strong { color: var(--pyp-dark, #D68910); font-weight: 600; }
+.closing-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 36px 18px; }
+  .page-header h1 { font-size: 26px; }
+  .parent-block { padding: 22px 22px; }
+  .parent-block .when-q { padding-left: 0; }
+  .toc-list { grid-template-columns: 1fr; }
+  .qlist li { padding: 12px 14px 12px 38px; font-size: 14px; }
+  .qlist li::before { left: 12px; }
+}
+</style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav style="position: sticky; top: 0; background: rgba(255, 251, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); z-index: 100;">
+  <div style="background:var(--pyp-pale, #FFF7E6); padding:8px 24px; text-align:center; font-size:13px; border-bottom:1px solid var(--line, #EFE5DD);">
+    <a href="index.html" style="color:var(--pyp-dark, #D68910); text-decoration:none; font-weight:600; display:inline-block; transition:opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">← IB 통합 안내서 대문으로 돌아가기</a>
+  </div>
+  <div class="nav-inner" style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 60px;">
+    <div class="logo"><a href="pyp_index.html" style="color:var(--pyp-dark, #D68910); text-decoration:none; font-weight:700; font-size: 15px;">IB PYP 안내</a></div>
+    <div class="nav-links" style="display:flex; gap:20px; font-size:14px; font-weight: 500;">
+      <a href="pyp_bigpic.html" style="text-decoration:none; color:inherit;">큰 그림</a>
+      <a href="pyp_cycle.html" style="text-decoration:none; color:inherit;">수업 진행</a>
+      <a href="pyp_timeline.html" style="text-decoration:none; color:inherit;">1년 흐름</a>
+      <a href="pyp_concepts.html" style="text-decoration:none; color:inherit;">개념 사전</a>
+      <a href="pyp_evaluation.html" style="text-decoration:none; color:inherit;">평가</a>
+      <a href="pyp_forms.html" style="text-decoration:none; color:inherit;">양식</a>
+      <a href="pyp_parent.html" style="text-decoration:none; color:var(--pyp-dark); font-weight:700;">자녀와 대화</a>
+      <a href="pyp_glossary.html" style="text-decoration:none; color:inherit;">용어</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <span class="section-num">학부모용 대화 가이드 <span class="pyp-badge">PYP</span></span>
+    <h1>자녀와 어떤 질문을 나눌까요?</h1>
+    <p class="sub">"오늘 학교에서 뭐 배웠어?" — 자녀는 "몰라"라고 답하기 쉬워요. PYP는 단원이 5~6주 단위로 흐르고, 매 단원마다 자녀가 거치는 단계가 비슷해요. 그 단계에 맞춰 질문하면 자녀가 자기 학습을 직접 설명하기 시작합니다. 자녀가 답을 못 해도 괜찮아요 — <strong>질문 자체가 자녀의 사고를 자라게</strong> 합니다.</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">📍 5가지 시점</div>
+    <div class="toc-list">
+      <a href="#start"><span class="icon">1</span>UOI 단원이 시작될 때</a>
+      <a href="#middle"><span class="icon">2</span>단원이 진행되는 동안</a>
+      <a href="#end"><span class="icon">3</span>단원이 끝났을 때</a>
+      <a href="#daily"><span class="icon">4</span>일상에서 함께 키우기</a>
+      <a href="#exhibition"><span class="icon">5</span>6학년 Exhibition 시기</a>
+    </div>
+  </div>
+
+  <div class="parent-block" id="start">
+    <h3><span class="step">1</span>UOI 단원이 시작될 때</h3>
+    <p class="when-q">자녀가 "새 주제로 들어간대"라고 했거나, 가정통신문에 새 단원 안내가 왔을 때. 보통 5~6주마다 새 단원이 시작돼요.</p>
+
+    <ul class="qlist">
+      <li>이번 단원의 <strong>핵심 아이디어(CI)</strong>가 뭐야? 너의 말로 한번 설명해줄래?
+        <span class="why">CI는 단원의 가장 큰 원리예요. 자녀가 자기 말로 바꿀 수 있다면 정말 이해한 거예요.</span>
+      </li>
+      <li>어떤 <strong>주제</strong>야? (우리는 누구인가 / 세상은 어떻게 작동하는가 / 지구를 공유하기…)
+        <span class="why">6가지 초학문 주제 중 하나에 속해요. "왜 이걸 배우는지" 큰 맥락이에요.</span>
+      </li>
+      <li>이번 단원에서 가장 <strong>궁금한 것 하나</strong>만 말해줄래?
+        <span class="why">Wonder Wall 활동을 자극. 진짜 호기심이 학습의 시작이에요.</span>
+      </li>
+      <li>단원이 끝나면 <strong>뭘 만들기</strong>로 했어?
+        <span class="why">탐구 로드맵 / 최종 결과물 인지. 자녀가 목표를 의식하면 학습이 풍부해져요.</span>
+      </li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-label">💡 TIP</div>
+      자녀가 "몰라"라고 답해도 다그치지 마세요. "그럼 내일 선생님께 여쭤보고 알려줄래?"가 좋은 마무리예요. 자녀가 학교에서 새 단원의 핵심을 의식적으로 듣게 됩니다.
+    </div>
+  </div>
+
+  <div class="parent-block" id="middle">
+    <h3><span class="step">2</span>단원이 진행되는 동안</h3>
+    <p class="when-q">단원 중반, 자녀가 모둠 활동·자료 조사·체험학습 등을 하고 있을 때. 학교에서 자료를 가져오거나 모둠 친구 이야기를 할 때.</p>
+
+    <ul class="qlist">
+      <li>오늘 학교에서 <strong>새로 알게 된 것</strong> 한 가지가 뭐야? <strong>어디서</strong> 알았어?
+        <span class="why">정보의 출처를 의식하는 습관 — 학업 정직성의 시작이에요.</span>
+      </li>
+      <li>모둠 친구들과 같이 한 일이 있다면, <strong>너의 역할</strong>은 뭐였어?
+        <span class="why">사회성 기술. 책임감과 협력 자극.</span>
+      </li>
+      <li>친구와 <strong>의견이 다를 때</strong>는 어떻게 했어?
+        <span class="why">한국 초등 학생들이 가장 어려워하는 부분. 갈등 해결력 자극.</span>
+      </li>
+      <li>이 주제를 <strong>다른 각도</strong>에서 보면 어떨까? (왜 / 어떻게 / 누구의 관점에서…)
+        <span class="why">7대 개념 중 하나로 들어가는 질문. "관점"을 자극.</span>
+      </li>
+      <li><strong>새로 생긴 궁금증</strong>이 있어?
+        <span class="why">학습 중 자라는 호기심. 단원이 학생의 질문으로 깊어져요.</span>
+      </li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-label">🌟 활용 TIP — See–Think–Wonder</div>
+      박물관·체험학습 후나, 사진·영상을 같이 봤을 때 <strong>"뭐가 보여? → 뭐라고 생각돼? → 뭐가 궁금해?"</strong> 순서로 물어보세요. PYP 교실에서 가장 많이 쓰이는 사고 루틴이에요. 자녀가 본 것과 생각한 것을 구분하는 능력이 자라요.
+    </div>
+  </div>
+
+  <div class="parent-block" id="end">
+    <h3><span class="step">3</span>단원이 끝났을 때</h3>
+    <p class="when-q">단원 발표회·전시회를 다녀왔거나, 결과물(작품·책·영상)을 가져왔을 때. PYP는 점수보다 성장의 흔적을 봐요.</p>
+
+    <ul class="qlist">
+      <li>이 단원 <strong>처음에 생각했던 것</strong>과 <strong>지금 아는 것</strong>이 어떻게 달라졌어?
+        <span class="why">KWL · UOI 성찰지의 핵심. 학습이 일어난 증거예요.</span>
+      </li>
+      <li>이 단원에서 <strong>가장 자랑스러운 작품·활동</strong>은 뭐야? 왜 그게 가장 자랑스러워?
+        <span class="why">포트폴리오 선택지와 연결. 자녀의 학습자 주체성(Agency).</span>
+      </li>
+      <li>이번 단원에서 <strong>어떤 자질이 자랐다</strong>고 느껴? (호기심 / 배려 / 도전 / 성찰 등)
+        <span class="why">학습자상 10자질과 연결. 점수가 아닌 사람으로서의 성장.</span>
+      </li>
+      <li>이걸 배워서 이제 <strong>어떻게 행동</strong>해볼 거야?
+        <span class="why">PYP의 본질 — 배움 → 행동(Action)으로의 전이.</span>
+      </li>
+      <li>다음 단원에서 <strong>더 잘하고 싶은 한 가지</strong>가 있어?
+        <span class="why">성찰을 다음 단원으로 연결. 메타인지 자극.</span>
+      </li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-label">⚠️ 주의</div>
+      자녀가 가져온 작품에 대해 <strong>"이건 잘했네 / 저건 못했네"</strong>라고 평가하지 마세요. PYP의 평가는 점수가 아닌 성장이에요. <strong>"네가 가장 노력한 부분이 어디였어?"</strong>가 훨씬 좋은 질문이에요.
+    </div>
+  </div>
+
+  <div class="parent-block" id="daily">
+    <h3><span class="step">4</span>일상에서 함께 키워줄 수 있는 것</h3>
+    <p class="when-q">학교 수업 밖, 평범한 가정의 일상에서. PYP가 키우려는 자질은 학교만으로 부족해요. 가정에서의 작은 대화가 핵심이에요.</p>
+
+    <ul class="qlist">
+      <li>책·영화·뉴스를 같이 볼 때 — <strong>"너는 어떻게 생각해?"</strong>
+        <span class="why">사고하는 사람·성찰하는 사람 자질. 자기 의견 형성.</span>
+      </li>
+      <li>잘 안 된 일이 있을 때 — <strong>"다음엔 어떻게 해볼래?"</strong>
+        <span class="why">실패를 학습으로 바꾸는 사고. 도전하는 사람·성찰하는 사람.</span>
+      </li>
+      <li>처음 보는 것을 만났을 때 — <strong>"이건 뭐일 것 같아? 왜 그렇게 생각해?"</strong>
+        <span class="why">탐구하는 사람 자질. "왜?"라고 묻는 습관.</span>
+      </li>
+      <li>나와 다른 사람·문화를 만났을 때 — <strong>"왜 우리랑 다를까? 같이 알아볼까?"</strong>
+        <span class="why">열린 마음을 가진 사람·국제적 마인드.</span>
+      </li>
+      <li>가족 안에서의 작은 봉사 — 동생 도와주기, 이웃 인사하기, 함께 분리수거
+        <span class="why">PYP의 Action을 일상으로. 거창한 봉사가 아니어도 충분해요.</span>
+      </li>
+      <li>새로운 것에 도전할 때 — <strong>"한 번 해보고, 안 되면 어떻게 할지 같이 생각하자"</strong>
+        <span class="why">도전하는 사람(Risk-takers) — 한국 자녀들이 가장 어려워하는 자질.</span>
+      </li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-label">💛 핵심 메시지</div>
+      자녀에게 답을 알려주기보다 <strong>"같이 알아볼까?"</strong>라고 말하는 게 PYP의 정신이에요. 부모가 모든 답을 가지고 있어야 한다는 부담을 내려놓으세요. 모르는 것을 같이 찾는 부모의 모습이 자녀에게 가장 좋은 학습자상이에요.
+    </div>
+  </div>
+
+  <div class="parent-block exhibition-block" id="exhibition">
+    <h3><span class="step">5</span>6학년 Exhibition 시기</h3>
+    <p class="when-q">6학년 후반(보통 학년 마지막 한 학기). 자녀가 PYP의 졸업 프로젝트인 Exhibition을 진행하는 8~10주 동안.</p>
+
+    <ul class="qlist">
+      <li>네가 <strong>세상에 알리고 싶은 문제</strong>는 뭐야? 그게 너랑 어떻게 연결돼?
+        <span class="why">Exhibition의 출발점. 개인적 관심과 사회 문제의 연결.</span>
+      </li>
+      <li>지금까지 누구를 만나봤어? 그 분이 뭐라고 하셨어?
+        <span class="why">멘토·전문가 면담을 자극. 어른과 대화하는 능력.</span>
+      </li>
+      <li>이 단계(조사·계획·실행·성찰) 중 지금 어디쯤이야?
+        <span class="why">자기 위치 인식. 4단계 사이클 의식.</span>
+      </li>
+      <li>이번 주에 <strong>막혔던 것</strong>이 있었어? 어떻게 해결할 거야?
+        <span class="why">자기관리 기술. 막힘을 정상으로 받아들이기.</span>
+      </li>
+      <li>네가 만든 작은 변화가 있다면 뭐일까? 누가 그 변화를 봤어?
+        <span class="why">Action의 결과 인식. 자녀가 자기 영향력을 의식.</span>
+      </li>
+      <li>발표회 끝나면 <strong>이 활동을 계속하고 싶어</strong>? 어떻게?
+        <span class="why">Exhibition이 단발이 아닌 평생 행동의 시작이 되도록.</span>
+      </li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-label">🎓 학부모의 자세</div>
+      Exhibition은 자녀 인생에서 처음으로 <strong>"내가 사회의 문제를 보고 행동했다"</strong>는 경험이에요. 결과가 작아 보여도 비웃지 말아주세요. 답을 주지 말고 <strong>"어떻게 알아보면 좋을까?"</strong>라고 되묻는 게 가장 큰 도움이에요. 발표회 때 가족이 진심으로 와서 들어주는 것 자체가 자녀에게 평생 갈 기억이 됩니다.
+    </div>
+  </div>
+
+  <div class="closing">
+    <div class="closing-title">💌 모든 시점에 통하는 한 가지</div>
+    PYP 자녀와의 대화에서 가장 중요한 것은 <strong>"정답을 확인하는 질문"이 아닌 "생각을 자극하는 질문"</strong>이에요. "뭐 배웠어?"보다 "뭐가 가장 신기했어?", "오늘 점수 몇 점이야?"보다 "오늘 어떤 자질이 자랐다고 느껴?"가 PYP의 톤이에요.
+    <br><br>
+    자녀가 어색해해도 괜찮아요. 처음엔 "몰라"가 가장 많은 답일 거예요. 하지만 한 달, 두 달 같은 질문을 계속하면 자녀가 학교에서 의식적으로 답을 찾아 오기 시작합니다. <strong>가정에서의 일관된 질문이 자녀를 진짜 IB 학습자로 키웁니다.</strong>
+  </div>
+
+</div>
+
+<section class="seo-tags" style="max-width: 880px; margin: 40px auto; padding: 20px; background: var(--surface); border-radius: 12px; font-size: 12px; color: var(--text-soft); border: 1px dashed var(--line);">
+  <strong style="color: var(--primary);">이 페이지의 핵심 탐색어:</strong> 
+  <span style="display:inline-block; margin-right:8px; margin-top:4px;">#IB 자녀교육</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#PYP 학부모 가이드</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#IB 초등학교 질문</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#국제 바칼로레아 교육법</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#초등 탐구단원</span>
+</section>
+
+<script src="pyp_glossary_data.js"></script>
+<script src="pyp_glossary_ui.js"></script>
+</body>
+</html>

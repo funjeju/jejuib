@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 학교는 모두 읽기 가능, 쓰기는 운영자만
+    match /schools/{schoolId} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && isAdmin(request.auth.uid);
+    }
+
+    // 회원은 본인만 수정 가능
+    match /users/{uid} {
+      allow read: if request.auth != null;
+      allow create: if request.auth.uid == uid;
+      allow update: if request.auth.uid == uid
+                    && !('verified' in request.resource.data.diff(resource.data).affectedKeys());
+      allow delete: if false;
+    }
+
+    // 게시글: 읽기는 모두, 쓰기는 인증된 회원만
+    match /posts/{postId} {
+      allow read: if true;
+      allow create: if request.auth != null
+                    && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.verified == true;
+      allow update, delete: if request.auth.uid == resource.data.authorId;
+
+      match /comments/{commentId} {
+        allow read: if true;
+        allow create: if request.auth != null
+                      && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.verified == true;
+        allow update, delete: if request.auth.uid == resource.data.authorId;
+      }
+    }
+
+    // 인증 기록은 본인 + 관리자만
+    match /verifications/{verifId} {
+      allow read: if request.auth.uid == resource.data.userId
+                  || isAdmin(request.auth.uid);
+      allow create: if request.auth.uid == request.resource.data.userId;
+      allow update: if isAdmin(request.auth.uid);
+    }
+
+    // 뉴스, 매물, 장소는 모두 읽기 가능, 쓰기는 운영자만
+    match /{document=**} {
+      allow read: if true;
+      allow write: if isAdmin(request.auth.uid);
+    }
+
+    function isAdmin(uid) {
+      return get(/databases/$(database)/documents/users/$(uid)).data.role == 'admin';
+    }
+  }
+}

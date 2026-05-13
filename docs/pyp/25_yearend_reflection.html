@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학년 종합 성찰 보고서 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.student-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.section-title { font-size: 14.5px; font-weight: 700; color: var(--coral-dark); margin: 22px 0 12px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+
+.uoi-quick { padding: 12px 16px; border: 1.5px solid var(--line); border-radius: 10px; margin-bottom: 8px; display: grid; grid-template-columns: 30px 1fr 1fr; gap: 14px; align-items: center; }
+.uoi-quick .num { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--coral); color: white; border-radius: 50%; font-weight: 700; font-size: 12px; }
+.uoi-quick input { padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--bg); }
+.uoi-quick input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.compare-block { padding: 18px 22px; background: linear-gradient(135deg, #FFF8F2, #FFFBF8); border: 2px solid var(--coral-light); border-radius: 14px; margin-bottom: 18px; }
+.compare-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 14px; align-items: center; }
+.compare-side { padding: 14px 16px; background: white; border-radius: 10px; }
+.compare-side .lbl { font-size: 12px; font-weight: 700; color: var(--coral-dark); margin-bottom: 8px; letter-spacing: 0.04em; text-transform: uppercase; }
+.compare-side textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 80px; }
+.compare-side textarea:focus { outline: none; border-color: var(--coral); background: white; }
+.compare-arrow { font-size: 28px; text-align: center; color: var(--coral); }
+
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 55px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.profile-pick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.profile-pick label { padding: 6px 12px; border: 1.5px solid var(--line); border-radius: 100px; font-size: 12.5px; cursor: pointer; color: var(--text-soft); transition: all 0.15s; }
+.profile-pick input { display: none; }
+.profile-pick label:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); color: var(--coral-dark); font-weight: 600; }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .compare-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info, .uoi-quick, .two-col { grid-template-columns: 1fr; } .compare-grid { grid-template-columns: 1fr; } .compare-arrow { transform: rotate(90deg); padding: 6px 0; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">학년 말 · 양식 25 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">학년 종합 성찰 보고서 🎓</h1>
+    <div class="form-title-en">End-of-year Reflection Report</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">학년 말. 1년 동안의 학습을 한 페이지에 정리.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">한 해를 돌아보면 내가 얼마나 자랐는지 보여요.</div>
+    </div>
+  </div>
+
+  <div class="student-info">
+    <div><label>이름</label><input type="text"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>작성일</label><input type="text" placeholder="2026 . __ . __"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>한 해 동안 6개 UOI 단원을 거쳤어요.</strong> 그 사이 나는 처음 학년 시작 때와 많이 달라졌을 거예요. 이 보고서는 <strong>"나의 1년"</strong>을 한 페이지에 모아보는 종합 성찰이에요.
+  </div>
+
+  <div class="section-title">📚 올해의 6개 UOI</div>
+
+  <div class="uoi-quick">
+    <div class="num">1</div>
+    <input type="text" placeholder="UOI 주제명">
+    <input type="text" placeholder="가장 기억에 남는 것">
+  </div>
+  <div class="uoi-quick">
+    <div class="num">2</div>
+    <input type="text" placeholder="UOI 주제명">
+    <input type="text" placeholder="가장 기억에 남는 것">
+  </div>
+  <div class="uoi-quick">
+    <div class="num">3</div>
+    <input type="text" placeholder="UOI 주제명">
+    <input type="text" placeholder="가장 기억에 남는 것">
+  </div>
+  <div class="uoi-quick">
+    <div class="num">4</div>
+    <input type="text" placeholder="UOI 주제명">
+    <input type="text" placeholder="가장 기억에 남는 것">
+  </div>
+  <div class="uoi-quick">
+    <div class="num">5</div>
+    <input type="text" placeholder="UOI 주제명">
+    <input type="text" placeholder="가장 기억에 남는 것">
+  </div>
+  <div class="uoi-quick">
+    <div class="num">6</div>
+    <input type="text" placeholder="UOI 주제명">
+    <input type="text" placeholder="가장 기억에 남는 것">
+  </div>
+
+  <div class="section-title">✨ 학년 처음과 끝의 나</div>
+
+  <div class="compare-block">
+    <div class="compare-grid">
+      <div class="compare-side">
+        <div class="lbl">학년 초의 나</div>
+        <textarea placeholder="작년 이맘때 나는 어떤 사람이었나요?"></textarea>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-side">
+        <div class="lbl">학년 말 지금의 나</div>
+        <textarea placeholder="1년이 지난 지금 나는 어떻게 자랐나요?"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">🌱 가장 자란 자질</div>
+
+  <div class="form-field">
+    <div class="form-field-label">올해 가장 자란 학습자상 자질 1~2개</div>
+    <div class="profile-pick">
+      <label><input type="checkbox">🔍 탐구하는 사람</label>
+      <label><input type="checkbox">📚 지식이 풍부한 사람</label>
+      <label><input type="checkbox">💭 사고하는 사람</label>
+      <label><input type="checkbox">💬 소통하는 사람</label>
+      <label><input type="checkbox">✋ 원칙을 지키는 사람</label>
+      <label><input type="checkbox">🌍 열린 마음을 가진 사람</label>
+      <label><input type="checkbox">❤️ 배려하는 사람</label>
+      <label><input type="checkbox">🚀 도전하는 사람</label>
+      <label><input type="checkbox">⚖️ 균형 잡힌 사람</label>
+      <label><input type="checkbox">🪞 성찰하는 사람</label>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="form-field">
+      <div class="form-field-label">🏆 올해 가장 자랑스러운 일</div>
+      <textarea placeholder="결과·태도·관계 무엇이든."></textarea>
+    </div>
+    <div class="form-field">
+      <div class="form-field-label">💪 가장 힘들었지만 이겨낸 일</div>
+      <textarea placeholder="실패와 회복의 이야기."></textarea>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🎯 다음 학년에 도전하고 싶은 일</div>
+    <textarea placeholder="새 학년에서 더 잘하고 싶은 것."></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">💌 미래의 나에게 보내는 한 마디</div>
+    <div class="form-field-hint">1년 뒤, 5년 뒤의 나에게.</div>
+    <textarea placeholder="이때 너는 정말 ~~ 했어. 기억하자!"></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">🌟 올해의 나를 한 단어로</div>
+    <textarea placeholder="그 단어를 고른 이유도 같이."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 양식은 자녀의 <strong>1년 학습 일기의 마무리</strong>예요. 학기 처음과 끝의 양식들(01·24)도 같이 펼쳐놓고 자녀와 함께 보세요. 자녀가 못 본 자기 자신의 성장이 거기 있어요. "너는 이 부분에서 정말 자랐어"라고 부모가 말해주는 게, 평생 자녀의 자존감의 토대가 됩니다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=checkbox]').forEach(c => c.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

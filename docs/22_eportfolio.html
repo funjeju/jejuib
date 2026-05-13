@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>디지털 포트폴리오 · IB MYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+.form-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 13.5px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 13px; color: var(--text-soft); line-height: 1.55; }
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 3px solid var(--coral); border-radius: 0 8px 8px 0; margin-bottom: 22px; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+.student-info { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+.student-info label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.student-info input { width: 100%; padding: 6px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 14px; font-family: inherit; background: transparent; }
+.student-info input:focus { outline: none; border-bottom-color: var(--coral); }
+.entry-block { padding: 16px 20px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; }
+.entry-header { display: grid; grid-template-columns: 1fr 1fr 80px; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 10px; }
+.entry-header label { display: block; font-size: 10.5px; color: var(--muted); margin-bottom: 3px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.entry-header input { width: 100%; padding: 4px 0; border: none; border-bottom: 1px solid var(--text); font-size: 13px; font-family: inherit; background: transparent; }
+.entry-header input:focus { outline: none; border-bottom-color: var(--coral); }
+.entry-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
+.entry-row > div label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 3px; font-weight: 500; }
+.entry-row > div input { width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font-size: 12.5px; font-family: inherit; background: var(--bg); }
+.entry-row > div input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.entry-detail label { display: block; font-size: 11.5px; color: var(--text-soft); margin-bottom: 4px; font-weight: 500; }
+.entry-detail textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 12.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.5; min-height: 40px; }
+.entry-detail textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.form-field { margin-bottom: 18px; }
+.form-field-label { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+.form-field-hint { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.form-field textarea { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.6; min-height: 50px; }
+.form-field textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 22px; border-radius: 0 8px 8px 0; font-size: 12.5px; color: var(--text-soft); line-height: 1.65; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 9px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .entry-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .student-info, .entry-header, .entry-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">연중 누적 · 양식 22</div>
+    <h1 class="form-title">디지털 포트폴리오</h1>
+    <div class="form-title-en">e-Portfolio Index</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">단원 종료 시마다 entry 추가. 학기 말 종합 정리.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">한 해 작업물을 한눈에 볼 수 있는 인덱스. 컨퍼런스 자료의 기초.</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>이 양식은 인덱스예요.</strong> 실제 결과물(보고서·영상·작품)은 별도로 저장하고, 이 종이에는 <strong>각 단원에서 무엇을 만들었고 어떤 성장이 있었는지 짧게</strong> 적어 한눈에 정리합니다. 학교에 ManageBac이 있다면 디지털로 운영되고, 없다면 이 종이가 그 역할이에요.
+  </div>
+
+  <div class="student-info">
+    <div><label>이름</label><input type="text"></div>
+    <div><label>학년 / 반</label><input type="text"></div>
+    <div><label>학기</label><input type="text" placeholder="2026 1학기"></div>
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div><label>단원명</label><input type="text" placeholder="예: 기권과 날씨"></div>
+      <div><label>교과</label><input type="text" placeholder="예: 과학"></div>
+      <div><label>종료일</label><input type="text" placeholder="__/__"></div>
+    </div>
+    <div class="entry-row">
+      <div><label>수행과제 형식</label><input type="text" placeholder="예: 분석 보고서 + 발표"></div>
+      <div><label>최종 등급 (1~7)</label><input type="text" placeholder="예: 5"></div>
+    </div>
+    <div class="entry-detail">
+      <label>핵심 학습 · 성장 (한 줄)</label>
+      <textarea placeholder="이 단원에서 가장 의미 있었던 학습 한 줄."></textarea>
+    </div>
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div><label>단원명</label><input type="text"></div>
+      <div><label>교과</label><input type="text"></div>
+      <div><label>종료일</label><input type="text"></div>
+    </div>
+    <div class="entry-row">
+      <div><label>수행과제 형식</label><input type="text"></div>
+      <div><label>최종 등급</label><input type="text"></div>
+    </div>
+    <div class="entry-detail">
+      <label>핵심 학습 · 성장 (한 줄)</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div><label>단원명</label><input type="text"></div>
+      <div><label>교과</label><input type="text"></div>
+      <div><label>종료일</label><input type="text"></div>
+    </div>
+    <div class="entry-row">
+      <div><label>수행과제 형식</label><input type="text"></div>
+      <div><label>최종 등급</label><input type="text"></div>
+    </div>
+    <div class="entry-detail">
+      <label>핵심 학습 · 성장 (한 줄)</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="entry-block">
+    <div class="entry-header">
+      <div><label>단원명</label><input type="text"></div>
+      <div><label>교과</label><input type="text"></div>
+      <div><label>종료일</label><input type="text"></div>
+    </div>
+    <div class="entry-row">
+      <div><label>수행과제 형식</label><input type="text"></div>
+      <div><label>최종 등급</label><input type="text"></div>
+    </div>
+    <div class="entry-detail">
+      <label>핵심 학습 · 성장 (한 줄)</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 학기 가장 자랑스러운 결과물</div>
+    <div class="form-field-hint">왜 그게 가장 자랑스러운지 한두 줄.</div>
+    <textarea></textarea>
+  </div>
+
+  <div class="form-field">
+    <div class="form-field-label">이 학기를 한 단어로 표현한다면</div>
+    <textarea placeholder="그 단어를 고른 이유도 같이 적어보세요."></textarea>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 이 인덱스를 학기 말에 자녀와 같이 펼쳐보세요. 한 학기 동안 자녀가 만든 모든 작업이 한눈에 보입니다. <strong>"가장 자랑스러운 작업이 뭐야?"</strong>가 자녀의 자기 인식을 키우는 좋은 질문이에요. 디지털 파일도 따로 잘 저장하시면 중학교 졸업 때 전체 과정 포트폴리오가 됩니다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = '');">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>

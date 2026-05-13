@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>어린이 리서치 로그 · IB PYP 양식</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+:root { --coral: #E07856; --coral-dark: #B85A3D; --coral-light: #FCE4DC; --coral-pale: #FFF4EF; --bg: #FFFBF8; --surface: #FFFFFF; --text: #2C2522; --text-soft: #5C5048; --muted: #9A8D85; --line: #EFE5DD; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; padding: 40px 20px; }
+.form-page { max-width: 760px; margin: 0 auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 48px 52px; }
+.form-header { border-bottom: 2px solid var(--coral); padding-bottom: 18px; margin-bottom: 26px; }
+.form-category { font-size: 12px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.pyp-badge { display: inline-block; padding: 3px 10px; background: var(--coral); color: white; border-radius: 100px; font-size: 11px; letter-spacing: 0.05em; }
+.form-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+.form-title-en { font-size: 14px; color: var(--muted); font-weight: 400; }
+.form-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; padding: 16px 20px; background: var(--coral-pale); border-radius: 10px; }
+.form-meta-item .label { font-size: 11.5px; font-weight: 600; color: var(--coral-dark); letter-spacing: 0.06em; margin-bottom: 4px; text-transform: uppercase; }
+.form-meta-item .value { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.unit-info { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 22px; }
+.unit-info label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.unit-info input { width: 100%; padding: 8px 0; border: none; border-bottom: 1.5px solid var(--text); font-size: 15px; font-family: inherit; background: transparent; }
+.unit-info input:focus { outline: none; border-bottom-color: var(--coral); }
+
+.intro-box { padding: 14px 18px; background: var(--coral-pale); border-left: 4px solid var(--coral); border-radius: 0 10px 10px 0; margin-bottom: 22px; font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+.intro-box strong { color: var(--coral-dark); font-weight: 600; }
+
+.source-block { padding: 16px 20px; border: 2px solid var(--line); border-radius: 12px; margin-bottom: 12px; }
+.source-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.source-num { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--coral); color: white; border-radius: 50%; font-weight: 700; font-size: 15px; flex-shrink: 0; }
+.source-type { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+.type-chip { padding: 6px 10px; border: 1.5px solid var(--line); border-radius: 100px; font-size: 12px; cursor: pointer; transition: all 0.15s; }
+.type-chip input { display: none; }
+.type-chip:has(input:checked) { background: var(--coral-pale); border-color: var(--coral); color: var(--coral-dark); font-weight: 600; }
+
+.source-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px; }
+.source-row > div label { display: block; font-size: 12px; color: var(--text-soft); margin-bottom: 4px; font-weight: 500; }
+.source-row > div input { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13.5px; font-family: inherit; background: var(--bg); }
+.source-row > div input:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+.source-detail label { display: block; font-size: 12.5px; color: var(--text-soft); margin-bottom: 4px; font-weight: 500; }
+.source-detail textarea { width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 6px; font-size: 13.5px; font-family: inherit; background: var(--bg); resize: vertical; line-height: 1.55; min-height: 50px; }
+.source-detail textarea:focus { outline: none; border-color: var(--coral); background: var(--surface); }
+
+.form-parent-note { background: var(--coral-pale); border-left: 3px solid var(--coral); padding: 14px 18px; margin-top: 26px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+.form-parent-note strong { color: var(--coral-dark); font-weight: 600; }
+
+.form-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: center; }
+.btn { display: inline-flex; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--surface); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.btn:hover { border-color: var(--coral); background: var(--coral-pale); }
+.btn-primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn-primary:hover { background: var(--coral-dark); color: white; }
+
+@media print { body { background: white; padding: 0; } .form-page { border: none; padding: 30px; max-width: none; border-radius: 0; } .form-footer { display: none; } textarea, input { background: white !important; } .source-block { break-inside: avoid; } }
+@media (max-width: 640px) { body { padding: 20px 12px; } .form-page { padding: 28px 24px; } .form-meta, .unit-info, .source-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="form-page">
+  <div class="form-header">
+    <div class="form-category">단원 진행 중 · 양식 11 <span class="pyp-badge">PYP</span></div>
+    <h1 class="form-title">어린이 리서치 로그 📚</h1>
+    <div class="form-title-en">Children's Research Log</div>
+  </div>
+
+  <div class="form-meta">
+    <div class="form-meta-item">
+      <div class="label">언제 작성하나요</div>
+      <div class="value">책·영상·인터뷰 등으로 자료를 찾을 때마다.</div>
+    </div>
+    <div class="form-meta-item">
+      <div class="label">왜 작성하나요</div>
+      <div class="value">알게 된 것을 어디서 찾았는지 기록해두면 다음에 또 찾기 쉬워요.</div>
+    </div>
+  </div>
+
+  <div class="unit-info">
+    <div><label>UOI 주제</label><input type="text" placeholder="예: 우리 동네 이야기"></div>
+    <div><label>이름</label><input type="text"></div>
+  </div>
+
+  <div class="intro-box">
+    <strong>리서치 = 알아보는 활동</strong>이에요. 책을 읽었거나, 영상을 봤거나, 어른에게 물어봤거나, 직접 가봤다면 다 리서치예요. <strong>어디서 알았는지 기억해두는 습관</strong>이 평생 가는 보물이에요.
+  </div>
+
+  <div class="source-block">
+    <div class="source-header">
+      <div class="source-num">1</div>
+      <div class="source-type">
+        <label class="type-chip"><input type="radio" name="t1">📖 책</label>
+        <label class="type-chip"><input type="radio" name="t1">🎬 영상</label>
+        <label class="type-chip"><input type="radio" name="t1">👨‍🏫 인터뷰</label>
+        <label class="type-chip"><input type="radio" name="t1">🌐 인터넷</label>
+        <label class="type-chip"><input type="radio" name="t1">👀 직접 봄</label>
+      </div>
+    </div>
+    <div class="source-row">
+      <div><label>제목 · 이름</label><input type="text" placeholder="예: 우리 동네 옛날 이야기"></div>
+      <div><label>지은이 · 누구</label><input type="text" placeholder="예: 김할머니"></div>
+    </div>
+    <div class="source-row">
+      <div><label>본 날짜</label><input type="text" placeholder="__/__"></div>
+      <div><label>어디서</label><input type="text" placeholder="예: 학교 도서관"></div>
+    </div>
+    <div class="source-detail">
+      <label>여기서 새로 알게 된 것</label>
+      <textarea placeholder="짧게 한두 문장으로."></textarea>
+    </div>
+  </div>
+
+  <div class="source-block">
+    <div class="source-header">
+      <div class="source-num">2</div>
+      <div class="source-type">
+        <label class="type-chip"><input type="radio" name="t2">📖 책</label>
+        <label class="type-chip"><input type="radio" name="t2">🎬 영상</label>
+        <label class="type-chip"><input type="radio" name="t2">👨‍🏫 인터뷰</label>
+        <label class="type-chip"><input type="radio" name="t2">🌐 인터넷</label>
+        <label class="type-chip"><input type="radio" name="t2">👀 직접 봄</label>
+      </div>
+    </div>
+    <div class="source-row">
+      <div><label>제목 · 이름</label><input type="text"></div>
+      <div><label>지은이 · 누구</label><input type="text"></div>
+    </div>
+    <div class="source-row">
+      <div><label>본 날짜</label><input type="text"></div>
+      <div><label>어디서</label><input type="text"></div>
+    </div>
+    <div class="source-detail">
+      <label>여기서 새로 알게 된 것</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="source-block">
+    <div class="source-header">
+      <div class="source-num">3</div>
+      <div class="source-type">
+        <label class="type-chip"><input type="radio" name="t3">📖 책</label>
+        <label class="type-chip"><input type="radio" name="t3">🎬 영상</label>
+        <label class="type-chip"><input type="radio" name="t3">👨‍🏫 인터뷰</label>
+        <label class="type-chip"><input type="radio" name="t3">🌐 인터넷</label>
+        <label class="type-chip"><input type="radio" name="t3">👀 직접 봄</label>
+      </div>
+    </div>
+    <div class="source-row">
+      <div><label>제목 · 이름</label><input type="text"></div>
+      <div><label>지은이 · 누구</label><input type="text"></div>
+    </div>
+    <div class="source-row">
+      <div><label>본 날짜</label><input type="text"></div>
+      <div><label>어디서</label><input type="text"></div>
+    </div>
+    <div class="source-detail">
+      <label>여기서 새로 알게 된 것</label>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <div class="form-parent-note">
+    <strong>학부모용 메모.</strong> 어린 나이부터 <strong>"어디서 알았는지 적는 습관"</strong>이 IB가 끝까지 강조하는 학업 정직성의 시작이에요. 자녀가 무언가 새로 알게 됐다면 "그거 어디서 봤어?"라고 자연스럽게 물어봐주세요. 책에서 봤든, 유튜브에서 봤든, 가족에게 들었든 그 출처를 기억하는 게 평생을 갑니다.
+  </div>
+
+  <div class="form-footer">
+    <button class="btn btn-primary" onclick="window.print()">인쇄 / PDF로 저장</button>
+    <button class="btn" onclick="document.querySelectorAll('input[type=text], textarea').forEach(i => i.value = ''); document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);">처음부터 다시</button>
+  </div>
+</div>
+</body>
+</html>
