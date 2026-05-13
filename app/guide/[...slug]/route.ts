@@ -4,7 +4,14 @@ import { NextRequest, NextResponse } from 'next/server';
 
 function serveFile(filePath: string): NextResponse | null {
   try {
-    const content = readFileSync(filePath, 'utf-8');
+    let content = readFileSync(filePath, 'utf-8');
+
+    // iframe 내에서 절대 경로로 변환하기 위해 base 태그 추가
+    if (!content.includes('<base')) {
+      const baseUrl = filePath.includes('/pyp/') ? '/guide/pyp/' : '/guide/myp/';
+      content = content.replace('</head>', `<base href="${baseUrl}"></head>`);
+    }
+
     return new NextResponse(content, {
       status: 200,
       headers: {
@@ -31,7 +38,7 @@ export async function GET(
       return NextResponse.json({ error: 'Not found' }, { status: 404 });
     }
 
-    // 1. 정확한 파일 찾기 (예: /guide/pyp → pyp.html)
+    // 1. 정확한 파일 찾기 (예: /guide/pyp/cycle → pyp/cycle.html)
     if (slug.length > 0) {
       const filePath = resolve(baseDir, `${slug.join('/')}.html`);
       const response = serveFile(filePath);
