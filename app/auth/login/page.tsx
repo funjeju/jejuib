@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/lib/hooks/useAuth';
@@ -22,11 +22,10 @@ async function maybeGrantAdminSession(firebaseUser: any, userProfile: any): Prom
   }
 }
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { signIn, signInWithGoogle, loading, error, clearError } = useAuth();
-  const { firebaseUser, userProfile } = useAuthStore();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,12 +47,10 @@ export default function LoginPage() {
     e.preventDefault();
     setLocalError('');
     clearError();
-
     if (!email || !password) {
       setLocalError('이메일과 비밀번호를 입력해주세요');
       return;
     }
-
     try {
       await signIn(email, password);
       const { firebaseUser: fb, userProfile: profile } = useAuthStore.getState();
@@ -66,7 +63,6 @@ export default function LoginPage() {
   const handleGoogleLogin = async () => {
     setLocalError('');
     clearError();
-
     try {
       await signInWithGoogle();
       const { firebaseUser: fb, userProfile: profile } = useAuthStore.getState();
@@ -79,22 +75,18 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-bg flex items-center justify-center px-4">
       <div className="w-full max-w-md">
-        {/* 헤더 */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-text mb-2">로그인</h1>
           <p className="text-text-muted">펀제주 커뮤니티에 접속하세요</p>
         </div>
 
-        {/* 카드 */}
         <div className="bg-surface border border-border rounded-lg p-8">
-          {/* 에러 메시지 */}
           {(error || localError) && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded text-sm text-red-700">
               {error || localError}
             </div>
           )}
 
-          {/* Google 로그인 */}
           <button
             onClick={handleGoogleLogin}
             disabled={loading}
@@ -103,7 +95,6 @@ export default function LoginPage() {
             {loading ? '로그인 중...' : '🔵 Google로 로그인'}
           </button>
 
-          {/* 구분선 */}
           <div className="relative mb-6">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-border"></div>
@@ -113,12 +104,9 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* 이메일 로그인 */}
           <form onSubmit={handleEmailLogin} className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-text mb-2">
-                이메일
-              </label>
+              <label className="block text-sm font-semibold text-text mb-2">이메일</label>
               <input
                 type="email"
                 value={email}
@@ -128,11 +116,8 @@ export default function LoginPage() {
                 disabled={loading}
               />
             </div>
-
             <div>
-              <label className="block text-sm font-semibold text-text mb-2">
-                비밀번호
-              </label>
+              <label className="block text-sm font-semibold text-text mb-2">비밀번호</label>
               <input
                 type="password"
                 value={password}
@@ -142,7 +127,6 @@ export default function LoginPage() {
                 disabled={loading}
               />
             </div>
-
             <button
               type="submit"
               disabled={loading}
@@ -152,7 +136,6 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* 회원가입 링크 */}
           <div className="mt-6 text-center text-sm text-text-muted">
             계정이 없으신가요?{' '}
             <Link href="/auth/signup" className="text-accent font-semibold hover:underline">
@@ -161,7 +144,6 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* 돌아가기 */}
         <div className="mt-4 text-center">
           <Link href="/" className="text-sm text-text-muted hover:text-accent transition">
             ← 홈으로 돌아가기
@@ -169,5 +151,17 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-bg flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   );
 }

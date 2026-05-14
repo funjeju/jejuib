@@ -1,21 +1,8 @@
 import { NextResponse } from 'next/server';
-import * as admin from 'firebase-admin';
-
-if (!admin.apps.length) {
-  const privateKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n');
-  admin.initializeApp({
-    credential: admin.credential.cert({
-      projectId: process.env.FIREBASE_ADMIN_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
-      privateKey,
-    } as any),
-  });
-}
-
-const db = admin.firestore();
+import { adminDb } from '@/lib/firebase/admin';
 
 export async function GET() {
-  const snap = await db
+  const snap = await adminDb
     .collection('verifications')
     .where('status', 'in', ['pending', 'manual_review'])
     .orderBy('createdAt', 'desc')
