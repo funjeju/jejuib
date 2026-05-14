@@ -4,10 +4,28 @@ import { Footer } from './components/shared/Footer';
 import { AuthProvider } from './components/auth/AuthProvider';
 import './globals.css';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://ibcommunity.kr';
+
 export const metadata: Metadata = {
-  title: '펀제주 - IB 학부모와 학생을 위한 신뢰의 정보 허브',
-  description: 'IB 교육 정보, 학교 검색, 커뮤니티, 제주 통합 정보 플랫폼',
-  keywords: 'IB, 국제바칼로레아, 학부모, 정보, 제주',
+  title: {
+    default: 'IBCommunity — 한국 IB 학부모·학생을 위한 신뢰의 정보 허브',
+    template: '%s | IBCommunity',
+  },
+  description: 'IB 교육 가이드, 전국 430개 인증 학교 검색, 학부모 커뮤니티, 제주 IB 매거진을 한곳에서.',
+  keywords: ['IB', '국제바칼로레아', 'IB 학교', 'IB PYP', 'IB MYP', 'IB DP', '제주 IB', '학부모 커뮤니티'],
+  metadataBase: new URL(SITE_URL),
+  openGraph: {
+    type: 'website',
+    siteName: 'IBCommunity',
+    locale: 'ko_KR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

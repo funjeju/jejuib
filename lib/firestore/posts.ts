@@ -49,6 +49,42 @@ export async function getPosts(
 }
 
 /**
+ * 전체 학교 게시글 목록 조회 (커뮤니티 피드용)
+ */
+export async function getAllPosts(options?: {
+  type?: PostType;
+  limitCount?: number;
+  sortBy?: 'recent' | 'popular';
+}): Promise<(Post & { id: string })[]> {
+  try {
+    const { type, limitCount = 20, sortBy = 'recent' } = options || {};
+    const constraints: QueryConstraint[] = [];
+
+    if (type) {
+      constraints.push(where('type', '==', type));
+    }
+
+    if (sortBy === 'popular') {
+      constraints.push(orderBy('reactionCounts.like', 'desc'));
+    } else {
+      constraints.push(orderBy('createdAt', 'desc'));
+    }
+
+    constraints.push(limit(limitCount));
+
+    const q = query(collection(db, 'posts'), ...constraints);
+    const snapshot = await getDocs(q);
+
+    return snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    } as Post & { id: string }));
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+}
+
+/**
  * 게시글 상세 조회
  */
 export async function getPost(postId: string): Promise<(Post & { id: string }) | null> {

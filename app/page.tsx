@@ -1,13 +1,42 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GuideModal } from './components/shared/modals/GuideModal';
 import { SchoolSearchModal } from './components/shared/modals/SchoolSearchModal';
+import { getAllPosts } from '@/lib/firestore/posts';
+import { getNotices } from '@/lib/firestore/notices';
+import { Post, Notice } from '@/lib/firestore/types';
+import { SCHOOLS } from '@/app/data/schools';
+
+const schoolById = Object.fromEntries(SCHOOLS.map((s) => [s.id, s]));
+
+const POST_TYPE_COLORS: Record<string, string> = {
+  review: 'bg-blue-100 text-blue-700',
+  question: 'bg-yellow-100 text-yellow-700',
+  share: 'bg-green-100 text-green-700',
+  meetup: 'bg-purple-100 text-purple-700',
+  notice: 'bg-red-100 text-red-700',
+  experience: 'bg-indigo-100 text-indigo-700',
+};
+const POST_TYPE_LABELS: Record<string, string> = {
+  review: '후기', question: '질문', share: '공유', meetup: '모임', notice: '공지', experience: '경험',
+};
 
 export default function Home() {
   const [guideModalOpen, setGuideModalOpen] = useState(false);
   const [schoolSearchModalOpen, setSchoolSearchModalOpen] = useState(false);
+  const [recentPosts, setRecentPosts] = useState<(Post & { id: string })[]>([]);
+  const [recentNotices, setRecentNotices] = useState<(Notice & { id: string })[]>([]);
+
+  useEffect(() => {
+    getAllPosts({ sortBy: 'popular', limitCount: 3 })
+      .then(setRecentPosts)
+      .catch(() => {});
+    getNotices(2)
+      .then(setRecentNotices)
+      .catch(() => {});
+  }, []);
 
   return (
     <>
@@ -85,6 +114,77 @@ export default function Home() {
             </Link>
           </div>
         </section>
+
+        {/* 최근 인기 게시글 */}
+        {recentPosts.length > 0 && (
+          <section className="py-16 px-4 bg-surface">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl font-bold text-text">커뮤니티 인기글</h2>
+                <Link href="/community" className="text-sm text-accent hover:underline">
+                  전체 보기 →
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {recentPosts.map((post) => {
+                  const school = schoolById[post.schoolId];
+                  return (
+                    <Link
+                      key={post.id}
+                      href={`/schools/${post.schoolId}/posts/${post.id}`}
+                      className="p-5 bg-bg border border-border rounded-xl hover:border-accent transition group"
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className={`text-xs px-2 py-0.5 rounded font-medium ${POST_TYPE_COLORS[post.type] || ''}`}>
+                          {POST_TYPE_LABELS[post.type] || post.type}
+                        </span>
+                        {school && (
+                          <span className="text-xs text-text-muted truncate">{school.name}</span>
+                        )}
+                      </div>
+                      <h3 className="text-sm font-semibold text-text mb-2 line-clamp-2 group-hover:text-accent transition">
+                        {post.title}
+                      </h3>
+                      <p className="text-xs text-text-muted line-clamp-2 mb-3">{post.body}</p>
+                      <div className="flex items-center gap-3 text-xs text-text-muted">
+                        <span>👍 {post.reactionCounts.like}</span>
+                        <span>💬 {post.commentCount}</span>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* 펀제주 공지 */}
+        {recentNotices.length > 0 && (
+          <section className="py-12 px-4 bg-bg border-t border-border">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex items-center justify-between mb-5">
+                <h2 className="text-lg font-bold text-text">펀제주 공지</h2>
+                <Link href="/notice" className="text-sm text-accent hover:underline">전체 보기 →</Link>
+              </div>
+              <div className="space-y-2">
+                {recentNotices.map((notice) => (
+                  <Link
+                    key={notice.id}
+                    href="/notice"
+                    className="flex items-center justify-between p-4 bg-surface border border-border rounded-xl hover:border-accent transition group"
+                  >
+                    <span className="text-sm font-medium text-text group-hover:text-accent transition line-clamp-1">
+                      {notice.title}
+                    </span>
+                    <span className="text-xs text-text-muted whitespace-nowrap ml-4 shrink-0">
+                      {notice.publishedAt?.toDate?.().toLocaleDateString('ko-KR') ?? ''}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* 특징 섹션 */}
         <section className="py-20 px-4 bg-surface">

@@ -4,6 +4,9 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/hooks/useAuth';
 import Link from 'next/link';
+import { SCHOOLS } from '@/app/data/schools';
+
+const schoolById = Object.fromEntries(SCHOOLS.map((s) => [s.id, s]));
 
 export default function MyPage() {
   const router = useRouter();
@@ -73,15 +76,28 @@ export default function MyPage() {
             </p>
             <div className="space-y-2">
               {/* 인증된 학교 목록 (추후 학교명 표시) */}
-              {userProfile.verifiedSchoolIds.map((schoolId) => (
-                <div
-                  key={schoolId}
-                  className="p-4 bg-muted rounded flex items-center justify-between"
-                >
-                  <span className="text-text font-semibold">{schoolId}</span>
-                  <span className="text-xs text-text-muted">✓ 인증됨</span>
-                </div>
-              ))}
+              {userProfile.verifiedSchoolIds.map((schoolId) => {
+                const school = schoolById[schoolId];
+                return (
+                  <Link
+                    key={schoolId}
+                    href={`/school/${schoolId}`}
+                    className="p-4 bg-muted rounded flex items-center justify-between hover:bg-accent/5 transition"
+                  >
+                    <div>
+                      <span className="text-text font-semibold block">
+                        {school?.name || schoolId}
+                      </span>
+                      {school && (
+                        <span className="text-xs text-text-muted">
+                          {school.region} · {school.level}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-xs text-accent font-semibold">✓ 인증됨</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         ) : (

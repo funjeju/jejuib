@@ -35,11 +35,17 @@ export function Header() {
             >
               학교 검색
             </button>
+            <Link href="/articles" className="text-sm text-text hover:text-accent transition">
+              아티클
+            </Link>
             <Link href="/community" className="text-sm text-text hover:text-accent transition">
               커뮤니티
             </Link>
             <Link href="/jeju" className="text-sm text-text hover:text-accent transition">
-              제주 정보
+              제주 매거진
+            </Link>
+            <Link href="/notice" className="text-sm text-text hover:text-accent transition">
+              공지
             </Link>
             {firebaseUser ? (
               <div className="flex items-center gap-4">
@@ -98,11 +104,17 @@ export function Header() {
               >
                 학교 검색
               </button>
+              <Link href="/articles" className="text-sm text-text hover:text-accent transition">
+                아티클
+              </Link>
               <Link href="/community" className="text-sm text-text hover:text-accent transition">
                 커뮤니티
               </Link>
               <Link href="/jeju" className="text-sm text-text hover:text-accent transition">
-                제주 정보
+                제주 매거진
+              </Link>
+              <Link href="/notice" className="text-sm text-text hover:text-accent transition">
+                공지
               </Link>
               {firebaseUser ? (
                 <>
