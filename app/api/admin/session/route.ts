@@ -1,6 +1,8 @@
 export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
-import { adminDb, adminAuth } from '@/lib/firebase/admin';
+import { adminAuth } from '@/lib/firebase/admin';
+
+const ADMIN_EMAIL = 'naggu1999@gmail.com';
 
 export async function POST(req: NextRequest) {
   const { idToken } = await req.json();
@@ -13,8 +15,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'invalid token' }, { status: 401 });
   }
 
-  const userDoc = await adminDb.collection('users').doc(decoded.uid).get();
-  if (!userDoc.exists || userDoc.data()?.role !== 'admin') {
+  if (decoded.email !== ADMIN_EMAIL) {
     return NextResponse.json({ error: 'not admin' }, { status: 403 });
   }
 

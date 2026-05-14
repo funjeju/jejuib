@@ -19,23 +19,25 @@ const NAV = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const { userProfile, loading, initAuth } = useAuthStore();
+  const { firebaseUser, userProfile, loading, initAuth } = useAuthStore();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     initAuth();
   }, []);
 
+  const ADMIN_EMAIL = 'naggu1999@gmail.com';
+
   useEffect(() => {
-    if (!loading && userProfile && userProfile.role !== 'admin') {
-      router.replace('/');
-    }
-    if (!loading && !userProfile) {
+    if (!loading && !firebaseUser) {
       router.replace('/auth/login?redirect=' + pathname);
     }
-  }, [loading, userProfile]);
+    if (!loading && firebaseUser && firebaseUser.email !== ADMIN_EMAIL) {
+      router.replace('/');
+    }
+  }, [loading, firebaseUser]);
 
-  if (loading || !userProfile) {
+  if (loading || !firebaseUser) {
     return (
       <div className="min-h-screen bg-bg flex items-center justify-center">
         <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
@@ -43,7 +45,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     );
   }
 
-  if (userProfile.role !== 'admin') return null;
+  if (firebaseUser.email !== ADMIN_EMAIL) return null;
 
   function isActive(href: string, exact?: boolean) {
     if (exact) return pathname === href;
@@ -61,7 +63,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       `}>
         <div className="px-4 py-5 border-b border-border">
           <Link href="/" className="text-sm font-bold text-accent">펀제주 어드민</Link>
-          <p className="text-xs text-text-muted mt-0.5">{userProfile.email}</p>
+          <p className="text-xs text-text-muted mt-0.5">{firebaseUser.email}</p>
         </div>
         <nav className="flex-1 py-3 overflow-y-auto">
           {NAV.map(({ href, label, icon, exact }) => (

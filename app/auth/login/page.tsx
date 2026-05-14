@@ -7,8 +7,12 @@ import { useAuth } from '@/lib/hooks/useAuth';
 import { useAuthStore } from '@/lib/store/authStore';
 import { getIdToken } from 'firebase/auth';
 
-async function maybeGrantAdminSession(firebaseUser: any, userProfile: any): Promise<boolean> {
-  if (userProfile?.role !== 'admin') return false;
+
+
+const ADMIN_EMAIL = 'naggu1999@gmail.com';
+
+async function maybeGrantAdminSession(firebaseUser: any): Promise<boolean> {
+  if (firebaseUser?.email !== ADMIN_EMAIL) return false;
   try {
     const idToken = await getIdToken(firebaseUser);
     const res = await fetch('/api/admin/session', {
@@ -31,8 +35,8 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [localError, setLocalError] = useState('');
 
-  const redirectAfterLogin = async (fb: any, profile: any) => {
-    const isAdmin = await maybeGrantAdminSession(fb, profile);
+  const redirectAfterLogin = async (fb: any) => {
+    const isAdmin = await maybeGrantAdminSession(fb);
     const redirect = searchParams.get('redirect');
     if (isAdmin) {
       router.push(redirect?.startsWith('/admin') ? redirect : '/admin');
@@ -52,8 +56,8 @@ function LoginForm() {
     }
     try {
       await signIn(email, password);
-      const { firebaseUser: fb, userProfile: profile } = useAuthStore.getState();
-      await redirectAfterLogin(fb, profile);
+      const { firebaseUser: fb } = useAuthStore.getState();
+      await redirectAfterLogin(fb);
     } catch (err: any) {
       setLocalError(err.message);
     }
@@ -64,8 +68,8 @@ function LoginForm() {
     clearError();
     try {
       await signInWithGoogle();
-      const { firebaseUser: fb, userProfile: profile } = useAuthStore.getState();
-      await redirectAfterLogin(fb, profile);
+      const { firebaseUser: fb } = useAuthStore.getState();
+      await redirectAfterLogin(fb);
     } catch (err: any) {
       setLocalError(err.message);
     }
