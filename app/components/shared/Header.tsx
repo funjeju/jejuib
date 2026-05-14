@@ -18,7 +18,7 @@ export function Header() {
         <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           {/* 로고 */}
           <Link href="/" className="font-bold text-xl text-accent">
-            펀제주
+            IBCommunity
           </Link>
 
           {/* 메뉴 (데스크탑) */}
