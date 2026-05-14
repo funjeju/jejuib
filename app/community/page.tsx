@@ -8,7 +8,7 @@ import { getAllPosts } from '@/lib/firestore/posts';
 import { Post, PostType } from '@/lib/firestore/types';
 import { SCHOOLS } from '@/app/data/schools';
 import { PostCard } from '@/app/components/community/PostCard';
-import { SchoolSearchModal } from '@/app/components/shared/modals/SchoolSearchModal';
+import { WritePostModal } from '@/app/components/community/WritePostModal';
 
 type SortOption = 'recent' | 'popular';
 
@@ -33,7 +33,7 @@ export default function CommunityPage() {
   const [selectedType, setSelectedType] = useState<PostType | 'all'>('all');
   const [selectedRegion, setSelectedRegion] = useState('전체');
   const [sortBy, setSortBy] = useState<SortOption>('recent');
-  const [schoolSearchOpen, setSchoolSearchOpen] = useState(false);
+  const [writeModalOpen, setWriteModalOpen] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -167,7 +167,7 @@ export default function CommunityPage() {
                   if (!firebaseUser) {
                     router.push('/auth/login');
                   } else {
-                    setSchoolSearchOpen(true);
+                    setWriteModalOpen(true);
                   }
                 }}
                 className="px-4 py-2 bg-accent text-white text-sm font-medium rounded-lg hover:bg-opacity-90 transition"
@@ -232,8 +232,11 @@ export default function CommunityPage() {
         </div>
       </div>
 
-      {schoolSearchOpen && (
-        <SchoolSearchModal onClose={() => setSchoolSearchOpen(false)} />
+      {writeModalOpen && (
+        <WritePostModal
+          onClose={() => setWriteModalOpen(false)}
+          onPostCreated={(post) => setPosts((prev) => [post, ...prev])}
+        />
       )}
     </div>
   );

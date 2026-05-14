@@ -17,8 +17,8 @@ export function Header() {
       <header className="sticky top-0 z-40 bg-surface border-b border-border">
         <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           {/* 로고 */}
-          <Link href="/" className="font-bold text-xl text-accent">
-            IBCommunity
+          <Link href="/">
+            <img src="/logo.svg" alt="IBCommunity" className="h-8 w-auto" />
           </Link>
 
           {/* 메뉴 (데스크탑) */}

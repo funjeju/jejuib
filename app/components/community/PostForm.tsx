@@ -28,9 +28,10 @@ interface PostFormProps {
   onSubmit: (data: Omit<Post, 'schoolId' | 'authorId' | 'authorBadge' | 'viewCount' | 'commentCount' | 'reactionCounts' | 'createdAt' | 'updatedAt' | 'id'>) => Promise<void>;
   isLoading?: boolean;
   initialData?: Post;
+  onCancel?: () => void;
 }
 
-export function PostForm({ schoolId, onSubmit, isLoading, initialData }: PostFormProps) {
+export function PostForm({ schoolId, onSubmit, isLoading, initialData, onCancel }: PostFormProps) {
   const [showRatingCategories, setShowRatingCategories] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
@@ -226,6 +227,7 @@ export function PostForm({ schoolId, onSubmit, isLoading, initialData }: PostFor
         </button>
         <button
           type="button"
+          onClick={onCancel}
           disabled={isLoading}
           className="px-6 py-3 border border-border rounded-lg font-semibold text-text hover:bg-muted transition"
         >
