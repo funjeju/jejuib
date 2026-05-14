@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextRequest, NextResponse } from 'next/server';
 import { adminAuth, adminDb, adminStorage } from '@/lib/firebase/admin';
 import { callClovaOcr } from '@/lib/ocr/clova';

@@ -34,12 +34,11 @@ function LoginForm() {
   const redirectAfterLogin = async (fb: any, profile: any) => {
     const isAdmin = await maybeGrantAdminSession(fb, profile);
     const redirect = searchParams.get('redirect');
-    if (isAdmin && redirect?.startsWith('/admin')) {
-      router.push(redirect);
-    } else if (isAdmin) {
-      router.push('/admin');
+    if (isAdmin) {
+      router.push(redirect?.startsWith('/admin') ? redirect : '/admin');
     } else {
-      router.push(redirect ?? '/');
+      const safeRedirect = redirect && !redirect.startsWith('/admin') ? redirect : '/';
+      router.push(safeRedirect);
     }
   };
 
