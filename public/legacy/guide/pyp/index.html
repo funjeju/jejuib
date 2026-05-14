@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -7,160 +7,1003 @@
 <meta name="keywords" content="IB PYP, IB 초등학교, 국제 바칼로레아 PYP, 학부모 가이드, IB, 국제 바칼로레아">
 <title>학부모를 위한 IB PYP 완벽 가이드</title>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
-<style>
-/* 기존의 세련된 디자인 시스템 유지 (PYP 테마색인 Teal 포인트 적용) */
-:root {
-  --coral: #E07856;
-  --coral-dark: #B85A3D;
-  --coral-light: #FCE4DC;
-  --coral-pale: #FFF4EF;
-  --bg: #FFFBF8;
-  --surface: #FFFFFF;
-  --text: #2C2522;
-  --text-soft: #5C5048;
-  --muted: #9A8D85;
-  --line: #EFE5DD;
-  --teal: #4A8C7F;
-  --teal-light: #F0F5F4;
-  --amber: #C68A3E;
-  
-  /* Additional PYP specific colors for SEO compatibility */
-  --pyp: #F5A623;
-  --pyp-dark: #D68910;
-  --primary: #2C3E50;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Pretendard Variable', Pretendard, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* UI 구성 요소 (기존 스타일 계승) */
-nav { position: sticky; top: 0; background: rgba(255, 251, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); z-index: 100; padding: 14px 0; }
-.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 700; font-size: 15px; color: var(--teal); letter-spacing: -0.02em; }
-.container { max-width: 920px; margin: 0 auto; padding: 0 24px; }
-.hero { padding: 100px 0 80px; text-align: left; border-bottom: 1px solid var(--line); }
-.hero .eyebrow { display: inline-block; font-size: 12px; font-weight: 600; color: var(--teal); background: var(--teal-light); padding: 5px 12px; border-radius: 100px; margin-bottom: 24px; }
-.hero h1 { font-size: 44px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.2; margin-bottom: 24px; }
-.hero h1 .accent { color: var(--teal); }
-.hero .lead { font-size: 18px; color: var(--text-soft); max-width: 680px; }
-
-/* Section & Big Picture Styles */
-section.content { padding: 80px 0; border-bottom: 1px solid var(--line); }
-.section-num { font-size: 13px; color: var(--teal); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 12px; display: block; }
-.bigpic { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 40px; margin: 32px 0; }
-.pill { padding: 10px 18px; background: var(--teal-light); border: 1px solid #D7E5E2; border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--teal); margin: 4px; display: inline-block; }
-.pill.highlight { background: var(--teal); color: white; border-color: var(--teal); }
-.callout { background: var(--teal-light); border-left: 4px solid var(--teal); padding: 24px; border-radius: 0 12px 12px 0; margin: 32px 0; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-
-<nav style="position: sticky; top: 0; background: rgba(255, 251, 248, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); z-index: 100;">
-  <div style="background:var(--pyp-pale, #FFF7E6); padding:8px 24px; text-align:center; font-size:13px; border-bottom:1px solid var(--line, #EFE5DD);">
-    <a href="index.html" style="color:var(--pyp-dark, #D68910); text-decoration:none; font-weight:600; display:inline-block; transition:opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">← IB 통합 안내서 대문으로 돌아가기</a>
+<nav>
+  <div class="nav-banner">
+    <a href="javascript:void(0)" onclick="window.parent.postMessage('close-guide','*')">← IB 통합 안내서 대문으로 돌아가기</a>
   </div>
-  <div class="nav-inner" style="max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 60px;">
-    <div class="logo"><a href="index.html" style="color:var(--pyp-dark, #D68910); text-decoration:none; font-weight:700; font-size: 15px;">IB PYP 안내</a></div>
-    <div class="nav-links" style="display:flex; gap:20px; font-size:14px; font-weight: 500;">
-      <a href="bigpic.html" style="text-decoration:none; color:inherit;">개요</a>
-      <a href="cycle.html" style="text-decoration:none; color:inherit;">수업 진행</a>
-      <a href="timeline.html" style="text-decoration:none; color:inherit;">1년 흐름</a>
-      <a href="concepts.html" style="text-decoration:none; color:inherit;">개념 사전</a>
-      <a href="evaluation.html" style="text-decoration:none; color:inherit;">평가</a>
-      <a href="forms.html" style="text-decoration:none; color:inherit;">양식</a>
-      <a href="parent.html" style="text-decoration:none; color:inherit;">자녀와 대화</a>
-      <a href="glossary.html" style="text-decoration:none; color:inherit;">용어</a>
+  <div class="nav-inner">
+    <div class="logo"><a href="javascript:void(0)" onclick="showPage('home')">학부모를 위한 IB PYP 안내</a></div>
+    <div class="nav-links">
+      <a data-page="bigpic" onclick="showPage('bigpic');return false;">개요</a>
+      <a data-page="cycle" onclick="showPage('cycle');return false;">수업 진행</a>
+      <a data-page="timeline" onclick="showPage('timeline');return false;">1년 흐름</a>
+      <a data-page="concepts" onclick="showPage('concepts');return false;">개념 사전</a>
+      <a data-page="evaluation" onclick="showPage('evaluation');return false;">평가</a>
+      <a data-page="forms" onclick="showPage('forms');return false;">양식</a>
+      <a data-page="parent" onclick="showPage('parent');return false;">자녀와 대화</a>
+      <a data-page="glossary" onclick="showPage('glossary');return false;">용어</a>
     </div>
   </div>
 </nav>
 
-
-<section class="hero">
-  <div class="container">
-    <span class="eyebrow">초등 PYP 가이드</span>
-    <h1>아이가 PYP 초등 교육을<br>받고 있다면, <span class="accent">알아둘 것이 있어요.</span></h1>
-    <p class="lead">
-      IB PYP는 지식을 외우는 대신 '세상을 탐구하는 법'을 배웁니다. 자녀가 "UOI", "핵심 아이디어", "실천(Action)" 같은 낯선 단어를 가져올 때, 당황하지 마세요. 이 가이드는 초등 학부모님이 아이의 탐구 여정에 훌륭한 파트너가 되도록 돕습니다.
-    </p>
-  </div>
-</section>
-
-<section class="content" id="bigpic">
-  <div class="container">
-    <div class="section-head">
-      <span class="section-num">01 · 개요</span>
-      <h2>PYP는 무엇이고, 자녀의 수업과 어떻게 연결되나요?</h2>
+<!-- ===== HOME ===== -->
+<div id="page-home" class="guide-page active">
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">초등 PYP 가이드</span>
+      <h1>아이가 PYP 초등 교육을<br>받고 있다면, <span class="accent">알아둘 것이 있어요.</span></h1>
+      <p class="lead">
+        IB PYP는 지식을 외우는 대신 '세상을 탐구하는 법'을 배웁니다. 자녀가 "UOI", "핵심 아이디어", "실천(Action)" 같은 낯선 단어를 가져올 때, 당황하지 마세요. 이 가이드는 초등 학부모님이 아이의 탐구 여정에 훌륭한 파트너가 되도록 돕습니다.
+      </p>
+      <div class="meta">
+        <div><strong>분량</strong>끝까지 약 15분</div>
+        <div><strong>대상</strong>PYP 자녀를 둔 학부모</div>
+        <div><strong>기반</strong>경기도교육청·IBO 공식 자료를 학부모 시점으로 재구성</div>
+      </div>
     </div>
+  </section>
+</div>
 
-    <div class="bigpic">
-      <div style="margin-bottom: 24px;">
-        <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.1em;">IB 교육의 뿌리 (공통)</p>
-        <div class="row">
-          <span class="pill">IB 사명</span> <span class="pill">학습자상</span> <span class="pill">국제적 마인드</span> <span class="pill">학습 방법(ATL)</span>
-        </div>
+<!-- ===== BIGPIC ===== -->
+<div id="page-bigpic" class="guide-page">
+  <section class="content">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">01 · 개요</span>
+        <h2>IB PYP는 무엇이고, 자녀의 수업과 어떻게 연결되나요?</h2>
+        <p class="sub">결론부터 말하면, PYP는 국어, 수학처럼 <em>과목을 나누어 배우는 틀을 넘어 세상을 탐구하는 방식</em>이에요. 한국 초등학교 교육과정의 내용들을 6개의 거대한 '주제' 안에 녹여서 융합적으로 배운다고 생각하시면 됩니다.</p>
       </div>
 
-      <div style="margin-bottom: 24px;">
-        <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase;">자녀가 속한 단계</p>
-        <div class="row">
-          <span class="pill highlight">PYP (초등 3~12세)</span> <span class="pill">MYP (중등)</span> <span class="pill">DP (고등)</span>
+      <div class="bigpic">
+        <div class="layer">
+          <span class="layer-label">변하지 않는 것 — IB 전체 공통</span>
+          <div class="row">
+            <span class="pill">IB 사명 (Mission)</span>
+            <span class="pill">학습자상 (10가지)</span>
+            <span class="pill">국제적 마인드</span>
+            <span class="pill">교수법(ATT) · 학습법(ATL)</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="layer">
+          <span class="layer-label">자녀가 속한 단계</span>
+          <div class="row">
+            <span class="pill" style="background: var(--pyp); border-color: var(--pyp); color: white; font-weight: 600;">PYP (초등 3~12세)</span>
+            <span class="pill alt">MYP (중등)</span>
+            <span class="pill alt2">DP / CP (고등)</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="layer">
+          <span class="layer-label">PYP의 6가지 초교과 주제 (Transdisciplinary Themes) — 과목의 벽을 넘는 큰 렌즈</span>
+          <div class="row">
+            <span class="pill">우리는 누구인가</span>
+            <span class="pill">우리가 속한 시간과 공간</span>
+            <span class="pill">우리는 자신을 어떻게 표현하는가</span>
+            <span class="pill">세계가 돌아가는 방식</span>
+            <span class="pill">우리는 자신을 어떻게 조직하는가</span>
+            <span class="pill">지구 공유하기</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="layer">
+          <span class="layer-label">1년 동안 6번 굴러가는 '탐구 단원(UOI)'의 사이클</span>
+          <div class="row">
+            <span class="pill">호기심 열기 (도입)</span>
+            <span class="pill alt">질문하고 조사하기 (탐색)</span>
+            <span class="pill alt2">의미 찾기 (정리)</span>
+            <span class="pill" style="background: #FFF4EF; color: var(--pyp);">행동으로 실천하기 (Action)</span>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>한 줄 요약:</strong> 시간표에 국어, 수학이 따로 있기도 하지만, 학교생활의 진짜 핵심은 1년 동안 <strong>6개의 커다란 주제(UOI)</strong> 아래 여러 과목의 지식을 융합하여 스스로 질문하고 행동(Action)으로 옮기는 것입니다.
         </div>
       </div>
+    </div>
+  </section>
+</div>
 
-      <div style="margin-bottom: 24px;">
-        <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase;">PYP의 6가지 초교과 주제 (세상을 보는 6개의 렌즈)</p>
-        <div class="row">
-          <span class="pill">우리는 누구인가</span> <span class="pill">우리가 속한 시공간</span> <span class="pill">자신을 표현하는 법</span>
-          <span class="pill">세계가 돌아가는 방식</span> <span class="pill">자신을 조직하는 법</span> <span class="pill">지구 공유하기</span>
+<!-- ===== CYCLE ===== -->
+<div id="page-cycle" class="guide-page">
+  <section class="content">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">02 · 수업 진행</span>
+        <h2>질문에서 시작해 실천으로 끝나는 '탐구 사이클'</h2>
+        <p class="sub">초등 탐구 단원(UOI)은 보통 4~6주 동안 진행돼요. 학생들은 정답을 외우는 게 아니라, 아래의 사이클을 돌며 스스로 '배우는 법'을 익히게 됩니다.</p>
+      </div>
+
+      <div class="cycle">
+        <div class="stage">
+          <div class="stage-header">
+            <span class="stage-num">단계 1 · 도입 및 탐색</span>
+            <h3>호기심을 열고 질문을 던지는 시간</h3>
+            <span class="when">UOI 1~2주차</span>
+          </div>
+          <p class="summary">주제와 관련된 다양한 자극(사진, 영상, 현장 방문 등)을 통해 학생들이 "이건 왜 이럴까?"라는 질문을 스스로 뽑아내는 단계예요.</p>
+
+          <h4>학부모가 알아둘 점</h4>
+          <ul>
+            <li><strong>핵심 아이디어 (Central Idea)</strong>: 단원 전체를 관통하는 가장 큰 원리. (예: "생물은 환경에 적응하며 변화한다")</li>
+            <li><strong>탐구 목록 (Lines of Inquiry)</strong>: 핵심 아이디어를 이해하기 위해 파고들 3~4가지 세부 주제.</li>
+            <li><strong>이전 지식 점검</strong>: 자녀가 이 주제에 대해 이미 무엇을 알고 있는지(Prior Knowledge) 확인해요.</li>
+            <li><strong>학생 주도 질문</strong>: 선생님이 주는 질문이 아니라, 학생들이 포스트잇에 적어 붙인 질문들이 수업의 교과서가 됩니다.</li>
+          </ul>
+
+          <div class="callout" style="margin: 24px 0 0;">
+            <h4>전통적 수업과 다른 점</h4>
+            <p>옛날: "오늘은 광합성에 대해 배우자" (결론부터 제시) &nbsp; • &nbsp; PYP: "식물은 입 없이 어떻게 밥을 먹을까?" (학생들의 질문에서 시작)</p>
+          </div>
+        </div>
+
+        <div class="stage" style="border-color: var(--teal);">
+          <div class="stage-header">
+            <span class="stage-num" style="color: var(--teal);">단계 2 · 조사 및 정리</span>
+            <h3>직접 찾고 나만의 언어로 만드는 시간</h3>
+            <span class="when">UOI 3~4주차</span>
+          </div>
+          <p class="summary">책, 인터넷, 실험, 인터뷰 등 다양한 방법으로 정보를 수집하고, 이를 도표나 그림, 글로 정리하며 의미를 찾아가는 과정이에요.</p>
+
+          <h4>학부모가 알아둘 점</h4>
+          <ul>
+            <li><strong>핵심 개념 (Key Concepts)</strong>: 형태, 기능, 원인, 변화, 연결, 관점, 책임 등 7가지 렌즈로 세상을 봐요.</li>
+            <li><strong>학습 방법 (ATL)</strong>: 조사하는 기술, 생각하는 기술, 소통하는 기술 등을 의식적으로 연습합니다.</li>
+            <li><strong>초교과적 연결</strong>: 과학 단원이라도 국어(보고서 쓰기), 미술(관찰 세밀화) 등이 자연스럽게 섞여서 진행돼요.</li>
+            <li><strong>원더 월 (Wonder Wall)</strong>: 교실 벽면에 학생들의 탐구 과정과 중간 결과물들이 가득 채워집니다.</li>
+          </ul>
+
+          <div class="callout" style="margin: 24px 0 0;">
+            <h4>학부모가 자주 오해하는 부분</h4>
+            <p>"초등학생이 뭘 조사하겠어?"라고 생각하시지만, 학생들은 <strong>자신만의 수준에서 자료를 비판적으로 선택하고 비교하는 법</strong>을 배웁니다. 완벽한 정보보다 '조사하는 과정' 자체가 공부입니다.</p>
+          </div>
+        </div>
+
+        <div class="stage" style="border-color: var(--amber);">
+          <div class="stage-header">
+            <span class="stage-num" style="color: var(--amber);">단계 3 · 공유 및 실천(Action)</span>
+            <h3>배운 것을 삶으로 가져오는 시간</h3>
+            <span class="when">UOI 마지막 1~2주</span>
+          </div>
+          <p class="summary">탐구한 내용을 친구들과 공유하고, 가장 중요한 단계인 '행동(Action)'으로 옮깁니다. 앎이 삶의 변화로 이어지는 지점이에요.</p>
+
+          <h4>학부모가 알아둘 점</h4>
+          <ul>
+            <li><strong>성찰 (Reflection)</strong>: "나는 무엇을 알게 되었고, 처음 생각과 어떻게 달라졌는가?"를 기록해요.</li>
+            <li><strong>실천 (Action)</strong>: 거창한 봉사가 아니라도 괜찮아요. 집에서 물 아끼기, 가족에게 설명해주기, 캠페인 포스터 그리기 등 작은 변화가 핵심입니다.</li>
+            <li><strong>학습 주도권 (Agency)</strong>: 자녀가 스스로 실천 방안을 결정하고 실행할 때 PYP 교육은 완성됩니다.</li>
+            <li><strong>6학년 전시회 (Exhibition)</strong>: 초등 탐구의 완결판으로, 학생이 직접 주제 선정부터 발표까지 주도합니다.</li>
+          </ul>
+
+          <div class="callout" style="margin: 24px 0 0;">
+            <h4>진짜 공부의 완성</h4>
+            <p>시험 문제를 맞히는 게 끝이 아니에요. <strong>"배운 내용을 바탕으로 오늘 내 행동이 하나라도 바뀌었는가?"</strong>가 PYP가 추구하는 최고의 성적표입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== TIMELINE ===== -->
+<div id="page-timeline" class="guide-page">
+  <section class="content">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">03 · 1년 학교생활 흐름</span>
+        <h2>한 해 동안 자녀는 무엇을 경험하나요?</h2>
+        <p class="sub">초등학교 3~4학년을 기준으로 한 해 흐름을 정리했어요. 초등 과정은 1년 동안 <strong>6개의 거대한 탐구 단원(UOI)</strong>을 차례대로 경험하며 세상을 보는 6가지 렌즈를 모두 써보게 됩니다.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-row">
+          <div class="timeline-month">3월 초</div>
+          <div class="timeline-event"><strong>새 학기 오리엔테이션 및 학급 약속 정하기.</strong> 선생님이 규칙을 정해주는 것이 아니라, 1년 동안 우리 반이 지킬 '학급 약속(Essential Agreements)'을 학생들이 토론을 통해 스스로 만듭니다. <span class="tag">학급 약속</span> <span class="tag">학습자상</span></div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-month">3월 중</div>
+          <div class="timeline-event"><strong>첫 번째 탐구 단원(UOI 1) 시작.</strong> 가정통신문(UOI 뉴스레터)이 발송됩니다. 이번 단원의 '핵심 아이디어(Central Idea)'와 집에서 부모님이 도와주실 수 있는 활동이 안내됩니다. <span class="tag">UOI</span> <span class="tag">가정통신문</span></div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-month">3~4월</div>
+          <div class="timeline-event"><strong>UOI 1 탐구·실행.</strong> 질문 만들기(Wonder Wall), 자료 조사, 현장 체험 학습이 초교과적으로 진행됩니다. 국어 시간에 관련 책을 읽고, 수학 시간에 조사한 자료를 그래프로 그립니다. <span class="tag">초교과적 학습</span></div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-month">4월 말</div>
+          <div class="timeline-event"><strong>UOI 1 마무리 및 행동(Action).</strong> 단원 결과물을 학급에서 공유하고, 성찰지를 씁니다. 가장 중요한 것은 배운 것을 바탕으로 가정이나 학교에서 작은 '실천(Action)'을 해보는 것입니다. <span class="tag">Action(실천)</span> <span class="tag">성찰</span></div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-month">5~6월</div>
+          <div class="timeline-event"><strong>UOI 2, UOI 3 진행.</strong> 1번 단원과 같은 사이클이 새로운 초교과 주제(예: 우리가 속한 시간과 공간, 세계가 돌아가는 방식 등)로 반복됩니다.</div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-month">7월</div>
+          <div class="timeline-event"><strong>1학기 마무리 및 포트폴리오.</strong> 1학기 동안 학생의 활동 결과물과 성찰이 담긴 '포트폴리오'가 가정으로 발송됩니다. 학교에 따라 자녀가 부모님께 직접 자기 학습을 브리핑하는 '학생 주도 컨퍼런스(SLC)'가 열리기도 합니다. <span class="tag">포트폴리오</span> <span class="tag">학생 주도 컨퍼런스</span></div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-month">9~11월</div>
+          <div class="timeline-event"><strong>2학기 UOI 4, UOI 5 진행.</strong> 1학기와 동일하게 새로운 렌즈로 세상을 탐구합니다. 이 시기에는 탐구의 깊이가 더 깊어지고 학생들이 주도하는 활동이 많아집니다.</div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-month">12~1월</div>
+          <div class="timeline-event"><strong>마지막 UOI 6 진행 및 학년 종합 성찰.</strong> 1년 동안 6개의 초교과 주제를 모두 다뤘습니다. 1년간 어떤 학습자상(Learner Profile)과 학습 방법(ATL)이 자라났는지 종합적으로 돌아봅니다. <span class="tag">ATL 점검</span></div>
+        </div>
+        <div class="timeline-row" style="background: var(--pyp-pale); border-radius: 12px; border: 1px solid var(--pyp-light);">
+          <div class="timeline-month" style="color: var(--pyp-dark);">중요 (6학년)</div>
+          <div class="timeline-event"><strong>PYP 전시회 (Exhibition).</strong> 초등 과정 6년을 집대성하는 가장 거대한 프로젝트입니다. 6학년 학생들은 장기간 스스로 주제를 정하고, 멘토 교사와 함께 깊이 탐구한 뒤 전교생과 학부모 앞에서 결과물을 발표합니다. <span class="tag" style="background: white; border: 1px solid var(--pyp); color: var(--pyp-dark);">Exhibition</span></div>
         </div>
       </div>
 
       <div class="callout">
-        <strong style="display: block; margin-bottom: 8px;">한 줄 요약</strong>
-        <p>우리 아이는 국어, 수학을 따로 배우는 것을 넘어, <strong>6개의 커다란 세상 이야기(UOI)</strong> 속으로 들어가 스스로 질문하고 답을 찾아낸 뒤, <strong>오늘 내 삶에서 무엇을 실천할지</strong> 고민하는 시간을 보내고 있습니다.</p>
+        <h4>이 흐름에서 학부모가 가정에서 할 수 있는 최고의 지원</h4>
+        <p>• <strong>UOI가 시작될 때:</strong> 학교에서 오는 'UOI 뉴스레터'를 냉장고에 붙여두고 관련 책이나 다큐멘터리를 함께 봐주세요. <br>• <strong>단원 중간:</strong> "오늘은 학교에서 어떤 질문을 만들었어?"라고 물어봐 주세요. <br>• <strong>포트폴리오가 올 때:</strong> 결과물이 완벽한지 평가하지 마시고, "이거 할 때 어떤 게 제일 힘들었어? 어떻게 해결했어?"라며 <strong>과정</strong>을 칭찬해 주세요.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<section class="content" id="cycle">
+<!-- ===== CONCEPTS ===== -->
+<div id="page-concepts" class="guide-page">
+  <section class="content">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">04 · 개념 사전</span>
+        <h2>PYP의 언어에 익숙해지기</h2>
+        <p class="sub">가정통신문에 등장하는 생소한 단어들을 초등 부모님 눈높이에서 풀었어요. 각 항목을 클릭하면 세부 설명을 볼 수 있습니다.</p>
+      </div>
+
+      <div class="concept-block">
+        <h3>6가지 초교과 주제 (Transdisciplinary Themes)</h3>
+        <p class="desc">아이들이 1년 동안 세상을 바라보는 6가지 커다란 렌즈예요. 모든 UOI는 이 중 하나에 속합니다.</p>
+        <div class="concept-grid">
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Who we are</div>
+            <div class="ko">우리는 누구인가</div>
+            <div class="def">신념, 가치, 신체적·정신적 건강, 인간관계와 권리에 대해 탐구합니다.</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Where we are in place and time</div>
+            <div class="ko">우리가 속한 시간과 공간</div>
+            <div class="def">개인적 역사, 여정, 문명, 인류의 상호 연결성을 시간과 장소의 맥락에서 배웁니다.</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">How we express ourselves</div>
+            <div class="ko">우리는 자신을 어떻게 표현하는가</div>
+            <div class="def">생각, 감정, 문화를 창의적으로 표현하고 공유하는 방식을 탐구합니다.</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">How the world works</div>
+            <div class="ko">세계가 돌아가는 방식</div>
+            <div class="def">자연 세계의 법칙, 과학적 원리, 기술이 우리 삶에 미치는 영향을 이해합니다.</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">How we organize ourselves</div>
+            <div class="ko">우리는 자신을 어떻게 조직하는가</div>
+            <div class="def">공동체, 시스템, 의사결정 방식, 경제적 활동이 사회를 어떻게 움직이는지 배웁니다.</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Sharing the planet</div>
+            <div class="ko">지구 공유하기</div>
+            <div class="def">평화, 자원 분배, 환경 보호 등 다른 생명체와 함께 살아가기 위한 책임을 탐구합니다.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-block">
+        <h3>7가지 핵심 개념 (Key Concepts)</h3>
+        <p class="desc">지식을 깊이 있게 파고들기 위한 '질문의 도구'예요. 단원마다 2~3개의 개념을 집중적으로 씁니다.</p>
+        <div class="concept-grid">
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Form</div><div class="ko">형태</div>
+            <div class="def">"이것은 무엇과 같은가?" (모양, 구조, 겉모습 관찰)</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Function</div><div class="ko">기능</div>
+            <div class="def">"이것은 어떻게 작동하는가?" (역할, 목적, 쓰임새)</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Causation</div><div class="ko">원인</div>
+            <div class="def">"이것은 왜 그런가?" (사건의 배경, 이유, 결과)</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Change</div><div class="ko">변화</div>
+            <div class="def">"이것은 어떻게 변하고 있는가?" (시간에 따른 상태의 전환)</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Connection</div><div class="ko">연결</div>
+            <div class="def">"이것은 다른 것과 어떻게 연결되는가?" (관계, 상호작용)</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Perspective</div><div class="ko">관점</div>
+            <div class="def">"다른 시각은 무엇인가?" (다양한 입장, 주관적인 해석)</div>
+          </div>
+          <div class="concept-card" onclick="this.classList.toggle('open')">
+            <div class="en">Responsibility</div><div class="ko">책임</div>
+            <div class="def">"우리의 책임은 무엇인가?" (윤리적 판단, 행동의 선택)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-block">
+        <h3>행동과 실천 (Action) — 공부의 완성</h3>
+        <p class="desc">PYP 학습의 최종 목적은 '실천'이에요. 배운 것을 바탕으로 아이가 보여주는 5가지 행동 유형입니다.</p>
+        <div class="concept-grid">
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="ko">라이프스타일</div><div class="def">생활 습관의 변화 (예: 양치할 때 물 끄기)</div></div>
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="ko">사회적 행동</div><div class="def">공동체를 위한 활동 (예: 복도에서 친구 돕기)</div></div>
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="ko">옹호</div><div class="def">가치를 널리 알림 (예: 급식 잔반 줄이기 캠페인)</div></div>
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="ko">사회적 정의</div><div class="def">공정함을 위한 노력 (예: 소외된 친구 챙기기)</div></div>
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="ko">참여</div><div class="def">의사결정에 동참 (예: 학급 규칙 논의하기)</div></div>
+        </div>
+      </div>
+
+      <div class="concept-block">
+        <h3>학습 방법 (ATL Skills)</h3>
+        <p class="desc">초등학생 수준에서 '공부하는 근육'을 키우는 5대 기술입니다.</p>
+        <div class="concept-grid">
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Communication</div><div class="ko">의사소통</div><div class="def">경청하고 자신의 생각을 명확하게 표현하기</div></div>
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Social</div><div class="ko">사회성</div><div class="def">친구와 협력하고 갈등을 평화롭게 해결하기</div></div>
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Self-management</div><div class="ko">자기관리</div><div class="def">시간을 아껴 쓰고 감정을 스스로 조절하기</div></div>
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Research</div><div class="ko">연구·리서치</div><div class="def">궁금한 것을 책이나 인터넷에서 직접 찾아보기</div></div>
+          <div class="concept-card" onclick="this.classList.toggle('open')"><div class="en">Thinking</div><div class="ko">사고력</div><div class="def">비판적·창의적으로 생각하고 문제 해결하기</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== EVALUATION ===== -->
+<div id="page-evaluation" class="guide-page">
+  <section class="content">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">05 · 평가 이해하기</span>
+        <h2>점수 대신 성장 과정을 담는 '포트폴리오'</h2>
+        <p class="sub">PYP에는 100점 만점 시험이나 등수가 없습니다. 누가 더 잘했나 줄을 세우는 것이 아니라, <em>"자녀가 UOI 단원을 거치며 어떻게 성장했는가"</em>를 증명하는 것이 평가의 목적입니다.</p>
+      </div>
+
+      <div class="eval-grid">
+        <div class="eval-card">
+          <div class="crit">핵심 도구 01</div>
+          <h4>포트폴리오 (Portfolio)</h4>
+          <p>1년 동안 자녀가 고민하고, 실수하고, 다시 시도한 흔적을 모아둔 '성장 기록장'입니다. 가장 잘한 100점짜리 시험지만 모으는 게 아니라, 첫 아이디어 스케치부터 최종 완성본까지의 <strong>'과정'</strong> 전체를 담습니다.</p>
+        </div>
+        <div class="eval-card">
+          <div class="crit">핵심 도구 02</div>
+          <h4>형성평가와 총괄평가</h4>
+          <p><strong>형성평가</strong>는 수업 중 매일 일어납니다. 선생님은 점수를 매기지 않고 "이 부분을 이렇게 고쳐볼까?"라고 피드백을 줍니다. <strong>총괄평가</strong>는 단원 끝에 배운 것을 발표나 작품으로 보여주는 활동입니다.</p>
+        </div>
+        <div class="eval-card">
+          <div class="crit">핵심 도구 03</div>
+          <h4>자기 평가와 동료 평가</h4>
+          <p>선생님만 평가하는 게 아닙니다. "나는 이번 탐구에서 뭘 잘했고, 뭘 어려워했지?" 스스로 돌아보는 자기 평가와, 친구의 발표를 듣고 긍정적인 피드백을 주는 동료 평가가 매우 중요하게 다뤄집니다.</p>
+        </div>
+      </div>
+
+      <div class="eval-info">
+        <h4>학부모와 평가 결과를 나누는 방법 (소통 방식)</h4>
+        <dl>
+          <dt>학생 주도 컨퍼런스 (SLC)</dt>
+          <dd>가장 중요한 행사입니다. 선생님이 부모님과 면담하는 게 아니라, <strong>자녀가 직접 부모님을 학교로 초대</strong>해 자신의 포트폴리오를 펼쳐놓고 한 학기 동안의 학습을 발표합니다.</dd>
+
+          <dt>3자 상담 (Three-Way Conference)</dt>
+          <dd>학생, 학부모, 선생님이 <strong>모두 함께</strong> 모여 상담합니다. 선생님이 자녀를 평가하는 자리가 아니라, 세 사람이 함께 다음 학기의 학습 목표를 세우는 자리입니다.</dd>
+
+          <dt>서술형 통지표 (Written Report)</dt>
+          <dd>숫자나 알파벳 등급이 없습니다. 각 단원의 핵심 아이디어를 얼마나 잘 이해했는지, 어떤 학습자상(Learner Profile)이 발현되었는지 선생님이 구체적인 문장으로 길게 서술해 줍니다.</dd>
+        </dl>
+      </div>
+
+      <div class="callout">
+        <h4>통지표나 포트폴리오를 받았을 때 부모님의 태도</h4>
+        <p>"그래서 우리 반에서 네가 제일 잘했어?", "왜 이거밖에 못 적었어?"라는 질문은 자녀의 탐구 의지를 꺾습니다. 대신 이렇게 물어봐 주세요. <br><br>
+        <strong style="color: var(--pyp-dark);">"이거 만들 때 어떤 점이 제일 재미있었어?"</strong><br>
+        <strong style="color: var(--pyp-dark);">"이 부분은 혼자 생각한 거야? 정말 기발하다!"</strong><br>
+        결과가 완벽하지 않아도, 자녀가 스스로 고민한 '과정'을 칭찬해 주는 것이 PYP 평가의 핵심입니다.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== FORMS ===== -->
+<div id="page-forms" class="guide-page">
   <div class="container">
-    <div class="section-head">
-      <span class="section-num">02 · 수업 진행</span>
-      <h2>질문에서 실천으로 이어지는 '탐구 사이클'</h2>
-      <p style="margin-top: 16px; color: var(--text-soft);">하나의 UOI(탐구 단원)는 보통 4~6주 동안 아래의 과정을 거치며 진행됩니다.</p>
+    <div class="page-header">
+      <span class="section-num">학부모용 학생 양식 모음 <span class="guide-badge">PYP</span></span>
+      <h1>자녀가 1년 동안 채우는 IB PYP 양식 30선</h1>
+      <p class="sub">PYP는 시험만으로 평가하지 않아요. 자녀가 직접 자기 학습을 <strong>기록·점검·돌아보는</strong> 양식을 단원마다 채워나갑니다. 한 해에 6개 UOI 단원이 있고, 단원당 4~6개씩 약 30개의 양식을 거치게 돼요. <strong style="color: var(--pyp-dark);">★ 표시</strong>는 PYP만의 특별한 시그니처 양식이에요. 각 양식 이름을 클릭하면 자녀가 직접 채울 수 있는 양식 원본 페이지가 열립니다.</p>
     </div>
 
-    <div style="display: grid; gap: 20px; margin-top: 32px;">
-      <div style="background: white; border: 1px solid var(--line); padding: 32px; border-radius: 16px;">
-        <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--teal);">1. 호기심 열기 및 탐색</h3>
-        <p style="font-size: 15px; color: var(--text-soft);">주제와 관련된 다양한 자극을 통해 아이들이 "이건 왜 이럴까?"라는 질문을 스스로 뽑아내는 단계입니다. <strong>'핵심 아이디어(Central Idea)'</strong>를 처음 접하는 시기이기도 하죠.</p>
+    <div class="toc">
+      <div class="toc-title">📍 6단계 안내</div>
+      <div class="toc-list">
+        <a href="#step1"><span class="step-num">1</span>학년 초 세팅 (01~04)</a>
+        <a href="#step2"><span class="step-num">2</span>UOI 단원 시작 (05~08)</a>
+        <a href="#step3"><span class="step-num">3</span>탐구 진행 중 (09~15)</a>
+        <a href="#step4"><span class="step-num">4</span>단원 마무리 (16~20)</a>
+        <a href="#step5"><span class="step-num">5</span>학기/학년 말 (21~25)</a>
+        <a href="#step6"><span class="step-num">6</span>Exhibition · 6학년 (26~30)</a>
       </div>
-      <div style="background: white; border: 1px solid var(--line); padding: 32px; border-radius: 16px;">
-        <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--teal);">2. 조사 및 정리</h3>
-        <p style="font-size: 15px; color: var(--text-soft);">책, 영상, 인터뷰를 통해 정보를 수집하고 <strong>7가지 핵심 개념(형태, 기능, 변화 등)</strong>이라는 도구로 정보를 분석합니다. 원더 월(Wonder Wall)에 질문이 가득 채워집니다.</p>
+    </div>
+
+    <div class="form-group" id="step1">
+      <div class="form-group-label">1단계 · 학년 초 세팅</div>
+      <h4>나를 알고 약속하기</h4>
+      <div class="form-item clickable" data-form="../docs/pyp/01_learner_treasure_map.html">
+        <div class="name"><span class="num">01</span>학습자상 보물지도 ⭐<span class="en">Learner Profile Treasure Map</span></div>
+        <div class="def">10가지 자질 중 나의 강점을 별과 그림으로 표현. 학년 말에 다시 보면서 자란 모습 확인.</div>
       </div>
-      <div style="background: white; border: 1px solid var(--line); padding: 32px; border-radius: 16px;">
-        <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--teal);">3. 성찰 및 실천 (Action)</h3>
-        <p style="font-size: 15px; color: var(--text-soft);">배운 것을 바탕으로 "아! 이런 거구나" 깨닫고, <strong>내 삶에서 무엇을 바꿀지(Action)</strong> 결정합니다. 거창한 봉사가 아니라 '집에서 쓰레기 분리배출 하기' 같은 작은 행동이 공부의 완성입니다.</p>
+      <div class="form-item clickable" data-form="../docs/pyp/02_atl_muscle.html">
+        <div class="name"><span class="num">02</span>ATL 근육 점검표<span class="en">ATL Skills Self-check (Primary)</span></div>
+        <div class="def">"나는 경청을 잘하나?" 등 5가지 학습 근육을 😟🙂😎 이모지로 자가 진단.</div>
       </div>
+      <div class="form-item clickable" data-form="../docs/pyp/03_class_agreement.html">
+        <div class="name"><span class="num">03</span>우리 반 헌법 <span class="star">★</span><span class="en">Essential Agreements</span></div>
+        <div class="def">선생님이 정한 규칙이 아니라 친구들과 함께 토론해서 만든 학급 약속. PYP의 시그니처.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/04_goal_setting.html">
+        <div class="name"><span class="num">04</span>꿈 성장 목표지<span class="en">Goal Setting Form</span></div>
+        <div class="def">이번 학기 키우고 싶은 공부·자질·근육·행동 5가지 영역의 목표.</div>
+      </div>
+    </div>
+
+    <div class="form-group" id="step2">
+      <div class="form-group-label">2단계 · UOI 단원 시작</div>
+      <h4>호기심의 문 열기</h4>
+      <div class="form-item clickable" data-form="../docs/pyp/05_wonder_wall.html">
+        <div class="name"><span class="num">05</span>원더 월<span class="en">Wonder Wall</span></div>
+        <div class="def">단원 주제를 보고 떠오른 "진짜 궁금한 질문"을 알록달록 포스트잇 8개에.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/06_visual_kwl.html">
+        <div class="name"><span class="num">06</span>시각적 KWL<span class="en">Visual KWL Chart</span></div>
+        <div class="def">아는 것(K) · 알고 싶은 것(W) · 배운 것(L)을 글과 그림으로 동시에 표현.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/07_central_idea.html">
+        <div class="name"><span class="num">07</span>핵심 아이디어 일기 <span class="star">★</span><span class="en">Central Idea Journal</span></div>
+        <div class="def">선생님이 알려준 CI를 내 말로 바꾸고 그림으로 표현. <strong>CI는 PYP 단원의 가장 중요한 문장</strong>이에요.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/08_inquiry_roadmap.html">
+        <div class="name"><span class="num">08</span>탐구 로드맵<span class="en">Inquiry Roadmap</span></div>
+        <div class="def">단원 끝에 만들고 싶은 최종 결과물의 큰 그림과 4단계 여행 계획.</div>
+      </div>
+    </div>
+
+    <div class="form-group" id="step3">
+      <div class="form-group-label">3단계 · 탐구 진행 중</div>
+      <h4>조사하고 연결하기</h4>
+      <div class="form-item clickable" data-form="../docs/pyp/09_seven_concepts.html">
+        <div class="name"><span class="num">09</span>7대 개념 돋보기 <span class="star">★</span><span class="en">7 Key Concepts Lens</span></div>
+        <div class="def">형태·기능·원인·변화·연결·관점·책임 — PYP 7 Key Concepts로 주제를 7가지 각도로 탐구.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/10_process_journal.html">
+        <div class="name"><span class="num">10</span>프로세스 저널<span class="en">Process Journal</span></div>
+        <div class="def">스케치와 메모 중심의 탐구 일기. 깔끔하게 정리하지 않아도 되는 아이디어 보물상자.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/11_research_log.html">
+        <div class="name"><span class="num">11</span>어린이 리서치 로그<span class="en">Children's Research Log</span></div>
+        <div class="def">책·영상·인터뷰·인터넷·직접 본 것 등 정보의 출처를 5가지 매체로 기록.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/12_thinking_routine.html">
+        <div class="name"><span class="num">12</span>생각하는 루틴<span class="en">See–Think–Wonder Routine</span></div>
+        <div class="def">"보여요(👀) → 생각돼요(💭) → 궁금해요(❓)" Harvard Project Zero의 Visible Thinking.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/13_field_trip.html">
+        <div class="name"><span class="num">13</span>현장 체험 학습 보고서<span class="en">Field Trip Report</span></div>
+        <div class="def">학교 밖에서 본 것·들은 것·인터뷰 내용을 단원과 연결해 정리.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/14_group_diary.html">
+        <div class="name"><span class="num">14</span>모둠 협력 일기<span class="en">Group Work Diary</span></div>
+        <div class="def">친구와 함께할 때 나의 기분과 기여도를 별점과 이모지로 표시.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/15_feedback_cards.html">
+        <div class="name"><span class="num">15</span>중간 피드백 카드<span class="en">Feedback Cards</span></div>
+        <div class="def">선생님이나 친구에게 받은 응원의 한마디를 알록달록 카드로 모음.</div>
+      </div>
+    </div>
+
+    <div class="form-group" id="step4">
+      <div class="form-group-label">4단계 · 단원 마무리 및 성찰</div>
+      <h4>앎을 삶으로</h4>
+      <div class="form-item clickable" data-form="../docs/pyp/16_portfolio_choice.html">
+        <div class="name"><span class="num">16</span>포트폴리오 선택지<span class="en">Portfolio Selection</span></div>
+        <div class="def">단원 작품 중 내가 직접 골라 보관할 것. <strong>학습자 주체성(Agency)의 핵심 양식</strong>.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/17_uoi_reflection.html">
+        <div class="name"><span class="num">17</span>UOI 성찰지<span class="en">Unit of Inquiry Reflection</span></div>
+        <div class="def">단원 시작과 끝의 내 생각을 비교. 무엇이 어떻게 바뀌었는지 좌우로 정리.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/18_smile_rubric.html">
+        <div class="name"><span class="num">18</span>초등용 루브릭 체크<span class="en">Primary Rubric Self-check</span></div>
+        <div class="def">😟🙂😎 3단계 스마일 스티커로 4개 평가 영역 자가 진단.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/19_peer_praise.html">
+        <div class="name"><span class="num">19</span>동료 칭찬 카드<span class="en">Peer Praise Cards</span></div>
+        <div class="def">친구의 발표에서 좋았던 점과 배우고 싶은 점 2가지를 따뜻한 카드로.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/20_action_plan.html">
+        <div class="name"><span class="num">20</span>행동(Action) 계획서 <span class="star">★</span><span class="en">Action Plan</span></div>
+        <div class="def">배운 것을 집·학교·동네에서 어떻게 실천할지. <strong>PYP의 가장 중요한 결과</strong>는 행동으로의 전이.</div>
+      </div>
+    </div>
+
+    <div class="form-group" id="step5">
+      <div class="form-group-label">5단계 · 학기/학년 말 누적 및 소통</div>
+      <h4>성장 증명</h4>
+      <div class="form-item clickable" data-form="../docs/pyp/21_action_diary.html">
+        <div class="name"><span class="num">21</span>실천(Action) 일기장<span class="en">Action Diary</span></div>
+        <div class="def">재활용·배려·도움 등 실행한 작은 변화들을 한 해 동안 누적.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/22_eportfolio_index.html">
+        <div class="name"><span class="num">22</span>디지털 포트폴리오 인덱스<span class="en">e-Portfolio Index</span></div>
+        <div class="def">한 학기 동안 6개 UOI에서 모인 작품들의 목차.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/23_slc_script.html">
+        <div class="name"><span class="num">23</span>학생 주도 컨퍼런스 대본<span class="en">Student-Led Conference Script</span></div>
+        <div class="def">부모님께 발표할 6단계 대본. 자녀가 자기 학습을 직접 설명하는 자리.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/24_parent_feedback.html">
+        <div class="name"><span class="num">24</span>학부모 관찰 피드백<span class="en">Parent Observation Feedback (학부모용)</span></div>
+        <div class="def">집에서 본 우리 아이의 변화를 학부모가 직접 작성해 학교에 전달.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/25_yearend_reflection.html">
+        <div class="name"><span class="num">25</span>학년 종합 성찰 보고서<span class="en">End-of-year Reflection Report</span></div>
+        <div class="def">1년 동안 6개 UOI를 거치며 자란 모습. 학년 처음과 끝의 나를 비교.</div>
+      </div>
+    </div>
+
+    <div class="form-group" id="step6">
+      <div class="form-group-label">6단계 · PYP의 꽃, 전시회 (6학년 특화)</div>
+      <h4>Exhibition — 8~10주 졸업 프로젝트</h4>
+      <div class="form-item clickable" data-form="../docs/pyp/26_exhibition_proposal.html">
+        <div class="name"><span class="num">26</span>전시회 탐구 제안서<span class="en">Exhibition Proposal</span></div>
+        <div class="def">내가 세상에 알리고 싶은 문제를 정의. 6 초학문 주제 + 멘토 승인.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/27_mentor_log.html">
+        <div class="name"><span class="num">27</span>멘토 면담 일지<span class="en">Mentor Meeting Log</span></div>
+        <div class="def">전문가·멘토 선생님과 대화하며 배운 점을 누적 기록. 어른과 대화하는 능력 자체가 학습.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/28_exhibition_journal.html">
+        <div class="name"><span class="num">28</span>전시회 진행 과정 일지 <span class="star">★</span><span class="en">Exhibition Process Journal</span></div>
+        <div class="def">8~10주 대장정의 모든 과정. <strong>Exhibition의 핵심 평가 자료</strong>. 4단계 사이클로 누적.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/29_exhibition_reflection.html">
+        <div class="name"><span class="num">29</span>전시회 최종 성찰<span class="en">Exhibition Final Reflection</span></div>
+        <div class="def">프로젝트를 마친 후의 성취감과 깨달음. PYP 6년의 공식 마무리.</div>
+      </div>
+      <div class="form-item clickable" data-form="../docs/pyp/30_feedback_board.html">
+        <div class="name"><span class="num">30</span>축하와 피드백 보드<span class="en">Celebration &amp; Feedback Board</span></div>
+        <div class="def">발표회에 와준 가족·친구·선생님이 남긴 메시지 모음. 자녀가 평생 간직할 보물.</div>
+      </div>
+    </div>
+
+    <div class="forms-legend">
+      <strong>★ 표시 양식 5개</strong>는 PYP만의 시그니처 양식이에요.
+      <br><br>
+      <strong>③ 우리 반 헌법 (Essential Agreements)</strong>은 자녀가 학교에서 처음 경험하는 민주주의 — 어른이 정한 규칙이 아니라 학생들이 토론해 만든 약속이에요.
+      <strong>⑦ 핵심 아이디어 일기 (CI)</strong>는 PYP 단원의 가장 큰 원리를 자기 말로 바꾸는 양식으로, 자녀가 정말 이해했는지 확인하는 거울이에요.
+      <strong>⑨ 7대 개념 돋보기</strong>는 평생 어떤 주제든 깊이 탐구할 수 있는 사고 도구이고,
+      <strong>⑳ 행동(Action) 계획서</strong>는 "배운 사람"에서 "행동하는 사람"으로 자녀를 바꾸는 PYP의 본질이에요.
+      <strong>㉘ 전시회 진행 과정 일지</strong>는 6학년 졸업 프로젝트(Exhibition)에서 가장 중요한 평가 자료입니다.
+      <br><br>
+      자녀가 다니는 학교가 이 양식들 중 몇 개를 운영하는지 살펴보시면 PYP 운영의 깊이를 가늠할 수 있어요. <strong>30개 모두를 매년 채우는 학교는 드물어요.</strong> 핵심 5~10개만 운영하는 학교도 정상입니다.
     </div>
   </div>
-</section>
+</div>
 
-<section class="seo-tags" style="max-width: 920px; margin: 40px auto; padding: 20px; background: var(--surface); border-radius: 12px; font-size: 12px; color: var(--text-soft); border: 1px dashed var(--line);">
-  <strong style="color: var(--primary);">이 페이지의 핵심 탐색어:</strong> 
-  <span style="display:inline-block; margin-right:8px; margin-top:4px;">#IB PYP</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#IB 초등학교</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#국제 바칼로레아 PYP</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#학부모 가이드</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#IB</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#국제 바칼로레아</span><span style="display:inline-block; margin-right:8px; margin-top:4px;">#국제 바칼로레아 초등학교</span>
-</section>
+<!-- ===== PARENT ===== -->
+<div id="page-parent" class="guide-page">
+  <div class="container">
+    <div class="page-header">
+      <span class="section-num">학부모용 대화 가이드 <span class="guide-badge">PYP</span></span>
+      <h1>자녀와 어떤 질문을 나눌까요?</h1>
+      <p class="sub">"오늘 학교에서 뭐 배웠어?" — 자녀는 "몰라"라고 답하기 쉬워요. PYP는 단원이 5~6주 단위로 흐르고, 매 단원마다 자녀가 거치는 단계가 비슷해요. 그 단계에 맞춰 질문하면 자녀가 자기 학습을 직접 설명하기 시작합니다. 자녀가 답을 못 해도 괜찮아요 — <strong>질문 자체가 자녀의 사고를 자라게</strong> 합니다.</p>
+    </div>
+
+    <div class="toc">
+      <div class="toc-title">📍 5가지 시점</div>
+      <div class="toc-list">
+        <a href="#pstart"><span class="icon">1</span>UOI 단원이 시작될 때</a>
+        <a href="#pmiddle"><span class="icon">2</span>단원이 진행되는 동안</a>
+        <a href="#pend"><span class="icon">3</span>단원이 끝났을 때</a>
+        <a href="#pdaily"><span class="icon">4</span>일상에서 함께 키우기</a>
+        <a href="#pexhibition"><span class="icon">5</span>6학년 Exhibition 시기</a>
+      </div>
+    </div>
+
+    <div class="parent-block" id="pstart">
+      <h3><span class="step">1</span>UOI 단원이 시작될 때</h3>
+      <p class="when-q">자녀가 "새 주제로 들어간대"라고 했거나, 가정통신문에 새 단원 안내가 왔을 때. 보통 5~6주마다 새 단원이 시작돼요.</p>
+      <ul class="qlist">
+        <li>이번 단원의 <strong>핵심 아이디어(CI)</strong>가 뭐야? 너의 말로 한번 설명해줄래?
+          <span class="why">CI는 단원의 가장 큰 원리예요. 자녀가 자기 말로 바꿀 수 있다면 정말 이해한 거예요.</span>
+        </li>
+        <li>어떤 <strong>주제</strong>야? (우리는 누구인가 / 세상은 어떻게 작동하는가 / 지구를 공유하기…)
+          <span class="why">6가지 초학문 주제 중 하나에 속해요. "왜 이걸 배우는지" 큰 맥락이에요.</span>
+        </li>
+        <li>이번 단원에서 가장 <strong>궁금한 것 하나</strong>만 말해줄래?
+          <span class="why">Wonder Wall 활동을 자극. 진짜 호기심이 학습의 시작이에요.</span>
+        </li>
+        <li>단원이 끝나면 <strong>뭘 만들기</strong>로 했어?
+          <span class="why">탐구 로드맵 / 최종 결과물 인지. 자녀가 목표를 의식하면 학습이 풍부해져요.</span>
+        </li>
+      </ul>
+      <div class="tip-box">
+        <div class="tip-label">💡 TIP</div>
+        자녀가 "몰라"라고 답해도 다그치지 마세요. "그럼 내일 선생님께 여쭤보고 알려줄래?"가 좋은 마무리예요.
+      </div>
+    </div>
+
+    <div class="parent-block" id="pmiddle">
+      <h3><span class="step">2</span>단원이 진행되는 동안</h3>
+      <p class="when-q">단원 중반, 자녀가 모둠 활동·자료 조사·체험학습 등을 하고 있을 때. 학교에서 자료를 가져오거나 모둠 친구 이야기를 할 때.</p>
+      <ul class="qlist">
+        <li>오늘 학교에서 <strong>새로 알게 된 것</strong> 한 가지가 뭐야? <strong>어디서</strong> 알았어?
+          <span class="why">정보의 출처를 의식하는 습관 — 학업 정직성의 시작이에요.</span>
+        </li>
+        <li>모둠 친구들과 같이 한 일이 있다면, <strong>너의 역할</strong>은 뭐였어?
+          <span class="why">사회성 기술. 책임감과 협력 자극.</span>
+        </li>
+        <li>친구와 <strong>의견이 다를 때</strong>는 어떻게 했어?
+          <span class="why">한국 초등 학생들이 가장 어려워하는 부분. 갈등 해결력 자극.</span>
+        </li>
+        <li>이 주제를 <strong>다른 각도</strong>에서 보면 어떨까? (왜 / 어떻게 / 누구의 관점에서…)
+          <span class="why">7대 개념 중 하나로 들어가는 질문. "관점"을 자극.</span>
+        </li>
+        <li><strong>새로 생긴 궁금증</strong>이 있어?
+          <span class="why">학습 중 자라는 호기심. 단원이 학생의 질문으로 깊어져요.</span>
+        </li>
+      </ul>
+      <div class="tip-box">
+        <div class="tip-label">🌟 활용 TIP — See–Think–Wonder</div>
+        박물관·체험학습 후나, 사진·영상을 같이 봤을 때 <strong>"뭐가 보여? → 뭐라고 생각돼? → 뭐가 궁금해?"</strong> 순서로 물어보세요. PYP 교실에서 가장 많이 쓰이는 사고 루틴이에요.
+      </div>
+    </div>
+
+    <div class="parent-block" id="pend">
+      <h3><span class="step">3</span>단원이 끝났을 때</h3>
+      <p class="when-q">단원 발표회·전시회를 다녀왔거나, 결과물(작품·책·영상)을 가져왔을 때. PYP는 점수보다 성장의 흔적을 봐요.</p>
+      <ul class="qlist">
+        <li>이 단원 <strong>처음에 생각했던 것</strong>과 <strong>지금 아는 것</strong>이 어떻게 달라졌어?
+          <span class="why">KWL · UOI 성찰지의 핵심. 학습이 일어난 증거예요.</span>
+        </li>
+        <li>이 단원에서 <strong>가장 자랑스러운 작품·활동</strong>은 뭐야? 왜 그게 가장 자랑스러워?
+          <span class="why">포트폴리오 선택지와 연결. 자녀의 학습자 주체성(Agency).</span>
+        </li>
+        <li>이번 단원에서 <strong>어떤 자질이 자랐다</strong>고 느껴? (호기심 / 배려 / 도전 / 성찰 등)
+          <span class="why">학습자상 10자질과 연결. 점수가 아닌 사람으로서의 성장.</span>
+        </li>
+        <li>이걸 배워서 이제 <strong>어떻게 행동</strong>해볼 거야?
+          <span class="why">PYP의 본질 — 배움 → 행동(Action)으로의 전이.</span>
+        </li>
+        <li>다음 단원에서 <strong>더 잘하고 싶은 한 가지</strong>가 있어?
+          <span class="why">성찰을 다음 단원으로 연결. 메타인지 자극.</span>
+        </li>
+      </ul>
+      <div class="tip-box">
+        <div class="tip-label">⚠️ 주의</div>
+        <strong>"이건 잘했네 / 저건 못했네"</strong>라고 평가하지 마세요. <strong>"네가 가장 노력한 부분이 어디였어?"</strong>가 훨씬 좋은 질문이에요.
+      </div>
+    </div>
+
+    <div class="parent-block" id="pdaily">
+      <h3><span class="step">4</span>일상에서 함께 키워줄 수 있는 것</h3>
+      <p class="when-q">학교 수업 밖, 평범한 가정의 일상에서. PYP가 키우려는 자질은 학교만으로 부족해요.</p>
+      <ul class="qlist">
+        <li>책·영화·뉴스를 같이 볼 때 — <strong>"너는 어떻게 생각해?"</strong>
+          <span class="why">사고하는 사람·성찰하는 사람 자질. 자기 의견 형성.</span>
+        </li>
+        <li>잘 안 된 일이 있을 때 — <strong>"다음엔 어떻게 해볼래?"</strong>
+          <span class="why">실패를 학습으로 바꾸는 사고. 도전하는 사람·성찰하는 사람.</span>
+        </li>
+        <li>처음 보는 것을 만났을 때 — <strong>"이건 뭐일 것 같아? 왜 그렇게 생각해?"</strong>
+          <span class="why">탐구하는 사람 자질. "왜?"라고 묻는 습관.</span>
+        </li>
+        <li>나와 다른 사람·문화를 만났을 때 — <strong>"왜 우리랑 다를까? 같이 알아볼까?"</strong>
+          <span class="why">열린 마음을 가진 사람·국제적 마인드.</span>
+        </li>
+        <li>가족 안에서의 작은 봉사 — 동생 도와주기, 이웃 인사하기, 함께 분리수거
+          <span class="why">PYP의 Action을 일상으로. 거창한 봉사가 아니어도 충분해요.</span>
+        </li>
+        <li>새로운 것에 도전할 때 — <strong>"한 번 해보고, 안 되면 어떻게 할지 같이 생각하자"</strong>
+          <span class="why">도전하는 사람(Risk-takers) — 한국 자녀들이 가장 어려워하는 자질.</span>
+        </li>
+      </ul>
+      <div class="tip-box">
+        <div class="tip-label">💛 핵심 메시지</div>
+        자녀에게 답을 알려주기보다 <strong>"같이 알아볼까?"</strong>라고 말하는 게 PYP의 정신이에요.
+      </div>
+    </div>
+
+    <div class="parent-block exhibition-block" id="pexhibition">
+      <h3><span class="step">5</span>6학년 Exhibition 시기</h3>
+      <p class="when-q">6학년 후반(보통 학년 마지막 한 학기). 자녀가 PYP의 졸업 프로젝트인 Exhibition을 진행하는 8~10주 동안.</p>
+      <ul class="qlist">
+        <li>네가 <strong>세상에 알리고 싶은 문제</strong>는 뭐야? 그게 너랑 어떻게 연결돼?
+          <span class="why">Exhibition의 출발점. 개인적 관심과 사회 문제의 연결.</span>
+        </li>
+        <li>지금까지 누구를 만나봤어? 그 분이 뭐라고 하셨어?
+          <span class="why">멘토·전문가 면담을 자극. 어른과 대화하는 능력.</span>
+        </li>
+        <li>이 단계(조사·계획·실행·성찰) 중 지금 어디쯤이야?
+          <span class="why">자기 위치 인식. 4단계 사이클 의식.</span>
+        </li>
+        <li>이번 주에 <strong>막혔던 것</strong>이 있었어? 어떻게 해결할 거야?
+          <span class="why">자기관리 기술. 막힘을 정상으로 받아들이기.</span>
+        </li>
+        <li>발표회 끝나면 <strong>이 활동을 계속하고 싶어</strong>? 어떻게?
+          <span class="why">Exhibition이 단발이 아닌 평생 행동의 시작이 되도록.</span>
+        </li>
+      </ul>
+      <div class="tip-box">
+        <div class="tip-label">🎓 학부모의 자세</div>
+        Exhibition은 자녀 인생에서 처음으로 <strong>"내가 사회의 문제를 보고 행동했다"</strong>는 경험이에요. 답을 주지 말고 <strong>"어떻게 알아보면 좋을까?"</strong>라고 되묻는 게 가장 큰 도움이에요.
+      </div>
+    </div>
+
+    <div class="closing">
+      <div class="closing-title">💌 모든 시점에 통하는 한 가지</div>
+      PYP 자녀와의 대화에서 가장 중요한 것은 <strong>"정답을 확인하는 질문"이 아닌 "생각을 자극하는 질문"</strong>이에요. "뭐 배웠어?"보다 "뭐가 가장 신기했어?", "오늘 점수 몇 점이야?"보다 "오늘 어떤 자질이 자랐다고 느껴?"가 PYP의 톤이에요.
+      <br><br>
+      자녀가 어색해해도 괜찮아요. 한 달, 두 달 같은 질문을 계속하면 자녀가 학교에서 의식적으로 답을 찾아 오기 시작합니다. <strong>가정에서의 일관된 질문이 자녀를 진짜 IB 학습자로 키웁니다.</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GLOSSARY ===== -->
+<div id="page-glossary" class="guide-page">
+  <div class="container">
+    <div class="page-header">
+      <span class="section-num">학부모용 용어 사전 <span class="guide-badge">PYP</span></span>
+      <h1>PYP 용어 사전 — IB 교육의 가장 기초가 되는 말들</h1>
+      <p class="sub">PYP에서 큰 개념을 잡으면 MYP·DP가 자연스럽게 따라옵니다. <strong>핵심 아이디어(CI) → 탐구 진술문(SoI)</strong>, <strong>7대 핵심 개념 → 16개 주요 개념</strong>, <strong>실천(Action) → 봉사(Service as Action) → CAS</strong>처럼 PYP가 토대를 만드는 구조입니다. <strong style="color: var(--pyp-dark);">★ 표시</strong>는 가정통신문이나 상담에서 자주 등장하는 PYP 시그니처 용어예요.</p>
+    </div>
+
+    <div class="intro-box">
+      <div class="intro-title">📐 PYP 핵심 구조 한눈에</div>
+      학교 전체 <strong>탐구 프로그램(POI)</strong>은 <strong>6개 초학문 주제 × 6학년</strong> = 36개 단원으로 짜여요. 각 학년에서 <strong>탐구 단원(UOI)</strong>이 4~8주씩 진행되고, 단원마다 <strong>핵심 아이디어(CI)</strong>를 중심으로 <strong>3~4개의 탐구 노선(Lines of Inquiry)</strong>이 펼쳐져요. 학생은 <strong>7대 핵심 개념</strong>이라는 사고 도구로 주제를 깊이 들여다보고, 마지막에 <strong>실천(Action)</strong>으로 옮기는 것이 PYP의 한 단원 흐름이에요.
+    </div>
+
+    <input type="text" class="glossary-search" id="glossarySearch" placeholder="용어 검색 (한글 또는 영어)">
+
+    <div class="glossary" id="glossaryList">
+      <div class="gloss-item">
+        <div class="gloss-term">개념 기반 학습<span class="en">Concept-based Learning</span></div>
+        <div class="gloss-def">사실 암기가 아닌 큰 원리(개념)를 이해해 다른 상황에도 적용하게 하는 학습 방식. PYP의 가장 근본적인 교수법이에요.<span class="myp-connect">7대 핵심 개념이 MYP에서 16개 주요 개념으로 더 정교해져요.</span></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">관련 개념<span class="en">Related Concepts</span></div>
+        <div class="gloss-def">교과 특성에 맞게 7대 핵심 개념을 더 구체화한 보조 개념. PYP에서는 활용이 적고, MYP에서 교과별로 본격적으로 다뤄져요.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">구성주의<span class="en">Constructivism</span></div>
+        <div class="gloss-def">학생이 스스로 의미를 만들어가는 학습 철학. PYP는 사회적 구성주의(Vygotsky)에 기반해, 학습이 친구·교사와의 상호작용 속에서 일어난다고 봐요.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">국제적 마인드<span class="en">International Mindedness</span></div>
+        <div class="gloss-def">자기 정체성을 바탕으로 다른 문화·시각을 존중하며 세계 시민으로 행동하는 자세. IB 교육 전체의 궁극적 목표예요.</div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">메타인지<span class="en">Metacognition</span></div>
+        <div class="gloss-def">"내가 어떻게 생각하는지를 생각하는" 능력. 자기 학습을 객관적으로 보고 조절하는 힘. PYP의 성찰 활동에서 시작해 평생 갈 사고력이 돼요.<span class="myp-connect">MYP·DP에서도 모든 평가의 핵심 자질로 다뤄져요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">모국어<span class="en">Mother Tongue</span></div>
+        <div class="gloss-def">학생이 가정에서 사용하는 첫 번째 언어. PYP는 모국어 유지·발전을 매우 중시해, 학습 언어 외에도 모국어 시간을 운영하는 학교가 많아요.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">모둠 활동<span class="en">Collaboration</span></div>
+        <div class="gloss-def">친구들과 함께 탐구하고 결과물을 만드는 활동. PYP 사회성 ATL의 핵심으로, 어릴 때부터 협력하는 습관을 길러요.</div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">백워드 설계<span class="en">Backward Design</span></div>
+        <div class="gloss-def">단원 끝의 핵심 아이디어와 평가부터 정한 뒤 거꾸로 수업을 짜는 방식. PYP 단원 설계의 원리예요.<span class="myp-connect">MYP·DP 단원 설계도 동일한 원리로 운영돼요.</span></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">보여요-생각돼요-궁금해요<span class="en">See–Think–Wonder</span></div>
+        <div class="gloss-def">사진·실물·작품을 볼 때 "보이는 것 → 생각되는 것 → 궁금한 것" 순서로 사고하는 루틴. 하버드 Project Zero의 Visible Thinking 도구로, PYP 교실에서 가장 자주 쓰여요.</div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">성찰<span class="en">Reflection</span></div>
+        <div class="gloss-def">내가 한 일을 돌아보고 다음을 계획하는 행위. 탐구 → 행동 → 성찰 사이클의 마무리이자 다음 시작이에요.<span class="myp-connect">PYP에서 길러진 성찰 습관이 MYP의 단원 성찰일지, DP의 TOK(지식론)로 자라요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">실천 / 행동 <span class="star">★</span><span class="en">Action</span></div>
+        <div class="gloss-def">탐구의 결과로 무엇을 할 것인가. PYP가 키우려는 가장 큰 결과로, 작은 가정 실천부터 사회적 행동까지 모두 포함돼요.<span class="myp-connect">MYP에서는 실천적 봉사(SA, Service as Action)로 체계화되고, DP에서는 CAS(창의·활동·봉사)로 발전해요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">우리 반 약속 <span class="star">★</span><span class="en">Essential Agreements</span></div>
+        <div class="gloss-def">선생님이 정한 규칙이 아니라 학급 구성원이 함께 토론해 만든 약속. PYP의 시그니처 학급 운영 방식으로, 자녀가 학교에서 처음 경험하는 민주주의예요.</div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">원더 월<span class="en">Wonder Wall</span></div>
+        <div class="gloss-def">단원 시작 때 학생들의 진짜 궁금증을 모아두는 게시판. "학습은 학생의 질문에서 시작된다"는 PYP 정신의 상징이에요.</div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">자기 평가<span class="en">Self-assessment</span></div>
+        <div class="gloss-def">내가 한 작품·과제를 내가 직접 평가하는 활동. PYP는 어릴 때부터 자기를 객관적으로 보는 습관을 길러요.<span class="myp-connect">MYP의 자기평가 루브릭, DP의 자기 점검 능력의 토대.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">전시회 <span class="star">★</span><span class="en">Exhibition (PYPX)</span></div>
+        <div class="gloss-def">PYP 마지막 학년(보통 5~6학년)에 8~10주간 진행하는 졸업 프로젝트. 학생들이 사회 문제를 직접 골라 조사·계획·행동·발표회까지 진행해요.<span class="myp-connect">MYP의 공동체 프로젝트, 개인 프로젝트, DP의 확장 에세이(EE)로 발전해요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">초학문 주제 <span class="star">★</span><span class="en">Transdisciplinary Themes (6가지)</span></div>
+        <div class="gloss-def">PYP가 1년 학습을 묶는 6개 큰 주제: ① 우리는 누구인가 ② 우리가 사는 곳과 시간 ③ 우리는 어떻게 표현하는가 ④ 세상은 어떻게 작동하는가 ⑤ 우리는 어떻게 조직되는가 ⑥ 지구를 공유하기. <strong>2024년 12월 IBO가 디스크립터를 개정</strong>해 2027년 9월까지 모든 학교 전면 적용 예정.</div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">초학문적 <span class="star">★</span><span class="en">Transdisciplinary</span></div>
+        <div class="gloss-def">교과의 경계를 넘어 하나의 큰 주제 아래에서 통합적으로 학습하는 방식. PYP의 가장 본질적인 특징이에요.<span class="myp-connect">MYP에서는 좀 더 부드러운 간학문적(Interdisciplinary)으로, DP에서는 다시 교과별 학습으로 단계적으로 분리돼요.</span></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">총괄 평가<span class="en">Summative Assessment</span></div>
+        <div class="gloss-def">단원이 끝났을 때 학생이 핵심 아이디어를 이해했는지 보여주는 최종 평가. 시험이 아닌 결과물(작품·발표·실천)로 진행돼요.<span class="myp-connect">MYP의 수행과제, DP의 외부 평가로 이어집니다.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">7대 핵심 개념 <span class="star">★</span><span class="en">7 Key Concepts</span></div>
+        <div class="gloss-def">어떤 주제든 깊이 탐구할 수 있는 7가지 사고 도구: <strong>형태(Form)·기능(Function)·원인(Causation)·변화(Change)·연결(Connection)·관점(Perspective)·책임(Responsibility)</strong>.<span class="myp-connect">MYP에서 16개 주요 개념(Key Concepts)으로 확장돼요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">탐구<span class="en">Inquiry</span></div>
+        <div class="gloss-def">"궁금한 것을 직접 알아보는" 학습 방식. PYP의 가장 근본적인 교수법으로, 호기심 → 조사 → 이해 → 행동의 흐름이에요.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">탐구 단원 <span class="star">★</span><span class="en">Unit of Inquiry (UOI)</span></div>
+        <div class="gloss-def">PYP의 학습 단위. 4~8주 동안 하나의 핵심 아이디어(CI)를 중심으로 깊이 탐구해요. 한 해에 보통 6개 UOI를 진행해요.<span class="myp-connect">MYP에서는 단원(Unit)으로 자연스럽게 이어지지만, 교과별로 분리되는 변화가 있어요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">탐구 프로그램 <span class="star">★</span><span class="en">Programme of Inquiry (POI)</span></div>
+        <div class="gloss-def">한 학교의 모든 학년 UOI를 한 표에 모은 전체 학교 탐구 지도. <strong>수평으로 6학년 × 수직으로 6 초학문 주제 = 36개 단원</strong> 구조예요.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">포트폴리오<span class="en">Portfolio</span></div>
+        <div class="gloss-def">1년 동안 학생이 만든 작품·성찰·평가의 모음. 종이 또는 디지털(e-Portfolio) 형태. PYP 평가의 핵심 자료.<span class="myp-connect">MYP에서도 포트폴리오를 운영하며, DP 일부 교과에서는 평가물 자체가 포트폴리오 형태예요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">학생 주도 컨퍼런스<span class="en">Student-Led Conference (SLC)</span></div>
+        <div class="gloss-def">일반 학부모 상담과 달리, 학생이 직접 부모님께 자기 학습을 발표하는 자리. 교사는 보조 역할만 해요.<span class="myp-connect">MYP·DP에서도 학생 주도 컨퍼런스가 이어집니다.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">학습법 <span class="star">★</span><span class="en">Approaches to Learning (ATL)</span></div>
+        <div class="gloss-def">"공부하는 법 그 자체"를 가르치는 5가지 영역: <strong>사고하기·조사하기·소통하기·사이좋게 지내기·자기 관리하기</strong>.<span class="myp-connect">MYP·DP에서도 동일한 5범주를 사용해요. PYP에서 ATL을 잘 잡으면 평생 학습의 토대가 갖춰져요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">학습자상 <span class="star">★</span><span class="en">Learner Profile (10 attributes)</span></div>
+        <div class="gloss-def">IB가 키우려는 10가지 자질: <strong>탐구하는 사람·지식이 풍부한 사람·사고하는 사람·소통하는 사람·원칙을 지키는 사람·열린 마음을 가진 사람·배려하는 사람·도전하는 사람·균형 잡힌 사람·성찰하는 사람</strong>.<span class="myp-connect">MYP·DP에서도 동일한 10가지를 유지해요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">학습자 주도성 <span class="star">★</span><span class="en">Agency</span></div>
+        <div class="gloss-def">학생이 자기 학습의 주인이 되는 능력. <strong>발언권(Voice) · 선택권(Choice) · 책임(Ownership)</strong> 3가지로 이뤄져요.<span class="myp-connect">MYP·DP에서도 Agency가 그대로 핵심 가치이지만, 학생이 더 큰 결정권을 가져요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('forms');return false;">양식</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">핵심 아이디어 <span class="star">★</span><span class="en">Central Idea (CI)</span></div>
+        <div class="gloss-def">한 탐구 단원(UOI)을 이끄는 큰 원리 한 문장. 단원의 "북극성" 같은 존재예요. 예: "사람들은 다양한 방법으로 자신을 표현한다."<span class="myp-connect">MYP에서는 탐구 진술문(SoI, Statement of Inquiry)으로 더 정교해져요.</span></div>
+        <div class="gloss-pages"><span class="label">관련 페이지</span><a href="javascript:void(0)" onclick="showPage('parent');return false;">자녀와 대화</a></div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">형성 평가<span class="en">Formative Assessment</span></div>
+        <div class="gloss-def">단원 진행 중 수시로 이뤄지는 학습 점검. 점수가 아닌 피드백 위주예요. PYP·MYP·DP 공통의 평가 정신.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">IB 연속체<span class="en">IB Continuum (PYP → MYP → DP / CP)</span></div>
+        <div class="gloss-def">PYP(만 3-12세) → MYP(만 11-16세) → DP(만 16-19세)로 이어지는 IB 교육의 연속 흐름. PYP에서 잡은 큰 개념이 평생 IB 학습의 토대가 됩니다.</div>
+      </div>
+      <div class="gloss-item">
+        <div class="gloss-term">PYP <span class="star">★</span><span class="en">Primary Years Programme</span></div>
+        <div class="gloss-def">만 3~12세를 위한 IB 초등 교육 과정. 한국에서는 보통 초등학교 1~6학년에 해당해요. 1997년 처음 도입. <strong>PYP에서 만들어진 학습 습관·자질·사고법이 평생 IB 학습의 토대</strong>가 돼요.</div>
+      </div>
+    </div>
+
+    <div class="no-result" id="noResult">
+      🔍 검색하신 용어를 찾을 수 없어요. 다른 단어로 시도해보세요.
+    </div>
+
+    <div class="forms-legend">
+      <strong>★ 표시 13개 핵심 용어</strong>는 PYP만의 시그니처이자 학교 가정통신문·상담에서 가장 자주 마주칠 용어들이에요. 이 13개만 정확히 알면 PYP의 90%를 이해한 거예요.
+      <br><br>
+      <strong>MYP로 가는 변화도 함께 표시</strong>했어요. PYP의 어떤 개념이 MYP에서 어떻게 발전하는지 알 수 있어요. 예: <strong>CI → SoI</strong> · <strong>7대 핵심 개념 → 16개 주요 개념</strong> · <strong>Action → Service as Action → CAS</strong>.
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <h4>이 가이드는</h4>
+    <p>경기도교육청 "IB 이해하기" 자료집과 IBO 공식 자료를 학부모 시점으로 재구성한 비공식 가이드입니다.</p>
+    <p>실제 학교별 운영은 다를 수 있어요. 구체적 단원 설계, 평가 방식, 학사 일정은 자녀가 다니는 학교에 문의하시기 바랍니다.</p>
+    <p class="small">참고 출처: 경기도교육청(2023) IB 이해하기 · IBO PYP: From Principles into Practice · 이혜정 외(2019) IB를 말한다</p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  function showPage(id) {
+    document.querySelectorAll('.guide-page').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    var target = document.getElementById('page-' + id);
+    if (target) target.classList.add('active');
+    document.querySelectorAll('.nav-links a[data-page]').forEach(function(a) {
+      a.classList.remove('active');
+    });
+    var activeLink = document.querySelector('.nav-links a[data-page="' + id + '"]');
+    if (activeLink) activeLink.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  window.showPage = showPage;
+
+  document.addEventListener('click', function(e) {
+    var item = e.target.closest('.form-item.clickable, .form-item[data-form]');
+    if (!item) return;
+    if (e.target.closest('.form-item-preview')) return;
+    var formUrl = item.getAttribute('data-form');
+    if (!formUrl) return;
+    var isActive = item.classList.contains('active');
+    if (!isActive) {
+      item.classList.add('active');
+      var preview = item.querySelector('.form-item-preview');
+      if (!preview) {
+        preview = document.createElement('div');
+        preview.className = 'form-item-preview';
+        preview.innerHTML = '<iframe src="' + formUrl + '"></iframe>';
+        item.appendChild(preview);
+      } else {
+        preview.style.display = 'block';
+      }
+    } else {
+      item.classList.remove('active');
+      var p = item.querySelector('.form-item-preview');
+      if (p) p.style.display = 'none';
+    }
+  });
+
+  var searchInput = document.getElementById('glossarySearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      var q = this.value.trim().toLowerCase();
+      var items = document.querySelectorAll('#glossaryList .gloss-item');
+      var noResult = document.getElementById('noResult');
+      var count = 0;
+      items.forEach(function(item) {
+        if (!q || item.textContent.toLowerCase().includes(q)) {
+          item.style.display = '';
+          count++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      if (noResult) noResult.style.display = (count === 0 && q) ? 'block' : 'none';
+    });
+  }
+})();
+</script>
 
 <script src="glossary_data.js"></script>
 <script src="glossary_ui.js"></script>
