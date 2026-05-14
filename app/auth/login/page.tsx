@@ -1,17 +1,48 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/lib/hooks/useAuth';
+import { useAuthStore } from '@/lib/store/authStore';
+import { getIdToken } from 'firebase/auth';
+
+async function maybeGrantAdminSession(firebaseUser: any, userProfile: any): Promise<boolean> {
+  if (userProfile?.role !== 'admin') return false;
+  try {
+    const idToken = await getIdToken(firebaseUser);
+    const res = await fetch('/api/admin/session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idToken }),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { signIn, signInWithGoogle, loading, error, clearError } = useAuth();
+  const { firebaseUser, userProfile } = useAuthStore();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [localError, setLocalError] = useState('');
+
+  const redirectAfterLogin = async (fb: any, profile: any) => {
+    const isAdmin = await maybeGrantAdminSession(fb, profile);
+    const redirect = searchParams.get('redirect');
+    if (isAdmin && redirect?.startsWith('/admin')) {
+      router.push(redirect);
+    } else if (isAdmin) {
+      router.push('/admin');
+    } else {
+      router.push(redirect ?? '/');
+    }
+  };
 
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +56,8 @@ export default function LoginPage() {
 
     try {
       await signIn(email, password);
-      router.push('/');
+      const { firebaseUser: fb, userProfile: profile } = useAuthStore.getState();
+      await redirectAfterLogin(fb, profile);
     } catch (err: any) {
       setLocalError(err.message);
     }
@@ -37,7 +69,8 @@ export default function LoginPage() {
 
     try {
       await signInWithGoogle();
-      router.push('/');
+      const { firebaseUser: fb, userProfile: profile } = useAuthStore.getState();
+      await redirectAfterLogin(fb, profile);
     } catch (err: any) {
       setLocalError(err.message);
     }

@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { confirmSubscriber } from '@/lib/firestore/magazine';
 
 type Status = 'loading' | 'success' | 'error' | 'missing';
 
-export default function ConfirmPage() {
+function ConfirmInner() {
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
   const [status, setStatus] = useState<Status>(token ? 'loading' : 'missing');
@@ -92,5 +92,17 @@ export default function ConfirmPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function ConfirmPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-bg flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <ConfirmInner />
+    </Suspense>
   );
 }

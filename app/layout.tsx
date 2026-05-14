@@ -4,7 +4,8 @@ import { Footer } from './components/shared/Footer';
 import { AuthProvider } from './components/auth/AuthProvider';
 import './globals.css';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://ibcommunity.kr';
+const _rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ibcommunity.kr';
+const SITE_URL = _rawSiteUrl.startsWith('http') ? _rawSiteUrl : `https://${_rawSiteUrl}`;
 
 export const metadata: Metadata = {
   title: {
