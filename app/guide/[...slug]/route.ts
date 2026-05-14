@@ -1,17 +1,41 @@
 import { readFileSync } from 'fs';
-import { resolve } from 'path';
+import { resolve, extname } from 'path';
 import { NextRequest, NextResponse } from 'next/server';
+
+const MIME_TYPES: Record<string, string> = {
+  '.html': 'text/html; charset=utf-8',
+  '.htm': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
+  '.ttf': 'font/ttf',
+  '.eot': 'application/vnd.ms-fontobject',
+};
 
 function serveFile(filePath: string): NextResponse | null {
   try {
-    let content = readFileSync(filePath, 'utf-8');
+    const ext = extname(filePath).toLowerCase();
+    const contentType = MIME_TYPES[ext] || 'text/html; charset=utf-8';
+    const isBinary = ['.png', '.jpg', '.jpeg', '.gif', '.woff', '.woff2', '.ttf', '.eot'].includes(ext);
 
+    if (isBinary) {
+      const buffer = readFileSync(filePath);
+      return new NextResponse(buffer, {
+        status: 200,
+        headers: { 'Content-Type': contentType, 'Cache-Control': 'public, max-age=86400' },
+      });
+    }
+
+    const content = readFileSync(filePath, 'utf-8');
     return new NextResponse(content, {
       status: 200,
-      headers: {
-        'Content-Type': 'text/html; charset=utf-8',
-        'Cache-Control': 'public, max-age=3600',
-      },
+      headers: { 'Content-Type': contentType, 'Cache-Control': 'public, max-age=3600' },
     });
   } catch {
     return null;

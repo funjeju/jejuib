@@ -53,7 +53,7 @@ export function SchoolSearchModal({ onClose }: SchoolSearchModalProps) {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-bg rounded-lg w-full max-w-2xl max-h-[85vh] flex flex-col">
+      <div className="bg-bg rounded-lg w-full max-w-3xl max-h-[90vh] flex flex-col">
         {/* 헤더 */}
         <div className="flex items-center justify-between p-6 border-b border-border">
           <h2 className="text-2xl font-bold text-text">학교 검색</h2>
@@ -66,37 +66,37 @@ export function SchoolSearchModal({ onClose }: SchoolSearchModalProps) {
         </div>
 
         {/* 통계 대시보드 */}
-        <div className="p-6 border-b border-border grid grid-cols-4 gap-4">
+        <div className="px-6 py-4 border-b border-border grid grid-cols-4 gap-3 bg-muted/30">
           <div className="text-center">
-            <div className="text-2xl font-bold text-text">{stats.total}</div>
-            <div className="text-xs text-text-muted mt-1">표시 중</div>
+            <div className="text-lg font-bold text-text">{stats.total}</div>
+            <div className="text-xs text-text-muted">표시</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-accent">{stats.certified}</div>
-            <div className="text-xs text-text-muted mt-1">인증학교</div>
+            <div className="text-lg font-bold text-accent">{stats.certified}</div>
+            <div className="text-xs text-text-muted">인증</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-text">{stats.candidate}</div>
-            <div className="text-xs text-text-muted mt-1">우보학교</div>
+            <div className="text-lg font-bold text-text">{stats.candidate}</div>
+            <div className="text-xs text-text-muted">우보</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-text">{stats.interested}</div>
-            <div className="text-xs text-text-muted mt-1">관심학교</div>
+            <div className="text-lg font-bold text-text">{stats.interested}</div>
+            <div className="text-xs text-text-muted">관심</div>
           </div>
         </div>
 
         {/* 검색 바 */}
-        <div className="p-6 border-b border-border space-y-4">
+        <div className="p-6 border-b border-border space-y-3">
           <input
             type="text"
             placeholder="학교명 검색..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 border border-border rounded-lg bg-surface text-text placeholder-text-faint focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="w-full px-4 py-2 border border-border rounded bg-surface text-text placeholder-text-faint text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           />
 
           {/* 필터 드롭다운 */}
-          <div className="grid grid-cols-2 gap-3 text-sm">
+          <div className="grid grid-cols-4 gap-2 text-sm">
             <select
               value={selectedRegion}
               onChange={(e) => setSelectedRegion(e.target.value)}

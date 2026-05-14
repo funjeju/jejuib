@@ -4,10 +4,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { SchoolSearchModal } from './modals/SchoolSearchModal';
+import { GuideModal } from './modals/GuideModal';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [schoolSearchModalOpen, setSchoolSearchModalOpen] = useState(false);
+  const [guideModalOpen, setGuideModalOpen] = useState(false);
   const { firebaseUser, userProfile, signOut } = useAuth();
 
   return (
@@ -21,9 +23,12 @@ export function Header() {
 
           {/* 메뉴 (데스크탑) */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/guide" className="text-sm text-text hover:text-accent transition">
+            <button
+              onClick={() => setGuideModalOpen(true)}
+              className="text-sm text-text hover:text-accent transition cursor-pointer"
+            >
               가이드
-            </Link>
+            </button>
             <button
               onClick={() => setSchoolSearchModalOpen(true)}
               className="text-sm text-text hover:text-accent transition cursor-pointer"
@@ -75,9 +80,15 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-surface border-t border-border">
             <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-4">
-              <Link href="/guide" className="text-sm text-text hover:text-accent transition">
+              <button
+                onClick={() => {
+                  setGuideModalOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="text-sm text-text hover:text-accent transition text-left"
+              >
                 가이드
-              </Link>
+              </button>
               <button
                 onClick={() => {
                   setSchoolSearchModalOpen(true);
@@ -115,9 +126,11 @@ export function Header() {
         )}
       </header>
 
-      {/* 학교 검색 모달만 유지 */}
       {schoolSearchModalOpen && (
         <SchoolSearchModal onClose={() => setSchoolSearchModalOpen(false)} />
+      )}
+      {guideModalOpen && (
+        <GuideModal onClose={() => setGuideModalOpen(false)} />
       )}
     </>
   );
